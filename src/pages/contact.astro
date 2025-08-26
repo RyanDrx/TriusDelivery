@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
-import HomeHero from '@components/HomeHero.astro';
+import Hero from '@components/Hero.astro';
 import Cards from '@components/Cards.astro';
 import Section from '@components/Section.astro';
 import Cta from '@components/Cta.astro';
@@ -140,7 +140,51 @@ const schema = {
         />
     </Fragment>
 
-    <HomeHero {...heroData} />
+    <Hero backgroundImage='/Banner/TRIUS_BANNER.webp' overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70' minHeight='min-h-[70vh]'>
+        <div class='text-center max-w-5xl mx-auto'>
+            <!-- Page Badge -->
+            <div class='inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30'>
+                <iconify-icon icon='heroicons:phone' width='24' height='24' style='color: white;'></iconify-icon>
+                <span class='text-white font-bold tracking-wide uppercase'>Contact Us</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class='text-4xl lg:text-6xl font-black text-white mb-6 leading-tight'>Contact Trius LLC</h1>
+
+            <!-- Subtitle -->
+            <div class='flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium'>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:clock' width='20' height='20'></iconify-icon>
+                    24/7 Support
+                </span>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:bolt' width='20' height='20'></iconify-icon>
+                    Fast Response
+                </span>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:shield-check' width='20' height='20'></iconify-icon>
+                    Professional Service
+                </span>
+            </div>
+
+            <!-- Description -->
+            <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
+                Ready to improve your medical logistics? Get in touch with our team for a customized quote and discover how Trius LLC can streamline your
+                courier needs.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+                <a href='tel:1-800-TRIUS-911' class='btn btn-accent btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'>
+                    Emergency STAT Service
+                </a>
+                <a href='#contact-form' class='text-white font-semibold hover:text-primary-light transition-colors duration-300 flex items-center gap-2'>
+                    Request Quote
+                    <iconify-icon icon='heroicons:arrow-down' width='20' height='20'></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </Hero>
     <Cards {...contactMethodsData} />
 
     <Section {...formData}>

@@ -27,7 +27,7 @@ const canonicalURL = new URL(Astro.request.url, Astro.site);
 // Detect current page from URL pathname
 const currentPath = Astro.url.pathname;
 const currentPage = currentPath === '/' ? 'home' : 
-                   currentPath === '/services' ? 'services' :
+                   currentPath.startsWith('/services') ? 'services' :
                    currentPath === '/about' ? 'about' :
                    currentPath === '/coverage' ? 'coverage' :
                    currentPath === '/contact' ? 'contact' : 
@@ -42,7 +42,30 @@ const fallbackHeader = {
             _key: '1',
             _type: 'actionLink',
             label: 'Services',
-            url: '/services'
+            url: '/services',
+            children: [
+                {
+                    _key: '1a',
+                    _type: 'actionLink',
+                    label: 'STAT Deliveries',
+                    url: '/services/stat-delivery',
+                    description: 'Urgent medical transport with real-time tracking'
+                },
+                {
+                    _key: '1b',
+                    _type: 'actionLink',
+                    label: 'Scheduled Routes',
+                    url: '/services/scheduled-routes',
+                    description: 'Reliable recurring pickups and deliveries'
+                },
+                {
+                    _key: '1c',
+                    _type: 'actionLink',
+                    label: 'Specialized Equipment',
+                    url: '/services/specialized-equipment',
+                    description: 'Secure transport of fragile medical devices'
+                }
+            ]
         },
         {
             _key: '2',
