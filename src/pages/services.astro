@@ -1,48 +1,60 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
-import HomeHero from '@components/HomeHero.astro';
+import Hero from '@components/Hero.astro';
 import Cards from '@components/Cards.astro';
 import Cta from '@components/Cta.astro';
 import { localBusiness, webSite, serviceStat, serviceRoutes, serviceEquipment } from '../lib/schema.ts';
 
-const heroData = {
-    _type: 'heroSection',
-    title: 'Professional Medical Courier Services',
-    subtitle: 'HIPAA/OSHA Compliant • Specialized Equipment • Real-Time Tracking',
-    body: 'Comprehensive medical logistics solutions designed for healthcare facilities, laboratories, and medical equipment providers across the Pacific Northwest and California.',
-    actions: [
-        {
-            _key: '1',
-            _type: 'actionButton',
-            label: 'Get Quote',
-            url: '/contact',
-            style: 'primary'
-        }
-    ]
-};
-
 const servicesData = {
     _type: 'cardsSection',
-    title: 'Our Service Offerings',
-    subtitle: 'Tailored solutions for every medical logistics need',
+    title: 'Comprehensive Medical Logistics Solutions',
+    subtitle: 'Professional, compliant, and reliable courier services tailored for healthcare organizations',
     cards: [
         {
             _key: '1',
             title: 'STAT Deliveries',
-            body: 'Emergency medical courier services with priority handling, real-time tracking, and guaranteed chain-of-custody documentation. Available 24/7 for time-critical medical specimens and equipment.',
+            subtitle: 'When Time is Critical',
+            body: 'Rapid, secure, and compliant transport for specimens, organs, and urgent medical devices. When time is critical, Trius STAT delivery provides immediate response with documented chain-of-custody protocols and real-time tracking for full transparency. Trusted by hospitals, emergency departments, and labs requiring immediate results.',
             features: [
-                'Emergency response within 30 minutes',
-                'Real-time GPS tracking',
-                'Chain-of-custody documentation',
-                'Temperature-controlled transport',
-                'Direct delivery confirmation'
+                {
+                    icon: 'heroicons:clock',
+                    title: 'Emergency Response',
+                    description: 'Response within 30 minutes for urgent medical transport needs'
+                },
+                {
+                    icon: 'heroicons:map-pin',
+                    title: 'Real-Time GPS Tracking',
+                    description: 'Live tracking with automated updates throughout delivery'
+                },
+                {
+                    icon: 'heroicons:document-check',
+                    title: 'Chain-of-Custody Documentation',
+                    description: 'Complete documentation and verification at every step'
+                },
+                {
+                    icon: 'heroicons:beaker',
+                    title: 'Specimen Integrity',
+                    description: 'Temperature-controlled transport for sensitive materials'
+                },
+                {
+                    icon: 'heroicons:shield-check',
+                    title: 'HIPAA Compliant',
+                    description: 'Full compliance with healthcare privacy regulations'
+                }
+            ],
+            benefits: [
+                'Available 24/7 for emergency medical transport',
+                'Trained couriers with healthcare logistics expertise',
+                'Direct delivery confirmation and reporting',
+                'Secure handling of critical specimens and organs',
+                'Integration with hospital and lab systems'
             ],
             actions: [
                 {
                     _key: '1',
                     _type: 'actionButton',
-                    label: 'Request STAT Service',
+                    label: 'Request STAT Delivery Quote',
                     url: '/contact',
                     style: 'accent'
                 }
@@ -51,19 +63,47 @@ const servicesData = {
         {
             _key: '2',
             title: 'Scheduled Routes',
-            body: 'Regular, reliable delivery routes optimized for healthcare facilities. Recurring pickups and deliveries with consistent timing and dedicated courier assignments.',
+            subtitle: 'Reliable & Efficient',
+            body: 'For organizations with predictable transport needs, our scheduled routes provide efficiency and consistency. From daily specimen pickups to weekly supply deliveries, Trius builds routes around your timeline. With route optimization technology, we reduce travel times and improve delivery reliability.',
             features: [
-                'Daily, weekly, or monthly schedules',
-                'Dedicated courier assignments',
-                'Route optimization for efficiency',
-                'Flexible scheduling options',
-                'Cost-effective bulk transport'
+                {
+                    icon: 'heroicons:calendar-days',
+                    title: 'Flexible Scheduling',
+                    description: 'Daily, weekly, or monthly pickup and delivery schedules'
+                },
+                {
+                    icon: 'heroicons:user-group',
+                    title: 'Dedicated Couriers',
+                    description: 'Consistent courier assignments who know your facility'
+                },
+                {
+                    icon: 'heroicons:map',
+                    title: 'Route Optimization',
+                    description: 'Technology-driven routes for maximum efficiency'
+                },
+                {
+                    icon: 'heroicons:currency-dollar',
+                    title: 'Cost-Effective',
+                    description: 'Bulk transport pricing for regular service needs'
+                },
+                {
+                    icon: 'heroicons:cog-6-tooth',
+                    title: 'Customizable Service',
+                    description: 'Tailored solutions to match your operational requirements'
+                }
+            ],
+            benefits: [
+                'Predictable, reliable service you can count on',
+                'Reduced logistics costs through optimized routing',
+                'Familiar couriers who understand your processes',
+                'Flexible schedule adjustments as needs change',
+                'Detailed reporting and service analytics'
             ],
             actions: [
                 {
                     _key: '1',
                     _type: 'actionButton',
-                    label: 'Schedule Route',
+                    label: 'Get Scheduled Route Estimate',
                     url: '/contact',
                     style: 'secondary'
                 }
@@ -72,19 +112,47 @@ const servicesData = {
         {
             _key: '3',
             title: 'Specialized Equipment Transport',
-            body: 'Secure handling and transport of fragile medical equipment, sensitive specimens, and regulated materials with specialized packaging and handling procedures.',
+            subtitle: 'Expert Handling',
+            body: 'Transporting fragile or regulated medical equipment requires special expertise. Our couriers are trained in the handling of sensitive devices, biohazard materials, and temperature-controlled shipments. We use secure, specialized vehicles and industry-best practices to guarantee safe arrival.',
             features: [
-                'Temperature-sensitive transport',
-                'Fragile equipment handling',
-                'Hazmat certified drivers',
-                'Custom packaging solutions',
-                'Insurance coverage included'
+                {
+                    icon: 'heroicons:beaker',
+                    title: 'Temperature Control',
+                    description: 'Climate-controlled transport for sensitive equipment'
+                },
+                {
+                    icon: 'heroicons:shield-exclamation',
+                    title: 'Hazmat Certified',
+                    description: 'Certified drivers for regulated medical materials'
+                },
+                {
+                    icon: 'heroicons:cube',
+                    title: 'Custom Packaging',
+                    description: 'Specialized packaging solutions for fragile items'
+                },
+                {
+                    icon: 'heroicons:truck',
+                    title: 'Specialized Vehicles',
+                    description: 'Purpose-built vehicles for medical equipment transport'
+                },
+                {
+                    icon: 'heroicons:document-text',
+                    title: 'Full Insurance',
+                    description: 'Comprehensive coverage for high-value equipment'
+                }
+            ],
+            benefits: [
+                'Expert handling of fragile and sensitive equipment',
+                'OSHA-compliant safety procedures and training',
+                'Custom solutions for unique transport challenges',
+                'White-glove service for high-value items',
+                'Comprehensive insurance protection'
             ],
             actions: [
                 {
                     _key: '1',
                     _type: 'actionButton',
-                    label: 'Equipment Transport',
+                    label: 'Contact for Equipment Transport',
                     url: '/contact',
                     style: 'primary'
                 }
@@ -93,38 +161,103 @@ const servicesData = {
     ]
 };
 
+const whyChooseData = {
+    _type: 'cardsSection',
+    title: 'Why Choose Trius LLC?',
+    subtitle: 'More than a courier — we are your long-term logistics partner',
+    cards: [
+        {
+            _key: '1',
+            title: 'Accuracy & Safety',
+            body: 'Every courier is rigorously trained to prevent misdeliveries and protect specimen integrity. Our documented procedures ensure that every shipment arrives safely and on time.',
+            icon: 'heroicons:shield-check'
+        },
+        {
+            _key: '2',
+            title: 'Reliability & Readiness',
+            body: 'Always on-call, 24/7, for both scheduled and urgent deliveries. When healthcare organizations need dependable logistics, Trius delivers.',
+            icon: 'heroicons:clock'
+        },
+        {
+            _key: '3',
+            title: 'Expertise & Professionalism',
+            body: 'Experienced professionals oversee shipments with precision and courtesy. Our team understands the critical nature of medical logistics.',
+            icon: 'heroicons:academic-cap'
+        },
+        {
+            _key: '4',
+            title: 'Innovative Solutions',
+            body: 'Technology-driven logistics, including optimized routes and proactive communication. We embrace complex challenges with cutting-edge solutions.',
+            icon: 'heroicons:lightbulb'
+        },
+        {
+            _key: '5',
+            title: 'Partnership Approach',
+            body: 'We build lasting partnerships that create mutual success. Tailoring logistics solutions to meet your unique organizational needs.',
+            icon: 'heroicons:handshake'
+        },
+        {
+            _key: '6',
+            title: 'Compliance Excellence',
+            body: 'We not only meet but exceed HIPAA and OSHA requirements. Continuous training ensures we stay ahead of industry standards.',
+            icon: 'heroicons:document-check'
+        }
+    ]
+};
+
 const complianceData = {
     _type: 'cardsSection',
     title: 'Compliance & Safety Standards',
-    subtitle: 'Your trust is our priority',
+    subtitle: 'Absolute regulatory adherence for healthcare logistics',
     cards: [
         {
             _key: '1',
             title: 'HIPAA Compliance',
-            body: 'Full HIPAA compliance with secure handling of all protected health information and medical specimens.'
+            body: 'Full HIPAA compliance with secure handling of all protected health information and medical specimens. We maintain a strict "no PHI collection" policy on our digital forms, focusing only on operational details.',
+            features: [
+                'Secure handling of protected health information',
+                'Privacy protection protocols at every step',
+                'No PHI collection in digital communications',
+                'Regular compliance training and audits'
+            ],
+            icon: 'heroicons:shield-check'
         },
         {
             _key: '2',
             title: 'OSHA Certified',
-            body: 'All drivers are OSHA certified for safe handling of medical materials and hazardous substances.'
+            body: 'All drivers are OSHA certified for safe handling of medical materials and hazardous substances. Every courier completes ongoing training in specimen handling and biohazard safety procedures.',
+            features: [
+                'Certified drivers for hazardous materials',
+                'Ongoing biohazard safety training',
+                'Proper specimen handling protocols',
+                'Safety equipment and procedures'
+            ],
+            icon: 'heroicons:exclamation-triangle'
         },
         {
             _key: '3',
             title: 'Insured & Bonded',
-            body: 'Comprehensive insurance coverage and bonding for complete protection of your valuable shipments.'
+            body: 'Comprehensive insurance coverage and bonding for complete protection of your valuable shipments. We invest in state-of-the-art logistics technology and maintain rigorous chain of custody procedures.',
+            features: [
+                'Full insurance coverage for all shipments',
+                'Bonded courier services',
+                'Chain of custody documentation',
+                'Real-time tracking and automated updates'
+            ],
+            icon: 'heroicons:document-text'
         }
     ]
 };
 
 const ctaData = {
     _type: 'ctaSection',
-    title: 'Ready to Improve Your Medical Logistics?',
-    body: 'Contact us today to discuss your specific needs and get a customized quote for our medical courier services.',
+    title: 'Ready to Partner with Trius for Your Medical Logistics?',
+    body: 'When you need a dependable, HIPAA-compliant medical courier, Trius is here to help. By partnering with Trius, you gain a trusted logistics partner who ensures every delivery is safe, accurate, compliant, and on time.',
     actions: [
         {
             _key: '1',
             _type: 'actionButton',
-            label: 'Request Quote',
+            label: 'Request Custom Quote',
             url: '/contact',
             style: 'primary'
         },
@@ -133,6 +266,12 @@ const ctaData = {
             _type: 'actionLink',
             label: 'View Coverage Areas',
             url: '/coverage'
+        },
+        {
+            _key: '3',
+            _type: 'actionLink',
+            label: 'Learn About Our Company',
+            url: '/about'
         }
     ]
 };
@@ -155,8 +294,516 @@ const schema = {
         />
     </Fragment>
 
-    <HomeHero {...heroData} />
-    <Cards {...servicesData} />
-    <Cards {...complianceData} />
+    <Hero backgroundImage='/Banner/TRIUS_BANNER.webp' overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70' minHeight='min-h-[70vh]'>
+        <div class='text-center max-w-5xl mx-auto'>
+            <!-- Page Badge -->
+            <div class='inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30'>
+                <iconify-icon icon='material-symbols:medical-services' width='24' height='24' style='color: white;'></iconify-icon>
+                <span class='text-white font-bold tracking-wide uppercase'>Professional Services</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class='text-4xl lg:text-6xl font-black text-white mb-6 leading-tight'>Medical Courier Services</h1>
+
+            <!-- Subtitle -->
+            <div class='flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium'>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:shield-check' width='20' height='20'></iconify-icon>
+                    HIPAA/OSHA Compliant
+                </span>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:truck' width='20' height='20'></iconify-icon>
+                    Specialized Equipment
+                </span>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:map-pin' width='20' height='20'></iconify-icon>
+                    Real-Time Tracking
+                </span>
+            </div>
+
+            <!-- Description -->
+            <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
+                Comprehensive medical logistics solutions designed for healthcare facilities, laboratories, and medical equipment providers across the Pacific
+                Northwest and California.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+                <a href='/contact' class='btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'>
+                    Get Quote Today
+                </a>
+                <a href='/coverage' class='text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2'>
+                    View Coverage Areas
+                    <iconify-icon icon='heroicons:arrow-right' width='20' height='20'></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </Hero>
+    <!-- Main Services Section -->
+    <section class='py-20 bg-white'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='text-center mb-16'>
+                <h2 class='text-4xl lg:text-5xl font-black text-neutral-dark mb-6'>Comprehensive Medical Logistics Solutions</h2>
+                <p class='text-xl text-neutral max-w-3xl mx-auto'>
+                    Professional, compliant, and reliable courier services tailored for healthcare organizations
+                </p>
+            </div>
+
+            <div class='space-y-20'>
+                <!-- STAT Deliveries -->
+                <div class='grid lg:grid-cols-2 gap-12 items-center'>
+                    <div class='order-2 lg:order-1'>
+                        <div class='inline-flex items-center gap-3 mb-6 px-4 py-2 bg-accent/10 rounded-full'>
+                            <iconify-icon icon='heroicons:clock' width='20' height='20' style='color: #ef4444;'></iconify-icon>
+                            <span class='text-accent font-bold text-sm uppercase tracking-wide'>Emergency Service</span>
+                        </div>
+                        <h3 class='text-3xl lg:text-4xl font-black text-neutral-dark mb-4'>STAT Deliveries</h3>
+                        <p class='text-lg text-neutral mb-6 leading-relaxed'>
+                            Rapid, secure, and compliant transport for specimens, organs, and urgent medical devices. When time is critical, Trius STAT delivery
+                            provides immediate response with documented chain-of-custody protocols and real-time tracking.
+                        </p>
+
+                        <div class='grid md:grid-cols-2 gap-4 mb-8'>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:clock' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Emergency Response</h4>
+                                    <p class='text-sm text-neutral'>Response within 30 minutes</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:map-pin' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Real-Time Tracking</h4>
+                                    <p class='text-sm text-neutral'>Live GPS tracking updates</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:document-check' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Chain-of-Custody</h4>
+                                    <p class='text-sm text-neutral'>Complete documentation</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:shield-check' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>HIPAA Compliant</h4>
+                                    <p class='text-sm text-neutral'>Full regulatory compliance</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href='/contact' class='btn btn-accent btn-lg'> Request STAT Delivery Quote </a>
+                    </div>
+                    <div class='order-1 lg:order-2'>
+                        <div class='bg-gradient-to-br from-accent/10 to-accent/5 rounded-3xl p-8 text-center'>
+                            <iconify-icon icon='heroicons:truck' width='120' height='120' style='color: #ef4444;' class='mx-auto mb-6'></iconify-icon>
+                            <div class='text-4xl font-black text-accent mb-2'>24/7</div>
+                            <div class='text-neutral font-medium'>Emergency Response</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scheduled Routes -->
+                <div class='grid lg:grid-cols-2 gap-12 items-center'>
+                    <div class='bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-3xl p-8 text-center'>
+                        <iconify-icon icon='heroicons:calendar-days' width='120' height='120' style='color: #2f855a;' class='mx-auto mb-6'></iconify-icon>
+                        <div class='text-4xl font-black text-secondary mb-2'>Daily</div>
+                        <div class='text-neutral font-medium'>Reliable Routes</div>
+                    </div>
+                    <div>
+                        <div class='inline-flex items-center gap-3 mb-6 px-4 py-2 bg-secondary/10 rounded-full'>
+                            <iconify-icon icon='heroicons:calendar-days' width='20' height='20' style='color: #2f855a;'></iconify-icon>
+                            <span class='text-secondary font-bold text-sm uppercase tracking-wide'>Scheduled Service</span>
+                        </div>
+                        <h3 class='text-3xl lg:text-4xl font-black text-neutral-dark mb-4'>Scheduled Routes</h3>
+                        <p class='text-lg text-neutral mb-6 leading-relaxed'>
+                            For organizations with predictable transport needs, our scheduled routes provide efficiency and consistency. From daily specimen
+                            pickups to weekly supply deliveries, Trius builds routes around your timeline.
+                        </p>
+
+                        <div class='grid md:grid-cols-2 gap-4 mb-8'>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:calendar-days' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Flexible Scheduling</h4>
+                                    <p class='text-sm text-neutral'>Daily, weekly, or monthly</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:user-group' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Dedicated Couriers</h4>
+                                    <p class='text-sm text-neutral'>Consistent assignments</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:map' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Route Optimization</h4>
+                                    <p class='text-sm text-neutral'>Technology-driven efficiency</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:currency-dollar' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Cost-Effective</h4>
+                                    <p class='text-sm text-neutral'>Bulk transport pricing</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href='/contact' class='btn btn-secondary btn-lg'> Get Scheduled Route Estimate </a>
+                    </div>
+                </div>
+
+                <!-- Specialized Equipment Transport -->
+                <div class='grid lg:grid-cols-2 gap-12 items-center'>
+                    <div class='order-2 lg:order-1'>
+                        <div class='inline-flex items-center gap-3 mb-6 px-4 py-2 bg-primary/10 rounded-full'>
+                            <iconify-icon icon='heroicons:beaker' width='20' height='20' style='color: #1a4e8a;'></iconify-icon>
+                            <span class='text-primary font-bold text-sm uppercase tracking-wide'>Specialized Service</span>
+                        </div>
+                        <h3 class='text-3xl lg:text-4xl font-black text-neutral-dark mb-4'>Specialized Equipment Transport</h3>
+                        <p class='text-lg text-neutral mb-6 leading-relaxed'>
+                            Transporting fragile or regulated medical equipment requires special expertise. Our couriers are trained in handling sensitive
+                            devices, biohazard materials, and temperature-controlled shipments.
+                        </p>
+
+                        <div class='grid md:grid-cols-2 gap-4 mb-8'>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:beaker' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Temperature Control</h4>
+                                    <p class='text-sm text-neutral'>Climate-controlled transport</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:shield-exclamation' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Hazmat Certified</h4>
+                                    <p class='text-sm text-neutral'>Certified drivers</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:cube' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Custom Packaging</h4>
+                                    <p class='text-sm text-neutral'>Specialized solutions</p>
+                                </div>
+                            </div>
+                            <div class='flex items-start gap-3'>
+                                <iconify-icon icon='heroicons:document-text' width='20' height='20' style='color: #1a4e8a;' class='mt-1'></iconify-icon>
+                                <div>
+                                    <h4 class='font-bold text-neutral-dark'>Full Insurance</h4>
+                                    <p class='text-sm text-neutral'>Comprehensive coverage</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href='/contact' class='btn btn-primary btn-lg'> Contact for Equipment Transport </a>
+                    </div>
+                    <div class='order-1 lg:order-2'>
+                        <div class='bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 text-center'>
+                            <iconify-icon icon='heroicons:cube' width='120' height='120' style='color: #1a4e8a;' class='mx-auto mb-6'></iconify-icon>
+                            <div class='text-4xl font-black text-primary mb-2'>100%</div>
+                            <div class='text-neutral font-medium'>Secure Transport</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Trius Section -->
+    <section class='py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='text-center mb-16'>
+                <h2 class='text-4xl lg:text-5xl font-black text-neutral-dark mb-6'>Why Choose Trius LLC?</h2>
+                <p class='text-xl text-neutral max-w-3xl mx-auto'>More than a courier — we are your long-term logistics partner</p>
+            </div>
+
+            <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-6'>
+                        <iconify-icon icon='heroicons:shield-check' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Accuracy & Safety</h3>
+                    <p class='text-neutral leading-relaxed'>
+                        Every courier is rigorously trained to prevent misdeliveries and protect specimen integrity. Our documented procedures ensure safe,
+                        on-time delivery.
+                    </p>
+                </div>
+
+                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mb-6'>
+                        <iconify-icon icon='heroicons:clock' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Reliability & Readiness</h3>
+                    <p class='text-neutral leading-relaxed'>
+                        Always on-call, 24/7, for both scheduled and urgent deliveries. When healthcare organizations need dependable logistics, Trius delivers.
+                    </p>
+                </div>
+
+                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-6'>
+                        <iconify-icon icon='heroicons:academic-cap' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Expertise & Professionalism</h3>
+                    <p class='text-neutral leading-relaxed'>
+                        Experienced professionals oversee shipments with precision and courtesy. Our team understands the critical nature of medical logistics.
+                    </p>
+                </div>
+
+                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-6'>
+                        <iconify-icon icon='heroicons:lightbulb' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Innovative Solutions</h3>
+                    <p class='text-neutral leading-relaxed'>
+                        Technology-driven logistics with optimized routes and proactive communication. We embrace complex challenges with cutting-edge
+                        solutions.
+                    </p>
+                </div>
+
+                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mb-6'>
+                        <iconify-icon icon='heroicons:handshake' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Partnership Approach</h3>
+                    <p class='text-neutral leading-relaxed'>
+                        We build lasting partnerships that create mutual success. Tailoring logistics solutions to meet your unique organizational needs.
+                    </p>
+                </div>
+
+                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-6'>
+                        <iconify-icon icon='heroicons:document-check' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Compliance Excellence</h3>
+                    <p class='text-neutral leading-relaxed'>
+                        We not only meet but exceed HIPAA and OSHA requirements. Continuous training ensures we stay ahead of industry standards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Compliance Section -->
+    <section class='py-20 bg-white'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='text-center mb-16'>
+                <h2 class='text-4xl lg:text-5xl font-black text-neutral-dark mb-6'>Compliance & Safety Standards</h2>
+                <p class='text-xl text-neutral max-w-3xl mx-auto'>Absolute regulatory adherence for healthcare logistics</p>
+            </div>
+
+            <div class='grid lg:grid-cols-3 gap-8'>
+                <div class='bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 text-center'>
+                    <div class='w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6'>
+                        <iconify-icon icon='heroicons:shield-check' width='40' height='40' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-2xl font-bold text-neutral-dark mb-4'>HIPAA Compliance</h3>
+                    <p class='text-neutral mb-6 leading-relaxed'>
+                        Full HIPAA compliance with secure handling of all protected health information and medical specimens. We maintain a strict "no PHI
+                        collection" policy.
+                    </p>
+                    <ul class='text-sm text-neutral space-y-2 text-left'>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            Secure handling of protected health information
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            Privacy protection protocols at every step
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            No PHI collection in digital communications
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='bg-gradient-to-br from-secondary/5 to-secondary/10 rounded-2xl p-8 text-center'>
+                    <div class='w-20 h-20 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mx-auto mb-6'>
+                        <iconify-icon icon='heroicons:exclamation-triangle' width='40' height='40' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-2xl font-bold text-neutral-dark mb-4'>OSHA Certified</h3>
+                    <p class='text-neutral mb-6 leading-relaxed'>
+                        All drivers are OSHA certified for safe handling of medical materials and hazardous substances. Ongoing training in specimen handling
+                        and biohazard safety.
+                    </p>
+                    <ul class='text-sm text-neutral space-y-2 text-left'>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            Certified drivers for hazardous materials
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            Ongoing biohazard safety training
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            Proper specimen handling protocols
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='bg-gradient-to-br from-accent/5 to-accent/10 rounded-2xl p-8 text-center'>
+                    <div class='w-20 h-20 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mx-auto mb-6'>
+                        <iconify-icon icon='heroicons:document-text' width='40' height='40' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-2xl font-bold text-neutral-dark mb-4'>Insured & Bonded</h3>
+                    <p class='text-neutral mb-6 leading-relaxed'>
+                        Comprehensive insurance coverage and bonding for complete protection. State-of-the-art logistics technology with rigorous chain of
+                        custody procedures.
+                    </p>
+                    <ul class='text-sm text-neutral space-y-2 text-left'>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            Full insurance coverage for all shipments
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            Bonded courier services
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
+                            Chain of custody documentation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Area Section -->
+    <section class='py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='text-center mb-16'>
+                <h2 class='text-4xl lg:text-5xl font-black text-neutral-dark mb-6'>Service Coverage Areas</h2>
+                <p class='text-xl text-neutral max-w-3xl mx-auto'>Comprehensive medical logistics across the Pacific Northwest & California</p>
+            </div>
+
+            <div class='max-w-4xl mx-auto'>
+                <!-- Coverage Details -->
+                <div>
+                    <div class='inline-flex items-center gap-3 mb-6 px-4 py-2 bg-primary/10 rounded-full'>
+                        <iconify-icon icon='heroicons:map' width='20' height='20' style='color: #1a4e8a;'></iconify-icon>
+                        <span class='text-primary font-bold text-sm uppercase tracking-wide'>Regional Coverage</span>
+                    </div>
+
+                    <h3 class='text-3xl lg:text-4xl font-black text-neutral-dark mb-6'>Five-State Service Network</h3>
+
+                    <p class='text-lg text-neutral mb-8 leading-relaxed'>
+                        Trius proudly serves healthcare organizations across the Pacific Northwest and California. With deep local knowledge and growing
+                        regional coverage, we provide dependable in-state and cross-state deliveries.
+                    </p>
+
+                    <div class='grid md:grid-cols-2 gap-6 mb-8'>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2'>
+                                <img
+                                    src='/states/WA.svg'
+                                    alt='Washington State'
+                                    class='w-full h-full object-contain'
+                                    style='filter: brightness(0) saturate(100%) invert(100%);'
+                                />
+                            </div>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-1'>Washington</h4>
+                                <p class='text-sm text-neutral'>Seattle, Tacoma, Spokane, Bellevue</p>
+                            </div>
+                        </div>
+
+                        <div class='flex items-start gap-3'>
+                            <div
+                                class='w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2'
+                            >
+                                <img
+                                    src='/states/OR.svg'
+                                    alt='Oregon State'
+                                    class='w-full h-full object-contain'
+                                    style='filter: brightness(0) saturate(100%) invert(100%);'
+                                />
+                            </div>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-1'>Oregon</h4>
+                                <p class='text-sm text-neutral'>Portland, Eugene, Salem, Gresham</p>
+                            </div>
+                        </div>
+
+                        <div class='flex items-start gap-3'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2'>
+                                <img
+                                    src='/states/ID.svg'
+                                    alt='Idaho State'
+                                    class='w-full h-full object-contain'
+                                    style='filter: brightness(0) saturate(100%) invert(100%);'
+                                />
+                            </div>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-1'>Idaho</h4>
+                                <p class='text-sm text-neutral'>Boise, Nampa, Meridian, Idaho Falls</p>
+                            </div>
+                        </div>
+
+                        <div class='flex items-start gap-3'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2'>
+                                <img
+                                    src='/states/MT.svg'
+                                    alt='Montana State'
+                                    class='w-full h-full object-contain'
+                                    style='filter: brightness(0) saturate(100%) invert(100%);'
+                                />
+                            </div>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-1'>Montana</h4>
+                                <p class='text-sm text-neutral'>Billings, Missoula, Great Falls, Bozeman</p>
+                            </div>
+                        </div>
+
+                        <div class='flex items-start gap-3 md:col-span-2'>
+                            <div
+                                class='w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2'
+                            >
+                                <img
+                                    src='/states/CA.svg'
+                                    alt='California State'
+                                    class='w-full h-full object-contain'
+                                    style='filter: brightness(0) saturate(100%) invert(100%);'
+                                />
+                            </div>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-1'>California</h4>
+                                <p class='text-sm text-neutral'>San Francisco, San Jose, Sacramento, Oakland</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-neutral/20'>
+                        <div class='flex items-start gap-3'>
+                            <iconify-icon icon='heroicons:information-circle' width='24' height='24' style='color: #1a4e8a;' class='mt-1 flex-shrink-0'
+                            ></iconify-icon>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-2'>Expanding Coverage</h4>
+                                <p class='text-sm text-neutral leading-relaxed'>
+                                    If you're outside these states, please contact us to confirm service availability. We're continuously expanding our network
+                                    to serve more healthcare organizations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='mt-8 text-center'>
+                        <a href='/coverage' class='btn btn-primary btn-lg text-lg px-8 py-4'>
+                            <iconify-icon icon='heroicons:map' width='24' height='24' class='mr-2'></iconify-icon>
+                            View Coverage Map
+                        </a>
+                        <p class='text-sm text-neutral mt-3'>See detailed coverage areas and service zones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <Cta {...ctaData} />
 </Layout>

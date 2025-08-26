@@ -9,7 +9,10 @@ interface Props extends Footer {
 const { text, 'data-sb-field-path': fieldPath } = Astro.props;
 ---
 
-<footer class='footer-wrapper bg-gradient-to-br from-slate-700 via-slate-600 to-slate-800 text-white relative overflow-hidden' data-sb-field-path={fieldPath}>
+<footer
+    class='footer-wrapper bg-gradient-to-b from-primary via-primary-dark to-primary-dark text-white relative overflow-hidden'
+    data-sb-field-path={fieldPath}
+>
     <!-- Background Pattern -->
     <div class='absolute inset-0 opacity-5'>
         <div class='footer-pattern'></div>
@@ -69,7 +72,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
 
             <!-- Quick Links -->
             <div class='space-y-6'>
-                <h4 class='text-xl font-semibold text-white border-l-4 border-primary pl-4'>Quick Links</h4>
+                <h4 class='text-xl font-semibold text-white border-l-4 border-secondary-light pl-4'>Quick Links</h4>
                 <nav class='space-y-3'>
                     <a href='/services' class='footer-link group'>
                         <iconify-icon icon='material-symbols:medical-services' width='16' height='16' class='group-hover:text-primary transition-colors'
@@ -110,7 +113,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
 
                     <!-- Business Line -->
                     <div class='contact-item'>
-                        <div class='contact-icon bg-primary'>
+                        <div class='contact-icon bg-primary-light'>
                             <iconify-icon icon='material-symbols:call' width='20' height='20' style='color: white;'></iconify-icon>
                         </div>
                         <div>
@@ -163,7 +166,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                         <!-- Content Section (2/3) -->
                         <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
                             <h5 class='font-bold text-white text-sm mb-1'>Washington</h5>
-                            <p class='text-white/90 text-xs leading-tight'>Seattle, Tacoma, Spokane, Bellevue</p>
+                            <p class='text-white/90 text-xs leading-tight'>Seattle, Tacoma, Spokane, Bellevue...</p>
                         </div>
                     </div>
                 </div>
@@ -183,7 +186,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                         <!-- Content Section (2/3) -->
                         <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
                             <h5 class='font-bold text-white text-sm mb-1'>Oregon</h5>
-                            <p class='text-white/90 text-xs leading-tight'>Portland, Eugene, Salem, Gresham</p>
+                            <p class='text-white/90 text-xs leading-tight'>Portland, Eugene, Salem, Gresham...</p>
                         </div>
                     </div>
                 </div>
@@ -203,7 +206,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                         <!-- Content Section (2/3) -->
                         <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
                             <h5 class='font-bold text-white text-sm mb-1'>Idaho</h5>
-                            <p class='text-white/90 text-xs leading-tight'>Boise, Nampa, Meridian, Idaho Falls</p>
+                            <p class='text-white/90 text-xs leading-tight'>Boise, Nampa, Meridian, Idaho Falls...</p>
                         </div>
                     </div>
                 </div>
@@ -223,7 +226,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                         <!-- Content Section (2/3) -->
                         <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
                             <h5 class='font-bold text-white text-sm mb-1'>Montana</h5>
-                            <p class='text-white/90 text-xs leading-tight'>Billings, Missoula, Great Falls, Bozeman</p>
+                            <p class='text-white/90 text-xs leading-tight'>Billings, Missoula, Great Falls, Bozeman...</p>
                         </div>
                     </div>
                 </div>
@@ -243,7 +246,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                         <!-- Content Section (2/3) -->
                         <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
                             <h5 class='font-bold text-white text-sm mb-1'>California</h5>
-                            <p class='text-white/90 text-xs leading-tight'>San Francisco, San Jose, Sacramento, Oakland</p>
+                            <p class='text-white/90 text-xs leading-tight'>San Francisco, San Jose, Sacramento, Oakland...</p>
                         </div>
                     </div>
                 </div>
@@ -259,7 +262,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
             </div>
 
             <div class='flex items-center gap-4'>
-                <span class='text-sm text-white/60'>Professional Medical Logistics Since 2025</span>
+                <span class='text-sm text-white/60'>Professional Medical Logistics Since 2015</span>
                 <div class='w-2 h-2 bg-secondary rounded-full animate-pulse'></div>
             </div>
         </div>
@@ -269,7 +272,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
     </div>
 
     <!-- RNDTND Credit -->
-    <div class='border-t border-slate-500/50 bg-slate-800'>
+    <div class='border-t bg-primary-dark'>
         <div class='max-w-7xl mx-auto px-4 py-4'>
             <div class='flex flex-col items-center justify-center'>
                 <a

@@ -1,97 +1,18 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
-import HomeHero from '@components/HomeHero.astro';
-import Cards from '@components/Cards.astro';
-import Section from '@components/Section.astro';
+import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
+import InteractiveCoverageMap from '@components/InteractiveCoverageMap.astro';
 import { localBusiness, webSite } from '../lib/schema.ts';
 
-const heroData = {
-    _type: 'heroSection',
-    title: 'Service Coverage Areas',
-    subtitle: 'Comprehensive Medical Courier Services Across the Pacific Northwest & California',
-    body: 'Trius LLC provides reliable medical courier services across five states with established networks, local knowledge, and rapid response capabilities.',
-    actions: [
-        {
-            _key: '1',
-            _type: 'actionButton',
-            label: 'Check Availability',
-            url: '/contact',
-            style: 'primary'
-        }
-    ]
-};
-
-const statesData = {
-    _type: 'cardsSection',
-    title: 'States We Serve',
-    subtitle: 'Regional expertise with local knowledge',
-    cards: [
-        {
-            _key: '1',
-            title: 'Washington State',
-            body: 'Complete coverage from Seattle to Spokane, including major medical centers, hospitals, and laboratory facilities throughout the Puget Sound region and Eastern Washington.',
-            features: ['Seattle metro area', 'Tacoma and Olympia', 'Spokane and Eastern WA', 'Bellingham and Northwest region']
-        },
-        {
-            _key: '2',
-            title: 'Oregon',
-            body: 'Statewide service covering Portland metro, Willamette Valley, and Central/Eastern Oregon with dedicated routes to major healthcare facilities.',
-            features: ['Portland metro area', 'Salem and Corvallis', 'Bend and Central Oregon', 'Eugene and Southern Oregon']
-        },
-        {
-            _key: '3',
-            title: 'Idaho',
-            body: 'Service coverage throughout Idaho including Boise metropolitan area, Northern Idaho, and rural communities with specialized medical facilities.',
-            features: ['Boise metropolitan area', "Coeur d'Alene region", 'Twin Falls and Southern Idaho', 'Rural and remote locations']
-        },
-        {
-            _key: '4',
-            title: 'Montana',
-            body: "Coverage across Montana's major population centers and rural areas, serving hospitals, clinics, and research facilities throughout Big Sky Country.",
-            features: ['Billings and Missoula', 'Great Falls and Helena', 'Bozeman and Butte', 'Rural and frontier areas']
-        },
-        {
-            _key: '5',
-            title: 'California',
-            body: 'Northern and Central California coverage including San Francisco Bay Area, Sacramento, and Central Valley medical facilities and laboratories.',
-            features: ['San Francisco Bay Area', 'Sacramento region', 'Central Valley', 'Specialized facility access']
-        }
-    ]
-};
-
-const serviceTypesData = {
-    _type: 'cardsSection',
-    title: 'Coverage by Service Type',
-    subtitle: 'Tailored service levels for different areas',
-    cards: [
-        {
-            _key: '1',
-            title: 'Metro Areas - Full Service',
-            body: 'Complete service offerings including STAT deliveries, scheduled routes, and specialized equipment transport with same-day availability.',
-            features: ['STAT service within 30 minutes', 'Multiple daily route options', 'Specialized equipment handling', 'Evening and weekend service']
-        },
-        {
-            _key: '2',
-            title: 'Regional Centers - Standard Service',
-            body: 'Regular service to regional medical centers and facilities with next-day delivery options and scheduled route availability.',
-            features: ['Next-day STAT service', 'Weekly scheduled routes', 'Equipment transport available', 'Standard business hours']
-        },
-        {
-            _key: '3',
-            title: 'Rural Areas - Coordinated Service',
-            body: 'Specialized service for rural and remote locations with coordinated delivery schedules and emergency response capabilities.',
-            features: ['Coordinated delivery schedules', 'Emergency response available', 'Custom route planning', 'Flexible timing options']
-        }
-    ]
-};
+// No heroData object needed - we'll define the hero content directly in the component
 
 const mapData = {
     _type: 'section',
-    title: 'Interactive Coverage Map',
-    subtitle: 'Visualize our service areas',
-    body: 'Our comprehensive coverage spans across the Pacific Northwest and Northern California, connecting major medical facilities, research centers, and healthcare networks. Contact us to verify specific location coverage and response times.'
+    title: 'Coverage Map',
+    subtitle: 'Explore our service areas and major cities',
+    body: 'Our comprehensive coverage spans across the Pacific Northwest and Northern California, connecting major medical facilities, research centers, and healthcare networks. Browse the top 10 cities in each state we serve and learn about our specialized service levels.'
 };
 
 const ctaData = {
@@ -122,27 +43,64 @@ const schema = {
 ---
 
 <Layout
-    title='Service Coverage Areas - Trius LLC Medical Courier'
-    description='Trius LLC provides medical courier services across WA, OR, ID, MT, and CA. Check coverage areas for STAT deliveries, scheduled routes, and equipment transport.'
+    title='Service Coverage Map - Trius LLC Medical Courier Services'
+    description='Explore Trius LLC medical courier coverage across Washington, Oregon, Idaho, Montana, and California. Interactive map with top 10 cities, service levels, and facility locations for STAT deliveries and specialized transport.'
 >
     <Fragment slot='head'>
         <SEO
-            title='Service Coverage Areas - Trius LLC Medical Courier'
-            description='Trius LLC provides medical courier services across WA, OR, ID, MT, and CA. Check coverage areas for STAT deliveries, scheduled routes, and equipment transport.'
+            title='Service Coverage Map - Trius LLC Medical Courier Services'
+            description='Explore Trius LLC medical courier coverage across Washington, Oregon, Idaho, Montana, and California. Interactive map with top 10 cities, service levels, and facility locations for STAT deliveries and specialized transport.'
             graph={schema}
         />
     </Fragment>
 
-    <HomeHero {...heroData} />
-    <Cards {...statesData} />
-    <Cards {...serviceTypesData} />
-    <Section {...mapData}>
-        <div class='bg-base-200 rounded-lg p-8 text-center'>
-            <div class='w-full h-64 bg-base-300 rounded-lg flex items-center justify-center mb-4'>
-                <p class='text-base-content/60'>Interactive map placeholder - Integration with mapping service to be implemented</p>
+    <Hero backgroundImage='/Banner/TRIUS_BANNER.webp' overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70' minHeight='min-h-[70vh]'>
+        <div class='text-center max-w-5xl mx-auto'>
+            <!-- Page Badge -->
+            <div class='inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30'>
+                <iconify-icon icon='material-symbols:map' width='24' height='24' style='color: white;'></iconify-icon>
+                <span class='text-white font-bold tracking-wide uppercase'>Coverage Areas</span>
             </div>
-            <p class='text-base-content/80'>Full interactive map showing service areas, response times, and facility locations coming soon.</p>
+
+            <!-- Main Title -->
+            <h1 class='text-4xl lg:text-6xl font-black text-white mb-6 leading-tight'>Service Coverage Areas</h1>
+
+            <!-- Subtitle -->
+            <div class='flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium'>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:map-pin' width='20' height='20'></iconify-icon>
+                    5 States Covered
+                </span>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:building-office-2' width='20' height='20'></iconify-icon>
+                    500+ Medical Facilities
+                </span>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:clock' width='20' height='20'></iconify-icon>
+                    24/7 STAT Service
+                </span>
+            </div>
+
+            <!-- Description -->
+            <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
+                Explore our service coverage map to discover medical courier services across Washington, Oregon, Idaho, Montana, and Northern California. Click
+                on our coverage areas to learn about service levels and major cities we serve.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+                <a href='/contact' class='btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'>
+                    Check Availability
+                </a>
+                <a href='/services' class='text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2'>
+                    View Our Services
+                    <iconify-icon icon='heroicons:arrow-right' width='20' height='20'></iconify-icon>
+                </a>
+            </div>
         </div>
-    </Section>
+    </Hero>
+
+    <InteractiveCoverageMap {...mapData} />
+
     <Cta {...ctaData} />
 </Layout>

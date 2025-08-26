@@ -1,0 +1,138 @@
+---
+interface Props {
+    /**
+     * Background image URL - can be a local path or external URL
+     */
+    backgroundImage?: string;
+
+    /**
+     * Whether to show an overlay over the background
+     */
+    showOverlay?: boolean;
+
+    /**
+     * CSS classes for the overlay (e.g., 'bg-black/50', 'bg-gradient-to-r from-primary/80 to-secondary/60')
+     */
+    overlayClass?: string;
+
+    /**
+     * CSS classes for the hero container
+     */
+    class?: string;
+
+    /**
+     * Minimum height of the hero section
+     */
+    minHeight?: string;
+
+    /**
+     * Whether to center the content vertically
+     */
+    centerContent?: boolean;
+
+    /**
+     * Additional attributes to pass to the hero container
+     */
+    [key: string]: any;
+}
+
+const {
+    backgroundImage,
+    showOverlay = true,
+    overlayClass = 'bg-black/40',
+    class: className = '',
+    minHeight = 'min-h-[60vh]',
+    centerContent = true,
+    ...rest
+} = Astro.props;
+
+// Build dynamic styles for background image
+const backgroundStyle = backgroundImage
+    ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
+    : '';
+---
+
+<section class:list={['hero-section relative overflow-hidden', minHeight, centerContent && 'flex items-center', className]} style={backgroundStyle} {...rest}>
+    <!-- Background Overlay -->
+    {showOverlay && <div class:list={['absolute inset-0 z-10', overlayClass]} />}
+
+    <!-- Background Pattern (when no image is provided) -->
+    {
+        !backgroundImage && (
+            <div class='absolute inset-0 opacity-20'>
+                <div class='hero-bg-pattern absolute inset-0' />
+            </div>
+        )
+    }
+
+    <!-- Content Container -->
+    <div class='relative z-20 w-full'>
+        <div class='max-w-7xl mx-auto px-4 py-16 lg:px-6 lg:py-20'>
+            <slot />
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Default background pattern when no image is provided */
+    .hero-bg-pattern {
+        background: linear-gradient(
+            135deg,
+            rgba(var(--color-primary), 0.1) 0%,
+            transparent 25%,
+            rgba(var(--color-secondary), 0.08) 50%,
+            transparent 75%,
+            rgba(var(--color-accent), 0.06) 100%
+        );
+    }
+
+    /* Ensure hero takes full viewport considerations */
+    .hero-section {
+        position: relative;
+        width: 100%;
+    }
+
+    /* Enhanced background attachment for desktop */
+    @media (min-width: 768px) {
+        .hero-section[style*='background-image'] {
+            background-attachment: fixed;
+        }
+    }
+
+    /* Mobile optimization - disable fixed background on mobile for better performance */
+    @media (max-width: 767px) {
+        .hero-section[style*='background-image'] {
+            background-attachment: scroll;
+        }
+    }
+
+    /* Smooth scroll behavior */
+    .hero-section {
+        scroll-behavior: smooth;
+    }
+
+    /* Animation ready */
+    .hero-section > * {
+        transition: all 0.3s ease;
+    }
+
+    /* Accessibility - reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        .hero-section,
+        .hero-section > * {
+            transition: none;
+            animation: none;
+        }
+
+        .hero-section[style*='background-image'] {
+            background-attachment: scroll;
+        }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .hero-bg-pattern {
+            display: none;
+        }
+    }
+</style>
