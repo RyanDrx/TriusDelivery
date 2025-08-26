@@ -49,8 +49,8 @@ const servicesData = {
                 {
                     _key: '1',
                     _type: 'actionLink',
-                    label: 'Learn More',
-                    url: '/services#stat'
+                    label: 'About STAT Deliveries',
+                    url: '/services/stat-delivery'
                 }
             ]
         },
@@ -69,8 +69,8 @@ const servicesData = {
                 {
                     _key: '1',
                     _type: 'actionLink',
-                    label: 'Learn More',
-                    url: '/services#scheduled'
+                    label: 'About Scheduled Routes',
+                    url: '/services/scheduled-routes'
                 }
             ]
         },
@@ -89,8 +89,8 @@ const servicesData = {
                 {
                     _key: '1',
                     _type: 'actionLink',
-                    label: 'Learn More',
-                    url: '/services#equipment'
+                    label: 'About Specialized Equipment Transport',
+                    url: '/services/specialized-equipment'
                 }
             ]
         }
@@ -116,13 +116,13 @@ const schema = graphHome();
 ---
 
 <Layout
-    title="Medical Courier Services | Trius LLC"
-    description="HIPAA and OSHA compliant STAT deliveries, scheduled routes, and specialized equipment transport across WA, OR, ID, MT, and CA."
+    title='Medical Courier Services | Trius LLC'
+    description='HIPAA and OSHA compliant STAT deliveries, scheduled routes, and specialized equipment transport across WA, OR, ID, MT, and CA.'
 >
-    <Fragment slot="head">
+    <Fragment slot='head'>
         <SEO
-            title="Medical Courier Services | Trius LLC"
-            description="HIPAA and OSHA compliant STAT deliveries, scheduled routes, and specialized equipment transport across WA, OR, ID, MT, and CA."
+            title='Medical Courier Services | Trius LLC'
+            description='HIPAA and OSHA compliant STAT deliveries, scheduled routes, and specialized equipment transport across WA, OR, ID, MT, and CA.'
             graph={schema}
         />
     </Fragment>

@@ -1,0 +1,96 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+
+const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': 'https://trius.delivery/privacy',
+            url: 'https://trius.delivery/privacy',
+            name: 'Privacy Policy | Trius LLC',
+            description: 'Privacy policy for Trius LLC medical courier services. Learn how we protect your information and maintain HIPAA compliance.',
+            isPartOf: { '@id': 'https://trius.delivery/#website' },
+            about: { '@id': 'https://trius.delivery/#org' }
+        }
+    ]
+};
+---
+
+<Layout
+    title='Privacy Policy | Trius LLC'
+    description='Privacy policy for Trius LLC medical courier services. Learn how we protect your information and maintain HIPAA compliance.'
+>
+    <Fragment slot='head'>
+        <SEO
+            title='Privacy Policy | Trius LLC'
+            description='Privacy policy for Trius LLC medical courier services. Learn how we protect your information and maintain HIPAA compliance.'
+            graph={schema}
+        />
+    </Fragment>
+
+    <div class='max-w-4xl mx-auto px-4 py-16 lg:px-6'>
+        <div class='text-center mb-12'>
+            <h1 class='text-4xl lg:text-5xl font-black text-neutral-dark mb-6'>Privacy Policy</h1>
+            <p class='text-xl text-neutral'>How we protect your information and maintain HIPAA compliance</p>
+        </div>
+
+        <div class='prose prose-lg max-w-none'>
+            <div class='bg-white rounded-2xl p-8 shadow-lg'>
+                <p class='text-sm text-neutral mb-6'>Last updated: {new Date().toLocaleDateString()}</p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Introduction</h2>
+                <p class='text-neutral mb-6'>
+                    Trius LLC ("we," "our," or "us") is committed to protecting your privacy and maintaining the confidentiality of your information. As a
+                    HIPAA-compliant medical courier service, we understand the importance of safeguarding sensitive information.
+                </p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Information We Collect</h2>
+                <p class='text-neutral mb-4'>We collect only the information necessary to provide our medical courier services:</p>
+                <ul class='list-disc pl-6 mb-6 text-neutral'>
+                    <li>Contact information (name, email, phone number)</li>
+                    <li>Business information (company name, address)</li>
+                    <li>Service details (pickup/delivery locations, timing requirements)</li>
+                    <li>Operational information (tracking numbers, delivery confirmations)</li>
+                </ul>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>HIPAA Compliance</h2>
+                <p class='text-neutral mb-6'>
+                    We maintain strict HIPAA compliance and do not collect, store, or transmit Protected Health Information (PHI). Our systems are designed to
+                    handle only operational logistics information.
+                </p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>How We Use Information</h2>
+                <p class='text-neutral mb-4'>We use your information solely for:</p>
+                <ul class='list-disc pl-6 mb-6 text-neutral'>
+                    <li>Providing medical courier services</li>
+                    <li>Communication about deliveries</li>
+                    <li>Service improvement and support</li>
+                    <li>Regulatory compliance</li>
+                </ul>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Information Security</h2>
+                <p class='text-neutral mb-6'>
+                    We implement appropriate security measures to protect your information, including encryption, secure servers, and restricted access to
+                    authorized personnel only.
+                </p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Contact Us</h2>
+                <p class='text-neutral mb-6'>
+                    If you have questions about this privacy policy, please contact us at
+                    <a href='mailto:dispatch@trius.delivery' class='text-primary hover:text-primary-dark'>dispatch@trius.delivery</a>
+                </p>
+
+                <div class='bg-primary/5 rounded-lg p-6 mt-8'>
+                    <h3 class='text-lg font-bold text-neutral-dark mb-2'>Trius LLC</h3>
+                    <p class='text-sm text-neutral'>
+                        618 160th Street Ct E<br />
+                        Tacoma, WA 98445<br />
+                        Email: dispatch@trius.delivery
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

@@ -3,6 +3,7 @@ import { marked } from 'marked';
 import { type CardsSection } from 'types';
 import Card from '@components/Card.astro';
 import Section from '@components/Section.astro';
+import ActionButton from '@components/ActionButton.astro';
 
 interface Props extends CardsSection {
     'data-sb-field-path'?: string;
@@ -35,14 +36,14 @@ const { heading, body, items, columns, ...rest } = Astro.props;
         items && items?.length > 0 && (
             <div
                 class:list={[
-                    'grid gap-8 justify-items-center',
+                    'grid gap-8 items-stretch',
                     columns === 'one' ? 'max-w-2xl mx-auto' : columns === 'two' ? 'lg:grid-cols-2 max-w-5xl mx-auto' : 'lg:grid-cols-3 max-w-7xl mx-auto'
                 ]}
                 data-sb-field-path='.items'
             >
                 {items?.map((item, idx) => (
-                    <div class='group hover:scale-105 transition-transform duration-300 w-full'>
-                        <div class='card bg-white shadow-lg border border-base-300 hover:shadow-2xl transition-all duration-300 h-full'>
+                    <div class='group hover:scale-105 transition-transform duration-300 w-full h-full flex'>
+                        <div class='card bg-white shadow-lg border border-base-300 hover:shadow-2xl transition-all duration-300 h-full flex flex-col w-full'>
                             {/* Service Icon */}
                             <div class='pt-8 pb-4 px-8'>
                                 <div
@@ -59,7 +60,7 @@ const { heading, body, items, columns, ...rest } = Astro.props;
                                 </div>
                             </div>
 
-                            <div class='card-body pt-0 px-8 pb-8 text-center'>
+                            <div class='card-body pt-0 px-8 pb-8 text-center flex flex-col flex-grow'>
                                 {item.heading && (
                                     <h3
                                         class='card-title text-2xl font-black font-heading text-primary justify-center mb-4'
@@ -70,7 +71,7 @@ const { heading, body, items, columns, ...rest } = Astro.props;
                                 )}
                                 {item.body && (
                                     <div
-                                        class='text-base-content/70 font-body leading-relaxed mb-6'
+                                        class='text-base-content/70 font-body leading-relaxed mb-6 flex-grow'
                                         data-sb-field-path={`.${idx}.body`}
                                         set:html={marked.parse(item.body)}
                                     />
@@ -78,7 +79,7 @@ const { heading, body, items, columns, ...rest } = Astro.props;
 
                                 {/* Key Features List */}
                                 {item.features && item.features.length > 0 && (
-                                    <div class='mb-6'>
+                                    <div class='mb-6 flex-grow'>
                                         <ul class='text-sm text-left space-y-2'>
                                             {item.features.map((feature, featureIdx) => (
                                                 <li class='flex items-center text-base-content/60'>
@@ -104,14 +105,14 @@ const { heading, body, items, columns, ...rest } = Astro.props;
                                 )}
 
                                 {item.cta && item.cta.length > 0 && (
-                                    <div class='card-actions justify-center' data-sb-field-path={`.${idx}.cta`}>
+                                    <div class='card-actions justify-center mt-auto pt-4' data-sb-field-path={`.${idx}.cta`}>
                                         {item.cta.map((action, actionIdx) => (
-                                            <button class='btn btn-outline btn-primary hover:btn-primary transition-all duration-300'>
-                                                {action.label}
-                                                <svg class='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                                    <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7' />
-                                                </svg>
-                                            </button>
+                                            <ActionButton
+                                                {...action}
+                                                class='btn-outline hover:btn-primary transition-all duration-300'
+                                                showArrow={true}
+                                                data-sb-field-path={`.${idx}.cta.${actionIdx}`}
+                                            />
                                         ))}
                                     </div>
                                 )}

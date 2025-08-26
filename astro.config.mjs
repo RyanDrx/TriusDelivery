@@ -14,7 +14,12 @@ export default defineConfig({
         tailwind({
             applyBaseStyles: false
         }),
-        sitemap(),
+        sitemap({
+            changefreq: 'weekly',
+            priority: 0.7,
+            lastmod: new Date(),
+            sitemapSize: 10000
+        }),
         // Only add Sanity integration if projectId is properly configured
         sanityConfig.projectId !== 'placeholder-project-id' ? sanity(sanityConfig) : null
     ].filter(Boolean),

@@ -1,0 +1,118 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+
+const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': 'https://trius.delivery/terms',
+            url: 'https://trius.delivery/terms',
+            name: 'Terms of Service | Trius LLC',
+            description: 'Terms of service for Trius LLC medical courier services. Learn about our service terms, liability, and operational policies.',
+            isPartOf: { '@id': 'https://trius.delivery/#website' },
+            about: { '@id': 'https://trius.delivery/#org' }
+        }
+    ]
+};
+---
+
+<Layout
+    title='Terms of Service | Trius LLC'
+    description='Terms of service for Trius LLC medical courier services. Learn about our service terms, liability, and operational policies.'
+>
+    <Fragment slot='head'>
+        <SEO
+            title='Terms of Service | Trius LLC'
+            description='Terms of service for Trius LLC medical courier services. Learn about our service terms, liability, and operational policies.'
+            graph={schema}
+        />
+    </Fragment>
+
+    <div class='max-w-4xl mx-auto px-4 py-16 lg:px-6'>
+        <div class='text-center mb-12'>
+            <h1 class='text-4xl lg:text-5xl font-black text-neutral-dark mb-6'>Terms of Service</h1>
+            <p class='text-xl text-neutral'>Service terms, liability, and operational policies for Trius LLC</p>
+        </div>
+
+        <div class='prose prose-lg max-w-none'>
+            <div class='bg-white rounded-2xl p-8 shadow-lg'>
+                <p class='text-sm text-neutral mb-6'>Last updated: {new Date().toLocaleDateString()}</p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Service Agreement</h2>
+                <p class='text-neutral mb-6'>
+                    By using Trius LLC's medical courier services, you agree to these terms of service. Our services include STAT deliveries, scheduled routes,
+                    and specialized equipment transport.
+                </p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Service Coverage</h2>
+                <p class='text-neutral mb-4'>We provide services in the following areas:</p>
+                <ul class='list-disc pl-6 mb-6 text-neutral'>
+                    <li>Washington</li>
+                    <li>Oregon</li>
+                    <li>Idaho</li>
+                    <li>Montana</li>
+                    <li>California</li>
+                </ul>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Service Standards</h2>
+                <p class='text-neutral mb-4'>We maintain the following standards:</p>
+                <ul class='list-disc pl-6 mb-6 text-neutral'>
+                    <li>HIPAA and OSHA compliance</li>
+                    <li>24/7 availability for STAT deliveries</li>
+                    <li>Real-time tracking and documentation</li>
+                    <li>Chain of custody protocols</li>
+                    <li>Temperature-controlled transport when required</li>
+                </ul>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Client Responsibilities</h2>
+                <p class='text-neutral mb-4'>Clients are responsible for:</p>
+                <ul class='list-disc pl-6 mb-6 text-neutral'>
+                    <li>Providing accurate pickup and delivery information</li>
+                    <li>Ensuring proper packaging and labeling</li>
+                    <li>Notifying us of special handling requirements</li>
+                    <li>Providing necessary documentation</li>
+                </ul>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Liability and Insurance</h2>
+                <p class='text-neutral mb-6'>
+                    We maintain comprehensive insurance coverage for all shipments. Our liability is limited to the actual value of the shipment or our
+                    insurance coverage, whichever is less.
+                </p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Force Majeure</h2>
+                <p class='text-neutral mb-6'>
+                    We are not liable for delays or failures due to circumstances beyond our control, including but not limited to weather, traffic, or
+                    government actions.
+                </p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Payment Terms</h2>
+                <p class='text-neutral mb-6'>
+                    Payment is due upon receipt of invoice. We accept standard business payment methods. Late payments may result in service suspension.
+                </p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Termination</h2>
+                <p class='text-neutral mb-6'>
+                    Either party may terminate service with written notice. We will complete any pending deliveries under existing agreements.
+                </p>
+
+                <h2 class='text-2xl font-bold text-neutral-dark mb-4'>Contact Information</h2>
+                <p class='text-neutral mb-6'>
+                    For questions about these terms, contact us at
+                    <a href='mailto:dispatch@trius.delivery' class='text-primary hover:text-primary-dark'>dispatch@trius.delivery</a>
+                </p>
+
+                <div class='bg-primary/5 rounded-lg p-6 mt-8'>
+                    <h3 class='text-lg font-bold text-neutral-dark mb-2'>Trius LLC</h3>
+                    <p class='text-sm text-neutral'>
+                        618 160th Street Ct E<br />
+                        Tacoma, WA 98445<br />
+                        Email: dispatch@trius.delivery<br />
+                        Emergency: 1-800-TRIUS-911
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
