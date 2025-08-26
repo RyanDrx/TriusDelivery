@@ -108,22 +108,57 @@ function shouldHaveDropdown(item: any): boolean {
                             <div class="nav-button-group bg-white/80 backdrop-blur-md border border-gray-200 rounded-lg shadow-lg flex items-center relative">
                                 {navLinks.map((item, index) => {
                                     const isActive = isActiveNavItem(item, currentPage);
+                                    const isServices = item.label === 'Services';
                                     return (
                                     <>
-                                        <Action
-                                            action={item}
-                                            class:list={[
-                                                'nav-button px-6 py-2.5 font-medium transition-all duration-300 relative overflow-hidden text-sm',
-                                                item._type === 'actionLink' 
-                                                    ? isActive
-                                                        ? 'text-primary hover:text-primary hover:bg-primary/10 border-b-2 border-primary'
-                                                        : 'text-gray-700 hover:text-primary hover:bg-primary/10' 
-                                                    : item.label === 'Contact'
-                                                        ? 'text-white bg-primary hover:bg-primary/90 rounded-none'
-                                                        : 'text-white bg-primary hover:bg-primary/90'
-                                            ]}
-                                            data-sb-field-path={`.${index}`}
-                                        />
+                                        {isServices ? (
+                                            <div class="services-button-container relative">
+                                                <button
+                                                    class:list={[
+                                                        'nav-button px-6 py-2.5 font-medium transition-all duration-300 relative overflow-hidden text-sm',
+                                                        isActive
+                                                            ? 'text-primary hover:text-primary hover:bg-primary/10 border-b-2 border-primary'
+                                                            : 'text-gray-700 hover:text-primary hover:bg-primary/10'
+                                                    ]}
+                                                >
+                                                    Services
+                                                </button>
+                                                <div class="dropdown-menu absolute top-full left-0 mt-1 w-72 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-[100]">
+                                                    <div class="py-1">
+                                                        <a href="/services" class="block px-4 py-3 text-sm font-medium text-gray-800 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
+                                                            All Services
+                                                        </a>
+                                                        <a href="/services/stat-delivery" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
+                                                            <div class="font-medium">STAT Deliveries</div>
+                                                            <div class="text-xs text-gray-500 mt-1">Urgent medical transport with real-time tracking</div>
+                                                        </a>
+                                                        <a href="/services/scheduled-routes" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
+                                                            <div class="font-medium">Scheduled Routes</div>
+                                                            <div class="text-xs text-gray-500 mt-1">Reliable recurring pickups and deliveries</div>
+                                                        </a>
+                                                        <a href="/services/specialized-equipment" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50">
+                                                            <div class="font-medium">Specialized Equipment</div>
+                                                            <div class="text-xs text-gray-500 mt-1">Secure transport of fragile medical devices</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <Action
+                                                action={item}
+                                                class:list={[
+                                                    'nav-button px-6 py-2.5 font-medium transition-all duration-300 relative overflow-hidden text-sm',
+                                                    item._type === 'actionLink' 
+                                                        ? isActive
+                                                            ? 'text-primary hover:text-primary hover:bg-primary/10 border-b-2 border-primary'
+                                                            : 'text-gray-700 hover:text-primary hover:bg-primary/10' 
+                                                        : item.label === 'Contact'
+                                                            ? 'text-white bg-primary hover:bg-primary/90 rounded-none'
+                                                            : 'text-white bg-primary hover:bg-primary/90'
+                                                ]}
+                                                data-sb-field-path={`.${index}`}
+                                            />
+                                        )}
                                         {index < navLinks.length - 1 && (
                                             <div class="nav-separator w-px h-8 bg-gray-300"></div>
                                         )}
@@ -140,27 +175,6 @@ function shouldHaveDropdown(item: any): boolean {
                                     </svg>
                                     STAT
                                 </a>
-                            </div>
-                            
-                            <!-- Services Dropdown Menu - positioned outside button group -->
-                            <div class="services-dropdown absolute top-full left-20 mt-1 w-72 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-[100]">
-                                <div class="py-1">
-                                    <a href="/services" class="block px-4 py-3 text-sm font-medium text-gray-800 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
-                                        All Services
-                                    </a>
-                                    <a href="/services/stat-delivery" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
-                                        <div class="font-medium">STAT Deliveries</div>
-                                        <div class="text-xs text-gray-500 mt-1">Urgent medical transport with real-time tracking</div>
-                                    </a>
-                                    <a href="/services/scheduled-routes" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
-                                        <div class="font-medium">Scheduled Routes</div>
-                                        <div class="text-xs text-gray-500 mt-1">Reliable recurring pickups and deliveries</div>
-                                    </a>
-                                    <a href="/services/specialized-equipment" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50">
-                                        <div class="font-medium">Specialized Equipment</div>
-                                        <div class="text-xs text-gray-500 mt-1">Secure transport of fragile medical devices</div>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     )
@@ -829,42 +843,30 @@ function shouldHaveDropdown(item: any): boolean {
 
         // Services dropdown functionality
         function initServicesDropdown() {
-            const navButtons = document.querySelectorAll('.nav-button');
-            const dropdown = document.querySelector('.services-dropdown');
-            
-            navButtons.forEach(button => {
-                if (button.textContent?.trim() === 'Services') {
+            const servicesContainer = document.querySelector('.services-button-container');
+            if (servicesContainer) {
+                const button = servicesContainer.querySelector('.nav-button');
+                const dropdown = servicesContainer.querySelector('.dropdown-menu');
+                
+                if (button && dropdown) {
                     const showDropdown = () => {
-                        if (dropdown) {
-                            // Calculate button position for better alignment
-                            const buttonRect = button.getBoundingClientRect();
-                            const navGroupRect = button.closest('.nav-button-group')?.getBoundingClientRect();
-                            
-                            if (navGroupRect) {
-                                const leftOffset = buttonRect.left - navGroupRect.left;
-                                dropdown.style.left = `${leftOffset}px`;
-                            }
-                            
-                            dropdown.classList.remove('opacity-0', 'invisible');
-                            dropdown.classList.add('opacity-100', 'visible');
-                            dropdown.style.transform = 'translateY(0)';
-                        }
+                        dropdown.classList.remove('opacity-0', 'invisible');
+                        dropdown.classList.add('opacity-100', 'visible');
+                        (dropdown as HTMLElement).style.transform = 'translateY(0)';
                     };
                     
                     const hideDropdown = () => {
-                        if (dropdown) {
-                            dropdown.classList.add('opacity-0', 'invisible');
-                            dropdown.classList.remove('opacity-100', 'visible');
-                            dropdown.style.transform = 'translateY(-8px)';
-                        }
+                        dropdown.classList.add('opacity-0', 'invisible');
+                        dropdown.classList.remove('opacity-100', 'visible');
+                        (dropdown as HTMLElement).style.transform = 'translateY(-8px)';
                     };
                     
                     button.addEventListener('mouseenter', showDropdown);
                     button.addEventListener('mouseleave', hideDropdown);
-                    dropdown?.addEventListener('mouseenter', showDropdown);
-                    dropdown?.addEventListener('mouseleave', hideDropdown);
+                    dropdown.addEventListener('mouseenter', showDropdown);
+                    dropdown.addEventListener('mouseleave', hideDropdown);
                 }
-            });
+            }
         }
 
         // Event listeners

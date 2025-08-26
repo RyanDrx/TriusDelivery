@@ -26,12 +26,18 @@ const canonicalURL = new URL(Astro.request.url, Astro.site);
 
 // Detect current page from URL pathname
 const currentPath = Astro.url.pathname;
-const currentPage = currentPath === '/' ? 'home' : 
-                   currentPath.startsWith('/services') ? 'services' :
-                   currentPath === '/about' ? 'about' :
-                   currentPath === '/coverage' ? 'coverage' :
-                   currentPath === '/contact' ? 'contact' : 
-                   'other';
+const currentPage =
+    currentPath === '/'
+        ? 'home'
+        : currentPath.startsWith('/services')
+          ? 'services'
+          : currentPath === '/about'
+            ? 'about'
+            : currentPath === '/coverage'
+              ? 'coverage'
+              : currentPath === '/contact'
+                ? 'contact'
+                : 'other';
 
 // Fallback header and footer data when Sanity isn't configured
 const fallbackHeader = {
@@ -127,7 +133,7 @@ function formatCanonicalURL(url: string | URL) {
         />
 
         <!-- Low Priority Global Metadata -->
-        {configData.favicon?.src && <link rel='icon' type='image/svg+xml' href={configData.favicon.src} />}
+        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
         <link rel='sitemap' href='/sitemap-index.xml' />
 
         <!-- Page Metadata -->
@@ -151,8 +157,8 @@ function formatCanonicalURL(url: string | URL) {
         <slot name='head' />
     </head>
     <body class='antialiased'>
-        <!-- Iconify Icons - Latest Version -->
-        <script src='https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js'></script>
+        <!-- Iconify Icons -->
+        <script type='module' src='/iconify-icon.js'></script>
 
         <Header {...headerData} currentPage={currentPage} data-sb-field-path={`${configData?._id}:header`} />
         <slot />

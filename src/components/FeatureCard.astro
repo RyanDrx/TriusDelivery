@@ -1,0 +1,24 @@
+---
+interface Props {
+    icon: string;
+    title: string;
+    description: string;
+    gradient: 'primary' | 'secondary' | 'accent';
+}
+
+const { icon, title, description, gradient } = Astro.props;
+
+const gradientClasses = {
+    primary: 'from-primary to-primary-dark',
+    secondary: 'from-secondary to-secondary-dark',
+    accent: 'from-accent to-accent-dark'
+};
+---
+
+<div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
+    <div class={`w-16 h-16 bg-gradient-to-br ${gradientClasses[gradient]} rounded-2xl flex items-center justify-center mb-6`}>
+        <iconify-icon icon={icon} width='32' height='32' style='color: white;'></iconify-icon>
+    </div>
+    <h3 class='text-xl font-bold text-neutral-dark mb-4'>{title}</h3>
+    <p class='text-neutral leading-relaxed'>{description}</p>
+</div>

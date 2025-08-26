@@ -4,6 +4,8 @@ import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cards from '@components/Cards.astro';
 import Cta from '@components/Cta.astro';
+import FeatureCard from '@components/FeatureCard.astro';
+import ComplianceCard from '@components/ComplianceCard.astro';
 import { localBusiness, webSite, serviceStat, serviceRoutes, serviceEquipment } from '../lib/schema.ts';
 
 const servicesData = {
@@ -157,94 +159,6 @@ const servicesData = {
                     style: 'primary'
                 }
             ]
-        }
-    ]
-};
-
-const whyChooseData = {
-    _type: 'cardsSection',
-    title: 'Why Choose Trius LLC?',
-    subtitle: 'More than a courier — we are your long-term logistics partner',
-    cards: [
-        {
-            _key: '1',
-            title: 'Accuracy & Safety',
-            body: 'Every courier is rigorously trained to prevent misdeliveries and protect specimen integrity. Our documented procedures ensure that every shipment arrives safely and on time.',
-            icon: 'heroicons:shield-check'
-        },
-        {
-            _key: '2',
-            title: 'Reliability & Readiness',
-            body: 'Always on-call, 24/7, for both scheduled and urgent deliveries. When healthcare organizations need dependable logistics, Trius delivers.',
-            icon: 'heroicons:clock'
-        },
-        {
-            _key: '3',
-            title: 'Expertise & Professionalism',
-            body: 'Experienced professionals oversee shipments with precision and courtesy. Our team understands the critical nature of medical logistics.',
-            icon: 'heroicons:academic-cap'
-        },
-        {
-            _key: '4',
-            title: 'Innovative Solutions',
-            body: 'Technology-driven logistics, including optimized routes and proactive communication. We embrace complex challenges with cutting-edge solutions.',
-            icon: 'heroicons:lightbulb'
-        },
-        {
-            _key: '5',
-            title: 'Partnership Approach',
-            body: 'We build lasting partnerships that create mutual success. Tailoring logistics solutions to meet your unique organizational needs.',
-            icon: 'heroicons:handshake'
-        },
-        {
-            _key: '6',
-            title: 'Compliance Excellence',
-            body: 'We not only meet but exceed HIPAA and OSHA requirements. Continuous training ensures we stay ahead of industry standards.',
-            icon: 'heroicons:document-check'
-        }
-    ]
-};
-
-const complianceData = {
-    _type: 'cardsSection',
-    title: 'Compliance & Safety Standards',
-    subtitle: 'Absolute regulatory adherence for healthcare logistics',
-    cards: [
-        {
-            _key: '1',
-            title: 'HIPAA Compliance',
-            body: 'Full HIPAA compliance with secure handling of all protected health information and medical specimens. We maintain a strict "no PHI collection" policy on our digital forms, focusing only on operational details.',
-            features: [
-                'Secure handling of protected health information',
-                'Privacy protection protocols at every step',
-                'No PHI collection in digital communications',
-                'Regular compliance training and audits'
-            ],
-            icon: 'heroicons:shield-check'
-        },
-        {
-            _key: '2',
-            title: 'OSHA Certified',
-            body: 'All drivers are OSHA certified for safe handling of medical materials and hazardous substances. Every courier completes ongoing training in specimen handling and biohazard safety procedures.',
-            features: [
-                'Certified drivers for hazardous materials',
-                'Ongoing biohazard safety training',
-                'Proper specimen handling protocols',
-                'Safety equipment and procedures'
-            ],
-            icon: 'heroicons:exclamation-triangle'
-        },
-        {
-            _key: '3',
-            title: 'Insured & Bonded',
-            body: 'Comprehensive insurance coverage and bonding for complete protection of your valuable shipments. We invest in state-of-the-art logistics technology and maintain rigorous chain of custody procedures.',
-            features: [
-                'Full insurance coverage for all shipments',
-                'Bonded courier services',
-                'Chain of custody documentation',
-                'Real-time tracking and automated updates'
-            ],
-            icon: 'heroicons:document-text'
         }
     ]
 };
@@ -515,6 +429,7 @@ const schema = {
             </div>
         </div>
     </section>
+
     <!-- Why Choose Trius Section -->
     <section class='py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5'>
         <div class='max-w-7xl mx-auto px-4 lg:px-6'>
@@ -524,70 +439,46 @@ const schema = {
             </div>
 
             <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
-                    <div class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-6'>
-                        <iconify-icon icon='heroicons:shield-check' width='32' height='32' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Accuracy & Safety</h3>
-                    <p class='text-neutral leading-relaxed'>
-                        Every courier is rigorously trained to prevent misdeliveries and protect specimen integrity. Our documented procedures ensure safe,
-                        on-time delivery.
-                    </p>
-                </div>
-
-                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
-                    <div class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mb-6'>
-                        <iconify-icon icon='heroicons:clock' width='32' height='32' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Reliability & Readiness</h3>
-                    <p class='text-neutral leading-relaxed'>
-                        Always on-call, 24/7, for both scheduled and urgent deliveries. When healthcare organizations need dependable logistics, Trius delivers.
-                    </p>
-                </div>
-
-                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
-                    <div class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-6'>
-                        <iconify-icon icon='heroicons:academic-cap' width='32' height='32' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Expertise & Professionalism</h3>
-                    <p class='text-neutral leading-relaxed'>
-                        Experienced professionals oversee shipments with precision and courtesy. Our team understands the critical nature of medical logistics.
-                    </p>
-                </div>
-
-                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
-                    <div class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-6'>
-                        <iconify-icon icon='heroicons:lightbulb' width='32' height='32' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Innovative Solutions</h3>
-                    <p class='text-neutral leading-relaxed'>
-                        Technology-driven logistics with optimized routes and proactive communication. We embrace complex challenges with cutting-edge
-                        solutions.
-                    </p>
-                </div>
-
-                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
-                    <div class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mb-6'>
-                        <iconify-icon icon='heroicons:handshake' width='32' height='32' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Partnership Approach</h3>
-                    <p class='text-neutral leading-relaxed'>
-                        We build lasting partnerships that create mutual success. Tailoring logistics solutions to meet your unique organizational needs.
-                    </p>
-                </div>
-
-                <div class='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300'>
-                    <div class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-6'>
-                        <iconify-icon icon='heroicons:document-check' width='32' height='32' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-xl font-bold text-neutral-dark mb-4'>Compliance Excellence</h3>
-                    <p class='text-neutral leading-relaxed'>
-                        We not only meet but exceed HIPAA and OSHA requirements. Continuous training ensures we stay ahead of industry standards.
-                    </p>
-                </div>
+                <FeatureCard
+                    icon='heroicons:shield-check'
+                    title='Accuracy & Safety'
+                    description='Every courier is rigorously trained to prevent misdeliveries and protect specimen integrity. Our documented procedures ensure safe, on-time delivery.'
+                    gradient='primary'
+                />
+                <FeatureCard
+                    icon='heroicons:clock'
+                    title='Reliability & Readiness'
+                    description='Always on-call, 24/7, for both scheduled and urgent deliveries. When healthcare organizations need dependable logistics, Trius delivers.'
+                    gradient='secondary'
+                />
+                <FeatureCard
+                    icon='heroicons:academic-cap'
+                    title='Expertise & Professionalism'
+                    description='Experienced professionals oversee shipments with precision and courtesy. Our team understands the critical nature of medical logistics.'
+                    gradient='accent'
+                />
+                <FeatureCard
+                    icon='material-symbols:lightbulb-2-outline'
+                    title='Innovative Solutions'
+                    description='Technology-driven logistics with optimized routes and proactive communication. We embrace complex challenges with cutting-edge solutions.'
+                    gradient='primary'
+                />
+                <FeatureCard
+                    icon='material-symbols:handshake-outline-sharp'
+                    title='Partnership Approach'
+                    description='We build lasting partnerships that create mutual success. Tailoring logistics solutions to meet your unique organizational needs.'
+                    gradient='secondary'
+                />
+                <FeatureCard
+                    icon='heroicons:document-check'
+                    title='Compliance Excellence'
+                    description='We not only meet but exceed HIPAA and OSHA requirements. Continuous training ensures we stay ahead of industry standards.'
+                    gradient='accent'
+                />
             </div>
         </div>
     </section>
+
     <!-- Compliance Section -->
     <section class='py-20 bg-white'>
         <div class='max-w-7xl mx-auto px-4 lg:px-6'>
@@ -597,80 +488,31 @@ const schema = {
             </div>
 
             <div class='grid lg:grid-cols-3 gap-8'>
-                <div class='bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 text-center'>
-                    <div class='w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6'>
-                        <iconify-icon icon='heroicons:shield-check' width='40' height='40' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-2xl font-bold text-neutral-dark mb-4'>HIPAA Compliance</h3>
-                    <p class='text-neutral mb-6 leading-relaxed'>
-                        Full HIPAA compliance with secure handling of all protected health information and medical specimens. We maintain a strict "no PHI
-                        collection" policy.
-                    </p>
-                    <ul class='text-sm text-neutral space-y-2 text-left'>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            Secure handling of protected health information
-                        </li>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            Privacy protection protocols at every step
-                        </li>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            No PHI collection in digital communications
-                        </li>
-                    </ul>
-                </div>
-
-                <div class='bg-gradient-to-br from-secondary/5 to-secondary/10 rounded-2xl p-8 text-center'>
-                    <div class='w-20 h-20 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mx-auto mb-6'>
-                        <iconify-icon icon='heroicons:exclamation-triangle' width='40' height='40' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-2xl font-bold text-neutral-dark mb-4'>OSHA Certified</h3>
-                    <p class='text-neutral mb-6 leading-relaxed'>
-                        All drivers are OSHA certified for safe handling of medical materials and hazardous substances. Ongoing training in specimen handling
-                        and biohazard safety.
-                    </p>
-                    <ul class='text-sm text-neutral space-y-2 text-left'>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            Certified drivers for hazardous materials
-                        </li>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            Ongoing biohazard safety training
-                        </li>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            Proper specimen handling protocols
-                        </li>
-                    </ul>
-                </div>
-
-                <div class='bg-gradient-to-br from-accent/5 to-accent/10 rounded-2xl p-8 text-center'>
-                    <div class='w-20 h-20 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mx-auto mb-6'>
-                        <iconify-icon icon='heroicons:document-text' width='40' height='40' style='color: white;'></iconify-icon>
-                    </div>
-                    <h3 class='text-2xl font-bold text-neutral-dark mb-4'>Insured & Bonded</h3>
-                    <p class='text-neutral mb-6 leading-relaxed'>
-                        Comprehensive insurance coverage and bonding for complete protection. State-of-the-art logistics technology with rigorous chain of
-                        custody procedures.
-                    </p>
-                    <ul class='text-sm text-neutral space-y-2 text-left'>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            Full insurance coverage for all shipments
-                        </li>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            Bonded courier services
-                        </li>
-                        <li class='flex items-center gap-2'>
-                            <iconify-icon icon='heroicons:check' width='16' height='16' style='color: #2f855a;'></iconify-icon>
-                            Chain of custody documentation
-                        </li>
-                    </ul>
-                </div>
+                <ComplianceCard
+                    icon='heroicons:shield-check'
+                    title='HIPAA Compliance'
+                    description="Full HIPAA compliance with secure handling of all protected health information and medical specimens. We maintain a strict 'no PHI collection' policy."
+                    gradient='primary'
+                    features={[
+                        'Secure handling of protected health information',
+                        'Privacy protection protocols at every step',
+                        'No PHI collection in digital communications'
+                    ]}
+                />
+                <ComplianceCard
+                    icon='heroicons:exclamation-triangle'
+                    title='OSHA Certified'
+                    description='All drivers are OSHA certified for safe handling of medical materials and hazardous substances. Ongoing training in specimen handling and biohazard safety.'
+                    gradient='secondary'
+                    features={['Certified drivers for hazardous materials', 'Ongoing biohazard safety training', 'Proper specimen handling protocols']}
+                />
+                <ComplianceCard
+                    icon='heroicons:document-text'
+                    title='Insured & Bonded'
+                    description='Comprehensive insurance coverage and bonding for complete protection. State-of-the-art logistics technology with rigorous chain of custody procedures.'
+                    gradient='accent'
+                    features={['Full insurance coverage for all shipments', 'Bonded courier services', 'Chain of custody documentation']}
+                />
             </div>
         </div>
     </section>
