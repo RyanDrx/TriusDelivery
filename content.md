@@ -46,9 +46,21 @@ Our core values guide every delivery:
 
 ### Company Background
 
-Founded in the **Pacific Northwest**, Trius LLC was built to meet the growing demand for **specialized medical courier services**. With decades of combined experience in transportation and healthcare compliance, our team delivers peace of mind with every shipment.
+Founded in **2022** and based in **Tacoma, Washington**, Trius LLC was built to meet the growing demand for **specialized medical courier services** throughout the Pacific Northwest and Northern California. As a **Washington State registered LLC (UBI: 604949797)**, we have maintained an active status and strong operational presence since our establishment.
 
 We invest in **state-of-the-art logistics technology**, including real-time tracking and automated updates, while maintaining a rigorous **chain of custody** from pickup to delivery. This combination of human expertise and smart technology ensures that packages arrive **on time, intact, and fully compliant**.
+
+### Corporate Record
+
+**Entity:** Trius LLC  
+**State:** Washington  
+**UBI:** 604949797  
+**Formation date:** Aug 10, 2022  
+**Status:** Listed as Active in May 2024 on a public aggregator that mirrors the WA Corporations & Charities system  
+**Principal address:** 618 160th Street Ct E, Tacoma, WA 98445-1051  
+**Mailing:** PO Box 1304, Spanaway, WA 98387-1304  
+
+Our strategic location in the **greater Tacoma-Seattle metropolitan area** provides optimal access to major medical facilities, research institutions, and transportation networks throughout our five-state service area.
 
 ### Compliance Commitment
 

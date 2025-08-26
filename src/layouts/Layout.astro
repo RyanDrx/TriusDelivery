@@ -24,6 +24,15 @@ const title = [Astro.props.title, titleSuffix].filter(Boolean).join(' | ');
 const resolvedImage = image?.src ? { src: new URL(image.src, Astro.site).toString() } : undefined;
 const canonicalURL = new URL(Astro.request.url, Astro.site);
 
+// Detect current page from URL pathname
+const currentPath = Astro.url.pathname;
+const currentPage = currentPath === '/' ? 'home' : 
+                   currentPath === '/services' ? 'services' :
+                   currentPath === '/about' ? 'about' :
+                   currentPath === '/coverage' ? 'coverage' :
+                   currentPath === '/contact' ? 'contact' : 
+                   'other';
+
 // Fallback header and footer data when Sanity isn't configured
 const fallbackHeader = {
     title: 'TRIUS',
@@ -122,7 +131,7 @@ function formatCanonicalURL(url: string | URL) {
         <!-- Iconify Icons - Latest Version -->
         <script src='https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js'></script>
 
-        <Header {...headerData} data-sb-field-path={`${configData?._id}:header`} />
+        <Header {...headerData} currentPage={currentPage} data-sb-field-path={`${configData?._id}:header`} />
         <slot />
         <Footer {...footerData} data-sb-field-path={`${configData?._id}:footer`} />
         <script is:inline>

@@ -54,8 +54,8 @@ const servicesData = {
                 {
                     _key: '1',
                     _type: 'actionButton',
-                    label: 'Request STAT Delivery Quote',
-                    url: '/contact',
+                    label: 'Learn More About STAT Delivery',
+                    url: '/services/stat-delivery',
                     style: 'accent'
                 }
             ]
@@ -103,8 +103,8 @@ const servicesData = {
                 {
                     _key: '1',
                     _type: 'actionButton',
-                    label: 'Get Scheduled Route Estimate',
-                    url: '/contact',
+                    label: 'Learn More About Scheduled Routes',
+                    url: '/services/scheduled-routes',
                     style: 'secondary'
                 }
             ]
@@ -152,8 +152,8 @@ const servicesData = {
                 {
                     _key: '1',
                     _type: 'actionButton',
-                    label: 'Contact for Equipment Transport',
-                    url: '/contact',
+                    label: 'Learn More About Equipment Transport',
+                    url: '/services/specialized-equipment',
                     style: 'primary'
                 }
             ]
@@ -394,7 +394,7 @@ const schema = {
                             </div>
                         </div>
 
-                        <a href='/contact' class='btn btn-accent btn-lg'> Request STAT Delivery Quote </a>
+                        <a href='/services/stat-delivery' class='btn btn-accent btn-lg'> Learn More About STAT Delivery </a>
                     </div>
                     <div class='order-1 lg:order-2'>
                         <div class='bg-gradient-to-br from-accent/10 to-accent/5 rounded-3xl p-8 text-center'>
@@ -454,7 +454,7 @@ const schema = {
                             </div>
                         </div>
 
-                        <a href='/contact' class='btn btn-secondary btn-lg'> Get Scheduled Route Estimate </a>
+                        <a href='/services/scheduled-routes' class='btn btn-secondary btn-lg'> Learn More About Scheduled Routes </a>
                     </div>
                 </div>
 
@@ -502,7 +502,7 @@ const schema = {
                             </div>
                         </div>
 
-                        <a href='/contact' class='btn btn-primary btn-lg'> Contact for Equipment Transport </a>
+                        <a href='/services/specialized-equipment' class='btn btn-primary btn-lg'> Learn More About Equipment Transport </a>
                     </div>
                     <div class='order-1 lg:order-2'>
                         <div class='bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 text-center'>
@@ -799,6 +799,158 @@ const schema = {
                             View Coverage Map
                         </a>
                         <p class='text-sm text-neutral mt-3'>See detailed coverage areas and service zones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology & Innovation Section -->
+    <section class='py-20 bg-white'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='text-center mb-16'>
+                <h2 class='text-4xl lg:text-5xl font-black text-neutral-dark mb-6'>Technology & Innovation</h2>
+                <p class='text-xl text-neutral max-w-3xl mx-auto'>Combining human expertise with cutting-edge logistics technology</p>
+            </div>
+
+            <div class='grid lg:grid-cols-2 gap-12 items-center'>
+                <div>
+                    <div class='inline-flex items-center gap-3 mb-6 px-4 py-2 bg-primary/10 rounded-full'>
+                        <iconify-icon icon='heroicons:cog-6-tooth' width='20' height='20' style='color: #1a4e8a;'></iconify-icon>
+                        <span class='text-primary font-bold text-sm uppercase tracking-wide'>Advanced Systems</span>
+                    </div>
+                    <h3 class='text-3xl lg:text-4xl font-black text-neutral-dark mb-6'>State-of-the-Art Logistics</h3>
+                    <p class='text-lg text-neutral mb-8 leading-relaxed'>
+                        We invest in state-of-the-art logistics technology, including real-time tracking and automated updates, while maintaining a rigorous
+                        chain of custody from pickup to delivery. This combination of human expertise and smart technology ensures packages arrive on time,
+                        intact, and fully compliant.
+                    </p>
+
+                    <div class='space-y-6'>
+                        <div class='flex items-start gap-4'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center flex-shrink-0'>
+                                <iconify-icon icon='heroicons:device-phone-mobile' width='24' height='24' style='color: white;'></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-2'>Real-Time Tracking</h4>
+                                <p class='text-sm text-neutral'>
+                                    Live GPS tracking with automated updates and proactive communication throughout the delivery process.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class='flex items-start gap-4'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center flex-shrink-0'>
+                                <iconify-icon icon='heroicons:map' width='24' height='24' style='color: white;'></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-2'>Route Optimization</h4>
+                                <p class='text-sm text-neutral'>
+                                    Advanced algorithms optimize delivery routes for efficiency, reducing travel times and improving reliability.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class='flex items-start gap-4'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center flex-shrink-0'>
+                                <iconify-icon icon='heroicons:document-text' width='24' height='24' style='color: white;'></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class='font-bold text-neutral-dark mb-2'>Digital Documentation</h4>
+                                <p class='text-sm text-neutral'>Comprehensive digital chain-of-custody documentation with secure, compliant record keeping.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8'>
+                    <div class='grid grid-cols-2 gap-6 text-center'>
+                        <div class='bg-white rounded-2xl p-6'>
+                            <div class='text-3xl font-black text-primary mb-2'>24/7</div>
+                            <div class='text-sm text-neutral font-medium'>System Monitoring</div>
+                        </div>
+                        <div class='bg-white rounded-2xl p-6'>
+                            <div class='text-3xl font-black text-secondary mb-2'>99.8%</div>
+                            <div class='text-sm text-neutral font-medium'>On-Time Delivery</div>
+                        </div>
+                        <div class='bg-white rounded-2xl p-6'>
+                            <div class='text-3xl font-black text-accent mb-2'>30 min</div>
+                            <div class='text-sm text-neutral font-medium'>STAT Response</div>
+                        </div>
+                        <div class='bg-white rounded-2xl p-6'>
+                            <div class='text-3xl font-black text-primary mb-2'>100%</div>
+                            <div class='text-sm text-neutral font-medium'>Compliant</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training & Expertise Section -->
+    <section class='py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='text-center mb-16'>
+                <h2 class='text-4xl lg:text-5xl font-black text-neutral-dark mb-6'>Training & Expertise</h2>
+                <p class='text-xl text-neutral max-w-3xl mx-auto'>Rigorous training programs ensure every courier meets the highest standards</p>
+            </div>
+
+            <div class='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+                <div class='bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-4'>
+                        <iconify-icon icon='heroicons:beaker' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-lg font-bold text-neutral-dark mb-2'>Specimen Handling</h3>
+                    <p class='text-sm text-neutral'>Specialized training in proper specimen collection, transport, and delivery procedures.</p>
+                </div>
+
+                <div class='bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mx-auto mb-4'>
+                        <iconify-icon icon='heroicons:shield-check' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-lg font-bold text-neutral-dark mb-2'>Privacy Protection</h3>
+                    <p class='text-sm text-neutral'>Comprehensive HIPAA training and PHI protection protocols for all personnel.</p>
+                </div>
+
+                <div class='bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mx-auto mb-4'>
+                        <iconify-icon icon='heroicons:exclamation-triangle' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-lg font-bold text-neutral-dark mb-2'>Safety Procedures</h3>
+                    <p class='text-sm text-neutral'>OSHA-certified biohazard and safety training for hazardous material handling.</p>
+                </div>
+
+                <div class='bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300'>
+                    <div class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-4'>
+                        <iconify-icon icon='heroicons:arrow-path' width='32' height='32' style='color: white;'></iconify-icon>
+                    </div>
+                    <h3 class='text-lg font-bold text-neutral-dark mb-2'>Continuous Training</h3>
+                    <p class='text-sm text-neutral'>Ongoing education ensures our team stays ahead of industry standards and regulations.</p>
+                </div>
+            </div>
+
+            <div class='mt-16 bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-neutral/20'>
+                <div class='text-center mb-8'>
+                    <h3 class='text-2xl font-bold text-neutral-dark mb-4'>Our Commitment to Excellence</h3>
+                    <p class='text-neutral leading-relaxed max-w-3xl mx-auto'>
+                        At Trius, we know that lives depend on timely and accurate medical deliveries. That's why we combine rigorous safety protocols with a
+                        customer-first mindset. Our trained couriers handle every specimen and piece of equipment with precision, ensuring chain-of-custody
+                        integrity, real-time tracking, and on-time delivery.
+                    </p>
+                </div>
+
+                <div class='grid md:grid-cols-3 gap-8 text-center'>
+                    <div>
+                        <div class='text-3xl font-black text-primary mb-2'>40+ hrs</div>
+                        <div class='text-sm text-neutral font-medium'>Initial Training Program</div>
+                    </div>
+                    <div>
+                        <div class='text-3xl font-black text-secondary mb-2'>12+ hrs</div>
+                        <div class='text-sm text-neutral font-medium'>Monthly Continuing Ed</div>
+                    </div>
+                    <div>
+                        <div class='text-3xl font-black text-accent mb-2'>100%</div>
+                        <div class='text-sm text-neutral font-medium'>Certification Required</div>
                     </div>
                 </div>
             </div>

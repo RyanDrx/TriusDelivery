@@ -27,16 +27,16 @@ export function localBusiness() {
     email: "mailto:dispatch@trius.delivery",
     telephone: "+1-XXX-XXX-XXXX",
     priceRange: "$$",
-    foundingDate: "YOUR_FOUNDING_YEAR",
+    foundingDate: "2022",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "YOUR_STREET",
-      addressLocality: "YOUR_CITY",
+      streetAddress: "618 160th Street Ct E",
+      addressLocality: "Tacoma",
       addressRegion: "WA",
-      postalCode: "YOUR_ZIP",
+      postalCode: "98445",
       addressCountry: "US"
     },
-    geo: { "@type": "GeoCoordinates", latitude: "YOUR_LAT", longitude: "YOUR_LON" },
+    geo: { "@type": "GeoCoordinates", latitude: "47.1379", longitude: "-122.4594" },
     areaServed: ["Washington","Oregon","Idaho","Montana","California"].map(n => ({ "@type": "State", name: n })),
     serviceArea: ["Washington","Oregon","Idaho","Montana","California"].map(n => ({ "@type": "AdministrativeArea", name: n })),
     knowsAbout: [
@@ -236,17 +236,17 @@ export const MAIN_PHONE = "+1-XXX-XXX-XXXX";
 export function localBusiness(): LocalBusiness {
   const address: PostalAddress = {
     "@type": "PostalAddress",
-    streetAddress: "YOUR_STREET",
-    addressLocality: "YOUR_CITY",
+    streetAddress: "618 160th Street Ct E",
+    addressLocality: "Tacoma",
     addressRegion: "WA",
-    postalCode: "YOUR_ZIP",
+    postalCode: "98445",
     addressCountry: "US",
   };
 
   const geo: GeoCoordinates = {
     "@type": "GeoCoordinates",
-    latitude: "YOUR_LAT",
-    longitude: "YOUR_LON",
+    latitude: "47.1379",
+    longitude: "-122.4594",
   };
 
   const support: ContactPoint = {
@@ -291,7 +291,7 @@ export function localBusiness(): LocalBusiness {
     email: `mailto:${DISPATCH_EMAIL}`,
     telephone: MAIN_PHONE,
     priceRange: "$$",
-    foundingDate: "YOUR_FOUNDING_YEAR",
+    foundingDate: "2022",
     address,
     geo,
     areaServed: ["Washington", "Oregon", "Idaho", "Montana", "California"].map(
@@ -436,6 +436,72 @@ export function serviceRoutes(): Service {
     offers: {
       "@type": "Offer",
       url: ORIGIN + "request-route-estimate",
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "USD",
+        price: "0",
+      },
+    },
+  };
+}
+
+// Technology & Innovation Service details
+export function serviceTechnology(): Service {
+  return {
+    "@type": "Service",
+    "@id": ORIGIN + "#service-technology",
+    name: "Technology & Innovation Platform",
+    serviceType: "Medical courier technology",
+    category: "Logistics technology",
+    provider: { "@id": ORG_ID },
+    areaServed: ["Washington", "Oregon", "Idaho", "Montana", "California"],
+    description:
+      "State-of-the-art logistics platform featuring real-time tracking, automated client updates, and advanced route optimization for maximum efficiency and transparency.",
+    url: ORIGIN + "services/technology",
+    features: [
+      "Real-time GPS tracking and automated updates",
+      "Advanced route optimization algorithms",
+      "Digital chain-of-custody documentation",
+      "Automated notification system for stakeholders"
+    ],
+    offers: {
+      "@type": "Offer",
+      url: ORIGIN + "contact?service=technology",
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "USD",
+        price: "0",
+      },
+    },
+  };
+}
+
+// Training & Expertise Service details
+export function serviceTraining(): Service {
+  return {
+    "@type": "Service",
+    "@id": ORIGIN + "#service-training",
+    name: "Professional Training & Expertise",
+    serviceType: "Medical courier training",
+    category: "Compliance training",
+    provider: { "@id": ORG_ID },
+    areaServed: ["Washington", "Oregon", "Idaho", "Montana", "California"],
+    description:
+      "Comprehensive training programs ensuring HIPAA and OSHA compliance, specimen handling expertise, and continuous professional development for all couriers.",
+    url: ORIGIN + "services/training",
+    curriculum: [
+      "HIPAA Privacy and PHI Protection",
+      "OSHA Safety and Biohazard Procedures", 
+      "Proper Specimen Handling and Chain of Custody",
+      "Temperature-Controlled Transport Protocols",
+      "Professional Communication and Customer Service",
+      "Continuous Training and Quality Improvement"
+    ],
+    offers: {
+      "@type": "Offer",
+      url: ORIGIN + "contact?service=training",
       availability: "https://schema.org/InStock",
       priceSpecification: {
         "@type": "PriceSpecification",
@@ -617,4 +683,3 @@ export default defineConfig({
 * Use absolute URLs everywhere.
 * Validate in Google Rich Results and Schema Markup Validator after you fill the placeholders.
 * Do not collect PHI in forms. Your schema reflects operational fields only.
-
