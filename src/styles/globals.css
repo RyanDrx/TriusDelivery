@@ -1,32 +1,177 @@
-@import 'tailwindcss';
-@plugin "daisyui";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@plugin "daisyui/theme" {
-    name: 'dark';
-    --color-primary: #ffae9c;
-    --color-primary-content: #171227;
-    --color-secondary: #fff2d7;
-    --color-secondary-content: #171227;
-    --color-accent: #e3f1ff;
-    --color-accent-content: #171227;
-    --color-neutral: #2e293c;
-    --color-neutral-content: #ffffff;
-    --color-base-100: #171227;
-    --color-base-200: #2e293c;
-    --color-base-content: #ffffff;
+@layer base {
+    /* Ensure font families are applied correctly */
+    .font-heading {
+        font-family: 'Inter', 'Montserrat', sans-serif;
+    }
+
+    .font-body {
+        font-family: 'Inter', 'Roboto', sans-serif;
+    }
 }
 
-@plugin "daisyui/theme" {
-    name: 'light';
-    --color-primary: #ffae9c;
-    --color-primary-content: #171227;
-    --color-secondary: #fff2d7;
-    --color-secondary-content: #171227;
-    --color-accent: #e3f1ff;
-    --color-accent-content: #171227;
-    --color-neutral: #171227;
-    --color-neutral-content: #ffffff;
-    --color-base-100: #ffffff;
-    --color-base-200: #d7d8e4;
-    --color-base-content: #171227;
+@layer components {
+    /* Button Components */
+    .btn {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+
+    .btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+
+    .btn-lg {
+        @apply px-6 py-3 text-base;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-white border-primary hover:bg-primary-dark hover:border-primary-dark focus:ring-primary;
+    }
+
+    .btn-secondary {
+        @apply bg-secondary text-white border-secondary hover:bg-secondary-dark hover:border-secondary-dark focus:ring-secondary;
+    }
+
+    .btn-accent {
+        @apply bg-accent text-white border-accent hover:bg-accent-dark hover:border-accent-dark focus:ring-accent;
+    }
+
+    .btn-outline {
+        @apply bg-transparent border-2;
+    }
+
+    .btn-outline.btn-primary {
+        @apply text-primary border-primary hover:bg-primary hover:text-white;
+    }
+
+    .btn-outline.btn-secondary {
+        @apply text-secondary border-secondary hover:bg-secondary hover:text-white;
+    }
+
+    /* Form Components */
+    .form-control {
+        @apply flex flex-col gap-2;
+    }
+
+    .label {
+        @apply flex;
+    }
+
+    .label-text {
+        @apply text-sm font-medium text-base-content;
+    }
+
+    .input {
+        @apply w-full px-3 py-2 border border-base-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+    }
+
+    .input-bordered {
+        @apply border-base-300;
+    }
+
+    .textarea {
+        @apply w-full px-3 py-2 border border-base-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-y;
+    }
+
+    .textarea-bordered {
+        @apply border-base-300;
+    }
+
+    .select {
+        @apply w-full px-3 py-2 border border-base-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white;
+    }
+
+    .select-bordered {
+        @apply border-base-300;
+    }
+
+    .checkbox {
+        @apply w-4 h-4 text-primary border-base-300 rounded focus:ring-primary focus:ring-2;
+    }
+
+    .checkbox-primary {
+        @apply text-primary focus:ring-primary;
+    }
+
+    /* Badge Components */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+
+    .badge-primary {
+        @apply bg-primary text-white;
+    }
+
+    .badge-secondary {
+        @apply bg-secondary text-white;
+    }
+
+    .badge-neutral {
+        @apply bg-neutral text-white;
+    }
+
+    /* Card Components */
+    .card {
+        @apply bg-white rounded-lg shadow-md border border-base-200;
+    }
+
+    .card-body {
+        @apply p-6;
+    }
+
+    /* Link Components */
+    .link {
+        @apply text-primary hover:text-primary-dark underline;
+    }
+
+    .link-primary {
+        @apply text-primary hover:text-primary-dark;
+    }
+
+    /* American Flag Component */
+    .american-flag {
+        @apply relative w-6 h-4 border border-gray-300 rounded-sm overflow-hidden;
+    }
+
+    .flag-canton {
+        @apply absolute top-0 left-0 w-2.5 h-2 bg-blue-600;
+        background-image:
+            radial-gradient(circle at 20% 25%, white 1px, transparent 1px), radial-gradient(circle at 60% 25%, white 1px, transparent 1px),
+            radial-gradient(circle at 20% 75%, white 1px, transparent 1px), radial-gradient(circle at 60% 75%, white 1px, transparent 1px);
+        background-size: 0.3rem 0.2rem;
+    }
+
+    .flag-stripes {
+        @apply absolute inset-0 flex flex-col;
+    }
+
+    .stripe {
+        @apply flex-1;
+    }
+
+    .stripe.red {
+        @apply bg-red-600;
+    }
+
+    .stripe.white {
+        @apply bg-white;
+    }
+
+    /* State Icon Components */
+    .icon {
+        stroke-width: 0;
+        stroke: currentColor;
+        fill: currentColor;
+    }
+
+    .state-icon {
+        @apply transition-colors duration-300;
+    }
+
+    .state-icon:hover {
+        @apply scale-105 transition-transform duration-300;
+    }
 }

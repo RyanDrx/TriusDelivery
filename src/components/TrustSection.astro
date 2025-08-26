@@ -1,0 +1,439 @@
+---
+import Section from '@components/Section.astro';
+
+interface Props {
+    'data-sb-field-path'?: string;
+}
+
+const { 'data-sb-field-path': fieldPath } = Astro.props;
+---
+
+<Section class='bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5 relative overflow-hidden' data-sb-field-path={fieldPath}>
+    <!-- Background Pattern -->
+    <div class='absolute inset-0 opacity-20'>
+        <div class='trust-bg-pattern absolute inset-0'></div>
+    </div>
+
+    <div class='max-w-6xl mx-auto relative z-10'>
+        <!-- Section Header -->
+        <div class='text-center mb-16 trust-header' data-animate='fade-in-up'>
+            <div class='inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-neutral/20'>
+                <div class='w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse'></div>
+                <span class='text-sm font-bold text-neutral tracking-wide uppercase'>Trusted Partnership</span>
+            </div>
+            <h2
+                class='text-5xl lg:text-6xl font-black font-heading bg-gradient-to-r from-neutral-dark via-primary to-secondary bg-clip-text text-transparent mb-8 leading-tight'
+            >
+                Trusted by Healthcare Professionals
+            </h2>
+            <p class='text-xl lg:text-2xl text-neutral max-w-4xl mx-auto font-body leading-relaxed'>
+                Healthcare organizations across the Pacific Northwest rely on Trius for secure, compliant, and timely medical deliveries.
+            </p>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class='grid lg:grid-cols-2 gap-8 mb-16 testimonials-grid' data-animate='stagger-up'>
+            <!-- Testimonial 1 -->
+            <div
+                class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-neutral/20 hover:shadow-2xl transition-all duration-500 group'
+            >
+                <div class='flex items-start space-x-6'>
+                    <div class='flex-shrink-0'>
+                        <div
+                            class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500'
+                        >
+                            <iconify-icon icon='heroicons:star-solid' width='32' height='32' style='color: white;'></iconify-icon>
+                        </div>
+                    </div>
+                    <div class='flex-1'>
+                        <div class='flex mb-4'>
+                            {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='20' height='20' style='color: #fbbf24;' />)}
+                        </div>
+                        <blockquote class='text-neutral-dark font-body text-lg leading-relaxed mb-6 italic'>
+                            "[PLACEHOLDER TESTIMONIAL] Trius has been our go-to courier for STAT lab deliveries for over two years. Their chain-of-custody
+                            protocols are impeccable, and we've never had a single compliance issue. The peace of mind they provide is invaluable."
+                        </blockquote>
+                        <div class='flex items-center'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
+                                <span class='text-white font-bold text-lg'>D</span>
+                            </div>
+                            <div>
+                                <div class='font-bold text-neutral-dark font-heading text-lg'>Dr. [Placeholder Name]</div>
+                                <div class='text-sm text-neutral'>Laboratory Director, [Placeholder Medical Center]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div
+                class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-neutral/20 hover:shadow-2xl transition-all duration-500 group'
+            >
+                <div class='flex items-start space-x-6'>
+                    <div class='flex-shrink-0'>
+                        <div
+                            class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500'
+                        >
+                            <iconify-icon icon='heroicons:chart-bar' width='32' height='32' style='color: white;'></iconify-icon>
+                        </div>
+                    </div>
+                    <div class='flex-1'>
+                        <div class='flex mb-4'>
+                            {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='20' height='20' style='color: #fbbf24;' />)}
+                        </div>
+                        <blockquote class='text-neutral-dark font-body text-lg leading-relaxed mb-6 italic'>
+                            "[PLACEHOLDER TESTIMONIAL] The reliability of Trius's scheduled routes has transformed our supply chain efficiency. Their real-time
+                            tracking keeps us informed, and their professional couriers handle our sensitive equipment with exceptional care."
+                        </blockquote>
+                        <div class='flex items-center'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
+                                <span class='text-white font-bold text-lg'>M</span>
+                            </div>
+                            <div>
+                                <div class='font-bold text-neutral-dark font-heading text-lg'>[Placeholder Name]</div>
+                                <div class='text-sm text-neutral'>Operations Manager, [Placeholder Research Institute]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Stats -->
+        <div class='stats-container bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-2xl border border-neutral/20' data-animate='fade-in-up'>
+            <div class='grid md:grid-cols-3 gap-12 text-center'>
+                <div class='stat-item flex flex-col items-center group'>
+                    <div
+                        class='w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg'
+                    >
+                        <iconify-icon icon='heroicons:clock' width='40' height='40' style='color: white;'></iconify-icon>
+                    </div>
+                    <div class='stat-number text-5xl font-black bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent mb-3 font-heading'>
+                        99.9%
+                    </div>
+                    <div class='text-base font-bold text-neutral font-body'>On-Time Delivery Rate</div>
+                </div>
+
+                <div class='stat-item flex flex-col items-center group'>
+                    <div
+                        class='w-20 h-20 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg'
+                    >
+                        <iconify-icon icon='heroicons:clock' width='40' height='40' style='color: white;'></iconify-icon>
+                    </div>
+                    <div class='stat-number text-5xl font-black bg-gradient-to-r from-accent to-accent-dark bg-clip-text text-transparent mb-3 font-heading'>
+                        24/7
+                    </div>
+                    <div class='text-base font-bold text-neutral font-body'>Emergency Response</div>
+                </div>
+                <div class='stat-item flex flex-col items-center group'>
+                    <div
+                        class='w-20 h-20 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg'
+                    >
+                        <iconify-icon icon='heroicons:shield-check' width='40' height='40' style='color: white;'></iconify-icon>
+                    </div>
+                    <div
+                        class='stat-number text-5xl font-black bg-gradient-to-r from-secondary to-secondary-dark bg-clip-text text-transparent mb-3 font-heading'
+                    >
+                        100%
+                    </div>
+                    <div class='text-base font-bold text-neutral font-body'>HIPAA Compliance</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Section>
+
+<script>
+    // Smooth scroll animation with Intersection Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -10% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1]
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const target = entry.target as HTMLElement;
+            const animationType = target.getAttribute('data-animate');
+
+            if (entry.isIntersecting) {
+                if (animationType === 'fade-in-up') {
+                    target.classList.add('animate-fade-in-up');
+                } else if (animationType === 'stagger-up') {
+                    const children = target.children;
+                    Array.from(children).forEach((child, index) => {
+                        setTimeout(() => {
+                            (child as HTMLElement).classList.add('animate-fade-in-up');
+                        }, index * 200);
+                    });
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        // Observe elements with animation attributes
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        animatedElements.forEach((el) => observer.observe(el));
+
+        // Counter animation for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach((counter) => {
+                const target = counter.textContent;
+                if (!target) return;
+
+                const isPercentage = target.includes('%');
+                const isPlus = target.includes('+');
+                const isSlash = target.includes('/');
+
+                let finalValue;
+                let suffix = '';
+
+                if (isPercentage) {
+                    finalValue = parseFloat(target);
+                    suffix = '%';
+                } else if (isPlus) {
+                    finalValue = parseInt(target);
+                    suffix = '+';
+                } else if (isSlash) {
+                    counter.textContent = target; // Keep as is for "24/7"
+                    return;
+                } else {
+                    finalValue = parseInt(target);
+                }
+
+                let currentValue = 0;
+                const increment = finalValue / 100;
+                const duration = 2000; // 2 seconds
+                const stepTime = duration / 100;
+
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        counter.textContent = finalValue + suffix;
+                        clearInterval(timer as any);
+                    } else {
+                        counter.textContent = Math.floor(currentValue) + suffix;
+                    }
+                }, stepTime);
+            });
+        };
+
+        // Trigger counter animation when stats section is visible
+        const statsContainer = document.querySelector('.stats-container');
+        if (statsContainer) {
+            const statsObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            statsObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.5 }
+            );
+
+            statsObserver.observe(statsContainer);
+        }
+    });
+</script>
+
+<style>
+    /* Trust Section Background Pattern */
+    .trust-bg-pattern {
+        background-image:
+            radial-gradient(circle at 20% 20%, rgba(4, 120, 87, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(22, 163, 74, 0.08) 0%, transparent 50%),
+            linear-gradient(135deg, transparent 0%, rgba(4, 120, 87, 0.03) 50%, transparent 100%);
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes scale-in {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Apply animations */
+    .animate-fade-in-up {
+        opacity: 0;
+        animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .animate-scale-in {
+        opacity: 0;
+        animation: scale-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    /* Testimonial Cards */
+    .testimonial-card {
+        position: relative;
+        backdrop-filter: blur(15px);
+        transform: translateZ(0);
+    }
+
+    .testimonial-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent, rgba(255, 255, 255, 0.4));
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask-composite: xor;
+        -webkit-mask-composite: xor;
+        pointer-events: none;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-8px) scale(1.02);
+    }
+
+    /* Stats Container */
+    .stats-container {
+        position: relative;
+        backdrop-filter: blur(15px);
+        transform: translateZ(0);
+    }
+
+    .stats-container::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 3px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), transparent, rgba(255, 255, 255, 0.5));
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask-composite: xor;
+        -webkit-mask-composite: xor;
+        pointer-events: none;
+    }
+
+    /* Stat Items */
+    .stat-item {
+        position: relative;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stat-item:hover {
+        transform: translateY(-8px);
+    }
+
+    .stat-number {
+        transition: all 0.3s ease;
+        font-feature-settings: 'tnum';
+    }
+
+    /* Trust Header Badge */
+    .trust-header .inline-flex {
+        position: relative;
+        backdrop-filter: blur(15px);
+    }
+
+    .trust-header .inline-flex::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), transparent, rgba(255, 255, 255, 0.6));
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask-composite: xor;
+        -webkit-mask-composite: xor;
+        pointer-events: none;
+    }
+
+    /* Testimonials Grid Stagger */
+    .testimonials-grid > * {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    /* Smooth transitions for all interactive elements */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Performance optimizations */
+    .testimonial-card,
+    .stats-container,
+    .stat-item {
+        will-change: transform;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .testimonial-card {
+            padding: 1.5rem;
+        }
+
+        .stats-container {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+        }
+    }
+
+    /* Reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+        .animate-fade-in-up,
+        .animate-scale-in {
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+
+        .testimonial-card:hover,
+        .stat-item:hover {
+            transform: none;
+        }
+
+        .testimonials-grid > * {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .testimonial-card,
+        .stats-container {
+            border-width: 3px;
+            border-color: currentColor;
+        }
+
+        .trust-bg-pattern {
+            display: none;
+        }
+    }
+</style>

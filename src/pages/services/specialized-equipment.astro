@@ -1,0 +1,250 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import HomeHero from '@components/HomeHero.astro';
+import Cards from '@components/Cards.astro';
+import Section from '@components/Section.astro';
+import Cta from '@components/Cta.astro';
+import { graphServiceEquipment } from '../../lib/schema.ts';
+
+const heroData = {
+    _type: 'heroSection',
+    heading: 'Specialized Medical Equipment Transport',
+    body: 'Secure delivery of fragile or regulated medical devices with trained handlers and temperature controlled or secure vehicles as needed. Expert handling for your most valuable equipment.',
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Equipment Transport Quote',
+            url: '/contact?service=equipment',
+            theme: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'View All Services',
+            url: '/services'
+        }
+    ]
+};
+
+const capabilitiesData = {
+    _type: 'cardsSection',
+    heading: 'Equipment Transport Capabilities',
+    body: 'Our specialized equipment transport service handles the most delicate and valuable medical devices with expert care.',
+    items: [
+        {
+            _key: '1',
+            heading: 'Temperature Control',
+            body: 'Climate-controlled vehicles and specialized packaging for temperature-sensitive medical equipment and pharmaceuticals.',
+            icon: 'mdi:thermometer',
+            iconColor: 'primary' as const,
+            features: [
+                { icon: 'mdi:snowflake', text: 'Refrigerated transport (2-8°C)' },
+                { icon: 'mdi:fire', text: 'Heated transport options' },
+                { icon: 'mdi:chart-line', text: 'Temperature monitoring & logging' }
+            ]
+        },
+        {
+            _key: '2',
+            heading: 'Fragile Handling',
+            body: 'Specialized training and equipment for transporting delicate medical instruments and sensitive diagnostic equipment.',
+            icon: 'mdi:hand-heart',
+            iconColor: 'accent' as const,
+            features: [
+                { icon: 'mdi:package-variant', text: 'Custom packaging solutions' },
+                { icon: 'mdi:account-hard-hat', text: 'Certified handling technicians' },
+                { icon: 'mdi:shield-check', text: 'Shock & vibration protection' }
+            ]
+        },
+        {
+            _key: '3',
+            heading: 'Secure Transport',
+            body: 'High-value equipment transport with enhanced security measures and comprehensive insurance coverage.',
+            icon: 'mdi:shield-lock',
+            iconColor: 'secondary' as const,
+            features: [
+                { icon: 'mdi:lock', text: 'Secure vehicle locks' },
+                { icon: 'mdi:cctv', text: 'GPS tracking & monitoring' },
+                { icon: 'mdi:shield-account', text: 'Bonded & insured transport' }
+            ]
+        }
+    ]
+};
+
+const equipmentTypesData = {
+    _type: 'cardsSection',
+    heading: 'Equipment Types We Handle',
+    body: 'From small diagnostic devices to large imaging equipment, we have the expertise and equipment to handle all types of medical devices.',
+    items: [
+        {
+            _key: '1',
+            heading: 'Diagnostic Equipment',
+            body: 'Precise handling of sensitive diagnostic instruments including analyzers, scanners, and testing equipment.',
+            icon: 'mdi:monitor-dashboard',
+            features: [
+                { icon: 'mdi:test-tube', text: 'Laboratory analyzers' },
+                { icon: 'mdi:camera', text: 'Portable X-ray equipment' },
+                { icon: 'mdi:heart-pulse', text: 'Ultrasound machines' },
+                { icon: 'mdi:heart-flash', text: 'ECG/EKG equipment' }
+            ]
+        },
+        {
+            _key: '2',
+            heading: 'Surgical Instruments',
+            body: 'Sterile transport of surgical instruments and specialized medical tools with contamination prevention.',
+            icon: 'mdi:medical-bag',
+            features: [
+                { icon: 'mdi:medical-bag', text: 'Sterile instrument sets' },
+                { icon: 'mdi:robot', text: 'Robotic surgery components' },
+                { icon: 'mdi:magnify', text: 'Microsurgical instruments' },
+                { icon: 'mdi:heart', text: 'Implantable devices' }
+            ]
+        },
+        {
+            _key: '3',
+            heading: 'Imaging Equipment',
+            body: 'Large equipment transport including MRI components, CT scan parts, and other heavy medical imaging devices.',
+            icon: 'mdi:image-multiple',
+            features: [
+                { icon: 'mdi:magnet', text: 'MRI machine components' },
+                { icon: 'mdi:scan-helper', text: 'CT scanner parts' },
+                { icon: 'mdi:account-search', text: 'Mammography equipment' },
+                { icon: 'mdi:camera-iris', text: 'Digital radiography systems' }
+            ]
+        },
+        {
+            _key: '4',
+            heading: 'Laboratory Equipment',
+            body: 'Specialized handling for laboratory instruments including centrifuges, microscopes, and analytical equipment.',
+            icon: 'mdi:flask',
+            features: [
+                { icon: 'mdi:rotate-360', text: 'High-speed centrifuges' },
+                { icon: 'mdi:microscope', text: 'Electron microscopes' },
+                { icon: 'mdi:wave', text: 'Spectrophotometers' },
+                { icon: 'mdi:dna', text: 'PCR machines' }
+            ]
+        }
+    ]
+};
+
+const safetyData = {
+    _type: 'section',
+    heading: 'Safety & Compliance Standards',
+    body: 'Our equipment transport service meets the highest industry standards for safety, compliance, and equipment protection.'
+};
+
+const ctaData = {
+    _type: 'ctaSection',
+    heading: 'Need Specialized Equipment Transport?',
+    body: 'Trust your valuable medical equipment to our trained professionals. Contact us for a customized transport solution.',
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Get Equipment Quote',
+            url: '/contact?service=equipment',
+            theme: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionButton',
+            label: 'Call for Consultation',
+            url: 'tel:1-800-TRIUS-LLC',
+            theme: 'secondary'
+        }
+    ]
+};
+
+const schema = graphServiceEquipment();
+---
+
+<Layout
+    title='Specialized Medical Equipment Transport | Trius LLC'
+    description='Expert transport of fragile medical equipment with temperature control, secure handling, and specialized packaging. Trained technicians for valuable medical devices.'
+>
+    <Fragment slot='head'>
+        <SEO
+            title='Specialized Medical Equipment Transport | Trius LLC'
+            description='Expert transport of fragile medical equipment with temperature control, secure handling, and specialized packaging. Trained technicians for valuable medical devices.'
+            graph={schema}
+        />
+    </Fragment>
+
+    <HomeHero {...heroData} />
+    <Cards {...capabilitiesData} />
+    <Cards {...equipmentTypesData} />
+
+    <Section {...safetyData}>
+        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            <div class='bg-base-200 p-6 rounded-lg'>
+                <iconify-icon icon='mdi:certificate' class='text-4xl text-primary mb-3 block'></iconify-icon>
+                <h4 class='font-semibold mb-3'>Compliance Certifications</h4>
+                <ul class='space-y-2 text-sm'>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        FDA regulations compliance
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        HIPAA transport requirements
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        OSHA safety standards
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        DOT transportation regulations
+                    </li>
+                </ul>
+            </div>
+            <div class='bg-base-200 p-6 rounded-lg'>
+                <iconify-icon icon='mdi:school' class='text-4xl text-accent mb-3 block'></iconify-icon>
+                <h4 class='font-semibold mb-3'>Staff Training</h4>
+                <ul class='space-y-2 text-sm'>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        Equipment handling certification
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        Hazmat transport training
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        Clean room procedures
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        Emergency response protocols
+                    </li>
+                </ul>
+            </div>
+            <div class='bg-base-200 p-6 rounded-lg'>
+                <iconify-icon icon='mdi:shield-check' class='text-4xl text-secondary mb-3 block'></iconify-icon>
+                <h4 class='font-semibold mb-3'>Insurance & Protection</h4>
+                <ul class='space-y-2 text-sm'>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        Comprehensive cargo insurance
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        Equipment damage protection
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        Liability coverage
+                    </li>
+                    <li class='flex items-center gap-2'>
+                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                        Transit risk management
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </Section>
+
+    <Cta {...ctaData} />
+</Layout>

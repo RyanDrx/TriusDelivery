@@ -9,7 +9,7 @@ export interface ActionButton extends Action {
     theme?: 'primary' | 'secondary' | 'accent' | 'neutral';
 }
 
-export interface ActionLink extends Action {}
+export interface ActionLink extends Action { }
 
 export interface BackgroundImage {
     image?: CustomImage;
@@ -22,6 +22,7 @@ export interface Badge {
 }
 
 export interface Card {
+    _key?: string;
     badge?: Badge;
     heading?: string;
     body?: string;
@@ -30,6 +31,9 @@ export interface Card {
     theme?: 'light' | 'dark' | 'transparent';
     textAlign?: 'left' | 'center';
     hasBorder?: boolean;
+    icon?: string;
+    iconColor?: 'primary' | 'secondary' | 'accent' | 'neutral';
+    features?: Array<{ icon: string; text: string }>;
 }
 
 export interface CardsSection extends Section {

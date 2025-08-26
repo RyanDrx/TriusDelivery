@@ -1,0 +1,149 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import HomeHero from '@components/HomeHero.astro';
+import Cards from '@components/Cards.astro';
+import Section from '@components/Section.astro';
+import Cta from '@components/Cta.astro';
+import { localBusiness, webSite } from '../lib/schema.ts';
+
+const heroData = {
+    _type: 'heroSection',
+    title: 'About Trius LLC',
+    subtitle: 'Trusted Medical Logistics Partner Since 2025',
+    body: 'Founded with a mission to provide reliable, compliant medical courier services across the Pacific Northwest and California. We understand the critical nature of medical logistics and deliver with precision.',
+    actions: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Get Started',
+            url: '/contact',
+            style: 'primary'
+        }
+    ]
+};
+
+const missionData = {
+    _type: 'cardsSection',
+    title: 'Our Mission & Values',
+    subtitle: 'What drives us every day',
+    cards: [
+        {
+            _key: '1',
+            title: 'Reliability First',
+            body: 'We understand that medical logistics can be life-critical. Our commitment to reliability means your shipments arrive on time, every time, with complete chain-of-custody documentation.'
+        },
+        {
+            _key: '2',
+            title: 'Compliance Focused',
+            body: "HIPAA and OSHA compliance isn't just a requirement—it's our foundation. We maintain the highest standards for secure handling of medical specimens and equipment."
+        },
+        {
+            _key: '3',
+            title: 'Technology Driven',
+            body: 'Real-time tracking, digital documentation, and automated notifications keep you informed every step of the way. Modern technology for modern healthcare.'
+        }
+    ]
+};
+
+const whyChooseData = {
+    _type: 'cardsSection',
+    title: 'Why Choose Trius LLC?',
+    subtitle: 'Experience the difference of specialized medical logistics',
+    cards: [
+        {
+            _key: '1',
+            title: 'Specialized Expertise',
+            body: 'Unlike general courier services, we specialize exclusively in medical logistics. Our team understands the unique requirements of healthcare deliveries.'
+        },
+        {
+            _key: '2',
+            title: 'Regional Coverage',
+            body: 'Comprehensive coverage across Washington, Oregon, Idaho, Montana, and California with local knowledge and established networks.'
+        },
+        {
+            _key: '3',
+            title: '24/7 Availability',
+            body: "Medical emergencies don't wait for business hours. Our STAT services are available around the clock with rapid response times."
+        },
+        {
+            _key: '4',
+            title: 'Competitive Pricing',
+            body: 'Transparent, competitive pricing with no hidden fees. We offer cost-effective solutions for both one-time deliveries and recurring routes.'
+        }
+    ]
+};
+
+const certificationData = {
+    _type: 'cardsSection',
+    title: 'Certifications & Compliance',
+    subtitle: 'Meeting the highest industry standards',
+    cards: [
+        {
+            _key: '1',
+            title: 'HIPAA Compliance',
+            body: 'Full compliance with Health Insurance Portability and Accountability Act requirements for handling protected health information.'
+        },
+        {
+            _key: '2',
+            title: 'OSHA Certification',
+            body: 'Occupational Safety and Health Administration certified drivers and handling procedures for safe transport of medical materials.'
+        },
+        {
+            _key: '3',
+            title: 'DOT Regulations',
+            body: 'Department of Transportation compliant vehicles and drivers for interstate medical transport services.'
+        },
+        {
+            _key: '4',
+            title: 'Insurance Coverage',
+            body: 'Comprehensive commercial insurance including cargo coverage and liability protection for your peace of mind.'
+        }
+    ]
+};
+
+const ctaData = {
+    _type: 'ctaSection',
+    title: 'Partner with Trius LLC Today',
+    body: 'Ready to experience reliable, compliant medical courier services? Contact us to discuss your specific needs and discover how we can improve your medical logistics.',
+    actions: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Request Quote',
+            url: '/contact',
+            style: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'View Our Services',
+            url: '/services'
+        }
+    ]
+};
+
+const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [localBusiness(), webSite()]
+};
+---
+
+<Layout
+    title='About Us - Trius LLC Medical Courier Services'
+    description="Learn about Trius LLC's mission to provide reliable, HIPAA/OSHA compliant medical courier services across WA, OR, ID, MT, and CA. Specialized expertise in medical logistics."
+>
+    <Fragment slot='head'>
+        <SEO
+            title='About Us - Trius LLC Medical Courier Services'
+            description="Learn about Trius LLC's mission to provide reliable, HIPAA/OSHA compliant medical courier services across WA, OR, ID, MT, and CA. Specialized expertise in medical logistics."
+            graph={schema}
+        />
+    </Fragment>
+
+    <HomeHero {...heroData} />
+    <Cards {...missionData} />
+    <Cards {...whyChooseData} />
+    <Cards {...certificationData} />
+    <Cta {...ctaData} />
+</Layout>

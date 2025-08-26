@@ -1,0 +1,240 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import HomeHero from '@components/HomeHero.astro';
+import Cards from '@components/Cards.astro';
+import Section from '@components/Section.astro';
+import Cta from '@components/Cta.astro';
+import { localBusiness, webSite } from '../lib/schema.ts';
+
+const heroData = {
+    _type: 'heroSection',
+    title: 'Contact Trius LLC',
+    subtitle: '24/7 Support • Fast Response • Professional Service',
+    body: 'Ready to improve your medical logistics? Get in touch with our team for a customized quote and discover how Trius LLC can streamline your courier needs.',
+    actions: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Emergency STAT Service',
+            url: 'tel:1-800-TRIUS-911',
+            style: 'accent'
+        }
+    ]
+};
+
+const contactMethodsData = {
+    _type: 'cardsSection',
+    title: 'Get in Touch',
+    subtitle: 'Multiple ways to reach our team',
+    cards: [
+        {
+            _key: '1',
+            title: 'Request a Quote',
+            body: "Fill out our secure inquiry form below to get a customized quote for your medical courier needs. We'll respond within 2 hours during business hours."
+        },
+        {
+            _key: '2',
+            title: '24/7 STAT Service',
+            body: 'For emergency medical deliveries, call our dedicated STAT line available 24 hours a day, 7 days a week.',
+            actions: [
+                {
+                    _key: '1',
+                    _type: 'actionButton',
+                    label: 'Call STAT Line',
+                    url: 'tel:1-800-TRIUS-911',
+                    style: 'accent'
+                }
+            ]
+        },
+        {
+            _key: '3',
+            title: 'Business Hours Support',
+            body: 'For general inquiries, scheduling, and account management, contact our business support team Monday through Friday.',
+            actions: [
+                {
+                    _key: '1',
+                    _type: 'actionButton',
+                    label: 'Call Support',
+                    url: 'tel:1-800-TRIUS-LLC',
+                    style: 'primary'
+                }
+            ]
+        }
+    ]
+};
+
+const formData = {
+    _type: 'section',
+    title: 'Request Your Quote',
+    subtitle: 'Secure inquiry form - No PHI information required',
+    body: 'Complete this form to receive a customized quote for your medical courier needs. We guarantee HIPAA compliance and will respond within 24 hours.'
+};
+
+const complianceData = {
+    _type: 'cardsSection',
+    title: 'Compliance & Privacy',
+    subtitle: 'Your information is secure',
+    cards: [
+        {
+            _key: '1',
+            title: 'HIPAA Compliant',
+            body: 'All communications and form submissions are handled in accordance with HIPAA privacy requirements.'
+        },
+        {
+            _key: '2',
+            title: 'Secure Communication',
+            body: 'Our inquiry forms and communications use encrypted channels to protect your information.'
+        },
+        {
+            _key: '3',
+            title: 'No PHI Required',
+            body: "Our quote process doesn't require any protected health information - just your contact details and service needs."
+        }
+    ]
+};
+
+const responseData = {
+    _type: 'cardsSection',
+    title: 'What Happens Next?',
+    subtitle: 'Our response process',
+    cards: [
+        {
+            _key: '1',
+            title: '1. Immediate Confirmation',
+            body: "You'll receive an immediate confirmation that we've received your inquiry."
+        },
+        {
+            _key: '2',
+            title: '2. Needs Assessment',
+            body: 'Our team will review your requirements and may contact you for additional details.'
+        },
+        {
+            _key: '3',
+            title: '3. Custom Quote',
+            body: "Within 24 hours, you'll receive a detailed quote tailored to your specific needs."
+        },
+        {
+            _key: '4',
+            title: '4. Service Setup',
+            body: "Once approved, we'll quickly set up your service and assign your dedicated courier team."
+        }
+    ]
+};
+
+const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [localBusiness(), webSite()]
+};
+---
+
+<Layout
+    title='Contact Us - Trius LLC Medical Courier Services'
+    description='Contact Trius LLC for medical courier services. 24/7 STAT line available. Request quotes for scheduled routes and equipment transport. HIPAA compliant communication.'
+>
+    <Fragment slot='head'>
+        <SEO
+            title='Contact Us - Trius LLC Medical Courier Services'
+            description='Contact Trius LLC for medical courier services. 24/7 STAT line available. Request quotes for scheduled routes and equipment transport. HIPAA compliant communication.'
+            graph={schema}
+        />
+    </Fragment>
+
+    <HomeHero {...heroData} />
+    <Cards {...contactMethodsData} />
+
+    <Section {...formData}>
+        <div class='max-w-2xl mx-auto'>
+            <form class='space-y-6 bg-base-100 p-8 rounded-lg shadow-lg'>
+                <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    <div class='form-control'>
+                        <label class='label' for='name'>
+                            <span class='label-text font-semibold'>Full Name *</span>
+                        </label>
+                        <input type='text' id='name' name='name' required class='input input-bordered w-full' placeholder='Your full name' />
+                    </div>
+
+                    <div class='form-control'>
+                        <label class='label' for='company'>
+                            <span class='label-text font-semibold'>Company/Organization *</span>
+                        </label>
+                        <input type='text' id='company' name='company' required class='input input-bordered w-full' placeholder='Hospital, clinic, lab, etc.' />
+                    </div>
+                </div>
+
+                <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    <div class='form-control'>
+                        <label class='label' for='email'>
+                            <span class='label-text font-semibold'>Email Address *</span>
+                        </label>
+                        <input type='email' id='email' name='email' required class='input input-bordered w-full' placeholder='your@email.com' />
+                    </div>
+
+                    <div class='form-control'>
+                        <label class='label' for='phone'>
+                            <span class='label-text font-semibold'>Phone Number *</span>
+                        </label>
+                        <input type='tel' id='phone' name='phone' required class='input input-bordered w-full' placeholder='(555) 123-4567' />
+                    </div>
+                </div>
+
+                <div class='form-control'>
+                    <label class='label' for='service'>
+                        <span class='label-text font-semibold'>Service Needed *</span>
+                    </label>
+                    <select id='service' name='service' required class='select select-bordered w-full'>
+                        <option value=''>Select service type</option>
+                        <option value='stat'>STAT Deliveries</option>
+                        <option value='scheduled'>Scheduled Routes</option>
+                        <option value='equipment'>Specialized Equipment Transport</option>
+                        <option value='multiple'>Multiple Services</option>
+                        <option value='consultation'>General Consultation</option>
+                    </select>
+                </div>
+
+                <div class='form-control'>
+                    <label class='label' for='location'>
+                        <span class='label-text font-semibold'>Primary Service Location</span>
+                    </label>
+                    <input type='text' id='location' name='location' class='input input-bordered w-full' placeholder='City, State (e.g., Seattle, WA)' />
+                </div>
+
+                <div class='form-control'>
+                    <label class='label' for='notes'>
+                        <span class='label-text font-semibold'>Additional Information</span>
+                    </label>
+                    <textarea
+                        id='notes'
+                        name='notes'
+                        rows='4'
+                        class='textarea textarea-bordered w-full'
+                        placeholder='Please describe your specific needs, frequency, special requirements, etc.'></textarea>
+                </div>
+
+                <div class='form-control'>
+                    <label class='label cursor-pointer justify-start gap-3'>
+                        <input type='checkbox' class='checkbox checkbox-primary' required />
+                        <span class='label-text'
+                            >I agree to the <a href='/privacy' class='link link-primary'>privacy policy</a> and understand that no PHI should be included in this
+                            form.</span
+                        >
+                    </label>
+                </div>
+
+                <div class='form-control'>
+                    <button type='submit' class='btn btn-primary btn-lg w-full'> Request Quote </button>
+                </div>
+            </form>
+
+            <div class='text-center mt-6'>
+                <p class='text-sm text-base-content/70'>
+                    <strong>Important:</strong> This form is for quote requests only. Do not include any protected health information (PHI) or patient data. For
+                    emergency STAT services, please call our 24/7 line directly.
+                </p>
+            </div>
+        </div>
+    </Section>
+
+    <Cards {...complianceData} />
+    <Cards {...responseData} />
+</Layout>

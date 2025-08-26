@@ -1,0 +1,135 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import HomeHero from '@components/HomeHero.astro';
+import Cards from '@components/Cards.astro';
+import TrustSection from '@components/TrustSection.astro';
+import Cta from '@components/Cta.astro';
+import { graphHome } from '../lib/schema.ts';
+
+// Temporary static data for home page (will be replaced with Sanity later)
+const heroData = {
+    _type: 'heroSection',
+    heading: 'Reliable Medical Courier Services You Can Trust',
+    body: 'Safe, accurate, and compliant medical deliveries—every shipment, every time. Serving hospitals, laboratories, clinics, and research facilities across the Pacific Northwest and California with specialized medical logistics.',
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Request Quote',
+            url: '/contact',
+            theme: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'Our Services',
+            url: '/services'
+        }
+    ]
+};
+
+const servicesData = {
+    _type: 'cardsSection',
+    heading: 'Specialized Medical Logistics Solutions',
+    body: 'From emergency STAT deliveries to specialized equipment transport, we handle every medical shipment with precision and care.',
+    items: [
+        {
+            _key: '1',
+            heading: 'STAT Deliveries',
+            body: 'Urgent transport for specimens, organs, and critical medical equipment with full chain-of-custody verification and real-time tracking.',
+            icon: 'mdi:flash',
+            iconColor: 'accent' as const,
+            features: [
+                { icon: 'mdi:shield', text: 'Chain-of-custody verification' },
+                { icon: 'mdi:radar', text: 'Real-time tracking' },
+                { icon: 'mdi:alert', text: 'Priority handling' }
+            ],
+            cta: [
+                {
+                    _key: '1',
+                    _type: 'actionLink',
+                    label: 'Learn More',
+                    url: '/services#stat'
+                }
+            ]
+        },
+        {
+            _key: '2',
+            heading: 'Scheduled Routes',
+            body: 'Reliable, recurring pickups and deliveries for clinics, labs, and research centers with ongoing logistical needs.',
+            icon: 'mdi:calendar',
+            iconColor: 'primary' as const,
+            features: [
+                { icon: 'mdi:map', text: 'Optimized routing' },
+                { icon: 'mdi:clock', text: 'Flexible scheduling' },
+                { icon: 'mdi:currency-usd', text: 'Cost-effective logistics' }
+            ],
+            cta: [
+                {
+                    _key: '1',
+                    _type: 'actionLink',
+                    label: 'Learn More',
+                    url: '/services#scheduled'
+                }
+            ]
+        },
+        {
+            _key: '3',
+            heading: 'Specialized Equipment Transport',
+            body: 'Secure transport of fragile, regulated, or temperature-sensitive medical devices by trained professionals.',
+            icon: 'material-symbols:delivery-truck-bolt-rounded',
+            iconColor: 'secondary' as const,
+            features: [
+                { icon: 'mdi:thermometer', text: 'Temperature control' },
+                { icon: 'mdi:hand', text: 'Specialized handling' },
+                { icon: 'mdi:truck', text: 'Secure vehicles' }
+            ],
+            cta: [
+                {
+                    _key: '1',
+                    _type: 'actionLink',
+                    label: 'Learn More',
+                    url: '/services#equipment'
+                }
+            ]
+        }
+    ]
+};
+
+const ctaData = {
+    _type: 'ctaSection',
+    heading: 'Ready to Partner with Trius?',
+    body: 'Join the 150+ healthcare organizations that trust Trius for their medical courier needs. Get a customized quote and experience the difference of working with true logistics professionals.',
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Request Quote',
+            url: '/contact',
+            theme: 'primary'
+        }
+    ]
+};
+
+const schema = graphHome();
+---
+
+<Layout
+    title="Medical Courier Services | Trius LLC"
+    description="HIPAA and OSHA compliant STAT deliveries, scheduled routes, and specialized equipment transport across WA, OR, ID, MT, and CA."
+>
+    <Fragment slot="head">
+        <SEO
+            title="Medical Courier Services | Trius LLC"
+            description="HIPAA and OSHA compliant STAT deliveries, scheduled routes, and specialized equipment transport across WA, OR, ID, MT, and CA."
+            graph={schema}
+        />
+    </Fragment>
+
+    <HomeHero {...heroData} />
+
+    <Cards {...servicesData} />
+    <TrustSection />
+    <Cta {...ctaData} />
+</Layout>

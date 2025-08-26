@@ -1,0 +1,180 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import HomeHero from '@components/HomeHero.astro';
+import Cards from '@components/Cards.astro';
+import Section from '@components/Section.astro';
+import Cta from '@components/Cta.astro';
+import { graphServiceStat } from '../../lib/schema.ts';
+
+const heroData = {
+    _type: 'heroSection',
+    heading: 'STAT Medical Courier Deliveries',
+    body: 'Rapid, secure transport of specimens, organs, and urgent medical equipment with documented chain of custody and real-time tracking. Available 24/7 for time-critical medical logistics.',
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Request STAT Service',
+            url: '/contact?service=stat',
+            theme: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'View All Services',
+            url: '/services'
+        }
+    ]
+};
+
+const featuresData = {
+    _type: 'cardsSection',
+    heading: 'STAT Delivery Features',
+    body: 'Our STAT delivery service is designed for the most critical medical logistics needs with specialized handling and rapid response.',
+    items: [
+        {
+            _key: '1',
+            heading: 'Emergency Response',
+            body: 'Response within 30 minutes for urgent medical specimen and equipment deliveries with priority dispatch.',
+            icon: 'mdi:clock-fast',
+            iconColor: 'accent' as const,
+            features: [
+                { icon: 'mdi:phone', text: '24/7 dispatch availability' },
+                { icon: 'mdi:timer', text: '30-minute response time' },
+                { icon: 'mdi:map-marker-path', text: 'Priority routing system' }
+            ]
+        },
+        {
+            _key: '2',
+            heading: 'Chain of Custody',
+            body: 'Complete documentation and verification at every step to ensure specimen integrity and regulatory compliance.',
+            icon: 'mdi:clipboard-check',
+            iconColor: 'primary' as const,
+            features: [
+                { icon: 'mdi:signature', text: 'Digital signature capture' },
+                { icon: 'mdi:barcode-scan', text: 'Barcode tracking system' },
+                { icon: 'mdi:certificate', text: 'Compliance documentation' }
+            ]
+        },
+        {
+            _key: '3',
+            heading: 'Real-Time Tracking',
+            body: 'GPS tracking and automated notifications keep you informed throughout the entire delivery process.',
+            icon: 'mdi:radar',
+            iconColor: 'secondary' as const,
+            features: [
+                { icon: 'mdi:gps-fixed', text: 'GPS location tracking' },
+                { icon: 'mdi:bell', text: 'Automated notifications' },
+                { icon: 'mdi:eye', text: 'Live delivery updates' }
+            ]
+        }
+    ]
+};
+
+const processData = {
+    _type: 'cardsSection',
+    heading: 'STAT Delivery Process',
+    body: 'Our streamlined process ensures rapid response and secure handling for urgent medical deliveries.',
+    items: [
+        {
+            _key: '1',
+            heading: '1. Emergency Call',
+            body: 'Call our 24/7 STAT line with your urgent delivery requirements. Our dispatch team will immediately assess and assign a courier.',
+            icon: 'mdi:phone-alert'
+        },
+        {
+            _key: '2',
+            heading: '2. Rapid Dispatch',
+            body: 'Within 30 minutes, a certified courier will arrive at the pickup location with appropriate handling equipment.',
+            icon: 'mdi:truck-fast'
+        },
+        {
+            _key: '3',
+            heading: '3. Secure Transport',
+            body: 'Temperature-controlled, secure transport with real-time tracking and chain-of-custody documentation.',
+            icon: 'mdi:shield-lock'
+        },
+        {
+            _key: '4',
+            heading: '4. Verified Delivery',
+            body: 'Digital signature confirmation and immediate notification to all parties upon successful delivery.',
+            icon: 'mdi:check-circle'
+        }
+    ]
+};
+
+const specialHandlingData = {
+    _type: 'section',
+    heading: 'Specialized Handling Capabilities',
+    body: 'Our STAT delivery service includes specialized handling for various types of medical materials and equipment.'
+};
+
+const ctaData = {
+    _type: 'ctaSection',
+    heading: 'Need Emergency STAT Delivery?',
+    body: 'Our 24/7 STAT service is ready to handle your urgent medical courier needs. Contact us now for immediate dispatch.',
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Call STAT Line',
+            url: 'tel:1-800-TRIUS-911',
+            theme: 'accent'
+        },
+        {
+            _key: '2',
+            _type: 'actionButton',
+            label: 'Request Quote',
+            url: '/contact?service=stat',
+            theme: 'primary'
+        }
+    ]
+};
+
+const schema = graphServiceStat();
+---
+
+<Layout
+    title='STAT Medical Courier Deliveries | Trius LLC'
+    description='Rapid, secure, HIPAA compliant transport for specimens, organs, and critical medical equipment with chain of custody and real time tracking. 24/7 emergency service.'
+>
+    <Fragment slot='head'>
+        <SEO
+            title='STAT Medical Courier Deliveries | Trius LLC'
+            description='Rapid, secure, HIPAA compliant transport for specimens, organs, and critical medical equipment with chain of custody and real time tracking. 24/7 emergency service.'
+            graph={schema}
+        />
+    </Fragment>
+
+    <HomeHero {...heroData} />
+    <Cards {...featuresData} />
+    <Cards {...processData} />
+
+    <Section {...specialHandlingData}>
+        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+            <div class='bg-base-200 p-6 rounded-lg text-center'>
+                <iconify-icon icon='mdi:test-tube' class='text-4xl text-accent mb-3'></iconify-icon>
+                <h4 class='font-semibold mb-2'>Medical Specimens</h4>
+                <p class='text-sm'>Blood, urine, tissue samples with temperature control</p>
+            </div>
+            <div class='bg-base-200 p-6 rounded-lg text-center'>
+                <iconify-icon icon='mdi:heart' class='text-4xl text-primary mb-3'></iconify-icon>
+                <h4 class='font-semibold mb-2'>Organs & Tissue</h4>
+                <p class='text-sm'>Time-critical organ transport with specialized handling</p>
+            </div>
+            <div class='bg-base-200 p-6 rounded-lg text-center'>
+                <iconify-icon icon='mdi:pill' class='text-4xl text-secondary mb-3'></iconify-icon>
+                <h4 class='font-semibold mb-2'>Pharmaceuticals</h4>
+                <p class='text-sm'>Controlled substances and temperature-sensitive medications</p>
+            </div>
+            <div class='bg-base-200 p-6 rounded-lg text-center'>
+                <iconify-icon icon='mdi:medical-bag' class='text-4xl text-accent mb-3'></iconify-icon>
+                <h4 class='font-semibold mb-2'>Medical Equipment</h4>
+                <p class='text-sm'>Urgent delivery of critical medical devices and supplies</p>
+            </div>
+        </div>
+    </Section>
+
+    <Cta {...ctaData} />
+</Layout>

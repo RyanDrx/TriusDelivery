@@ -1,0 +1,148 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import HomeHero from '@components/HomeHero.astro';
+import Cards from '@components/Cards.astro';
+import Section from '@components/Section.astro';
+import Cta from '@components/Cta.astro';
+import { localBusiness, webSite } from '../lib/schema.ts';
+
+const heroData = {
+    _type: 'heroSection',
+    title: 'Service Coverage Areas',
+    subtitle: 'Comprehensive Medical Courier Services Across the Pacific Northwest & California',
+    body: 'Trius LLC provides reliable medical courier services across five states with established networks, local knowledge, and rapid response capabilities.',
+    actions: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Check Availability',
+            url: '/contact',
+            style: 'primary'
+        }
+    ]
+};
+
+const statesData = {
+    _type: 'cardsSection',
+    title: 'States We Serve',
+    subtitle: 'Regional expertise with local knowledge',
+    cards: [
+        {
+            _key: '1',
+            title: 'Washington State',
+            body: 'Complete coverage from Seattle to Spokane, including major medical centers, hospitals, and laboratory facilities throughout the Puget Sound region and Eastern Washington.',
+            features: ['Seattle metro area', 'Tacoma and Olympia', 'Spokane and Eastern WA', 'Bellingham and Northwest region']
+        },
+        {
+            _key: '2',
+            title: 'Oregon',
+            body: 'Statewide service covering Portland metro, Willamette Valley, and Central/Eastern Oregon with dedicated routes to major healthcare facilities.',
+            features: ['Portland metro area', 'Salem and Corvallis', 'Bend and Central Oregon', 'Eugene and Southern Oregon']
+        },
+        {
+            _key: '3',
+            title: 'Idaho',
+            body: 'Service coverage throughout Idaho including Boise metropolitan area, Northern Idaho, and rural communities with specialized medical facilities.',
+            features: ['Boise metropolitan area', "Coeur d'Alene region", 'Twin Falls and Southern Idaho', 'Rural and remote locations']
+        },
+        {
+            _key: '4',
+            title: 'Montana',
+            body: "Coverage across Montana's major population centers and rural areas, serving hospitals, clinics, and research facilities throughout Big Sky Country.",
+            features: ['Billings and Missoula', 'Great Falls and Helena', 'Bozeman and Butte', 'Rural and frontier areas']
+        },
+        {
+            _key: '5',
+            title: 'California',
+            body: 'Northern and Central California coverage including San Francisco Bay Area, Sacramento, and Central Valley medical facilities and laboratories.',
+            features: ['San Francisco Bay Area', 'Sacramento region', 'Central Valley', 'Specialized facility access']
+        }
+    ]
+};
+
+const serviceTypesData = {
+    _type: 'cardsSection',
+    title: 'Coverage by Service Type',
+    subtitle: 'Tailored service levels for different areas',
+    cards: [
+        {
+            _key: '1',
+            title: 'Metro Areas - Full Service',
+            body: 'Complete service offerings including STAT deliveries, scheduled routes, and specialized equipment transport with same-day availability.',
+            features: ['STAT service within 30 minutes', 'Multiple daily route options', 'Specialized equipment handling', 'Evening and weekend service']
+        },
+        {
+            _key: '2',
+            title: 'Regional Centers - Standard Service',
+            body: 'Regular service to regional medical centers and facilities with next-day delivery options and scheduled route availability.',
+            features: ['Next-day STAT service', 'Weekly scheduled routes', 'Equipment transport available', 'Standard business hours']
+        },
+        {
+            _key: '3',
+            title: 'Rural Areas - Coordinated Service',
+            body: 'Specialized service for rural and remote locations with coordinated delivery schedules and emergency response capabilities.',
+            features: ['Coordinated delivery schedules', 'Emergency response available', 'Custom route planning', 'Flexible timing options']
+        }
+    ]
+};
+
+const mapData = {
+    _type: 'section',
+    title: 'Interactive Coverage Map',
+    subtitle: 'Visualize our service areas',
+    body: 'Our comprehensive coverage spans across the Pacific Northwest and Northern California, connecting major medical facilities, research centers, and healthcare networks. Contact us to verify specific location coverage and response times.'
+};
+
+const ctaData = {
+    _type: 'ctaSection',
+    title: 'Not Sure if We Cover Your Area?',
+    body: "Contact us to verify coverage for your specific location and discuss service options. We're always expanding our network to better serve healthcare facilities.",
+    actions: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Check Coverage',
+            url: '/contact',
+            style: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'View Our Services',
+            url: '/services'
+        }
+    ]
+};
+
+const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [localBusiness(), webSite()]
+};
+---
+
+<Layout
+    title='Service Coverage Areas - Trius LLC Medical Courier'
+    description='Trius LLC provides medical courier services across WA, OR, ID, MT, and CA. Check coverage areas for STAT deliveries, scheduled routes, and equipment transport.'
+>
+    <Fragment slot='head'>
+        <SEO
+            title='Service Coverage Areas - Trius LLC Medical Courier'
+            description='Trius LLC provides medical courier services across WA, OR, ID, MT, and CA. Check coverage areas for STAT deliveries, scheduled routes, and equipment transport.'
+            graph={schema}
+        />
+    </Fragment>
+
+    <HomeHero {...heroData} />
+    <Cards {...statesData} />
+    <Cards {...serviceTypesData} />
+    <Section {...mapData}>
+        <div class='bg-base-200 rounded-lg p-8 text-center'>
+            <div class='w-full h-64 bg-base-300 rounded-lg flex items-center justify-center mb-4'>
+                <p class='text-base-content/60'>Interactive map placeholder - Integration with mapping service to be implemented</p>
+            </div>
+            <p class='text-base-content/80'>Full interactive map showing service areas, response times, and facility locations coming soon.</p>
+        </div>
+    </Section>
+    <Cta {...ctaData} />
+</Layout>

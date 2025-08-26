@@ -9,10 +9,473 @@ interface Props extends Footer {
 const { text, 'data-sb-field-path': fieldPath } = Astro.props;
 ---
 
-{
-    text && (
-        <footer class="px-4 py-16 sm:px-5 sm:py-24" data-sb-field-path={fieldPath}>
-            <div class="mx-auto text-center max-w-7xl" data-sb-field-path=".text" set:html={marked.parse(text)} />
-        </footer>
-    )
-}
+<footer class='footer-wrapper bg-gradient-to-br from-slate-700 via-slate-600 to-slate-800 text-white relative overflow-hidden' data-sb-field-path={fieldPath}>
+    <!-- Background Pattern -->
+    <div class='absolute inset-0 opacity-5'>
+        <div class='footer-pattern'></div>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class='relative z-10 max-w-7xl mx-auto px-4 py-16 lg:px-6 lg:py-20'>
+        <!-- Top Section -->
+        <div class='grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12'>
+            <!-- Company Info -->
+            <div class='lg:col-span-2 space-y-6'>
+                <!-- Logo/Brand -->
+                <div class='flex items-center gap-4 mb-6'>
+                    <div class='logo-container'>
+                        <img
+                            src='/logos/Trius_Logo.svg'
+                            alt='Trius LLC - Medical Courier Services'
+                            class='w-8 h-8 filter brightness-0 invert object-contain'
+                            style='width: 32px !important; height: 32px !important; max-width: 32px !important; max-height: 32px !important;'
+                        />
+                    </div>
+                    <div>
+                        <h3 class='text-2xl font-bold text-white'>Trius LLC</h3>
+                        <p class='text-sm text-white/70 font-medium'>Medical Logistics Experts</p>
+                    </div>
+                </div>
+
+                <p class='text-white/80 leading-relaxed max-w-md'>
+                    Professional medical courier services specializing in HIPAA/OSHA compliant delivery across the Pacific Northwest and California. Trusted by
+                    150+ healthcare organizations.
+                </p>
+
+                <!-- Trust Badges -->
+                <div class='flex flex-wrap gap-3 mt-6'>
+                    <div class='trust-badge'>
+                        <iconify-icon icon='material-symbols:shield-person' width='20' height='20'></iconify-icon>
+                        <span>HIPAA Compliant</span>
+                    </div>
+                    <div class='trust-badge'>
+                        <iconify-icon icon='material-symbols:construction' width='20' height='20'></iconify-icon>
+                        <span>OSHA Certified</span>
+                    </div>
+                    <div class='trust-badge'>
+                        <iconify-icon icon='material-symbols:security' width='20' height='20'></iconify-icon>
+                        <span>Insured & Bonded</span>
+                    </div>
+                    <div class='trust-badge american-business'>
+                        <iconify-icon icon='twemoji:flag-for-flag-united-states' width='20' height='20'></iconify-icon>
+                        <span>US Based</span>
+                    </div>
+                    <div class='trust-badge small-business'>
+                        <iconify-icon icon='material-symbols:apartment' width='20' height='20'></iconify-icon>
+                        <span>Small Business</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class='space-y-6'>
+                <h4 class='text-xl font-semibold text-white border-l-4 border-primary pl-4'>Quick Links</h4>
+                <nav class='space-y-3'>
+                    <a href='/services' class='footer-link group'>
+                        <iconify-icon icon='material-symbols:medical-services' width='16' height='16' class='group-hover:text-primary transition-colors'
+                        ></iconify-icon>
+                        Our Services
+                    </a>
+                    <a href='/about' class='footer-link group'>
+                        <iconify-icon icon='material-symbols:groups' width='16' height='16' class='group-hover:text-primary transition-colors'></iconify-icon>
+                        About Us
+                    </a>
+                    <a href='/coverage' class='footer-link group'>
+                        <iconify-icon icon='material-symbols:location-on' width='16' height='16' class='group-hover:text-primary transition-colors'
+                        ></iconify-icon>
+                        Coverage Areas
+                    </a>
+                    <a href='/contact' class='footer-link group'>
+                        <iconify-icon icon='material-symbols:contact-mail' width='16' height='16' class='group-hover:text-primary transition-colors'
+                        ></iconify-icon>
+                        Contact
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Contact Information -->
+            <div class='space-y-6'>
+                <h4 class='text-xl font-semibold text-white border-l-4 border-secondary pl-4'>Contact Info</h4>
+                <div class='space-y-4'>
+                    <!-- Emergency STAT Line -->
+                    <div class='contact-item emergency-contact'>
+                        <div class='contact-icon bg-accent'>
+                            <iconify-icon icon='material-symbols:emergency' width='20' height='20' class='animate-pulse' style='color: white;'></iconify-icon>
+                        </div>
+                        <div>
+                            <p class='text-accent font-semibold'>24/7 STAT Emergency</p>
+                            <a href='tel:1-800-TRIUS-911' class='text-white hover:text-accent-light transition-colors font-medium'> 1-800-TRIUS-911 </a>
+                        </div>
+                    </div>
+
+                    <!-- Business Line -->
+                    <div class='contact-item'>
+                        <div class='contact-icon bg-primary'>
+                            <iconify-icon icon='material-symbols:call' width='20' height='20' style='color: white;'></iconify-icon>
+                        </div>
+                        <div>
+                            <p class='text-white/70'>Business Hours</p>
+                            <a href='tel:1-800-TRIUS-LLC' class='text-white hover:text-primary-light transition-colors font-medium'> 1-800-TRIUS-LLC </a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class='contact-item'>
+                        <div class='contact-icon bg-secondary'>
+                            <iconify-icon icon='material-symbols:mail' width='20' height='20' style='color: white;'></iconify-icon>
+                        </div>
+                        <div>
+                            <p class='text-white/70'>Email</p>
+                            <a href='mailto:info@triusllc.com' class='text-white hover:text-secondary-light transition-colors font-medium'>
+                                info@triusllc.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Areas -->
+        <div class='border-t border-white/20 pt-12 mb-12'>
+            <div class='text-center mb-10'>
+                <h4
+                    class='text-2xl lg:text-3xl font-black text-white mb-3 bg-gradient-to-r from-white via-primary-light to-white bg-clip-text text-transparent'
+                >
+                    Service Coverage Areas
+                </h4>
+                <p class='text-white/60 text-sm font-medium'>Comprehensive medical logistics across the Pacific Northwest & California</p>
+            </div>
+
+            <!-- Combined State + City Badges -->
+            <div class='flex flex-wrap justify-center gap-4'>
+                <!-- Washington -->
+                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
+                    <div class='flex h-full'>
+                        <!-- Icon Section (1/3) -->
+                        <div class='w-1/3 flex items-center justify-center'>
+                            <img
+                                src='/states/WA.svg'
+                                alt='Washington State'
+                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
+                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                            />
+                        </div>
+                        <!-- Content Section (2/3) -->
+                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
+                            <h5 class='font-bold text-white text-sm mb-1'>Washington</h5>
+                            <p class='text-white/90 text-xs leading-tight'>Seattle, Tacoma, Spokane, Bellevue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oregon -->
+                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
+                    <div class='flex h-full'>
+                        <!-- Icon Section (1/3) -->
+                        <div class='w-1/3 flex items-center justify-center'>
+                            <img
+                                src='/states/OR.svg'
+                                alt='Oregon State'
+                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
+                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                            />
+                        </div>
+                        <!-- Content Section (2/3) -->
+                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
+                            <h5 class='font-bold text-white text-sm mb-1'>Oregon</h5>
+                            <p class='text-white/90 text-xs leading-tight'>Portland, Eugene, Salem, Gresham</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Idaho -->
+                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
+                    <div class='flex h-full'>
+                        <!-- Icon Section (1/3) -->
+                        <div class='w-1/3 flex items-center justify-center'>
+                            <img
+                                src='/states/ID.svg'
+                                alt='Idaho State'
+                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
+                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                            />
+                        </div>
+                        <!-- Content Section (2/3) -->
+                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
+                            <h5 class='font-bold text-white text-sm mb-1'>Idaho</h5>
+                            <p class='text-white/90 text-xs leading-tight'>Boise, Nampa, Meridian, Idaho Falls</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Montana -->
+                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
+                    <div class='flex h-full'>
+                        <!-- Icon Section (1/3) -->
+                        <div class='w-1/3 flex items-center justify-center'>
+                            <img
+                                src='/states/MT.svg'
+                                alt='Montana State'
+                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
+                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                            />
+                        </div>
+                        <!-- Content Section (2/3) -->
+                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
+                            <h5 class='font-bold text-white text-sm mb-1'>Montana</h5>
+                            <p class='text-white/90 text-xs leading-tight'>Billings, Missoula, Great Falls, Bozeman</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- California -->
+                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
+                    <div class='flex h-full'>
+                        <!-- Icon Section (1/3) -->
+                        <div class='w-1/3 flex items-center justify-center'>
+                            <img
+                                src='/states/CA.svg'
+                                alt='California State'
+                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
+                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                            />
+                        </div>
+                        <!-- Content Section (2/3) -->
+                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
+                            <h5 class='font-bold text-white text-sm mb-1'>California</h5>
+                            <p class='text-white/90 text-xs leading-tight'>San Francisco, San Jose, Sacramento, Oakland</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class='border-t border-white/20 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6'>
+            <div class='text-sm text-white/60 text-center lg:text-left'>
+                © {new Date().getFullYear()} Trius LLC. All rights reserved. |
+                <a href='/privacy' class='hover:text-white transition-colors'>Privacy Policy</a> |
+                <a href='/terms' class='hover:text-white transition-colors'>Terms of Service</a>
+            </div>
+
+            <div class='flex items-center gap-4'>
+                <span class='text-sm text-white/60'>Professional Medical Logistics Since 2025</span>
+                <div class='w-2 h-2 bg-secondary rounded-full animate-pulse'></div>
+            </div>
+        </div>
+
+        <!-- Custom text from CMS if available -->
+        {text && <div class='mt-8 text-center text-white/80 prose prose-invert max-w-none' data-sb-field-path='.text' set:html={marked.parse(text)} />}
+    </div>
+
+    <!-- RNDTND Credit -->
+    <div class='border-t border-slate-500/50 bg-slate-800'>
+        <div class='max-w-7xl mx-auto px-4 py-4'>
+            <div class='flex flex-col items-center justify-center'>
+                <a
+                    href='https://rndtnd.com'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    class='group flex flex-col items-center space-y-1 text-white/60 hover:text-white transition-all duration-500 hover:scale-105'
+                >
+                    <div class='relative -mb-1'>
+                        <!-- RNDTND Rocket Logo with animated effects -->
+                        <img
+                            src='https://rndtnd.com/images/logos/logo_rocket.svg'
+                            alt='RNDTND Rocket'
+                            class='h-12 w-12 text-white/60 group-hover:animate-rocket-hover relative z-10'
+                        />
+                    </div>
+                    <div class='flex items-center space-x-2'>
+                        <span class='text-xs font-medium tracking-wide'>
+                            <span class='text-white/50 group-hover:text-white/80 transition-colors duration-300'> Crafted with purpose by </span>
+                            <span class='text-white/70 group-hover:text-white font-semibold ml-1 transition-colors duration-300'> RND_TND </span>
+                        </span>
+                        <svg
+                            class='h-3 w-3 -ml-6 text-white/40 group-hover:text-white transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1'
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            stroke='currentColor'
+                        >
+                            <path
+                                stroke-linecap='round'
+                                stroke-linejoin='round'
+                                stroke-width='2'
+                                d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* Footer Background Pattern */
+    .footer-pattern {
+        background-image:
+            radial-gradient(circle at 25% 25%, rgba(26, 78, 138, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(47, 133, 90, 0.2) 0%, transparent 50%),
+            linear-gradient(135deg, transparent 0%, rgba(197, 48, 48, 0.05) 50%, transparent 100%);
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Trust Badges */
+    .trust-badge {
+        @apply inline-flex items-center gap-2 px-3 py-2 bg-white/10 rounded-lg text-sm font-medium text-white/90 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300;
+    }
+
+    .trust-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(26, 78, 138, 0.3);
+    }
+
+    /* Footer Links */
+    .footer-link {
+        @apply flex items-center gap-3 text-white/80 hover:text-white transition-all duration-300 py-2;
+    }
+
+    .footer-link:hover {
+        transform: translateX(8px);
+    }
+
+    /* Contact Items */
+    .contact-item {
+        @apply flex items-start gap-3;
+    }
+
+    .contact-icon {
+        @apply w-10 h-10 rounded-lg flex items-center justify-center text-white shadow-lg;
+    }
+
+    .emergency-contact {
+        @apply p-3 bg-accent/20 rounded-lg border border-accent/30;
+    }
+
+    .emergency-contact .contact-icon {
+        @apply bg-accent shadow-accent/30;
+    }
+
+    /* Service Areas */
+    .service-area {
+        @apply p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-all duration-300;
+    }
+
+    .service-area:hover {
+        transform: translateY(-2px);
+        border-color: rgba(26, 78, 138, 0.3);
+    }
+
+    /* Enhanced Service Areas */
+    .service-area-enhanced {
+        @apply p-6 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-500 text-center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-area-enhanced:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(26, 78, 138, 0.3);
+    }
+
+    .service-icon-container {
+        @apply w-20 h-20 mx-auto mb-4 rounded-2xl border-2 flex items-center justify-center transition-all duration-300;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-area-enhanced:hover .service-icon-container {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        transform: rotate(-2deg);
+    }
+
+    /* Combined State + City Badges */
+    .state-city-badge {
+        @apply p-4 rounded-2xl backdrop-blur-sm border border-white/30 hover:scale-105 transition-all duration-300 cursor-pointer min-w-[200px] max-w-[240px] h-20;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .state-city-badge:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-4px) scale(1.02);
+    }
+
+    /* Animations */
+    @keyframes footerGlow {
+        0%,
+        100% {
+            box-shadow: 0 0 20px rgba(26, 78, 138, 0.2);
+        }
+        50% {
+            box-shadow: 0 0 30px rgba(47, 133, 90, 0.3);
+        }
+    }
+
+    .footer-wrapper .logo-icon {
+        animation: footerGlow 4s ease-in-out infinite;
+    }
+
+    /* Footer Logo Styles */
+    .logo-container {
+        transition: all 0.3s ease;
+    }
+
+    .logo-container img {
+        transition: all 0.3s ease;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .logo-container:hover img {
+        transform: scale(1.05);
+        filter: brightness(0) invert() drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
+
+    /* RNDTND Rocket Animation */
+    @keyframes rocket-hover {
+        0% {
+            transform: scale(1) scaleX(1) scaleY(-1) rotate(90deg);
+            filter: hue-rotate(0deg) brightness(1) saturate(1);
+        }
+        20% {
+            transform: scale(1) scaleX(1) scaleY(-1.02) rotate(90deg);
+            filter: hue-rotate(72deg) brightness(1.04) saturate(1.08);
+        }
+        40% {
+            transform: scale(1) scaleX(1) scaleY(-1) rotate(90deg);
+            filter: hue-rotate(144deg) brightness(1.08) saturate(1.16);
+        }
+        60% {
+            transform: scale(1) scaleX(1) scaleY(-1.05) rotate(90deg);
+            filter: hue-rotate(216deg) brightness(1.12) saturate(1.24);
+        }
+        80% {
+            transform: scale(1) scaleX(1) scaleY(-1) rotate(90deg);
+            filter: hue-rotate(288deg) brightness(1.06) saturate(1.12);
+        }
+        100% {
+            transform: scale(1) scaleX(1) scaleY(-1.08) rotate(90deg);
+            filter: hue-rotate(360deg) brightness(1) saturate(1);
+        }
+    }
+
+    /* Apply the animation */
+    .group:hover .group-hover\:animate-rocket-hover {
+        animation: rocket-hover 0.8s ease infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .footer-link {
+            @apply py-3;
+        }
+
+        .contact-item {
+            @apply pb-4;
+        }
+    }
+</style>

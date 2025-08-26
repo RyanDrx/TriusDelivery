@@ -5,6 +5,9 @@ import Header from '@components/Header.astro';
 import { fetchData } from '@data/siteConfig';
 
 import '../styles/globals.css';
+import '@fontsource/orbitron/400.css';
+import '@fontsource/orbitron/700.css';
+import '@fontsource/orbitron/900.css';
 
 interface Props {
     title: string;
@@ -20,6 +23,45 @@ const titleSuffix = configData.titleSuffix && addTitleSuffix !== false ? configD
 const title = [Astro.props.title, titleSuffix].filter(Boolean).join(' | ');
 const resolvedImage = image?.src ? { src: new URL(image.src, Astro.site).toString() } : undefined;
 const canonicalURL = new URL(Astro.request.url, Astro.site);
+
+// Fallback header and footer data when Sanity isn't configured
+const fallbackHeader = {
+    title: 'TRIUS',
+    logo: null,
+    navLinks: [
+        {
+            _key: '1',
+            _type: 'actionLink',
+            label: 'Services',
+            url: '/services'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'About',
+            url: '/about'
+        },
+        {
+            _key: '3',
+            _type: 'actionLink',
+            label: 'Coverage',
+            url: '/coverage'
+        },
+        {
+            _key: '4',
+            _type: 'actionButton',
+            label: 'Contact',
+            url: '/contact'
+        }
+    ]
+};
+
+const fallbackFooter = {
+    body: '© 2025 Trius LLC. All rights reserved.'
+};
+
+const headerData = configData?.header || fallbackHeader;
+const footerData = configData?.footer || fallbackFooter;
 
 /**
  * Enforce some standard canonical URL formatting across the site.
@@ -37,44 +79,53 @@ function formatCanonicalURL(url: string | URL) {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang='en' data-theme='trius'>
     <head>
         <!-- High Priority Global Metadata -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta charset='utf-8' />
+        <meta name='viewport' content='width=device-width,initial-scale=1' />
         <title>{title}</title>
-        <meta name="generator" content={Astro.generator} />
+        <meta name='generator' content={Astro.generator} />
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+        <link
+            href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap'
+            rel='stylesheet'
+        />
 
         <!-- Low Priority Global Metadata -->
-        {configData.favicon?.src && <link rel="icon" type="image/svg+xml" href={configData.favicon.src} />}
-        <link rel="sitemap" href="/sitemap-index.xml" />
+        {configData.favicon?.src && <link rel='icon' type='image/svg+xml' href={configData.favicon.src} />}
+        <link rel='sitemap' href='/sitemap-index.xml' />
 
         <!-- Page Metadata -->
-        <link rel="canonical" href={formatCanonicalURL(canonicalURL)} />
-        <meta name="description" content={description} />
+        <link rel='canonical' href={formatCanonicalURL(canonicalURL)} />
+        <meta name='description' content={description} />
 
         <!-- Open Graph / Facebook -->
-        <meta property="og:url" content={formatCanonicalURL(canonicalURL)} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        {resolvedImage?.src && <meta property="og:image" content={resolvedImage.src} />}
+        <meta property='og:url' content={formatCanonicalURL(canonicalURL)} />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content={description} />
+        {resolvedImage?.src && <meta property='og:image' content={resolvedImage.src} />}
 
         <!-- X/Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={formatCanonicalURL(canonicalURL)} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        {resolvedImage?.src && <meta property="twitter:image" content={resolvedImage.src} />}
+        <meta property='twitter:card' content='summary_large_image' />
+        <meta property='twitter:url' content={formatCanonicalURL(canonicalURL)} />
+        <meta property='twitter:title' content={title} />
+        <meta property='twitter:description' content={description} />
+        {resolvedImage?.src && <meta property='twitter:image' content={resolvedImage.src} />}
+
+        <!-- Additional head content from pages -->
+        <slot name='head' />
     </head>
-    <body class="antialiased">
-        <Header {...configData.header} data-sb-field-path={`${configData._id}:header`} />
+    <body class='antialiased'>
+        <!-- Iconify Icons - Latest Version -->
+        <script src='https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js'></script>
+
+        <Header {...headerData} data-sb-field-path={`${configData?._id}:header`} />
         <slot />
-        <Footer {...configData.footer} data-sb-field-path={`${configData._id}:footer`} />
+        <Footer {...footerData} data-sb-field-path={`${configData?._id}:footer`} />
         <script is:inline>
             window.addEventListener('stackbitObjectsChanged', () => {
                 window.location.reload();

@@ -1,0 +1,162 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import HomeHero from '@components/HomeHero.astro';
+import Cards from '@components/Cards.astro';
+import Cta from '@components/Cta.astro';
+import { localBusiness, webSite, serviceStat, serviceRoutes, serviceEquipment } from '../lib/schema.ts';
+
+const heroData = {
+    _type: 'heroSection',
+    title: 'Professional Medical Courier Services',
+    subtitle: 'HIPAA/OSHA Compliant • Specialized Equipment • Real-Time Tracking',
+    body: 'Comprehensive medical logistics solutions designed for healthcare facilities, laboratories, and medical equipment providers across the Pacific Northwest and California.',
+    actions: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Get Quote',
+            url: '/contact',
+            style: 'primary'
+        }
+    ]
+};
+
+const servicesData = {
+    _type: 'cardsSection',
+    title: 'Our Service Offerings',
+    subtitle: 'Tailored solutions for every medical logistics need',
+    cards: [
+        {
+            _key: '1',
+            title: 'STAT Deliveries',
+            body: 'Emergency medical courier services with priority handling, real-time tracking, and guaranteed chain-of-custody documentation. Available 24/7 for time-critical medical specimens and equipment.',
+            features: [
+                'Emergency response within 30 minutes',
+                'Real-time GPS tracking',
+                'Chain-of-custody documentation',
+                'Temperature-controlled transport',
+                'Direct delivery confirmation'
+            ],
+            actions: [
+                {
+                    _key: '1',
+                    _type: 'actionButton',
+                    label: 'Request STAT Service',
+                    url: '/contact',
+                    style: 'accent'
+                }
+            ]
+        },
+        {
+            _key: '2',
+            title: 'Scheduled Routes',
+            body: 'Regular, reliable delivery routes optimized for healthcare facilities. Recurring pickups and deliveries with consistent timing and dedicated courier assignments.',
+            features: [
+                'Daily, weekly, or monthly schedules',
+                'Dedicated courier assignments',
+                'Route optimization for efficiency',
+                'Flexible scheduling options',
+                'Cost-effective bulk transport'
+            ],
+            actions: [
+                {
+                    _key: '1',
+                    _type: 'actionButton',
+                    label: 'Schedule Route',
+                    url: '/contact',
+                    style: 'secondary'
+                }
+            ]
+        },
+        {
+            _key: '3',
+            title: 'Specialized Equipment Transport',
+            body: 'Secure handling and transport of fragile medical equipment, sensitive specimens, and regulated materials with specialized packaging and handling procedures.',
+            features: [
+                'Temperature-sensitive transport',
+                'Fragile equipment handling',
+                'Hazmat certified drivers',
+                'Custom packaging solutions',
+                'Insurance coverage included'
+            ],
+            actions: [
+                {
+                    _key: '1',
+                    _type: 'actionButton',
+                    label: 'Equipment Transport',
+                    url: '/contact',
+                    style: 'primary'
+                }
+            ]
+        }
+    ]
+};
+
+const complianceData = {
+    _type: 'cardsSection',
+    title: 'Compliance & Safety Standards',
+    subtitle: 'Your trust is our priority',
+    cards: [
+        {
+            _key: '1',
+            title: 'HIPAA Compliance',
+            body: 'Full HIPAA compliance with secure handling of all protected health information and medical specimens.'
+        },
+        {
+            _key: '2',
+            title: 'OSHA Certified',
+            body: 'All drivers are OSHA certified for safe handling of medical materials and hazardous substances.'
+        },
+        {
+            _key: '3',
+            title: 'Insured & Bonded',
+            body: 'Comprehensive insurance coverage and bonding for complete protection of your valuable shipments.'
+        }
+    ]
+};
+
+const ctaData = {
+    _type: 'ctaSection',
+    title: 'Ready to Improve Your Medical Logistics?',
+    body: 'Contact us today to discuss your specific needs and get a customized quote for our medical courier services.',
+    actions: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Request Quote',
+            url: '/contact',
+            style: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'View Coverage Areas',
+            url: '/coverage'
+        }
+    ]
+};
+
+const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [localBusiness(), webSite(), serviceStat(), serviceRoutes(), serviceEquipment()]
+};
+---
+
+<Layout
+    title='Medical Courier Services - Trius LLC'
+    description='Professional medical courier services including STAT deliveries, scheduled routes, and specialized equipment transport. HIPAA/OSHA compliant across WA, OR, ID, MT, and CA.'
+>
+    <Fragment slot='head'>
+        <SEO
+            title='Medical Courier Services - Trius LLC'
+            description='Professional medical courier services including STAT deliveries, scheduled routes, and specialized equipment transport. HIPAA/OSHA compliant across WA, OR, ID, MT, and CA.'
+            graph={schema}
+        />
+    </Fragment>
+
+    <HomeHero {...heroData} />
+    <Cards {...servicesData} />
+    <Cards {...complianceData} />
+    <Cta {...ctaData} />
+</Layout>

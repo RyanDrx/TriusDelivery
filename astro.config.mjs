@@ -1,16 +1,24 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
 import sanity from '@sanity/astro';
+import sitemap from '@astrojs/sitemap';
 import { sanityConfig } from './src/utils/sanity-client';
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://trius.delivery',
     image: {
         domains: ['cdn.sanity.io']
     },
-    integrations: [sanity(sanityConfig)],
+    integrations: [
+        tailwind({
+            applyBaseStyles: false
+        }),
+        sitemap(),
+        // Only add Sanity integration if projectId is properly configured
+        sanityConfig.projectId !== 'placeholder-project-id' ? sanity(sanityConfig) : null
+    ].filter(Boolean),
     vite: {
-        plugins: [tailwindcss()],
         server: {
             hmr: { path: '/vite-hmr/' },
             allowedHosts: ['.netlify.app']

@@ -1,0 +1,211 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import HomeHero from '@components/HomeHero.astro';
+import Cards from '@components/Cards.astro';
+import Section from '@components/Section.astro';
+import Cta from '@components/Cta.astro';
+import { graphServiceRoutes } from '../../lib/schema.ts';
+
+const heroData = {
+    _type: 'heroSection',
+    heading: 'Scheduled Medical Courier Routes',
+    body: 'Recurring pickups and deliveries for clinics, labs, and research centers. Route optimization improves reliability and reduces transit time for your regular medical logistics needs.',
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Schedule Routes',
+            url: '/contact?service=routes',
+            theme: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'View All Services',
+            url: '/services'
+        }
+    ]
+};
+
+const benefitsData = {
+    _type: 'cardsSection',
+    heading: 'Scheduled Route Benefits',
+    body: 'Our scheduled route service provides predictable, cost-effective logistics for healthcare facilities with regular courier needs.',
+    items: [
+        {
+            _key: '1',
+            heading: 'Cost Efficiency',
+            body: 'Optimize your logistics budget with scheduled routes that reduce per-delivery costs through bulk transport and route efficiency.',
+            icon: 'mdi:currency-usd',
+            iconColor: 'primary' as const,
+            features: [
+                { icon: 'mdi:chart-line', text: 'Volume discounts available' },
+                { icon: 'mdi:calculator', text: 'Predictable monthly costs' },
+                { icon: 'mdi:map', text: 'Route optimization savings' }
+            ]
+        },
+        {
+            _key: '2',
+            heading: 'Reliability',
+            body: 'Consistent pickup and delivery times with dedicated courier assignments ensure your operations run smoothly.',
+            icon: 'mdi:clock-check',
+            iconColor: 'accent' as const,
+            features: [
+                { icon: 'mdi:account-tie', text: 'Dedicated courier teams' },
+                { icon: 'mdi:calendar-check', text: 'Guaranteed time windows' },
+                { icon: 'mdi:backup-restore', text: 'Backup coverage available' }
+            ]
+        },
+        {
+            _key: '3',
+            heading: 'Flexibility',
+            body: 'Adapt your routes as your needs change with flexible scheduling options and route modifications.',
+            icon: 'mdi:calendar-edit',
+            iconColor: 'secondary' as const,
+            features: [
+                { icon: 'mdi:clock-time-four', text: 'Multiple frequency options' },
+                { icon: 'mdi:route', text: 'Easy route modifications' },
+                { icon: 'mdi:calendar-plus', text: 'Holiday schedule adjustments' }
+            ]
+        }
+    ]
+};
+
+const routeTypesData = {
+    _type: 'cardsSection',
+    heading: 'Route Scheduling Options',
+    body: 'Choose from various scheduling options designed to meet different facility needs and logistics requirements.',
+    items: [
+        {
+            _key: '1',
+            heading: 'Daily Routes',
+            body: 'Monday through Friday daily pickups and deliveries for high-volume facilities requiring frequent service.',
+            icon: 'mdi:calendar-today',
+            iconColor: 'primary' as const,
+            features: [
+                { icon: 'mdi:clock-time-eight', text: 'Morning and afternoon options' },
+                { icon: 'mdi:clock-fast', text: 'Same-day turnaround available' },
+                { icon: 'mdi:priority-high', text: 'Priority handling for urgent items' }
+            ]
+        },
+        {
+            _key: '2',
+            heading: 'Weekly Routes',
+            body: 'One to three times per week service ideal for medium-volume facilities with predictable logistics needs.',
+            icon: 'mdi:calendar-week',
+            iconColor: 'secondary' as const,
+            features: [
+                { icon: 'mdi:calendar-check', text: 'Flexible day selection' },
+                { icon: 'mdi:repeat', text: 'Consistent weekly schedule' },
+                { icon: 'mdi:currency-usd', text: 'Cost-effective for medium volume' }
+            ]
+        },
+        {
+            _key: '3',
+            heading: 'Bi-Weekly Routes',
+            body: 'Every other week service for lower-volume facilities or specialized research materials with longer processing times.',
+            icon: 'mdi:calendar-month',
+            iconColor: 'accent' as const,
+            features: [
+                { icon: 'mdi:microscope', text: 'Perfect for research facilities' },
+                { icon: 'mdi:chart-line-variant', text: 'Lower volume optimization' },
+                { icon: 'mdi:clock-outline', text: 'Extended processing accommodation' }
+            ]
+        },
+        {
+            _key: '4',
+            heading: 'Custom Routes',
+            body: 'Tailored routing solutions for unique requirements, multi-location facilities, or specialized logistics needs.',
+            icon: 'mdi:cog',
+            iconColor: 'neutral' as const,
+            features: [
+                { icon: 'mdi:map-marker-multiple', text: 'Multi-stop optimization' },
+                { icon: 'mdi:puzzle', text: 'Specialized handling integration' },
+                { icon: 'mdi:clock-edit', text: 'Custom timing requirements' }
+            ]
+        }
+    ]
+};
+
+const setupProcessData = {
+    _type: 'section',
+    heading: 'Route Setup Process',
+    body: 'Getting started with scheduled routes is simple. Our logistics team works with you to design the optimal route for your needs.'
+};
+
+const ctaData = {
+    _type: 'ctaSection',
+    heading: 'Ready to Optimize Your Medical Logistics?',
+    body: 'Let us design a scheduled route solution that reduces costs and improves reliability for your medical courier needs.',
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Get Route Estimate',
+            url: '/contact?service=routes',
+            theme: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'View Coverage Areas',
+            url: '/coverage'
+        }
+    ]
+};
+
+const schema = graphServiceRoutes();
+---
+
+<Layout
+    title='Scheduled Medical Courier Routes | Trius LLC'
+    description='Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing.'
+>
+    <Fragment slot='head'>
+        <SEO
+            title='Scheduled Medical Courier Routes | Trius LLC'
+            description='Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing.'
+            graph={schema}
+        />
+    </Fragment>
+
+    <HomeHero {...heroData} />
+    <Cards {...benefitsData} />
+    <Cards {...routeTypesData} />
+
+    <Section {...setupProcessData}>
+        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+            <div class='bg-base-200 p-6 rounded-lg'>
+                <div class='text-center mb-4'>
+                    <div class='w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto'>1</div>
+                </div>
+                <h4 class='font-semibold text-center mb-2'>Needs Assessment</h4>
+                <p class='text-sm text-center'>We analyze your volume, timing, and special requirements to design the optimal route.</p>
+            </div>
+            <div class='bg-base-200 p-6 rounded-lg'>
+                <div class='text-center mb-4'>
+                    <div class='w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto'>2</div>
+                </div>
+                <h4 class='font-semibold text-center mb-2'>Route Design</h4>
+                <p class='text-sm text-center'>Our logistics team creates an optimized route plan with timing and pricing details.</p>
+            </div>
+            <div class='bg-base-200 p-6 rounded-lg'>
+                <div class='text-center mb-4'>
+                    <div class='w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto'>3</div>
+                </div>
+                <h4 class='font-semibold text-center mb-2'>Team Assignment</h4>
+                <p class='text-sm text-center'>Dedicated courier team assignment ensures consistency and familiarity with your needs.</p>
+            </div>
+            <div class='bg-base-200 p-6 rounded-lg'>
+                <div class='text-center mb-4'>
+                    <div class='w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto'>4</div>
+                </div>
+                <h4 class='font-semibold text-center mb-2'>Service Launch</h4>
+                <p class='text-sm text-center'>Route implementation with ongoing monitoring and optimization as your needs evolve.</p>
+            </div>
+        </div>
+    </Section>
+
+    <Cta {...ctaData} />
+</Layout>

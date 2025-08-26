@@ -1,11 +1,23 @@
 {
     "editor.tabSize": 4,
     "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
     },
+    "prettier.requireConfig": true,
+    "prettier.useEditorConfig": false,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[astro]": {
+        "editor.defaultFormatter": "astro-build.astro-vscode",
         "editor.formatOnSave": true
     },
     "[yaml]": {

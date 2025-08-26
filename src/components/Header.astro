@@ -10,128 +10,581 @@ interface Props extends Header {
 const { title, logo, navLinks, 'data-sb-field-path': fieldPath } = Astro.props;
 ---
 
-<nav class="p-4 sm:p-5" data-sb-field-path={fieldPath}>
-    <div class="flex items-center justify-between w-full gap-6 mx-auto max-w-7xl">
-        {
-            logo.src ? (
-                <a class="flex items-center" href="/">
-                    <ResponsiveImage _id={logo._id} src={logo.src} width={logo.dimensions?.width} height={logo.dimensions?.height} alt={logo.alt} />
-                </a>
-            ) : (
-                <a class="text-xl font-bold sm:text-2xl" href="/" data-sb-field-path=".title">
-                    {title}
-                </a>
-            )
-        }
-        {
-            navLinks && navLinks.length > 0 && (
-                <>
-                    <ul class="hidden lg:flex lg:flex-wrap lg:items-center lg:gap-6" data-sb-field-path=".navLinks">
-                        {navLinks.map((item, index) => (
-                            <li>
-                                <Action
-                                    action={item}
-                                    class:list={[item._type === 'actionLink' ? 'no-underline hover:underline' : 'px-4 py-3 h-auto min-h-0']}
-                                    data-sb-field-path={`.${index}`}
+<header class="header-wrapper sticky top-0 z-50 transition-all duration-300" data-sb-field-path={fieldPath}>
+    <!-- Trust badges bar -->
+    <div class="trust-bar bg-gradient-to-r from-secondary/10 to-primary/10 border-b border-primary/20">
+        <div class="max-w-7xl mx-auto px-4 py-2">
+            <div class="flex items-center justify-center gap-6 text-xs font-medium text-primary/80">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+                    <span>HIPAA Compliant</span>
+                </div>
+                <div class="hidden sm:flex items-center gap-2">
+                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                    <span>OSHA Certified</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                    <span>24/7 STAT Available</span>
+                </div>
+                <div class="hidden md:flex items-center gap-2">
+                    <div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+                    <span>5-State Coverage</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main navigation -->
+    <nav class="main-nav bg-white/95 backdrop-blur-md border-b border-base-200/50 shadow-lg relative overflow-visible">
+        <div class="max-w-7xl mx-auto px-4 lg:px-6">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo/Brand -->
+                <div class="flex items-center gap-3">
+                    {
+                        logo?.src ? (
+                            <a class="flex items-center group" href="/">
+                                <ResponsiveImage 
+                                    _id={logo._id} 
+                                    src={logo.src} 
+                                    width={logo.dimensions?.width} 
+                                    height={logo.dimensions?.height} 
+                                    alt={logo.alt} 
+                                    class=" transform rotate-[-5deg] transition-transform duration-300 group-hover:scale-105"
                                 />
-                            </li>
-                        ))}
-                    </ul>
-                    <div class="relative lg:hidden">
-                        <button
-                            class="inline-flex justify-center items-center w-10 h-10 relative z-2 nav-toggle"
-                            aria-label="Open Menu"
-                            aria-expanded="false"
-                            aria-controls="nav-panel"
-                        >
-                            <span class="nav-toggle-icon" />
-                        </button>
-                        <div id="nav-panel" class="nav-panel absolute rounded-box -top-2 -right-2 z-1 shadow-xl bg-base-100 border border-base-200/70">
-                            <ul class="flex flex-col px-4 pb-6 pt-14" data-sb-field-path=".navLinks">
+                            </a>
+                        ) : (
+                            <a class="brand-logo group" href="/" data-sb-field-path=".title">
+                                <div class="flex items-center gap-3">
+                                    <!-- Trius Logo with Background - Refined Size -->
+                                    <div class="logo-icon w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 p-2.5 relative z-10">
+                                        <img 
+                                            src="/logos/Trius_Logo.svg" 
+                                            alt="Trius LLC - Medical Courier Services" 
+                                            class="w-full h-full object-contain filter brightness-0 invert transition-all duration-300"
+                                        />
+                                    </div>
+                                    <!-- Brand text -->
+                                    <div class="brand-text">
+                                        <h1 class="text-2xl lg:text-3xl font-black font-brand text-primary tracking-wider">
+                                            {title || "TRIUS"}
+                                        </h1>
+                                        <p class="text-xs text-neutral/70 font-medium tracking-wide hidden lg:block">Medical Courier Services </p>
+                                    </div>
+                                </div>
+                            </a>
+                        )
+                    }
+                </div>
+
+                <!-- Desktop Navigation -->
+                {
+                    navLinks && navLinks.length > 0 && (
+                        <div class="hidden lg:flex items-center gap-1">
+                            <ul class="flex items-center gap-1" data-sb-field-path=".navLinks">
                                 {navLinks.map((item, index) => (
                                     <li>
                                         <Action
                                             action={item}
                                             class:list={[
-                                                item._type === 'actionLink' ? 'block py-2 no-underline hover:underline' : 'w-full px-4 py-3.5 h-auto min-h-0'
+                                                'nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 relative overflow-hidden',
+                                                item._type === 'actionLink' 
+                                                    ? 'text-neutral hover:text-primary hover:bg-primary/10' 
+                                                    : 'btn btn-primary btn-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
                                             ]}
                                             data-sb-field-path={`.${index}`}
                                         />
                                     </li>
                                 ))}
                             </ul>
+                            
+                            <!-- Emergency STAT button -->
+                            <div class="ml-4 pl-4 border-l border-base-300">
+                                <a href="tel:1-800-TRIUS-911" class="emergency-btn btn btn-accent btn-sm gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+                                    <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                                    </svg>
+                                    STAT
+                                </a>
+                            </div>
                         </div>
+                    )
+                }
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button
+                        class="mobile-menu-btn w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center transition-all duration-300 hover:bg-primary/20"
+                        aria-label="Open Menu"
+                        aria-expanded="false"
+                        aria-controls="mobile-panel"
+                    >
+                        <span class="mobile-menu-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Panel -->
+        {
+            navLinks && navLinks.length > 0 && (
+                <div id="mobile-panel" class="mobile-panel lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-base-200/50 shadow-2xl">
+                    <div class="max-w-7xl mx-auto px-4 py-6">
+                        <ul class="space-y-2" data-sb-field-path=".navLinks">
+                            {navLinks.map((item, index) => (
+                                <li>
+                                    <Action
+                                        action={item}
+                                        class:list={[
+                                            'mobile-nav-link block px-4 py-3 rounded-lg font-medium transition-all duration-300',
+                                            item._type === 'actionLink' 
+                                                ? 'text-neutral hover:text-primary hover:bg-primary/10' 
+                                                : 'btn btn-primary w-full shadow-lg'
+                                        ]}
+                                        data-sb-field-path={`.${index}`}
+                                    />
+                                </li>
+                            ))}
+                            <!-- Emergency STAT for mobile -->
+                            <li class="pt-4 border-t border-base-200">
+                                <a href="tel:1-800-TRIUS-911" class="btn btn-accent w-full gap-2 shadow-lg">
+                                    <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                                    </svg>
+                                    Emergency STAT Line
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </>
+                </div>
             )
         }
-    </div>
-</nav>
+    </nav>
+</header>
 
 <style>
-    @reference "../styles/globals.css";
-    .nav-panel {
-        @apply max-w-72 opacity-0 scale-90 origin-top-right invisible;
-        width: calc(100vw - 1rem);
-        transition:
-            transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-            opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
-            visibility 0s 0.25s;
+    /* Header scroll effects */
+    .header-wrapper {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .nav-panel.is-visible {
-        @apply scale-100 opacity-100 visible;
-        transition: 0.25s;
+    
+    .header-wrapper.scrolled .trust-bar {
+        opacity: 0;
+        transform: translateY(-100%);
+        max-height: 0;
+        padding: 0;
     }
-    .nav-panel li + li:has(.btn),
-    .nav-panel li:has(.btn) + li {
-        @apply mt-4;
+    
+    .header-wrapper.scrolled .main-nav {
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
-    .nav-toggle-icon {
-        @apply block relative bg-current rounded transition;
-        width: 1.5rem;
-        height: 0.125rem;
+    
+    .header-wrapper.scrolled .main-nav .h-16 {
+        height: 3.5rem;
     }
-    .nav-toggle-icon:before,
-    .nav-toggle-icon:after {
-        @apply block absolute bg-current rounded transition-all;
+    
+    .header-wrapper.scrolled .main-nav .lg\:h-20 {
+        height: 4rem;
+    }
+    
+    @media (min-width: 1024px) {
+        .header-wrapper.scrolled .main-nav .lg\:h-20 {
+            height: 4rem;
+        }
+    }
+
+    /* Trust bar animations */
+    .trust-bar {
+        background: linear-gradient(-45deg, rgba(26, 78, 138, 0.1), rgba(47, 133, 90, 0.1), rgba(197, 48, 48, 0.05), rgba(26, 78, 138, 0.1));
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 100px;
+        overflow: hidden;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Brand logo enhancements */
+    .logo-icon {
+        position: relative;
+        overflow: hidden;
+        /* Subtle extension beyond header bounds */
+        margin-top: -2px;
+        margin-bottom: -2px;
+    }
+    
+    .logo-icon::before {
         content: '';
-        width: 1.5rem;
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent, rgba(255, 255, 255, 0.3));
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: xor;
+        -webkit-mask-composite: xor;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .brand-logo:hover .logo-icon {
+        transform: rotate(5deg) scale(1.1);
+        box-shadow: 0 10px 25px rgba(26, 78, 138, 0.4);
+    }
+    
+    .brand-logo:hover .logo-icon::before {
+        opacity: 1;
+    }
+    
+    .logo-icon img {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .brand-logo:hover .logo-icon img {
+        transform: scale(1.05);
+        filter: brightness(0) invert() drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+    }
+
+    .brand-text h1 {
+        background-image: linear-gradient(135deg, #1c3c3d 0%, #9f7358 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Navigation link effects */
+    .nav-link {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(26, 78, 138, 0.1), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .nav-link:hover::before {
+        left: 100%;
+    }
+
+    /* Emergency STAT button special effects */
+    .emergency-btn {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #C53030, #E53E3E);
+        border: none;
+        box-shadow: 0 4px 15px rgba(197, 48, 48, 0.3);
+    }
+
+    .emergency-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .emergency-btn:hover::before {
+        left: 100%;
+    }
+
+    .emergency-btn:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(197, 48, 48, 0.4);
+    }
+
+    /* Mobile menu animations */
+    .mobile-panel {
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+    }
+    
+    .mobile-panel.is-visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    /* Mobile menu button */
+    .mobile-menu-icon {
+        display: block;
+        position: relative;
+        background-color: #1c3c3d;
+        border-radius: 0.125rem;
+        transition: all 0.3s ease;
+        width: 1.25rem;
         height: 0.125rem;
+        transform-origin: center;
     }
-    .nav-toggle-icon:before {
-        top: -0.5rem;
+    
+    .mobile-menu-icon:before,
+    .mobile-menu-icon:after {
+        display: block;
+        position: absolute;
+        background-color: #1c3c3d;
+        border-radius: 0.125rem;
+        transition: all 0.3s ease;
+        content: '';
+        width: 1.25rem;
+        height: 0.125rem;
+        transform-origin: center;
     }
-    .nav-toggle-icon:after {
-        top: 0.5rem;
+    
+    .mobile-menu-icon:before {
+        top: -0.375rem;
     }
-    .nav-toggle-icon.is-active {
-        @apply bg-transparent;
+    
+    .mobile-menu-icon:after {
+        top: 0.375rem;
     }
-    .nav-toggle-icon.is-active:before {
+    
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-icon {
+        background-color: transparent;
+        transform: rotate(180deg);
+    }
+    
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-icon:before {
         top: 0;
-        margin-top: -0.5625rem;
-        transform: translateY(0.5rem) rotate(-45deg);
+        transform: rotate(45deg);
     }
-    .nav-toggle-icon.is-active:after {
+    
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-icon:after {
         top: 0;
-        margin-top: -0.5625rem;
-        transform: translateY(0.5rem) rotate(45deg);
+        transform: rotate(-45deg);
+    }
+
+    /* Mobile nav link hover effects */
+    .mobile-nav-link {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mobile-nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #1c3c3d, #9f7358);
+        transition: width 0.3s ease;
+    }
+
+    .mobile-nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Pulse animation for trust indicators */
+    @keyframes statusPulse {
+        0%, 100% { 
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% { 
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+    }
+
+    .animate-pulse {
+        animation: statusPulse 2s ease-in-out infinite;
+    }
+
+    /* Glass morphism effect */
+    .backdrop-blur-md {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    .backdrop-blur-lg {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+    
+    /* Responsive logo adjustments */
+    @media (max-width: 640px) {
+        .brand-text h1 {
+            font-size: 1.125rem; /* Slightly smaller title on mobile */
+        }
+        
+        .logo-icon {
+            width: 3rem; /* 48px - more reasonable size on mobile */
+            height: 3rem;
+            margin-top: -1px;
+            margin-bottom: -1px;
+        }
+    }
+    
+    @media (min-width: 640px) {
+        .logo-icon {
+            margin-top: -3px; /* Subtle extension on larger screens */
+            margin-bottom: -3px;
+        }
+    }
+    
+    /* When header is scrolled, make logo icon slightly smaller */
+    .header-wrapper.scrolled .logo-icon {
+        width: 2.5rem; /* Compact but still prominent */
+        height: 2.5rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .header-wrapper.scrolled .brand-text h1 {
+        font-size: 1.125rem;
+        transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    @media (min-width: 1024px) {
+        .header-wrapper.scrolled .logo-icon {
+            width: 3rem; /* Reasonable desktop scrolled size */
+            height: 3rem;
+            margin-top: -1px;
+            margin-bottom: -1px;
+        }
+        
+        .header-wrapper.scrolled .brand-text h1 {
+            font-size: 1.25rem;
+        }
+    }
+    
+    /* Ensure proper alignment and positioning */
+    .brand-logo {
+        position: relative;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+    }
+    
+    .brand-logo .flex {
+        align-items: center;
     }
 </style>
 
 <script>
-    function navToggle() {
-        const nav = document.querySelector('.nav-panel');
-        const navToggleBtn = document.querySelector('.nav-toggle');
-        const navToggleIcon = document.querySelector('.nav-toggle-icon');
-        navToggleBtn?.addEventListener('click', () => {
-            const isMenuExpanded = navToggleBtn.getAttribute('aria-expanded') === 'true';
-            navToggleBtn.setAttribute('aria-expanded', isMenuExpanded ? 'false' : 'true');
-            navToggleBtn.setAttribute('aria-label', isMenuExpanded ? 'Open Menu' : 'Close Menu');
-            navToggleIcon?.classList.toggle('is-active');
-            nav?.classList.toggle('is-visible');
-        });
+    function initHeader() {
+        const header = document.querySelector('.header-wrapper');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobilePanel = document.querySelector('.mobile-panel');
+        let scrolled = false;
+
+        // Scroll effects
+        function handleScroll() {
+            const shouldBeScrolled = window.scrollY > 20;
+            if (shouldBeScrolled !== scrolled) {
+                scrolled = shouldBeScrolled;
+                header?.classList.toggle('scrolled', scrolled);
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            if (mobileMenuBtn && mobilePanel) {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                const newState = !isExpanded;
+                
+                mobileMenuBtn.setAttribute('aria-expanded', newState.toString());
+                mobileMenuBtn.setAttribute('aria-label', newState ? 'Close Menu' : 'Open Menu');
+                mobilePanel.classList.toggle('is-visible', newState);
+                
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = newState ? 'hidden' : '';
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        function handleOutsideClick(event) {
+            if (mobilePanel?.classList.contains('is-visible') && 
+                !mobilePanel.contains(event.target) && 
+                !mobileMenuBtn?.contains(event.target)) {
+                toggleMobileMenu();
+            }
+        }
+
+        // Close mobile menu when clicking on a link
+        function handleLinkClick(event) {
+            if (event.target.matches('.mobile-nav-link')) {
+                setTimeout(() => {
+                    if (mobileMenuBtn?.getAttribute('aria-expanded') === 'true') {
+                        toggleMobileMenu();
+                    }
+                }, 150);
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
+        document.addEventListener('click', handleOutsideClick);
+        document.addEventListener('click', handleLinkClick);
+
+        // Initialize scroll state
+        handleScroll();
+
+        // Cleanup function for when the page changes
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            mobileMenuBtn?.removeEventListener('click', toggleMobileMenu);
+            document.removeEventListener('click', handleOutsideClick);
+            document.removeEventListener('click', handleLinkClick);
+            document.body.style.overflow = '';
+        };
     }
-    navToggle();
-    document.addEventListener('astro:after-swap', navToggle);
+
+    // Initialize header functionality
+    const cleanup = initHeader();
+
+    // Re-initialize on page transitions (for Astro's client-side routing)
+    document.addEventListener('astro:after-swap', () => {
+        cleanup?.();
+        initHeader();
+    });
+
+    // Add some extra flair - logo rotation on scroll
+    function addLogoFlair() {
+        const logoIcon = document.querySelector('.logo-icon');
+        let lastScrollY = window.scrollY;
+
+        function handleLogoScroll() {
+            const currentScrollY = window.scrollY;
+            const scrollDelta = Math.abs(currentScrollY - lastScrollY);
+            
+            if (scrollDelta > 50 && logoIcon) {
+                (logoIcon as HTMLElement).style.transform = `rotate(${scrollDelta * 2}deg) scale(1.05)`;
+                setTimeout(() => {
+                    (logoIcon as HTMLElement).style.transform = '';
+                }, 300);
+            }
+            
+            lastScrollY = currentScrollY;
+        }
+
+        window.addEventListener('scroll', handleLogoScroll, { passive: true });
+    }
+
+    addLogoFlair();
 </script>
