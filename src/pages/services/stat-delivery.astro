@@ -7,27 +7,6 @@ import Section from '@components/Section.astro';
 import Cta from '@components/Cta.astro';
 import { graphServiceStat } from '../../lib/schema.ts';
 
-const heroData = {
-    _type: 'heroSection',
-    heading: 'STAT Medical Courier Deliveries',
-    body: 'Rapid, secure transport of specimens, organs, and urgent medical equipment with documented chain of custody and real-time tracking. Available 24/7 for time-critical medical logistics.',
-    cta: [
-        {
-            _key: '1',
-            _type: 'actionButton',
-            label: 'Request STAT Service',
-            url: '/contact?service=stat',
-            theme: 'primary'
-        },
-        {
-            _key: '2',
-            _type: 'actionLink',
-            label: 'View All Services',
-            url: '/services'
-        }
-    ]
-};
-
 const featuresData = {
     _type: 'cardsSection',
     heading: 'STAT Delivery Features',
