@@ -7,12 +7,13 @@ import ActionButton from '@components/ActionButton.astro';
 
 interface Props extends CardsSection {
     'data-sb-field-path'?: string;
+    class?: string;
 }
 
-const { heading, body, items, columns, ...rest } = Astro.props;
+const { heading, body, items, columns, class: className, ...rest } = Astro.props;
 ---
 
-<Section {...rest} class='bg-base-100'>
+<Section {...rest} class:list={['bg-base-100', className]}>
     <div class='text-center mb-16'>
         {
             heading && (

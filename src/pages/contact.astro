@@ -2,67 +2,8 @@
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
-import Cards from '@components/Cards.astro';
 import Section from '@components/Section.astro';
-import Cta from '@components/Cta.astro';
 import { localBusiness, webSite } from '../lib/schema.ts';
-
-const heroData = {
-    _type: 'heroSection',
-    title: 'Contact Trius LLC',
-    subtitle: '24/7 Support • Fast Response • Professional Service',
-    body: 'Ready to improve your medical logistics? Get in touch with our team for a customized quote and discover how Trius LLC can streamline your courier needs.',
-    actions: [
-        {
-            _key: '1',
-            _type: 'actionButton',
-            label: 'Emergency STAT Service',
-            url: 'tel:1-800-TRIUS-911',
-            style: 'accent'
-        }
-    ]
-};
-
-const contactMethodsData = {
-    _type: 'cardsSection',
-    title: 'Get in Touch',
-    subtitle: 'Multiple ways to reach our team',
-    cards: [
-        {
-            _key: '1',
-            title: 'Request a Quote',
-            body: "Fill out our secure inquiry form below to get a customized quote for your medical courier needs. We'll respond within 2 hours during business hours."
-        },
-        {
-            _key: '2',
-            title: '24/7 STAT Service',
-            body: 'For emergency medical deliveries, call our dedicated STAT line available 24 hours a day, 7 days a week.',
-            actions: [
-                {
-                    _key: '1',
-                    _type: 'actionButton',
-                    label: 'Call STAT Line',
-                    url: 'tel:1-800-TRIUS-911',
-                    style: 'accent'
-                }
-            ]
-        },
-        {
-            _key: '3',
-            title: 'Business Hours Support',
-            body: 'For general inquiries, scheduling, and account management, contact our business support team Monday through Friday.',
-            actions: [
-                {
-                    _key: '1',
-                    _type: 'actionButton',
-                    label: 'Call Support',
-                    url: 'tel:1-800-TRIUS-LLC',
-                    style: 'primary'
-                }
-            ]
-        }
-    ]
-};
 
 const formData = {
     _type: 'section',
@@ -73,51 +14,23 @@ const formData = {
 
 const complianceData = {
     _type: 'cardsSection',
-    title: 'Compliance & Privacy',
-    subtitle: 'Your information is secure',
-    cards: [
+    heading: 'Compliance & Privacy',
+    body: 'Your information is secure',
+    items: [
         {
             _key: '1',
-            title: 'HIPAA Compliant',
+            heading: 'HIPAA Compliant',
             body: 'All communications and form submissions are handled in accordance with HIPAA privacy requirements.'
         },
         {
             _key: '2',
-            title: 'Secure Communication',
+            heading: 'Secure Communication',
             body: 'Our inquiry forms and communications use encrypted channels to protect your information.'
         },
         {
             _key: '3',
-            title: 'No PHI Required',
+            heading: 'No PHI Required',
             body: "Our quote process doesn't require any protected health information - just your contact details and service needs."
-        }
-    ]
-};
-
-const responseData = {
-    _type: 'cardsSection',
-    title: 'What Happens Next?',
-    subtitle: 'Our response process',
-    cards: [
-        {
-            _key: '1',
-            title: '1. Immediate Confirmation',
-            body: "You'll receive an immediate confirmation that we've received your inquiry."
-        },
-        {
-            _key: '2',
-            title: '2. Needs Assessment',
-            body: 'Our team will review your requirements and may contact you for additional details.'
-        },
-        {
-            _key: '3',
-            title: '3. Custom Quote',
-            body: "Within 24 hours, you'll receive a detailed quote tailored to your specific needs."
-        },
-        {
-            _key: '4',
-            title: '4. Service Setup',
-            body: "Once approved, we'll quickly set up your service and assign your dedicated courier team."
         }
     ]
 };
@@ -185,12 +98,51 @@ const schema = {
             </div>
         </div>
     </Hero>
-    <Cards {...contactMethodsData} />
+    <!-- Contact Methods Section -->
+    <Section class='bg-base-200 !py-12'>
+        <div class='text-center mb-8'>
+            <h2 class='text-3xl lg:text-4xl font-black font-heading text-primary mb-4'>Get in Touch</h2>
+            <p class='text-lg text-base-content/70 max-w-2xl mx-auto'>Multiple ways to reach our team</p>
+        </div>
 
-    <Section {...formData}>
-        <div class='max-w-2xl mx-auto'>
-            <form class='space-y-6 bg-base-100 p-8 rounded-lg shadow-lg'>
-                <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+        <div class='grid md:grid-cols-2 gap-6 max-w-4xl mx-auto'>
+            <div class='bg-white rounded-lg p-6 shadow-lg text-center'>
+                <div class='w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-4'>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' class='w-6 h-6 text-white'>
+                        <path
+                            stroke-linecap='round'
+                            stroke-linejoin='round'
+                            d='M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z'
+                        ></path>
+                    </svg>
+                </div>
+                <h3 class='text-xl font-bold text-primary mb-2'>24/7 STAT Service</h3>
+                <p class='text-base-content/70 mb-4'>Emergency medical deliveries</p>
+                <a href='tel:1-800-TRIUS-911' class='btn btn-accent'>Call STAT Line</a>
+            </div>
+
+            <div class='bg-white rounded-lg p-6 shadow-lg text-center'>
+                <div class='w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4'>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' class='w-6 h-6 text-white'>
+                        <path
+                            stroke-linecap='round'
+                            stroke-linejoin='round'
+                            d='M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z'
+                        ></path>
+                    </svg>
+                </div>
+                <h3 class='text-xl font-bold text-primary mb-2'>Business Support</h3>
+                <p class='text-base-content/70 mb-4'>General inquiries & scheduling</p>
+                <a href='tel:1-800-TRIUS-LLC' class='btn btn-primary'>Call Support</a>
+            </div>
+        </div>
+    </Section>
+
+    <Section {...formData} class='!py-8 sm:!py-12'>
+        <div id='contact-form' class='max-w-2xl mx-auto'>
+            <form name='contact' method='POST' data-netlify='true' class='space-y-4 bg-base-100 p-6 rounded-lg shadow-lg'>
+                <input type='hidden' name='form-name' value='contact' />
+                <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <div class='form-control'>
                         <label class='label' for='name'>
                             <span class='label-text font-semibold'>Full Name *</span>
@@ -206,7 +158,7 @@ const schema = {
                     </div>
                 </div>
 
-                <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <div class='form-control'>
                         <label class='label' for='email'>
                             <span class='label-text font-semibold'>Email Address *</span>
@@ -279,6 +231,70 @@ const schema = {
         </div>
     </Section>
 
-    <Cards {...complianceData} />
-    <Cards {...responseData} />
+    <!-- What Happens Next Section -->
+    <Section class='bg-base-100 !py-12'>
+        <div class='text-center mb-8'>
+            <h2 class='text-3xl lg:text-4xl font-black font-heading text-primary mb-4'>What Happens Next?</h2>
+            <p class='text-lg text-base-content/70 max-w-2xl mx-auto'>Our simple response process</p>
+        </div>
+
+        <div class='grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto'>
+            <div class='text-center'>
+                <div class='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4'>
+                    <span class='text-2xl font-black text-primary'>1</span>
+                </div>
+                <h3 class='text-lg font-bold text-primary mb-2'>Immediate Confirmation</h3>
+                <p class='text-sm text-base-content/70'>You'll receive confirmation we've received your inquiry</p>
+            </div>
+
+            <div class='text-center'>
+                <div class='w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4'>
+                    <span class='text-2xl font-black text-secondary'>2</span>
+                </div>
+                <h3 class='text-lg font-bold text-primary mb-2'>Needs Assessment</h3>
+                <p class='text-sm text-base-content/70'>We'll review your requirements and contact you for details</p>
+            </div>
+
+            <div class='text-center'>
+                <div class='w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4'>
+                    <span class='text-2xl font-black text-accent'>3</span>
+                </div>
+                <h3 class='text-lg font-bold text-primary mb-2'>Custom Quote</h3>
+                <p class='text-sm text-base-content/70'>Within 24 hours, receive a detailed tailored quote</p>
+            </div>
+
+            <div class='text-center'>
+                <div class='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4'>
+                    <span class='text-2xl font-black text-primary'>4</span>
+                </div>
+                <h3 class='text-lg font-bold text-primary mb-2'>Service Setup</h3>
+                <p class='text-sm text-base-content/70'>Quick setup and dedicated courier team assignment</p>
+            </div>
+        </div>
+
+        <!-- Simple compliance note -->
+        <div class='mt-12 text-center bg-base-200 rounded-lg p-6 max-w-4xl mx-auto'>
+            <h3 class='text-lg font-bold text-primary mb-3'>🔒 Your Information is Secure</h3>
+            <p class='text-sm text-base-content/70'>
+                All communications are HIPAA compliant. No PHI required for quotes - just your contact details and service needs.
+            </p>
+        </div>
+    </Section>
+
+    <!-- Hidden form for Netlify static form detection -->
+    <form name='contact' data-netlify='true' netlify-honeypot='bot-field' hidden>
+        <input type='text' name='name' />
+        <input type='text' name='company' />
+        <input type='email' name='email' />
+        <input type='tel' name='phone' />
+        <select name='service'>
+            <option value='stat'>STAT Deliveries</option>
+            <option value='scheduled'>Scheduled Routes</option>
+            <option value='equipment'>Specialized Equipment Transport</option>
+            <option value='multiple'>Multiple Services</option>
+            <option value='consultation'>General Consultation</option>
+        </select>
+        <input type='text' name='location' />
+        <textarea name='notes'></textarea>
+    </form>
 </Layout>

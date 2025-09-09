@@ -32,7 +32,7 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
         </div>
 
         <!-- Testimonials Grid -->
-        <div class='grid lg:grid-cols-2 gap-8 mb-16 testimonials-grid' data-animate='stagger-up'>
+        <div class='grid lg:grid-cols-3 gap-8 mb-16 testimonials-grid' data-animate='stagger-up'>
             <!-- Testimonial 1 -->
             <div
                 class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-neutral/20 hover:shadow-2xl transition-all duration-500 group'
@@ -50,16 +50,15 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
                             {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='20' height='20' style='color: #fbbf24;' />)}
                         </div>
                         <blockquote class='text-neutral-dark font-body text-lg leading-relaxed mb-6 italic'>
-                            "[PLACEHOLDER TESTIMONIAL] Trius has been our go-to courier for STAT lab deliveries for over two years. Their chain-of-custody
-                            protocols are impeccable, and we've never had a single compliance issue. The peace of mind they provide is invaluable."
+                            "Working with Trius LLC has been a game-changer for our practice. Their team is always on time, professional, and communicates clearly every step of the way. Having medical instruments and devices arrive reliably—whether it's a routine shipment or an urgent STAT delivery—gives us the confidence we need to focus on our patients. The real-time tracking and photo verification are features we didn't know we needed, but now can't imagine being without. Trius LLC has truly become a trusted partner in keeping our operations running smoothly."
                         </blockquote>
                         <div class='flex items-center'>
                             <div class='w-12 h-12 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
-                                <span class='text-white font-bold text-lg'>D</span>
+                                <span class='text-white font-bold text-lg'>Z</span>
                             </div>
                             <div>
-                                <div class='font-bold text-neutral-dark font-heading text-lg'>Dr. [Placeholder Name]</div>
-                                <div class='text-sm text-neutral'>Laboratory Director, [Placeholder Medical Center]</div>
+                                <div class='font-bold text-neutral-dark font-heading text-lg'>Operations Manager</div>
+                                <div class='text-sm text-neutral'>ZimmerBiomet Orthopedics</div>
                             </div>
                         </div>
                     </div>
@@ -83,16 +82,47 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
                             {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='20' height='20' style='color: #fbbf24;' />)}
                         </div>
                         <blockquote class='text-neutral-dark font-body text-lg leading-relaxed mb-6 italic'>
-                            "[PLACEHOLDER TESTIMONIAL] The reliability of Trius's scheduled routes has transformed our supply chain efficiency. Their real-time
-                            tracking keeps us informed, and their professional couriers handle our sensitive equipment with exceptional care."
+                            "Trius LLC has made a tremendous difference in how we manage our surgical instrument trays. Before working with them, we constantly worried about delayed deliveries or incomplete sets. Now, we know we can rely on Trius to have trays delivered on time and handled properly. Their drivers understand the importance of sterile processing—everything is scanned, documented, and tracked with precision. The real-time tracking and proactive communication help my team prepare for cases without scrambling. Thanks to Trius LLC, our SPD can focus on quality and turnaround instead of chasing down deliveries. They've become an essential extension of our department."
                         </blockquote>
                         <div class='flex items-center'>
                             <div class='w-12 h-12 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
-                                <span class='text-white font-bold text-lg'>M</span>
+                                <span class='text-white font-bold text-lg'>S</span>
                             </div>
                             <div>
-                                <div class='font-bold text-neutral-dark font-heading text-lg'>[Placeholder Name]</div>
-                                <div class='text-sm text-neutral'>Operations Manager, [Placeholder Research Institute]</div>
+                                <div class='font-bold text-neutral-dark font-heading text-lg'>SPD Staff</div>
+                                <div class='text-sm text-neutral'>St. Claire Hospital</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div
+                class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-neutral/20 hover:shadow-2xl transition-all duration-500 group'
+            >
+                <div class='flex items-start space-x-6'>
+                    <div class='flex-shrink-0'>
+                        <div
+                            class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500'
+                        >
+                            <iconify-icon icon='heroicons:briefcase' width='32' height='32' style='color: white;'></iconify-icon>
+                        </div>
+                    </div>
+                    <div class='flex-1'>
+                        <div class='flex mb-4'>
+                            {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='20' height='20' style='color: #fbbf24;' />)}
+                        </div>
+                        <blockquote class='text-neutral-dark font-body text-lg leading-relaxed mb-6 italic'>
+                            "Trius LLC has been a huge asset to my work as a sales rep. Knowing that my instrument trays and implants are picked up and delivered on time means I can focus on my surgeons and their cases instead of worrying about logistics. Their drivers are professional, understand hospital access and check-in procedures, and communicate with me throughout the day. Having real-time tracking has been a game changer—I can give my surgeons accurate updates without guesswork. Trius LLC has taken a lot of stress off my plate and helped me build trust with my accounts."
+                        </blockquote>
+                        <div class='flex items-center'>
+                            <div class='w-12 h-12 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
+                                <span class='text-white font-bold text-lg'>R</span>
+                            </div>
+                            <div>
+                                <div class='font-bold text-neutral-dark font-heading text-lg'>Sales Representative</div>
+                                <div class='text-sm text-neutral'>Medical Device Sales</div>
                             </div>
                         </div>
                     </div>
