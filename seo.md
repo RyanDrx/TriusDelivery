@@ -24,7 +24,7 @@ export function localBusiness() {
     slogan: 'Reliable medical courier services you can trust.',
     description:
       'Trius LLC provides HIPAA compliant and OSHA compliant medical courier services, including STAT specimen transport, scheduled medical logistics, and specialized equipment delivery across Washington, Oregon, Idaho, Montana, and California.',
-    email: 'mailto:dispatch@trius.delivery',
+    email: 'mailto:d Triusllccouriers@outlook.com',
     telephone: '+1-XXX-XXX-XXXX',
     priceRange: '$$',
     foundingDate: '2022',
@@ -64,7 +64,7 @@ export function localBusiness() {
         '@type': 'ContactPoint',
         contactType: 'customer support',
         telephone: '+1-XXX-XXX-XXXX',
-        email: 'dispatch@trius.delivery',
+        email: 'Triusllccouriers@outlook.com',
         availableLanguage: ['English'],
         areaServed: ['US-WA', 'US-OR', 'US-ID', 'US-MT', 'US-CA']
       },
@@ -72,7 +72,7 @@ export function localBusiness() {
         '@type': 'ContactPoint',
         contactType: 'sales',
         telephone: '+1-XXX-XXX-XXXX',
-        email: 'sales@trius.delivery',
+        email: 'Triusllccouriers@outlook.com',
         availableLanguage: ['English'],
         areaServed: ['US-WA', 'US-OR', 'US-ID', 'US-MT', 'US-CA']
       }
@@ -260,8 +260,8 @@ export const ORG_ID = ORIGIN + '#org';
 export const WEBSITE_ID = ORIGIN + '#website';
 
 // Optional shared contact info
-export const DISPATCH_EMAIL = 'dispatch@trius.delivery';
-export const SALES_EMAIL = 'sales@trius.delivery';
+export const DISPATCH_EMAIL = 'Triusllccouriers@outlook.com';
+export const SALES_EMAIL = 'Triusllccouriers@outlook.com';
 export const MAIN_PHONE = '+1-XXX-XXX-XXXX';
 
 // ---- Node builders

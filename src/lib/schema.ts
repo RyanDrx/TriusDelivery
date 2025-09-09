@@ -20,8 +20,8 @@ export const ORG_ID = ORIGIN + '#org';
 export const WEBSITE_ID = ORIGIN + '#website';
 
 // Optional shared contact info
-export const DISPATCH_EMAIL = 'dispatch@trius.delivery';
-export const SALES_EMAIL = 'sales@trius.delivery';
+export const DISPATCH_EMAIL = 'Triusllccouriers@outlook.com';
+export const SALES_EMAIL = 'Triusllccouriers@outlook.com';
 export const MAIN_PHONE = '+1-XXX-XXX-XXXX';
 
 // ---- Node builders

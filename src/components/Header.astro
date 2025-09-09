@@ -27,10 +27,6 @@ function hasChildren(item: any): boolean {
     return item.children && Array.isArray(item.children) && item.children.length > 0;
 }
 
-// Function to check if item should have dropdown (force Services to have dropdown)
-function shouldHaveDropdown(item: any): boolean {
-    return item.label === 'Services' || hasChildren(item);
-}
 ---
 
 <header class="header-wrapper sticky top-0 z-50 transition-all duration-300" data-sb-field-path={fieldPath}>
@@ -85,6 +81,11 @@ function shouldHaveDropdown(item: any): boolean {
                                             src="/logos/Trius_Logo.svg" 
                                             alt="Trius LLC - Medical Courier Services" 
                                             class="w-full h-full object-contain filter brightness-0 invert transition-all duration-300"
+                                            loading="eager"
+                                            decoding="sync"
+                                            width="64"
+                                            height="64"
+                                            style="shape-rendering: geometricPrecision; image-rendering: optimizeQuality;"
                                         />
                                     </div>
                                     <!-- Brand text -->
@@ -360,6 +361,14 @@ function shouldHaveDropdown(item: any): boolean {
     
     .logo-icon img {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Optimize for high-DPI displays */
+        image-rendering: optimizeQuality;
+        shape-rendering: geometricPrecision;
+        /* Ensure crisp SVG rendering on all devices */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        /* Force hardware acceleration for smoother rendering */
+        will-change: transform, filter;
     }
     
     .brand-logo:hover .logo-icon img {
@@ -704,10 +713,22 @@ function shouldHaveDropdown(item: any): boolean {
         }
         
         .logo-icon {
-            width: 3rem; /* 48px - more reasonable size on mobile */
-            height: 3rem;
+            width: 3.5rem; /* 56px - slightly larger for better visibility on mobile */
+            height: 3.5rem;
             margin-top: -1px;
             margin-bottom: -1px;
+            /* Ensure minimum size for high-DPI displays */
+            min-width: 3.5rem;
+            min-height: 3.5rem;
+        }
+        
+        .logo-icon img {
+            /* Ensure SVG scales properly on mobile */
+            width: 100% !important;
+            height: 100% !important;
+            /* Additional mobile optimization */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
     }
     
