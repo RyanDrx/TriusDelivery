@@ -6,6 +6,37 @@ interface Props {
 }
 
 const { 'data-sb-field-path': fieldPath } = Astro.props;
+
+// Testimonials data - separated from layout
+const testimonials = [
+    {
+        id: 'zimmer',
+        quote: "Working with Trius LLC has been a game-changer for our practice. Their team is always on time, professional, and communicates clearly every step of the way. The real-time tracking and photo verification are features we didn't know we needed, but now can't imagine being without.",
+        author: "Operations Manager",
+        company: "ZimmerBiomet Orthopedics",
+        initial: "Z",
+        icon: "heroicons:star-solid",
+        color: "primary"
+    },
+    {
+        id: 'stclaire',
+        quote: "Trius LLC has made a tremendous difference in how we manage our surgical instrument trays. Their drivers understand the importance of sterile processing—everything is scanned, documented, and tracked with precision. Thanks to Trius LLC, our SPD can focus on quality and turnaround instead of chasing down deliveries.",
+        author: "SPD Staff",
+        company: "St. Claire Hospital",
+        initial: "S",
+        icon: "heroicons:chart-bar",
+        color: "secondary"
+    },
+    {
+        id: 'sales',
+        quote: "Trius LLC has been a huge asset to my work as a sales rep. Knowing that my instrument trays and implants are picked up and delivered on time means I can focus on my surgeons and their cases instead of worrying about logistics. Having real-time tracking has been a game changer.",
+        author: "Sales Representative", 
+        company: "Medical Device Sales",
+        initial: "R",
+        icon: "heroicons:briefcase",
+        color: "accent"
+    }
+];
 ---
 
 <Section class='bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5 relative overflow-hidden' data-sb-field-path={fieldPath}>
@@ -31,102 +62,56 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
             </p>
         </div>
 
-        <!-- Testimonials Grid -->
-        <div class='grid lg:grid-cols-3 gap-8 mb-16 testimonials-grid' data-animate='stagger-up'>
-            <!-- Testimonial 1 -->
-            <div
-                class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-neutral/20 hover:shadow-2xl transition-all duration-500 group'
-            >
-                <div class='flex items-start space-x-6'>
-                    <div class='flex-shrink-0'>
-                        <div
-                            class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500'
-                        >
-                            <iconify-icon icon='heroicons:star-solid' width='32' height='32' style='color: white;'></iconify-icon>
+        <!-- Testimonial Slideshow -->
+        <div class='testimonial-slideshow mb-16 max-w-4xl mx-auto' data-animate='fade-in-up'>
+            <div class='testimonial-container relative overflow-hidden'>
+                {testimonials.map((testimonial, index) => (
+                    <div 
+                        class={`testimonial-slide absolute inset-0 transition-all duration-500 ${index === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
+                        data-slide={index}
+                    >
+                        <div class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl border border-neutral/20'>
+                            <div class='text-center'>
+                                <!-- Icon -->
+                                <div class={`w-20 h-20 bg-gradient-to-br from-${testimonial.color} to-${testimonial.color}-dark rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg`}>
+                                    <iconify-icon icon={testimonial.icon} width='40' height='40' style='color: white;'></iconify-icon>
+                                </div>
+                                
+                                <!-- Stars -->
+                                <div class='flex justify-center mb-6'>
+                                    {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='24' height='24' style='color: #fbbf24;' />)}
+                                </div>
+                                
+                                <!-- Quote -->
+                                <blockquote class='text-neutral-dark font-body text-xl lg:text-2xl leading-relaxed mb-8 italic max-w-3xl mx-auto'>
+                                    "{testimonial.quote}"
+                                </blockquote>
+                                
+                                <!-- Author -->
+                                <div class='flex items-center justify-center'>
+                                    <div class='w-16 h-16 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
+                                        <span class='text-white font-bold text-xl'>{testimonial.initial}</span>
+                                    </div>
+                                    <div class='text-left'>
+                                        <div class='font-bold text-neutral-dark font-heading text-xl'>{testimonial.author}</div>
+                                        <div class='text-base text-neutral'>{testimonial.company}</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class='flex-1'>
-                        <div class='flex mb-4'>
-                            {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='20' height='20' style='color: #fbbf24;' />)}
-                        </div>
-                        <blockquote class='text-neutral-dark font-body text-lg leading-relaxed mb-6 italic'>
-                            "Working with Trius LLC has been a game-changer for our practice. Their team is always on time, professional, and communicates clearly every step of the way. Having medical instruments and devices arrive reliably—whether it's a routine shipment or an urgent STAT delivery—gives us the confidence we need to focus on our patients. The real-time tracking and photo verification are features we didn't know we needed, but now can't imagine being without. Trius LLC has truly become a trusted partner in keeping our operations running smoothly."
-                        </blockquote>
-                        <div class='flex items-center'>
-                            <div class='w-12 h-12 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
-                                <span class='text-white font-bold text-lg'>Z</span>
-                            </div>
-                            <div>
-                                <div class='font-bold text-neutral-dark font-heading text-lg'>Operations Manager</div>
-                                <div class='text-sm text-neutral'>ZimmerBiomet Orthopedics</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
-
-            <!-- Testimonial 2 -->
-            <div
-                class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-neutral/20 hover:shadow-2xl transition-all duration-500 group'
-            >
-                <div class='flex items-start space-x-6'>
-                    <div class='flex-shrink-0'>
-                        <div
-                            class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500'
-                        >
-                            <iconify-icon icon='heroicons:chart-bar' width='32' height='32' style='color: white;'></iconify-icon>
-                        </div>
-                    </div>
-                    <div class='flex-1'>
-                        <div class='flex mb-4'>
-                            {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='20' height='20' style='color: #fbbf24;' />)}
-                        </div>
-                        <blockquote class='text-neutral-dark font-body text-lg leading-relaxed mb-6 italic'>
-                            "Trius LLC has made a tremendous difference in how we manage our surgical instrument trays. Before working with them, we constantly worried about delayed deliveries or incomplete sets. Now, we know we can rely on Trius to have trays delivered on time and handled properly. Their drivers understand the importance of sterile processing—everything is scanned, documented, and tracked with precision. The real-time tracking and proactive communication help my team prepare for cases without scrambling. Thanks to Trius LLC, our SPD can focus on quality and turnaround instead of chasing down deliveries. They've become an essential extension of our department."
-                        </blockquote>
-                        <div class='flex items-center'>
-                            <div class='w-12 h-12 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
-                                <span class='text-white font-bold text-lg'>S</span>
-                            </div>
-                            <div>
-                                <div class='font-bold text-neutral-dark font-heading text-lg'>SPD Staff</div>
-                                <div class='text-sm text-neutral'>St. Claire Hospital</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div
-                class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-neutral/20 hover:shadow-2xl transition-all duration-500 group'
-            >
-                <div class='flex items-start space-x-6'>
-                    <div class='flex-shrink-0'>
-                        <div
-                            class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500'
-                        >
-                            <iconify-icon icon='heroicons:briefcase' width='32' height='32' style='color: white;'></iconify-icon>
-                        </div>
-                    </div>
-                    <div class='flex-1'>
-                        <div class='flex mb-4'>
-                            {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='20' height='20' style='color: #fbbf24;' />)}
-                        </div>
-                        <blockquote class='text-neutral-dark font-body text-lg leading-relaxed mb-6 italic'>
-                            "Trius LLC has been a huge asset to my work as a sales rep. Knowing that my instrument trays and implants are picked up and delivered on time means I can focus on my surgeons and their cases instead of worrying about logistics. Their drivers are professional, understand hospital access and check-in procedures, and communicate with me throughout the day. Having real-time tracking has been a game changer—I can give my surgeons accurate updates without guesswork. Trius LLC has taken a lot of stress off my plate and helped me build trust with my accounts."
-                        </blockquote>
-                        <div class='flex items-center'>
-                            <div class='w-12 h-12 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
-                                <span class='text-white font-bold text-lg'>R</span>
-                            </div>
-                            <div>
-                                <div class='font-bold text-neutral-dark font-heading text-lg'>Sales Representative</div>
-                                <div class='text-sm text-neutral'>Medical Device Sales</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
+            <!-- Navigation dots -->
+            <div class='flex justify-center mt-8 space-x-2'>
+                {testimonials.map((_, index) => (
+                    <button 
+                        class={`nav-dot w-2 h-2 rounded-full transition-all duration-300 ${index === 0 ? 'bg-primary scale-125' : 'bg-neutral/30 hover:bg-neutral/50'}`}
+                        data-slide-to={index}
+                        aria-label={`Go to testimonial ${index + 1}`}
+                    ></button>
+                ))}
             </div>
         </div>
 
@@ -202,8 +187,156 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
         });
     }, observerOptions);
 
+    // Testimonial slideshow functionality
+    class TestimonialSlideshow {
+        private container: HTMLElement | null;
+        private slides: NodeListOf<Element>;
+        private dots: NodeListOf<Element>;
+        private currentSlide: number;
+        private autoPlayInterval: number | null;
+        
+        constructor() {
+            this.container = document.querySelector('.testimonial-slideshow');
+            this.slides = document.querySelectorAll('.testimonial-slide');
+            this.dots = document.querySelectorAll('.nav-dot');
+            this.currentSlide = 0;
+            this.autoPlayInterval = null;
+            
+            if (this.container && this.slides.length > 0) {
+                this.init();
+            }
+        }
+        
+        private init(): void {
+            // Start with a random testimonial
+            this.currentSlide = Math.floor(Math.random() * this.slides.length);
+            this.showSlide(this.currentSlide);
+            
+            // Set up dot navigation
+            this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    this.goToSlide(index);
+                });
+            });
+            
+            // Add touch/swipe support for mobile
+            this.initTouchEvents();
+            
+            // Auto-play every 15 seconds (longer for reading)
+            this.startAutoPlay();
+        }
+        
+        private initTouchEvents(): void {
+            if (!this.container) return;
+            
+            let startX = 0;
+            let startY = 0;
+            let distX = 0;
+            let distY = 0;
+            
+            this.container.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                startX = touch.pageX;
+                startY = touch.pageY;
+            }, { passive: true });
+            
+            this.container.addEventListener('touchmove', (e) => {
+                e.preventDefault(); // Prevent scrolling while swiping
+                const touch = e.touches[0];
+                distX = touch.pageX - startX;
+                distY = touch.pageY - startY;
+            });
+            
+            this.container.addEventListener('touchend', () => {
+                // Only trigger if horizontal swipe is more prominent than vertical
+                if (Math.abs(distX) > Math.abs(distY) && Math.abs(distX) > 50) {
+                    if (distX > 0) {
+                        // Swipe right - previous slide
+                        this.currentSlide = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
+                    } else {
+                        // Swipe left - next slide
+                        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+                    }
+                    this.showSlide(this.currentSlide);
+                    this.resetAutoPlay();
+                }
+                // Reset values
+                startX = 0;
+                startY = 0;
+                distX = 0;
+                distY = 0;
+            }, { passive: true });
+        }
+        
+        private showSlide(index: number): void {
+            this.slides.forEach((slide, i) => {
+                const slideEl = slide as HTMLElement;
+                if (i === index) {
+                    slideEl.classList.remove('opacity-0', 'translate-x-full', 'translate-x-[-100%]');
+                    slideEl.classList.add('opacity-100', 'translate-x-0');
+                } else {
+                    slideEl.classList.remove('opacity-100', 'translate-x-0');
+                    if (i < index) {
+                        slideEl.classList.add('opacity-0', 'translate-x-[-100%]');
+                        slideEl.classList.remove('translate-x-full');
+                    } else {
+                        slideEl.classList.add('opacity-0', 'translate-x-full');
+                        slideEl.classList.remove('translate-x-[-100%]');
+                    }
+                }
+            });
+            
+            // Update dots
+            this.dots.forEach((dot, i) => {
+                const dotEl = dot as HTMLElement;
+                if (i === index) {
+                    dotEl.classList.remove('bg-neutral/30');
+                    dotEl.classList.add('bg-primary', 'scale-125');
+                } else {
+                    dotEl.classList.remove('bg-primary', 'scale-125');
+                    dotEl.classList.add('bg-neutral/30');
+                }
+            });
+        }
+        
+        private goToSlide(index: number): void {
+            if (index !== this.currentSlide) {
+                this.currentSlide = index;
+                this.showSlide(this.currentSlide);
+                this.resetAutoPlay();
+            }
+        }
+        
+        private nextSlide(): void {
+            this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+            this.showSlide(this.currentSlide);
+        }
+        
+        private startAutoPlay(): void {
+            this.stopAutoPlay();
+            this.autoPlayInterval = window.setInterval(() => {
+                this.nextSlide();
+            }, 15000);
+        }
+        
+        private stopAutoPlay(): void {
+            if (this.autoPlayInterval) {
+                clearInterval(this.autoPlayInterval);
+                this.autoPlayInterval = null;
+            }
+        }
+        
+        private resetAutoPlay(): void {
+            this.stopAutoPlay();
+            this.startAutoPlay();
+        }
+    }
+
     // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', () => {
+        // Initialize testimonial slideshow
+        new TestimonialSlideshow();
+        
         // Observe elements with animation attributes
         const animatedElements = document.querySelectorAll('[data-animate]');
         animatedElements.forEach((el) => observer.observe(el));
@@ -317,6 +450,53 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
         animation: scale-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
 
+    /* Testimonial Slideshow */
+    .testimonial-slideshow {
+        position: relative;
+        /* Better mobile interaction */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        /* Ensure shadows aren't clipped */
+        overflow: visible;
+        padding: 0 1rem;
+    }
+    
+    .testimonial-container {
+        position: relative;
+        min-height: 550px;
+        height: auto;
+        padding: 1rem;
+        padding-bottom: 3rem;
+        overflow: visible;
+    }
+    
+    .testimonial-slide {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        width: calc(100% - 2rem);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Navigation dots */
+    .nav-dot {
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Better touch targets for mobile */
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-dot:active {
+        transform: scale(0.95);
+    }
+
     /* Testimonial Cards */
     .testimonial-card {
         position: relative;
@@ -329,7 +509,6 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
         position: absolute;
         inset: 0;
         border-radius: inherit;
-        padding: 2px;
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent, rgba(255, 255, 255, 0.4));
         mask:
             linear-gradient(#fff 0 0) content-box,
@@ -339,9 +518,7 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
         pointer-events: none;
     }
 
-    .testimonial-card:hover {
-        transform: translateY(-8px) scale(1.02);
-    }
+    /* Removed hover effects for better mobile experience */
 
     /* Stats Container */
     .stats-container {
@@ -401,10 +578,80 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
         pointer-events: none;
     }
 
-    /* Testimonials Grid Stagger */
-    .testimonials-grid > * {
-        opacity: 0;
-        transform: translateY(40px);
+    /* Testimonial slideshow responsive adjustments */
+    @media (max-width: 768px) {
+        .testimonial-slideshow {
+            padding: 0 0.5rem;
+        }
+        
+        .testimonial-container {
+            min-height: 420px;
+            padding: 0.5rem;
+            padding-bottom: 2.5rem;
+        }
+        
+        .testimonial-slide {
+            top: 0.5rem;
+            left: 0.5rem;
+            right: 0.5rem;
+            width: calc(100% - 1rem);
+        }
+        
+        .testimonial-card {
+            padding: 1.5rem 1rem 2rem 1rem;
+        }
+        
+        .testimonial-card .text-xl {
+            font-size: 1.125rem;
+        }
+        
+        .testimonial-card .lg\:text-2xl {
+            font-size: 1.25rem;
+        }
+        
+        /* Smaller icons on mobile */
+        .testimonial-card .w-20 {
+            width: 4rem;
+            height: 4rem;
+        }
+        
+        /* Navigation dots - better spacing on mobile */
+        .nav-dot {
+            width: 0.625rem;
+            height: 0.625rem;
+            margin: 0 0.25rem;
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .testimonial-container {
+            min-height: 380px;
+            padding-bottom: 2rem;
+        }
+        
+        .testimonial-card {
+            padding: 1rem 1rem 1.5rem 1rem;
+        }
+        
+        .testimonial-card blockquote {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* More compact author section on small screens */
+        .testimonial-card .w-16 {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .testimonial-card .font-bold {
+            font-size: 1rem;
+        }
+        
+        .testimonial-card .text-base {
+            font-size: 0.875rem;
+        }
     }
 
     /* Smooth transitions for all interactive elements */
@@ -448,9 +695,8 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
             transform: none;
         }
 
-        .testimonials-grid > * {
-            opacity: 1;
-            transform: none;
+        .testimonial-slide {
+            transform: none !important;
         }
     }
 
