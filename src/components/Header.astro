@@ -22,10 +22,6 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
     return urlPath === currentPage;
 }
 
-// Function to check if navigation item has children
-function hasChildren(item: any): boolean {
-    return item.children && Array.isArray(item.children) && item.children.length > 0;
-}
 
 ---
 
