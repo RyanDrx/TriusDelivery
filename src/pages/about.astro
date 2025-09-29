@@ -13,16 +13,23 @@ const heroData = {
 };
 
 const ctaData = {
-    title: 'Partner with Trius LLC Today',
+    heading: 'Partner with Trius LLC Today',
     body: 'Ready to experience reliable, compliant medical courier services? Contact us to discuss your specific needs and discover how we can improve your medical logistics.',
-    primaryAction: {
-        label: 'Request Quote',
-        url: '/contact'
-    },
-    secondaryAction: {
-        label: 'View Our Services',
-        url: '/services'
-    }
+    cta: [
+        {
+            _key: '1',
+            _type: 'actionButton',
+            label: 'Request Quote',
+            url: '/contact',
+            theme: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'View Our Services',
+            url: '/services'
+        }
+    ]
 };
 
 const schema = {
