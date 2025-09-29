@@ -53,8 +53,21 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                         class={`group hover:scale-105 transition-transform duration-300 w-full h-full flex ${(item as any).priority ? 'order-first lg:order-none' : ''}`}
                     >
                         <div
-                            class={`card bg-white shadow-lg border hover:shadow-2xl transition-all duration-300 h-full flex flex-col w-full p-8 ${(item as any).priority ? 'border-accent/30 ring-2 ring-accent/20 shadow-accent/10' : 'border-base-300'}`}
+                            class={`card bg-white shadow-lg border hover:shadow-2xl transition-all duration-300 h-full flex flex-col w-full p-8 relative overflow-hidden ${(item as any).priority ? 'border-accent/30 ring-2 ring-accent/20 shadow-accent/10' : 'border-base-300'}`}
                         >
+                            <!-- Banner Background Texture -->
+                            <div class='absolute inset-0 opacity-3'>
+                                <div
+                                    class='absolute inset-0'
+                                    style='background-image: url("/Banner/TRIUS_BANNER.webp"); background-size: cover; background-repeat: no-repeat; background-position: center; filter: grayscale(100%);'
+                                >
+                                </div>
+                            </div>
+                            <!-- White Overlay -->
+                            <div class='absolute inset-0 bg-white/95'>
+                            </div>
+                            <!-- Content Wrapper -->
+                            <div class='relative z-10 h-full flex flex-col'>
                             {/* Service Icon */}
                             <div class='pb-6'>
                                 <div
@@ -142,6 +155,7 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                                         ))}
                                     </div>
                                 )}
+                            </div>
                             </div>
                         </div>
                     </div>

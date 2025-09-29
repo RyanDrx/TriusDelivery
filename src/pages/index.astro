@@ -149,6 +149,7 @@ const schema = graphHome();
 
     <!-- Services Section with Background -->
     <section class='py-20 relative overflow-hidden'>
+        <!-- Desktop WaveClip Background -->
         <WaveClip
             side='both'
             amplitude={2}
@@ -168,9 +169,12 @@ const schema = graphHome();
             </div>
             <div class='absolute inset-0 bg-white/60'></div>
         </WaveClip>
+
+        <!-- Mobile Simple Background -->
+        <div class='absolute inset-0 lg:hidden bg-gradient-to-br from-white via-primary/4 to-secondary/4'></div>
         <!-- White overlay for better readability -->
 
-        <div class='relative z-10 py-16'>
+        <div class='relative z-10 md:py-16'>
             <Cards {...servicesData} />
 
             <!-- Trust Proof Element -->
@@ -196,6 +200,7 @@ const schema = graphHome();
 
     <!-- CTA Section with Background -->
     <section class='relative overflow-hidden'>
+        <!-- Desktop WaveClip Background -->
         <WaveClip
             side='top'
             amplitude={1}
@@ -206,7 +211,7 @@ const schema = graphHome();
             topBaseline={10}
             topAmplitude={1}
             topPhase={0}
-            class='absolute inset-0 opacity-2 py-24'
+            class='absolute inset-0 opacity-2 py-24 hidden lg:block'
         >
             <div class='absolute inset-0 opacity-2'>
                 <div
@@ -217,6 +222,9 @@ const schema = graphHome();
             </div>
             <div class='absolute inset-0 bg-white/60'></div>
         </WaveClip>
+
+        <!-- Mobile Simple Background -->
+        <div class='absolute inset-0 lg:hidden bg-gradient-to-br from-slate-50 via-primary/4 to-secondary/4'></div>
         <div class='relative z-10 pt-24'>
             <Cta {...ctaData} />
         </div>

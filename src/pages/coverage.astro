@@ -109,13 +109,21 @@ const schema = {
 
     <!-- Coverage Map Section with Background -->
     <section class='relative overflow-hidden bg-gray-50'>
-        <div class='absolute inset-0 opacity-2'>
+        <!-- Desktop Background Image -->
+        <div class='absolute inset-0 opacity-2 hidden lg:block'>
             <div
                 class='absolute inset-0'
                 style='background-image: url("/Images/Courier back.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
             >
             </div>
         </div>
+
+        <!-- Mobile/Tablet Simple Background -->
+        <div class='absolute inset-0 lg:hidden bg-gradient-to-br from-gray-50 via-primary/3 to-secondary/3'>
+        </div>
+
+      
+
         <div class='relative z-10'>
             <InteractiveCoverageMap {...mapData} />
         </div>

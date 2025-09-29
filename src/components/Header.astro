@@ -692,7 +692,12 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         function handleScroll() {
             if (!ticking) {
                 requestAnimationFrame(() => {
-                    const shouldBeScrolled = window.scrollY > 40; // Lower threshold for more responsive feel
+                    const currentScrollY = window.scrollY;
+                    // Use hysteresis to prevent flickering - different thresholds for going up vs down
+                    const shouldBeScrolled = scrolled
+                        ? currentScrollY > 80  // When scrolled, need to go above 80px to stay scrolled
+                        : currentScrollY > 120; // When not scrolled, need to go above 120px to become scrolled
+
                     if (shouldBeScrolled !== scrolled) {
                         scrolled = shouldBeScrolled;
                         header?.classList.toggle('scrolled', scrolled);

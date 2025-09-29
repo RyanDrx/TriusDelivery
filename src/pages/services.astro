@@ -354,7 +354,16 @@ const schema = {
 
     <!-- Compliance Section -->
     <section class='py-20 relative overflow-hidden'>
-        <WaveClip side='both' amplitude={1.5} baseline={95} waves={1.5} phase={0} samples={36} class='absolute inset-0 opacity-2 py-24'>
+        <!-- Desktop WaveClip Background -->
+        <WaveClip
+            side='both'
+            amplitude={1.5}
+            baseline={95}
+            waves={1.5}
+            phase={0}
+            samples={36}
+            class='absolute inset-0 opacity-2 py-24 hidden lg:block'
+        >
             <div
                 class='absolute inset-0 min-h-44'
                 style='background-image: url("/Images/medical phials.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
@@ -362,6 +371,9 @@ const schema = {
             </div>
             <div class='absolute inset-0 bg-white/85'></div>
         </WaveClip>
+
+        <!-- Mobile Simple Background -->
+        <div class='absolute inset-0 lg:hidden bg-gradient-to-br from-white via-primary/3 to-secondary/5'></div>
 
         <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10 py-24'>
             <div class='text-center mb-16'>
@@ -547,6 +559,7 @@ const schema = {
 
     <!-- Technology & Innovation Section -->
     <section class='py-20 relative overflow-hidden'>
+        <!-- Desktop WaveClip Background -->
         <WaveClip
             side='both'
             amplitude={1.8}
@@ -557,7 +570,7 @@ const schema = {
             topBaseline={10}
             topAmplitude={1.2}
             topPhase={135}
-            class='absolute inset-0 opacity-2 py-24 hidden md:block'
+            class='absolute inset-0 opacity-2 py-24 hidden lg:block'
         >
             <div
                 class='absolute inset-0 min-h-44'
@@ -566,6 +579,9 @@ const schema = {
             </div>
             <div class='absolute inset-0 bg-white/85'></div>
         </WaveClip>
+
+        <!-- Mobile Simple Background -->
+        <div class='absolute inset-0 lg:hidden bg-gradient-to-br from-white via-secondary/3 to-primary/5'></div>
 
         <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10 py-14'>
             <div class='text-center mb-16'>
@@ -743,6 +759,7 @@ const schema = {
 
     <!-- CTA Section with Background -->
     <section class='relative overflow-hidden'>
+        <!-- Desktop WaveClip Background -->
         <WaveClip
             side='top'
             amplitude={1}
@@ -753,7 +770,7 @@ const schema = {
             topBaseline={10}
             topAmplitude={1}
             topPhase={0}
-            class='absolute inset-0 opacity-2 py-24'
+            class='absolute inset-0 opacity-2 py-24 hidden lg:block'
         >
             <div class='absolute inset-0 opacity-2'>
                 <div
@@ -764,6 +781,9 @@ const schema = {
             </div>
             <div class='absolute inset-0 bg-white/60'></div>
         </WaveClip>
+
+        <!-- Mobile Simple Background -->
+        <div class='absolute inset-0 lg:hidden bg-gradient-to-br from-slate-50 via-primary/4 to-secondary/4'></div>
         <div class='relative z-10 pt-24'>
             <Cta {...ctaData} />
         </div>

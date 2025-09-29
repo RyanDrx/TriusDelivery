@@ -10,6 +10,15 @@ const { 'data-sb-field-path': fieldPath } = Astro.props;
 // Testimonials data - separated from layout
 const testimonials = [
     {
+        id: 'sales',
+        quote: 'Trius LLC has been a huge asset to my work as a sales rep. Knowing that my instrument trays and implants are picked up and delivered on time means I can focus on my surgeons and their cases instead of worrying about logistics. Having real-time tracking has been a game changer.',
+        author: 'Sales Representative',
+        company: 'Medical Device Sales',
+        initial: 'R',
+        icon: 'heroicons:briefcase',
+        color: 'accent'
+    },
+    {
         id: 'zimmer',
         quote: "Working with Trius LLC has been a game-changer for our practice. Their team is always on time, professional, and communicates clearly every step of the way. The real-time tracking and photo verification are features we didn't know we needed, but now can't imagine being without.",
         author: 'Operations Manager',
@@ -26,15 +35,6 @@ const testimonials = [
         initial: 'S',
         icon: 'heroicons:chart-bar',
         color: 'secondary'
-    },
-    {
-        id: 'sales',
-        quote: 'Trius LLC has been a huge asset to my work as a sales rep. Knowing that my instrument trays and implants are picked up and delivered on time means I can focus on my surgeons and their cases instead of worrying about logistics. Having real-time tracking has been a game changer.',
-        author: 'Sales Representative',
-        company: 'Medical Device Sales',
-        initial: 'R',
-        icon: 'heroicons:briefcase',
-        color: 'accent'
     }
 ];
 ---
@@ -58,22 +58,29 @@ const testimonials = [
                             class={`testimonial-slide absolute inset-0 transition-all duration-500 ${index === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
                             data-slide={index}
                         >
-                            <div class={`testimonial-card testimonial-${testimonial.id} relative rounded-3xl p-8 lg:p-10 border border-white/30 backdrop-blur-sm overflow-hidden`}>
-                                <!-- Background Image Layer -->
-                                <div class={`absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 ${
-                                    testimonial.id === 'zimmer' ? "bg-[url('/Images/medical monitor equip.webp')]" :
-                                    testimonial.id === 'stclaire' ? "bg-[url('/Images/medical phials.webp')]" :
-                                    "bg-[url('/Images/Courier handoff.webp')]"
-                                }`}></div>
+                            <div
+                                class={`testimonial-card testimonial-${testimonial.id} relative rounded-3xl p-8 lg:p-10 border border-white/30 backdrop-blur-sm overflow-hidden`}
+                            >
+                                <div
+                                    class={`absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 ${
+                                        testimonial.id === 'zimmer'
+                                            ? "bg-[url('/Images/medical monitor equip.webp')]"
+                                            : testimonial.id === 'stclaire'
+                                              ? "bg-[url('/Images/medical phials.webp')]"
+                                              : "bg-[url('/Images/Courier handoff.webp')]"
+                                    }`}
+                                />
 
-                                <!-- Gradient Overlay -->
-                                <div class={`absolute inset-0 bg-gradient-to-br ${
-                                    testimonial.id === 'zimmer' ? 'from-primary/20 via-white/90 to-secondary/10' :
-                                    testimonial.id === 'stclaire' ? 'from-secondary/20 via-white/90 to-primary/10' :
-                                    'from-accent/20 via-white/90 to-primary/10'
-                                } rounded-3xl`}></div>
+                                <div
+                                    class={`absolute inset-0 bg-gradient-to-br ${
+                                        testimonial.id === 'zimmer'
+                                            ? 'from-primary/20 via-white/90 to-secondary/10'
+                                            : testimonial.id === 'stclaire'
+                                              ? 'from-secondary/20 via-white/90 to-primary/10'
+                                              : 'from-accent/20 via-white/90 to-primary/10'
+                                    } rounded-3xl`}
+                                />
 
-                                <!-- Content Layer -->
                                 <div class='relative z-10 text-center'>
                                     <div class='flex justify-center mb-6'>
                                         {[...Array(5)].map(() => (
@@ -88,13 +95,13 @@ const testimonials = [
                                     </div>
 
                                     <blockquote
-                                        class='text-slate-800 text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-medium drop-shadow-sm'
+                                        class='text-slate-800 text-lg leading-relaxed mb-8 max-w-2xl mx-auto font-medium drop-shadow-sm min-h-[120px] max-h-[200px] md:max-h-[160px] overflow-y-auto'
                                         cite={testimonial.author}
                                     >
                                         "{testimonial.quote.split('.')[0]}. {testimonial.quote.split('.')[1]}."
                                     </blockquote>
 
-                                    <div class='flex items-center justify-center'>
+                                    <div class='flex items-center justify-center mt-8'>
                                         <div class='text-center'>
                                             <div class='font-bold text-slate-800 drop-shadow-sm'>{testimonial.author}</div>
                                             <div class='text-sm text-slate-600 font-medium drop-shadow-sm'>{testimonial.company}</div>
@@ -131,7 +138,7 @@ const testimonials = [
         </div>
 
         <!-- Trust Stats -->
-        <div class='stats-container bg-white rounded-2xl p-6 lg:p-8 border border-neutral-light' data-animate='fade-in-up'>
+        <div class='stats-container bg-white rounded-2xl p-6 lg:p-8 border border-neutral-light hidden md:block' data-animate='fade-in-up'>
             <div class='grid md:grid-cols-3 gap-6 text-center'>
                 <div class='stat-item'>
                     <iconify-icon icon='lucide:clock' width='24' height='24' style='color: #16a34a; margin: 0 auto 16px;' stroke-width='1.5'
@@ -461,7 +468,7 @@ const testimonials = [
 
     .testimonial-container {
         position: relative;
-        min-height: 280px;
+        min-height: 350px;
         overflow: visible;
     }
 
@@ -495,6 +502,30 @@ const testimonials = [
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
 
+    /* Custom scrollbar for blockquote */
+    .testimonial-card blockquote {
+        scrollbar-width: thin;
+        scrollbar-color: #d1d5db transparent;
+    }
+
+    .testimonial-card blockquote::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .testimonial-card blockquote::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .testimonial-card blockquote::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 3px;
+        transition: background-color 0.2s ease;
+    }
+
+    .testimonial-card blockquote::-webkit-scrollbar-thumb:hover {
+        background-color: #9ca3af;
+    }
+
     .testimonial-card:hover {
         transform: scale(1.01);
         box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
@@ -521,11 +552,11 @@ const testimonials = [
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .testimonial-container {
-            min-height: 240px;
+            min-height: 380px;
         }
 
         .testimonial-card {
-            padding: 1.5rem;
+            padding: 1.5rem 1.5rem 2rem 1.5rem;
         }
 
         .stats-container {

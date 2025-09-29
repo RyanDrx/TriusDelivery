@@ -10,8 +10,8 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
 ---
 
 <div {...rest} class='hero md:min-h-[100vh] relative overflow-hidden'>
-    <!-- Banner Background Pattern with Wave Clip -->
-    <WaveClip side='bottom' class='absolute inset-0 -z-20 hidden md:block'>
+    <!-- Desktop Background with Wave Clip -->
+    <WaveClip side='bottom' class='absolute inset-0 -z-20 hidden lg:block'>
         <div class="w-full h-[100vh] bg-[url('/Images/Courier_back.webp')] bg-cover bg-[center_60%] bg-no-repeat opacity-90"></div>
         <!-- Dynamic gradient overlay with primary/secondary colors -->
         <div class='absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/40 to-secondary/50'></div>
@@ -26,11 +26,27 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
         <div class='max-w-4xl mx-auto space-y-12'>
             <!-- Professional Medical Courier Hero -->
             <div class='relative overflow-hidden'>
+                <!-- Mobile Simple Gradient Background -->
+                <div class='absolute inset-0 -z-20 lg:hidden bg-gradient-to-br from-primary/70 via-primary/50 to-secondary/60'>
+                    <!-- Animated overlay for mobile -->
+                    <div
+                        class='absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-primary/30 opacity-80 animate-gradient-shift'
+                    >
+                    </div>
+                </div>
                 <!-- Main Brand Card -->
                 <div
-                    class='relative bg-white/60 backdrop-blur-md rounded-3xl border border-white/30 hover:scale-[1.02] hover:bg-white/70 transition-all duration-700 p-8 lg:p-12 animate-fade-in-up group'
+                    class='relative bg-white/60 backdrop-blur-md md:rounded-3xl border border-white/30 hover:scale-[1.02] hover:bg-white/70 transition-all duration-700 p-8 lg:p-12 animate-fade-in-up group overflow-hidden'
                     style='animation-delay: 0.2s;'
                 >
+                    <!-- Banner Background Texture -->
+                    <div class='absolute inset-0 opacity-1'>
+                        <div
+                            class='absolute inset-0'
+                            style='background-image: url("/Banner/TRIUS_BANNER.webp"); background-size: cover; background-repeat: no-repeat; background-position: center; filter: grayscale(100%); opacity: 0.1;'
+                        >
+                        </div>
+                    </div>
                     <!-- Animated Border Glow -->
                     <div
                         class='absolute inset-0 rounded-3xl bg-gradient-to-r from-secondary/20 via-primary-light/20 to-secondary-light/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10'
