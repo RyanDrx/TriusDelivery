@@ -9,7 +9,7 @@ interface Props extends HeroSection {
 const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
 ---
 
-<div {...rest} class='hero md:min-h-[105vh] relative overflow-hidden'>
+<div {...rest} class='hero md:min-h-[100vh] relative overflow-hidden'>
     <!-- Banner Background Pattern with Wave Clip -->
     <WaveClip side='bottom' class='absolute inset-0 -z-20 hidden md:block'>
         <div class="w-full h-[100vh] bg-[url('/Images/Courier_back.webp')] bg-cover bg-[center_60%] bg-no-repeat opacity-90"></div>

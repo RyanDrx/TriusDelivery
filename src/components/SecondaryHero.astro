@@ -8,7 +8,6 @@ import CoverageArea from '@components/CoverageArea.astro';
 interface Props extends HeroSection {
     'data-sb-field-path'?: string;
 }
-
 const { heading, body, cta, ...rest } = Astro.props;
 ---
 
@@ -20,9 +19,17 @@ const { heading, body, cta, ...rest } = Astro.props;
             {
                 heading && (
                     <div class="animate-fade-in-up" style="animation-delay: 0.8s;" data-sb-field-path=".heading">
-                        <!-- Main Heading -->
-                        <h2 class="text-3xl font-bold lg:text-5xl font-heading text-neutral-dark leading-tight">
-                            {heading}
+                        <h2 class="relative text-4xl font-black lg:text-6xl xl:text-7xl font-heading leading-tight">
+                            <!-- Background text for depth effect -->
+                            <span class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent blur-sm opacity-40">
+                                {heading}
+                            </span>
+                            <!-- Main text with gradient and glow -->
+                            <span class="relative bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-text drop-shadow-2xl">
+                                {heading}
+                            </span>
+                            <!-- Glow effect -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 blur-3xl animate-pulse-glow"></div>
                         </h2>
                     </div>
                 )
@@ -104,3 +111,56 @@ const { heading, body, cta, ...rest } = Astro.props;
         </div>
     </div>
 </Section>
+
+<style>
+    /* Sexy heading animations */
+    @keyframes gradient-text {
+        0%, 100% {
+            background-size: 200% 200%;
+            background-position: left center;
+        }
+        50% {
+            background-size: 200% 200%;
+            background-position: right center;
+        }
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% {
+            opacity: 0.4;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+    }
+
+    .animate-gradient-text {
+        animation: gradient-text 4s ease-in-out infinite;
+        background-size: 200% 200%;
+    }
+
+    .animate-pulse-glow {
+        animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    /* Add subtle text shadow for extra pop */
+    h2 span.relative {
+        text-shadow:
+            0 0 30px rgba(26, 78, 138, 0.3),
+            0 0 60px rgba(47, 133, 90, 0.2),
+            0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Enhanced heading hover effect */
+    h2:hover span.relative {
+        transform: scale(1.02);
+        transition: transform 0.3s ease;
+    }
+
+    h2:hover .animate-pulse-glow {
+        opacity: 1;
+        animation-duration: 1.5s;
+    }
+</style>
