@@ -1,4 +1,6 @@
 ---
+import WaveClip from './WaveClip.astro';
+
 interface Props {
     /**
      * Background image URL - can be a local path or external URL
@@ -31,6 +33,26 @@ interface Props {
     centerContent?: boolean;
 
     /**
+     * Whether to use WaveClip for decorative bottom edge
+     */
+    useWaveClip?: boolean;
+
+    /**
+     * WaveClip configuration options
+     */
+    waveConfig?: {
+        side?: 'top' | 'bottom' | 'both';
+        amplitude?: number;
+        baseline?: number;
+        waves?: number;
+        phase?: number;
+        samples?: number;
+        topBaseline?: number;
+        topAmplitude?: number;
+        topPhase?: number;
+    };
+
+    /**
      * Additional attributes to pass to the hero container
      */
     [key: string]: any;
@@ -43,6 +65,18 @@ const {
     class: className = '',
     minHeight = 'min-h-[60vh]',
     centerContent = true,
+    useWaveClip = false,
+    waveConfig = {
+        side: 'bottom',
+        amplitude: 1.5,
+        baseline: 95,
+        waves: 1.2,
+        phase: 0,
+        samples: 36,
+        topBaseline: 10,
+        topAmplitude: 1,
+        topPhase: 0
+    },
     ...rest
 } = Astro.props;
 
@@ -50,24 +84,65 @@ const {
 const backgroundStyle = backgroundImage
     ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
     : '';
+
+// Only apply background to main section when not using WaveClip
+const sectionBackgroundStyle = useWaveClip ? '' : backgroundStyle;
 ---
 
-<section class:list={['hero-section relative overflow-hidden', minHeight, centerContent && 'flex items-center', className]} style={backgroundStyle} {...rest}>
-    <!-- Background Overlay -->
-    {showOverlay && <div class:list={['absolute inset-0 z-10', overlayClass]} />}
+<section
+    class:list={['hero-section relative overflow-hidden', minHeight, centerContent && 'flex items-center', useWaveClip && 'pb-8', className]}
+    style={sectionBackgroundStyle}
+    {...rest}
+>
+    <!-- WaveClip Background -->
+    {useWaveClip && (
+        <WaveClip
+            side={waveConfig.side}
+            amplitude={waveConfig.amplitude}
+            baseline={waveConfig.baseline}
+            waves={waveConfig.waves}
+            phase={waveConfig.phase}
+            samples={waveConfig.samples}
+            topBaseline={waveConfig.topBaseline}
+            topAmplitude={waveConfig.topAmplitude}
+            topPhase={waveConfig.topPhase}
+            class='absolute inset-0'
+        >
+            {backgroundImage && (
+                <div
+                    class='absolute inset-0'
+                    style={backgroundStyle}
+                />
+            )}
+            {!backgroundImage && (
+                <div class='absolute inset-0 opacity-20'>
+                    <div class='hero-bg-pattern absolute inset-0' />
+                </div>
+            )}
+            {showOverlay && <div class:list={['absolute inset-0', overlayClass]} />}
+        </WaveClip>
+    )}
 
-    <!-- Background Pattern (when no image is provided) -->
-    {
-        !backgroundImage && (
-            <div class='absolute inset-0 opacity-20'>
-                <div class='hero-bg-pattern absolute inset-0' />
-            </div>
-        )
-    }
+    <!-- Regular Background (when WaveClip is not used) -->
+    {!useWaveClip && (
+        <>
+            <!-- Background Overlay -->
+            {showOverlay && <div class:list={['absolute inset-0 z-10', overlayClass]} />}
+
+            <!-- Background Pattern (when no image is provided) -->
+            {
+                !backgroundImage && (
+                    <div class='absolute inset-0 opacity-20'>
+                        <div class='hero-bg-pattern absolute inset-0' />
+                    </div>
+                )
+            }
+        </>
+    )}
 
     <!-- Content Container -->
     <div class='relative z-20 w-full'>
-        <div class='max-w-7xl mx-auto px-4 py-16 lg:px-6 lg:py-20'>
+        <div class:list={['max-w-7xl mx-auto px-4 lg:px-6', useWaveClip ? 'py-16 pb-24 lg:py-20 lg:pb-32' : 'py-16 lg:py-20']}>
             <slot />
         </div>
     </div>

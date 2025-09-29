@@ -24,13 +24,27 @@ const { items, motion, class: className, 'data-sb-field-path': fieldPath } = Ast
             '--logo-slide-speed': `${items.length * 8}s`
         }}
     >
-        <div class:list={['logo-strip', 'flex', ' items-center', 'w-max', motion === 'moveToLeft' ? 'logo-strip-slide-left' : 'logo-strip-slide-right']}>
+        <div
+            class:list={[
+                'logo-strip',
+                'flex',
+                ' items-center',
+                'w-max',
+                motion === 'moveToLeft' ? 'logo-strip-slide-left' : 'logo-strip-slide-right'
+            ]}
+        >
             <div class="flex justify-around logo-strip-items" data-sb-field-path={fieldPath}>
                 {
                     items.map((logo) => {
                         return logo.src ? (
                             <div class="inline-flex items-center justify-center p-4">
-                                <ResponsiveImage _id={logo._id} src={logo.src} width={logo.dimensions?.width} height={logo.dimensions?.height} alt={logo.alt} />
+                                <ResponsiveImage
+                                    _id={logo._id}
+                                    src={logo.src}
+                                    width={logo.dimensions?.width}
+                                    height={logo.dimensions?.height}
+                                    alt={logo.alt}
+                                />
                             </div>
                         ) : null;
                     })
@@ -41,7 +55,13 @@ const { items, motion, class: className, 'data-sb-field-path': fieldPath } = Ast
                     items.map((logo) => {
                         return logo.src ? (
                             <div class="inline-flex items-center justify-center p-4">
-                                <ResponsiveImage _id={logo._id} src={logo.src} width={logo.dimensions?.width} height={logo.dimensions?.height} alt={logo.alt} />
+                                <ResponsiveImage
+                                    _id={logo._id}
+                                    src={logo.src}
+                                    width={logo.dimensions?.width}
+                                    height={logo.dimensions?.height}
+                                    alt={logo.alt}
+                                />
                             </div>
                         ) : null;
                     })

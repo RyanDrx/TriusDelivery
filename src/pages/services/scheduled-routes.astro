@@ -159,58 +159,68 @@ const schema = graphServiceRoutes();
 ---
 
 <Layout
-    title='Scheduled Medical Courier Routes | Trius LLC'
-    description='Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing.'
+    title="Scheduled Medical Courier Routes | Trius LLC"
+    description="Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing."
 >
-    <Fragment slot='head'>
+    <Fragment slot="head">
         <SEO
-            title='Scheduled Medical Courier Routes | Trius LLC'
-            description='Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing.'
+            title="Scheduled Medical Courier Routes | Trius LLC"
+            description="Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing."
             graph={schema}
         />
     </Fragment>
 
-    <Hero backgroundImage='/Banner/TRIUS_BANNER.webp' overlayClass='bg-gradient-to-r from-secondary/80 via-secondary/60 to-primary/70' minHeight='min-h-[70vh]'>
-        <div class='text-center max-w-5xl mx-auto'>
+    <Hero
+        backgroundImage="/Images/vehicle package.webp"
+        overlayClass="bg-gradient-to-r from-secondary/80 via-secondary/60 to-primary/70"
+        minHeight="min-h-[70vh]"
+    >
+        <div class="text-center max-w-5xl mx-auto">
             <!-- Page Badge -->
-            <div class='inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30'>
-                <iconify-icon icon='heroicons:calendar-days' width='24' height='24' style='color: white;'></iconify-icon>
-                <span class='text-white font-bold tracking-wide uppercase'>Scheduled Service</span>
+            <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                <iconify-icon icon="heroicons:calendar-days" width="24" height="24" style="color: white;"></iconify-icon>
+                <span class="text-white font-bold tracking-wide uppercase">Scheduled Service</span>
             </div>
 
             <!-- Main Title -->
-            <h1 class='text-4xl lg:text-6xl font-black text-white mb-6 leading-tight'>Scheduled Medical Courier Routes</h1>
+            <h1 class="text-4xl lg:text-6xl font-black text-white mb-6 leading-tight">Scheduled Medical Courier Routes</h1>
 
             <!-- Subtitle -->
-            <div class='flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium'>
-                <span class='flex items-center gap-2'>
-                    <iconify-icon icon='heroicons:currency-dollar' width='20' height='20'></iconify-icon>
+            <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="heroicons:currency-dollar" width="20" height="20"></iconify-icon>
                     Cost Effective
                 </span>
-                <span class='flex items-center gap-2'>
-                    <iconify-icon icon='heroicons:user-group' width='20' height='20'></iconify-icon>
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="heroicons:user-group" width="20" height="20"></iconify-icon>
                     Dedicated Teams
                 </span>
-                <span class='flex items-center gap-2'>
-                    <iconify-icon icon='heroicons:map' width='20' height='20'></iconify-icon>
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="heroicons:map" width="20" height="20"></iconify-icon>
                     Route Optimization
                 </span>
             </div>
 
             <!-- Description -->
-            <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
-                Recurring pickups and deliveries for clinics, labs, and research centers. Our scheduled routes provide efficiency, consistency, and cost savings
-                for your regular medical logistics needs.
+            <p class="text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed">
+                Recurring pickups and deliveries for clinics, labs, and research centers. Our scheduled routes provide efficiency,
+                consistency, and cost savings for your regular medical logistics needs.
             </p>
 
             <!-- Action Buttons -->
-            <div class='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-                <a href='/contact?service=routes' class='btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                    href="/contact?service=routes"
+                    class="btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300"
+                >
                     Schedule Routes
                 </a>
-                <a href='/coverage' class='text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2'>
+                <a
+                    href="/coverage"
+                    class="text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2"
+                >
                     View Coverage Areas
-                    <iconify-icon icon='heroicons:arrow-right' width='20' height='20'></iconify-icon>
+                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20"></iconify-icon>
                 </a>
             </div>
         </div>
@@ -219,34 +229,50 @@ const schema = graphServiceRoutes();
     <Cards {...routeTypesData} />
 
     <Section {...setupProcessData}>
-        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
-            <div class='bg-base-200 p-6 rounded-lg'>
-                <div class='text-center mb-4'>
-                    <div class='w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto'>1</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-base-200 p-6 rounded-lg">
+                <div class="text-center mb-4">
+                    <div
+                        class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto"
+                    >
+                        1
+                    </div>
                 </div>
-                <h4 class='font-semibold text-center mb-2'>Needs Assessment</h4>
-                <p class='text-sm text-center'>We analyze your volume, timing, and special requirements to design the optimal route.</p>
+                <h4 class="font-semibold text-center mb-2">Needs Assessment</h4>
+                <p class="text-sm text-center">We analyze your volume, timing, and special requirements to design the optimal route.</p>
             </div>
-            <div class='bg-base-200 p-6 rounded-lg'>
-                <div class='text-center mb-4'>
-                    <div class='w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto'>2</div>
+            <div class="bg-base-200 p-6 rounded-lg">
+                <div class="text-center mb-4">
+                    <div
+                        class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto"
+                    >
+                        2
+                    </div>
                 </div>
-                <h4 class='font-semibold text-center mb-2'>Route Design</h4>
-                <p class='text-sm text-center'>Our logistics team creates an optimized route plan with timing and pricing details.</p>
+                <h4 class="font-semibold text-center mb-2">Route Design</h4>
+                <p class="text-sm text-center">Our logistics team creates an optimized route plan with timing and pricing details.</p>
             </div>
-            <div class='bg-base-200 p-6 rounded-lg'>
-                <div class='text-center mb-4'>
-                    <div class='w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto'>3</div>
+            <div class="bg-base-200 p-6 rounded-lg">
+                <div class="text-center mb-4">
+                    <div
+                        class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto"
+                    >
+                        3
+                    </div>
                 </div>
-                <h4 class='font-semibold text-center mb-2'>Team Assignment</h4>
-                <p class='text-sm text-center'>Dedicated courier team assignment ensures consistency and familiarity with your needs.</p>
+                <h4 class="font-semibold text-center mb-2">Team Assignment</h4>
+                <p class="text-sm text-center">Dedicated courier team assignment ensures consistency and familiarity with your needs.</p>
             </div>
-            <div class='bg-base-200 p-6 rounded-lg'>
-                <div class='text-center mb-4'>
-                    <div class='w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto'>4</div>
+            <div class="bg-base-200 p-6 rounded-lg">
+                <div class="text-center mb-4">
+                    <div
+                        class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto"
+                    >
+                        4
+                    </div>
                 </div>
-                <h4 class='font-semibold text-center mb-2'>Service Launch</h4>
-                <p class='text-sm text-center'>Route implementation with ongoing monitoring and optimization as your needs evolve.</p>
+                <h4 class="font-semibold text-center mb-2">Service Launch</h4>
+                <p class="text-sm text-center">Route implementation with ongoing monitoring and optimization as your needs evolve.</p>
             </div>
         </div>
     </Section>

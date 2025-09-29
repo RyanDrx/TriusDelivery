@@ -10,9 +10,9 @@ module.exports = {
                     light: '#30696b'
                 },
                 secondary: {
-                    DEFAULT: '#9f7358', // Trius Brown (Compliance/Safety)
-                    dark: '#7d5c44',
-                    light: '#b8895f'
+                    DEFAULT: '#2f855a', // Healthcare Green (Compliance/Safety)
+                    dark: '#276749',
+                    light: '#48bb78'
                 },
                 accent: {
                     DEFAULT: '#C53030', // Alert Red (STAT/Urgency)

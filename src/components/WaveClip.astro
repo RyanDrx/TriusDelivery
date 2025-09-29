@@ -1,0 +1,172 @@
+---
+interface Props {
+    side?: 'top' | 'bottom' | 'both';
+    class?: string;
+
+    // wave controls (percent units)
+    amplitude?: number; // height of wave
+    baseline?: number; // vertical position of the wave center
+    waves?: number; // number of wave cycles across width
+    phase?: number; // radians, phase shift
+    samples?: number; // how many points to approximate curve
+
+    // for 'both' side only
+    topBaseline?: number; // separate baseline for top wave
+    topAmplitude?: number; // separate amplitude for top wave
+    topPhase?: number; // separate phase for top wave
+}
+
+const {
+    side = 'bottom',
+    class: className = '',
+    amplitude = 2,
+    baseline = side === 'bottom' ? 86 : side === 'top' ? 14 : 86, // default for bottom wave when 'both'
+    waves = 1.25,
+    phase = 0,
+    samples = 36,
+    topBaseline = 14,
+    topAmplitude = amplitude,
+    topPhase = phase
+} = Astro.props;
+
+// Memoization cache for computed wave polygons
+const waveCache = new Map<string, string>();
+
+// Generate cache key from wave parameters
+function getCacheKey(params: {
+    side: 'top' | 'bottom' | 'both';
+    amplitude: number;
+    baseline: number;
+    waves: number;
+    phase: number;
+    samples: number;
+    topBaseline?: number;
+    topAmplitude?: number;
+    topPhase?: number;
+}): string {
+    // Round floating point values to avoid cache misses from tiny differences
+    const rounded = {
+        ...params,
+        amplitude: Math.round(params.amplitude * 1000) / 1000,
+        baseline: Math.round(params.baseline * 1000) / 1000,
+        waves: Math.round(params.waves * 1000) / 1000,
+        phase: Math.round(params.phase * 1000) / 1000,
+        topBaseline: params.topBaseline ? Math.round(params.topBaseline * 1000) / 1000 : undefined,
+        topAmplitude: params.topAmplitude ? Math.round(params.topAmplitude * 1000) / 1000 : undefined,
+        topPhase: params.topPhase ? Math.round(params.topPhase * 1000) / 1000 : undefined
+    };
+    return JSON.stringify(rounded);
+}
+
+// build sine-approximated polygon points in percentage space
+function buildWavePolygon({
+    side,
+    amplitude,
+    baseline,
+    waves,
+    phase,
+    samples,
+    topBaseline,
+    topAmplitude,
+    topPhase
+}: {
+    side: 'top' | 'bottom' | 'both';
+    amplitude: number;
+    baseline: number;
+    waves: number;
+    phase: number;
+    samples: number;
+    topBaseline?: number;
+    topAmplitude?: number;
+    topPhase?: number;
+}) {
+    // Check cache first
+    const params = { side, amplitude, baseline, waves, phase, samples, topBaseline, topAmplitude, topPhase };
+    const cacheKey = getCacheKey(params);
+
+    if (waveCache.has(cacheKey)) {
+        return waveCache.get(cacheKey)!;
+    }
+
+    const pts: string[] = [];
+
+    // helper to compute y for x in [0,100] for bottom wave
+    const yAtBottom = (xPct: number) => {
+        const t = xPct / 100;
+        const y = baseline + amplitude * Math.sin(2 * Math.PI * waves * t + phase);
+        return Math.max(0, Math.min(100, y));
+    };
+
+    // helper to compute y for x in [0,100] for top wave
+    const yAtTop = (xPct: number) => {
+        const t = xPct / 100;
+        const y = (topBaseline ?? 14) + (topAmplitude ?? amplitude) * Math.sin(2 * Math.PI * waves * t + (topPhase ?? phase));
+        return Math.max(0, Math.min(100, y));
+    };
+
+    if (side === 'bottom') {
+        // visible region: above the wave
+        pts.push(`0% 0%`, `100% 0%`);
+        for (let i = samples; i >= 0; i--) {
+            const x = (i / samples) * 100;
+            const y = yAtBottom(x);
+            pts.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+        }
+    } else if (side === 'top') {
+        // visible region: below the wave
+        for (let i = 0; i <= samples; i++) {
+            const x = (i / samples) * 100;
+            const y = yAtTop(x);
+            pts.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+        }
+        pts.push(`100% 100%`, `0% 100%`);
+    } else if (side === 'both') {
+        // visible region: between top and bottom waves
+        // polygon order: top wave left->right -> bottom wave right->left -> back to start
+
+        // Add top wave points (left to right)
+        for (let i = 0; i <= samples; i++) {
+            const x = (i / samples) * 100;
+            const y = yAtTop(x);
+            pts.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+        }
+
+        // Add bottom wave points (right to left)
+        for (let i = samples; i >= 0; i--) {
+            const x = (i / samples) * 100;
+            const y = yAtBottom(x);
+            pts.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+        }
+    }
+
+    const result = `polygon(${pts.join(', ')})`;
+
+    // Cache the result for future use
+    waveCache.set(cacheKey, result);
+
+    return result;
+}
+
+const clipPath = buildWavePolygon({
+    side,
+    amplitude,
+    baseline,
+    waves,
+    phase,
+    samples,
+    topBaseline,
+    topAmplitude,
+    topPhase
+});
+---
+
+<style define:vars={{ clipPath }}>
+    .wave-clip {
+        clip-path: var(--clipPath);
+        -webkit-clip-path: var(--clipPath);
+    }
+</style>
+
+<div class={`wave-clip ${className}`}>
+    <slot />
+</div>

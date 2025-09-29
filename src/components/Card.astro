@@ -21,7 +21,13 @@ const { badge, heading, body, cta, image, theme, textAlign, hasBorder, class: cl
     {
         image && image.src && (
             <figure>
-                <ResponsiveImage _id={image._id} src={image.src} width={image.dimensions?.width} height={image.dimensions?.height} alt={image.alt} />
+                <ResponsiveImage
+                    _id={image._id}
+                    src={image.src}
+                    width={image.dimensions?.width}
+                    height={image.dimensions?.height}
+                    alt={image.alt}
+                />
             </figure>
         )
     }
@@ -41,7 +47,9 @@ const { badge, heading, body, cta, image, theme, textAlign, hasBorder, class: cl
                     {cta.map((item, index) => (
                         <Action
                             action={item}
-                            class:list={[item._type === 'actionLink' ? 'font-bold underline hover:no-underline' : 'px-4 py-2.5 h-auto min-h-0']}
+                            class:list={[
+                                item._type === 'actionLink' ? 'font-bold underline hover:no-underline' : 'px-4 py-2.5 h-auto min-h-0'
+                            ]}
                             data-sb-field-path={`.${index}`}
                         />
                     ))}

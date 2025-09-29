@@ -13,10 +13,10 @@ const { title, logo, navLinks, currentPage, 'data-sb-field-path': fieldPath } = 
 // Function to determine if a navigation item is active
 function isActiveNavItem(item: any, currentPage: string): boolean {
     if (!currentPage || !item.url) return false;
-    
+
     // Handle home page
     if (currentPage === 'home' && item.url === '/') return true;
-    
+
     // Handle other pages - match the URL path to currentPage
     const urlPath = item.url.replace('/', '');
     return urlPath === currentPage;
@@ -29,53 +29,53 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
     <!-- Trust badges bar -->
     <div class="trust-bar bg-gradient-to-r from-secondary/10 to-primary/10 border-b border-primary/20">
         <div class="max-w-7xl mx-auto px-4 py-2">
-            <div class="flex items-center justify-center gap-6 text-xs font-medium text-primary/80">
-                <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
-                    <span>HIPAA Compliant</span>
+            <div class="flex items-center justify-center gap-4 text-xs font-medium">
+                <div class="trust-badge-item flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full border border-secondary/30 hover:bg-white/30 hover:border-secondary/50 transition-all duration-300">
+                    <div class="w-2 h-2 bg-secondary rounded-full animate-pulse shadow-sm"></div>
+                    <span class="text-secondary font-semibold tracking-wide">HIPAA Compliant</span>
                 </div>
-                <div class="hidden sm:flex items-center gap-2">
-                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                    <span>OSHA Certified</span>
+                <div class="trust-badge-item hidden sm:flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full border border-primary/30 hover:bg-white/30 hover:border-primary/50 transition-all duration-300">
+                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse shadow-sm"></div>
+                    <span class="text-primary font-semibold tracking-wide">OSHA Certified</span>
                 </div>
-                <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-                    <span>24/7 STAT Available</span>
+                <div class="trust-badge-item flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full border border-accent/30 hover:bg-white/30 hover:border-accent/50 transition-all duration-300">
+                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse shadow-sm"></div>
+                    <span class="text-accent font-semibold tracking-wide">24/7 STAT Available</span>
                 </div>
-                <div class="hidden md:flex items-center gap-2">
-                    <div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
-                    <span>5-State Coverage</span>
+                <div class="trust-badge-item hidden md:flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full border border-secondary/30 hover:bg-white/30 hover:border-secondary/50 transition-all duration-300">
+                    <div class="w-2 h-2 bg-secondary rounded-full animate-pulse shadow-sm"></div>
+                    <span class="text-secondary font-semibold tracking-wide">5-State Coverage</span>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Main navigation -->
     <nav class="main-nav bg-white/95 backdrop-blur-md border-b border-base-200/50 shadow-lg relative overflow-visible">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6">
-            <div class="flex items-center justify-between h-16 lg:h-20">
+        <div class="max-w-7xl mx-auto py-2 px-4 lg:px-6">
+            <div class="flex items-center justify-between h-18 lg:h-24">
                 <!-- Logo/Brand -->
                 <div class="flex items-center gap-3">
                     {
                         logo?.src ? (
                             <a class="flex items-center group" href="/">
-                                <ResponsiveImage 
-                                    _id={logo._id} 
-                                    src={logo.src} 
-                                    width={logo.dimensions?.width} 
-                                    height={logo.dimensions?.height} 
-                                    alt={logo.alt} 
+                                <ResponsiveImage
+                                    _id={logo._id}
+                                    src={logo.src}
+                                    width={logo.dimensions?.width}
+                                    height={logo.dimensions?.height}
+                                    alt={logo.alt}
                                     class=" transform rotate-[-5deg] transition-transform duration-300 group-hover:scale-105"
                                 />
                             </a>
                         ) : (
                             <a class="brand-logo group" href="/" data-sb-field-path=".title">
                                 <div class="flex items-center gap-3">
-                                    <!-- Trius Logo with Background - Refined Size -->
-                                    <div class="logo-icon w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 p-2.5 relative z-10">
-                                        <img 
-                                            src="/logos/Trius_Logo.svg" 
-                                            alt="Trius LLC - Medical Courier Services" 
+                                    {/* Trius Logo with Background - Refined Size */}
+                                    <div class="logo-icon w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 p-2.5 relative z-10">
+                                        <img
+                                            src="/logos/Trius_Logo.svg"
+                                            alt="Trius LLC - Medical Courier Services"
                                             class="w-full h-full object-contain filter brightness-0 invert transition-all duration-300"
                                             loading="eager"
                                             decoding="sync"
@@ -84,7 +84,7 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
                                             style="shape-rendering: geometricPrecision; image-rendering: optimizeQuality;"
                                         />
                                     </div>
-                                    <!-- Brand text -->
+                                    {/* Brand text */}
                                     <div class="brand-text">
                                         <h1 class="text-2xl lg:text-3xl font-black font-brand text-primary tracking-wider">
                                              TRIUS
@@ -100,73 +100,67 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
                 <!-- Desktop Navigation -->
                 {
                     navLinks && navLinks.length > 0 && (
-                        <div class="hidden lg:flex items-center">
-                            <!-- Unified Button Group -->
-                            <div class="nav-button-group bg-white/80 backdrop-blur-md border border-gray-200 rounded-lg shadow-lg flex items-center relative">
-                                {navLinks.map((item, index) => {
+                        <div class="hidden lg:flex items-center gap-1">
+                            {/* Services Dropdown - Separate but cohesive */}
+                            <div class="services-dropdown relative bg-white/90 backdrop-blur-md border border-white/40 rounded-l-2xl shadow-xl">
+                                <button class="px-6 py-3 text-slate-700 hover:text-primary hover:bg-slate-50 font-semibold text-sm tracking-wide transition-all duration-200 flex items-center gap-1">
+                                    Services
+                                    <svg class="w-3 h-3 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                                <div class="services-dropdown-menu absolute top-full left-0 mt-2 w-72 bg-white/95 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-[100]">
+                                    <div class="py-1">
+                                        <a href="/services" class="block px-4 py-3 text-sm font-medium text-gray-800 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
+                                            All Services
+                                        </a>
+                                        <a href="/services/stat-delivery" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
+                                            <div class="font-medium">STAT Deliveries</div>
+                                            <div class="text-xs text-gray-500 mt-1">Urgent medical transport with real-time tracking</div>
+                                        </a>
+                                        <a href="/services/scheduled-routes" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
+                                            <div class="font-medium">Scheduled Routes</div>
+                                            <div class="text-xs text-gray-500 mt-1">Reliable recurring pickups and deliveries</div>
+                                        </a>
+                                        <a href="/services/specialized-equipment" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50">
+                                            <div class="font-medium">Specialized Equipment</div>
+                                            <div class="text-xs text-gray-500 mt-1">Secure transport of fragile medical devices</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Main Navigation Group */}
+                            <div class="bg-white/90 backdrop-blur-md border border-white/40 rounded-r-2xl shadow-xl flex items-center overflow-hidden">
+                                {navLinks.filter(item => item.label !== 'Services').map((item, index) => {
                                     const isActive = isActiveNavItem(item, currentPage);
-                                    const isServices = item.label === 'Services';
                                     return (
-                                    <>
-                                        {isServices ? (
-                                            <div class="services-button-container relative">
-                                                <button
-                                                    class:list={[
-                                                        'nav-button px-6 py-2.5 font-medium transition-all duration-300 relative overflow-hidden text-sm',
-                                                        isActive
-                                                            ? 'text-primary hover:text-primary hover:bg-primary/10 border-b-2 border-primary'
-                                                            : 'text-gray-700 hover:text-primary hover:bg-primary/10'
-                                                    ]}
-                                                >
-                                                    Services
-                                                </button>
-                                                <div class="dropdown-menu absolute top-full left-0 mt-1 w-72 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-[100]">
-                                                    <div class="py-1">
-                                                        <a href="/services" class="block px-4 py-3 text-sm font-medium text-gray-800 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
-                                                            All Services
-                                                        </a>
-                                                        <a href="/services/stat-delivery" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
-                                                            <div class="font-medium">STAT Deliveries</div>
-                                                            <div class="text-xs text-gray-500 mt-1">Urgent medical transport with real-time tracking</div>
-                                                        </a>
-                                                        <a href="/services/scheduled-routes" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100">
-                                                            <div class="font-medium">Scheduled Routes</div>
-                                                            <div class="text-xs text-gray-500 mt-1">Reliable recurring pickups and deliveries</div>
-                                                        </a>
-                                                        <a href="/services/specialized-equipment" class="block px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50">
-                                                            <div class="font-medium">Specialized Equipment</div>
-                                                            <div class="text-xs text-gray-500 mt-1">Secure transport of fragile medical devices</div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ) : (
+                                        <>
+                                            {index > 0 && (
+                                                <div class="w-px h-8 bg-gray-300/50"></div>
+                                            )}
                                             <Action
                                                 action={item}
                                                 class:list={[
-                                                    'nav-button px-6 py-2.5 font-medium transition-all duration-300 relative overflow-hidden text-sm',
-                                                    item._type === 'actionLink' 
+                                                    'px-6 py-3 font-semibold text-sm tracking-wide transition-all duration-200',
+                                                    item._type === 'actionLink'
                                                         ? isActive
-                                                            ? 'text-primary hover:text-primary hover:bg-primary/10 border-b-2 border-primary'
-                                                            : 'text-gray-700 hover:text-primary hover:bg-primary/10' 
+                                                            ? 'text-white bg-gradient-to-r from-primary to-primary-dark'
+                                                            : 'text-slate-700 hover:text-primary hover:bg-slate-50'
                                                         : item.label === 'Contact'
-                                                            ? 'text-white bg-primary hover:bg-primary/90 rounded-none'
-                                                            : 'text-white bg-primary hover:bg-primary/90'
+                                                            ? 'text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary'
+                                                            : 'text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary'
                                                 ]}
                                                 data-sb-field-path={`.${index}`}
                                             />
-                                        )}
-                                        {index < navLinks.length - 1 && (
-                                            <div class="nav-separator w-px h-8 bg-gray-300"></div>
-                                        )}
-                                    </>
-                                )})}
-                                
-                                <!-- Separator before STAT button -->
-                                <div class="nav-separator w-px h-8 bg-gray-300"></div>
-                                
-                                <!-- Emergency STAT button -->
-                                <a href="tel:1-800-TRIUS-911" class="emergency-btn px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold text-sm flex items-center gap-2 transition-all duration-300 hover:from-red-600 hover:to-red-700 hover:shadow-lg">
+                                        </>
+                                    );
+                                })}
+
+                                <div class="w-px h-8 bg-gray-300/50"></div>
+
+                                {/* Emergency STAT Button */}
+                                <a href="tel:1-800-TRIUS-911" class="px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold text-sm tracking-wide flex items-center gap-2 hover:from-red-600 hover:to-red-700 transition-all duration-200">
                                     <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
                                     </svg>
@@ -205,7 +199,7 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
                                     {isServices ? (
                                         <div class="mobile-services-dropdown">
                                             <div class="flex items-center justify-between">
-                                                <a 
+                                                <a
                                                     href="/services"
                                                     class:list={[
                                                         'mobile-nav-link flex-1 px-4 py-3 rounded-l-lg font-medium transition-all duration-300',
@@ -242,10 +236,10 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
                                             action={item}
                                             class:list={[
                                                 'mobile-nav-link block px-4 py-3 rounded-lg font-medium transition-all duration-300',
-                                                item._type === 'actionLink' 
+                                                item._type === 'actionLink'
                                                     ? isActive
                                                         ? 'text-primary hover:text-primary hover:bg-primary/10 border-l-4 border-primary bg-primary/5'
-                                                        : 'text-neutral hover:text-primary hover:bg-primary/10' 
+                                                        : 'text-neutral hover:text-primary hover:bg-primary/10'
                                                     : 'btn btn-primary w-full shadow-lg'
                                             ]}
                                             data-sb-field-path={`.${index}`}
@@ -273,31 +267,57 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
 <style>
     /* Header scroll effects */
     .header-wrapper {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    
+
+    .trust-bar {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: top center;
+        will-change: transform, opacity, max-height, height;
+        max-height: 100px;
+        overflow: hidden;
+    }
+
     .header-wrapper.scrolled .trust-bar {
         opacity: 0;
-        transform: translateY(-100%);
-        max-height: 0;
-        padding: 0;
+        max-height: 0 !important;
+        height: 0 !important;
+        transform: translateY(-100%) scaleY(0);
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        min-height: 0 !important;
+        line-height: 0 !important;
+        pointer-events: none;
+        visibility: hidden;
     }
-    
+
+    .main-nav {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
     .header-wrapper.scrolled .main-nav {
-        background-color: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow:
+            0 8px 32px -8px rgba(0, 0, 0, 0.12),
+            0 2px 16px -2px rgba(0, 0, 0, 0.08),
+            0 1px 4px rgba(0, 0, 0, 0.06);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
-    
+
     .header-wrapper.scrolled .main-nav .h-16 {
         height: 3.5rem;
     }
-    
+
     .header-wrapper.scrolled .main-nav .lg\:h-20 {
         height: 4rem;
     }
-    
+
     @media (min-width: 1024px) {
         .header-wrapper.scrolled .main-nav .lg\:h-20 {
             height: 4rem;
@@ -309,11 +329,10 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         background: linear-gradient(-45deg, rgba(26, 78, 138, 0.1), rgba(47, 133, 90, 0.1), rgba(197, 48, 48, 0.05), rgba(26, 78, 138, 0.1));
         background-size: 400% 400%;
         animation: gradientShift 15s ease infinite;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         opacity: 1;
         transform: translateY(0);
-        max-height: 100px;
-        overflow: hidden;
+        min-height: 40px;
+        height: auto;
     }
 
     @keyframes gradientShift {
@@ -330,7 +349,7 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         margin-top: -2px;
         margin-bottom: -2px;
     }
-    
+
     .logo-icon::before {
         content: '';
         position: absolute;
@@ -345,16 +364,16 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         opacity: 0;
         transition: opacity 0.3s ease;
     }
-    
+
     .brand-logo:hover .logo-icon {
         transform: rotate(5deg) scale(1.1);
         box-shadow: 0 10px 25px rgba(26, 78, 138, 0.4);
     }
-    
+
     .brand-logo:hover .logo-icon::before {
         opacity: 1;
     }
-    
+
     .logo-icon img {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         /* Optimize for high-DPI displays */
@@ -366,14 +385,14 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         /* Force hardware acceleration for smoother rendering */
         will-change: transform, filter;
     }
-    
+
     .brand-logo:hover .logo-icon img {
         transform: scale(1.05);
         filter: brightness(0) invert() drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
     }
 
     .brand-text h1 {
-        background-image: linear-gradient(135deg, #1c3c3d 0%, #9f7358 100%);
+        background-image: linear-gradient(135deg, #1c3c3d 0%, #276749 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -384,108 +403,81 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
     .nav-button-group {
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.1),
-            0 2px 8px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav-button-group:hover {
-        box-shadow: 
-            0 12px 40px rgba(0, 0, 0, 0.15),
-            0 4px 12px rgba(0, 0, 0, 0.08);
-        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
     }
 
     /* Individual navigation buttons */
     .nav-button {
         position: relative;
         white-space: nowrap;
-        min-height: 40px;
+        min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    /* Active navigation underline styling */
-    .nav-button.border-b-2.border-primary {
-        border-bottom: 2px solid #1A4E8A !important;
-        font-weight: 600;
-    }
-
-    /* Contact button - no rounded corners */
-    .nav-button.rounded-none {
-        border-radius: 0 !important;
-    }
-
-    .nav-button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(28, 60, 61, 0.1), transparent);
-        transition: left 0.5s ease;
-    }
-
-    .nav-button:hover::before {
-        left: 100%;
+        transition: all 0.2s ease;
+        margin: 4px;
     }
 
     .nav-button:hover {
-        transform: scale(1.02);
+        transform: translateY(-1px);
     }
 
     /* Navigation separators */
     .nav-separator {
-        opacity: 0.6;
-        transition: all 0.3s ease;
-        background: linear-gradient(to bottom, transparent, #d1d5db, transparent);
-    }
-
-    .nav-button-group:hover .nav-separator {
-        opacity: 0.8;
-        background: linear-gradient(to bottom, transparent, #9ca3af, transparent);
+        opacity: 0.3;
+        background: linear-gradient(to bottom, transparent, #e5e7eb, transparent);
+        margin: 8px 0;
     }
 
     /* Emergency STAT button enhanced */
     .emergency-btn {
         position: relative;
-        overflow: hidden;
-        min-height: 40px;
-        font-weight: 600;
+        min-height: 48px;
+        font-weight: 700;
         letter-spacing: 0.025em;
-    }
-
-    .emergency-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-        transition: left 0.6s ease;
-    }
-
-    .emergency-btn:hover::before {
-        left: 100%;
+        transition: all 0.2s ease;
+        margin: 4px;
+        box-shadow: 0 4px 14px 0 rgba(239, 68, 68, 0.25);
     }
 
     .emergency-btn:hover {
-        transform: scale(1.02);
-        filter: brightness(1.1);
-    }
-
-    .emergency-btn:active {
-        transform: scale(0.98);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px 0 rgba(239, 68, 68, 0.4);
     }
 
     /* Ensure consistent button heights */
     .nav-button-group > * {
-        min-height: 40px;
+        min-height: 48px;
+    }
+
+    /* Services dropdown styling */
+    .services-dropdown:hover .services-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .services-dropdown:hover button svg {
+        transform: rotate(180deg);
+    }
+
+    .services-dropdown-menu {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .services-dropdown a {
+        transition: all 0.15s ease;
+    }
+
+    .services-dropdown a:hover {
+        padding-left: 1.25rem;
+        background-color: rgba(26, 78, 138, 0.03);
     }
 
     /* Mobile menu animations */
@@ -495,7 +487,7 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         pointer-events: none;
     }
-    
+
     .mobile-panel.is-visible {
         transform: translateY(0);
         opacity: 1;
@@ -513,7 +505,7 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         height: 0.125rem;
         transform-origin: center;
     }
-    
+
     .mobile-menu-icon:before,
     .mobile-menu-icon:after {
         display: block;
@@ -526,25 +518,25 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         height: 0.125rem;
         transform-origin: center;
     }
-    
+
     .mobile-menu-icon:before {
         top: -0.375rem;
     }
-    
+
     .mobile-menu-icon:after {
         top: 0.375rem;
     }
-    
+
     .mobile-menu-btn[aria-expanded="true"] .mobile-menu-icon {
         background-color: transparent;
         transform: rotate(180deg);
     }
-    
+
     .mobile-menu-btn[aria-expanded="true"] .mobile-menu-icon:before {
         top: 0;
         transform: rotate(45deg);
     }
-    
+
     .mobile-menu-btn[aria-expanded="true"] .mobile-menu-icon:after {
         top: 0;
         transform: rotate(-45deg);
@@ -578,27 +570,6 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         background-color: rgba(26, 78, 138, 0.05) !important;
     }
 
-    /* Services dropdown styling */
-    .services-dropdown:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    .services-dropdown .dropdown-menu {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-    }
-
-    .services-dropdown .dropdown-menu a {
-        transition: all 0.15s ease;
-    }
-
-    .services-dropdown .dropdown-menu a:hover {
-        padding-left: 1.25rem;
-        background-color: rgba(26, 78, 138, 0.03);
-    }
-
     /* Mobile services dropdown styling */
     .mobile-dropdown-toggle[aria-expanded="true"] svg {
         transform: rotate(180deg);
@@ -613,75 +584,13 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         padding-left: 1rem;
     }
 
-    /* Dropdown menu styling */
-    .dropdown-container:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    .dropdown-menu {
-        min-width: 280px;
-        max-width: 320px;
-    }
-
-    .dropdown-item {
-        transition: all 0.2s ease;
-        position: relative;
-    }
-
-    .dropdown-item:hover {
-        background-color: rgba(26, 78, 138, 0.05);
-        padding-left: 1.25rem;
-    }
-
-    .dropdown-item::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 2px;
-        height: 0;
-        background: #1A4E8A;
-        transition: height 0.2s ease;
-    }
-
-    .dropdown-item:hover::before {
-        height: 60%;
-    }
-
-    /* Mobile dropdown styling */
-    .mobile-dropdown-container .mobile-nav-link {
-        border-radius: 0.5rem 0.5rem 0 0;
-    }
-
-    .mobile-dropdown-toggle[aria-expanded="true"] svg {
-        transform: rotate(180deg);
-    }
-
-    .mobile-dropdown-menu {
-        border-top: 1px solid rgba(26, 78, 138, 0.1);
-        background: rgba(26, 78, 138, 0.02);
-    }
-
-    .mobile-dropdown-item {
-        position: relative;
-        transition: all 0.2s ease;
-    }
-
-    .mobile-dropdown-item:hover {
-        background-color: rgba(26, 78, 138, 0.05);
-        padding-left: 1rem;
-    }
-
     /* Pulse animation for trust indicators */
     @keyframes statusPulse {
-        0%, 100% { 
+        0%, 100% {
             transform: scale(1);
             opacity: 1;
         }
-        50% { 
+        50% {
             transform: scale(1.2);
             opacity: 0.8;
         }
@@ -701,75 +610,70 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
     }
-    
+
     /* Responsive logo adjustments */
     @media (max-width: 640px) {
         .brand-text h1 {
-            font-size: 1.125rem; /* Slightly smaller title on mobile */
+            font-size: 1.125rem;
         }
-        
+
         .logo-icon {
-            width: 3.5rem; /* 56px - slightly larger for better visibility on mobile */
+            width: 3.5rem;
             height: 3.5rem;
             margin-top: -1px;
             margin-bottom: -1px;
-            /* Ensure minimum size for high-DPI displays */
             min-width: 3.5rem;
             min-height: 3.5rem;
         }
-        
+
         .logo-icon img {
-            /* Ensure SVG scales properly on mobile */
             width: 100% !important;
             height: 100% !important;
-            /* Additional mobile optimization */
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
         }
     }
-    
+
     @media (min-width: 640px) {
         .logo-icon {
-            margin-top: -3px; /* Subtle extension on larger screens */
+            margin-top: -3px;
             margin-bottom: -3px;
         }
     }
-    
-    /* When header is scrolled, make logo icon slightly smaller */
+
     .header-wrapper.scrolled .logo-icon {
-        width: 2.5rem; /* Compact but still prominent */
+        width: 2.5rem;
         height: 2.5rem;
         margin-top: 0;
         margin-bottom: 0;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
+
     .header-wrapper.scrolled .brand-text h1 {
         font-size: 1.125rem;
         transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
+
     @media (min-width: 1024px) {
         .header-wrapper.scrolled .logo-icon {
-            width: 3rem; /* Reasonable desktop scrolled size */
+            width: 3rem;
             height: 3rem;
             margin-top: -1px;
             margin-bottom: -1px;
         }
-        
+
         .header-wrapper.scrolled .brand-text h1 {
             font-size: 1.25rem;
         }
     }
-    
-    /* Ensure proper alignment and positioning */
+
     .brand-logo {
         position: relative;
         z-index: 50;
         display: flex;
         align-items: center;
     }
-    
+
     .brand-logo .flex {
         align-items: center;
     }
@@ -782,12 +686,25 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         const mobilePanel = document.querySelector('.mobile-panel');
         let scrolled = false;
 
-        // Scroll effects
+        // Scroll effects with smooth transitions
+        let ticking = false;
+
         function handleScroll() {
-            const shouldBeScrolled = window.scrollY > 20;
-            if (shouldBeScrolled !== scrolled) {
-                scrolled = shouldBeScrolled;
-                header?.classList.toggle('scrolled', scrolled);
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const shouldBeScrolled = window.scrollY > 40; // Lower threshold for more responsive feel
+                    if (shouldBeScrolled !== scrolled) {
+                        scrolled = shouldBeScrolled;
+                        header?.classList.toggle('scrolled', scrolled);
+
+                        // Force a reflow to ensure smooth transitions
+                        if (header) {
+                            (header as HTMLElement).offsetHeight;
+                        }
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         }
 
@@ -796,11 +713,11 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
             if (mobileMenuBtn && mobilePanel) {
                 const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
                 const newState = !isExpanded;
-                
+
                 mobileMenuBtn.setAttribute('aria-expanded', newState.toString());
                 mobileMenuBtn.setAttribute('aria-label', newState ? 'Close Menu' : 'Open Menu');
                 mobilePanel.classList.toggle('is-visible', newState);
-                
+
                 // Prevent body scroll when menu is open
                 document.body.style.overflow = newState ? 'hidden' : '';
             }
@@ -808,8 +725,8 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
 
         // Close mobile menu when clicking outside
         function handleOutsideClick(event) {
-            if (mobilePanel?.classList.contains('is-visible') && 
-                !mobilePanel.contains(event.target) && 
+            if (mobilePanel?.classList.contains('is-visible') &&
+                !mobilePanel.contains(event.target) &&
                 !mobileMenuBtn?.contains(event.target)) {
                 toggleMobileMenu();
             }
@@ -829,15 +746,15 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         // Mobile dropdown functionality
         function initMobileDropdowns() {
             const toggles = document.querySelectorAll('.mobile-dropdown-toggle');
-            
+
             toggles.forEach(toggle => {
                 toggle.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    
+
                     const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
                     const menu = toggle.parentElement?.nextElementSibling;
-                    
+
                     // Close other dropdowns
                     toggles.forEach(otherToggle => {
                         if (otherToggle !== toggle) {
@@ -848,7 +765,7 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
                             }
                         }
                     });
-                    
+
                     // Toggle current dropdown
                     toggle.setAttribute('aria-expanded', (!isExpanded).toString());
                     if (menu && menu.classList.contains('mobile-dropdown-menu')) {
@@ -858,33 +775,6 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
             });
         }
 
-        // Services dropdown functionality
-        function initServicesDropdown() {
-            const servicesContainer = document.querySelector('.services-button-container');
-            if (servicesContainer) {
-                const button = servicesContainer.querySelector('.nav-button');
-                const dropdown = servicesContainer.querySelector('.dropdown-menu');
-                
-                if (button && dropdown) {
-                    const showDropdown = () => {
-                        dropdown.classList.remove('opacity-0', 'invisible');
-                        dropdown.classList.add('opacity-100', 'visible');
-                        (dropdown as HTMLElement).style.transform = 'translateY(0)';
-                    };
-                    
-                    const hideDropdown = () => {
-                        dropdown.classList.add('opacity-0', 'invisible');
-                        dropdown.classList.remove('opacity-100', 'visible');
-                        (dropdown as HTMLElement).style.transform = 'translateY(-8px)';
-                    };
-                    
-                    button.addEventListener('mouseenter', showDropdown);
-                    button.addEventListener('mouseleave', hideDropdown);
-                    dropdown.addEventListener('mouseenter', showDropdown);
-                    dropdown.addEventListener('mouseleave', hideDropdown);
-                }
-            }
-        }
 
         // Event listeners
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -894,12 +784,9 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
 
         // Initialize scroll state
         handleScroll();
-        
+
         // Initialize mobile dropdowns
         initMobileDropdowns();
-        
-        // Initialize services dropdown
-        initServicesDropdown();
 
         // Cleanup function for when the page changes
         return () => {
@@ -928,14 +815,14 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
         function handleLogoScroll() {
             const currentScrollY = window.scrollY;
             const scrollDelta = Math.abs(currentScrollY - lastScrollY);
-            
+
             if (scrollDelta > 50 && logoIcon) {
                 (logoIcon as HTMLElement).style.transform = `rotate(${scrollDelta * 2}deg) scale(1.05)`;
                 setTimeout(() => {
                     (logoIcon as HTMLElement).style.transform = '';
                 }, 300);
             }
-            
+
             lastScrollY = currentScrollY;
         }
 

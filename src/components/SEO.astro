@@ -17,12 +17,12 @@ const json = Array.isArray(graph) ? { '@context': 'https://schema.org', '@graph'
 ---
 
 <title>{title}</title>
-<meta name='description' content={description} />
-<link rel='canonical' href={Astro.url.href} />
-{noindex && <meta name='robots' content='noindex,nofollow' />}
+<meta name="description" content={description} />
+<link rel="canonical" href={Astro.url.href} />
+{noindex && <meta name="robots" content="noindex,nofollow" />}
 
-<meta property='og:title' content={title} />
-{description && <meta property='og:description' content={description} />}
-{image && <meta property='og:image' content={image} />}
+<meta property="og:title" content={title} />
+{description && <meta property="og:description" content={description} />}
+{image && <meta property="og:image" content={image} />}
 
 {json && <Schema item={json} />}

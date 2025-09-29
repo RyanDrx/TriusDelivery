@@ -10,139 +10,162 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
 ---
 
 <footer
-    class='footer-wrapper bg-gradient-to-b from-primary via-primary-dark to-primary-dark text-white relative overflow-hidden'
+    class="footer-wrapper bg-gradient-to-b from-primary via-primary-dark to-primary-dark text-white relative overflow-hidden"
     data-sb-field-path={fieldPath}
 >
     <!-- Background Pattern -->
-    <div class='absolute inset-0 opacity-5'>
-        <div class='footer-pattern'></div>
+    <div class="absolute inset-0 opacity-5">
+        <div class="footer-pattern"></div>
     </div>
 
     <!-- Main Footer Content -->
-    <div class='relative z-10 max-w-7xl mx-auto px-4 py-16 lg:px-6 lg:py-20'>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 py-16 lg:px-6 lg:py-20">
         <!-- Top Section -->
-        <div class='grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12'>
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
             <!-- Company Info -->
-            <div class='lg:col-span-2 space-y-6'>
+            <div class="lg:col-span-2 space-y-6">
                 <!-- Logo/Brand -->
-                <div class='flex items-center gap-4 mb-6'>
-                    <div class='logo-container'>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="logo-container">
                         <img
-                            src='/logos/Trius_Logo.svg'
-                            alt='Trius LLC - Medical Courier Services'
-                            class='w-8 h-8 filter brightness-0 invert object-contain'
-                            style='width: 32px !important; height: 32px !important; max-width: 32px !important; max-height: 32px !important;'
+                            src="/logos/Trius_Logo.svg"
+                            alt="Trius LLC - Medical Courier Services"
+                            class="w-8 h-8 filter brightness-0 invert object-contain"
+                            style="width: 32px !important; height: 32px !important; max-width: 32px !important; max-height: 32px !important;"
                         />
                     </div>
                     <div>
-                        <h3 class='text-2xl font-bold text-white font-brand'>TRIUS LLC</h3>
-                        <p class='text-sm text-white/70 font-medium'>Medical Logistics Experts</p>
+                        <h3 class="text-2xl font-bold text-white font-brand">TRIUS LLC</h3>
+                        <p class="text-sm text-white/70 font-medium">Medical Logistics Experts</p>
                     </div>
                 </div>
 
-                <p class='text-white/80 leading-relaxed max-w-md'>
-                    Professional medical courier services specializing in HIPAA/OSHA compliant delivery across Washington, Oregon, Idaho, Montana, and
-                    California. Founded in 2022 and based in Tacoma, Washington.
+                <p class="text-white/80 leading-relaxed max-w-md">
+                    Professional medical courier services specializing in HIPAA/OSHA compliant delivery across Washington, Oregon, Idaho,
+                    Montana, and California. Founded in 2022 and based in Tacoma, Washington.
                 </p>
 
                 <!-- Trust Badges -->
-                <div class='flex flex-wrap gap-3 mt-6'>
-                    <div class='trust-badge'>
-                        <iconify-icon icon='material-symbols:shield-person' width='20' height='20'></iconify-icon>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <div class="trust-badge">
+                        <iconify-icon icon="material-symbols:shield-person" width="20" height="20"></iconify-icon>
                         <span>HIPAA Compliant</span>
                     </div>
-                    <div class='trust-badge'>
-                        <iconify-icon icon='material-symbols:construction' width='20' height='20'></iconify-icon>
+                    <div class="trust-badge">
+                        <iconify-icon icon="material-symbols:construction" width="20" height="20"></iconify-icon>
                         <span>OSHA Certified</span>
                     </div>
-                    <div class='trust-badge'>
-                        <iconify-icon icon='material-symbols:security' width='20' height='20'></iconify-icon>
+                    <div class="trust-badge">
+                        <iconify-icon icon="material-symbols:security" width="20" height="20"></iconify-icon>
                         <span>Insured & Bonded</span>
                     </div>
-                    <div class='trust-badge american-business'>
-                        <iconify-icon icon='twemoji:flag-for-flag-united-states' width='20' height='20'></iconify-icon>
+                    <div class="trust-badge american-business">
+                        <iconify-icon icon="twemoji:flag-for-flag-united-states" width="20" height="20"></iconify-icon>
                         <span>US Based</span>
                     </div>
-                    <div class='trust-badge small-business'>
-                        <iconify-icon icon='material-symbols:apartment' width='20' height='20'></iconify-icon>
+                    <div class="trust-badge small-business">
+                        <iconify-icon icon="material-symbols:apartment" width="20" height="20"></iconify-icon>
                         <span>Small Business</span>
                     </div>
                 </div>
             </div>
 
             <!-- Quick Links -->
-            <div class='space-y-6'>
-                <h4 class='text-xl font-semibold text-white border-l-4 border-secondary-light pl-4'>Quick Links</h4>
-                <nav class='space-y-3'>
-                    <a href='/services' class='footer-link group'>
-                        <iconify-icon icon='material-symbols:medical-services' width='16' height='16' class='group-hover:text-primary transition-colors'
-                        ></iconify-icon>
+            <div class="space-y-6">
+                <h4 class="text-xl font-semibold text-white border-l-4 border-secondary-light pl-4">Quick Links</h4>
+                <nav class="space-y-3">
+                    <a href="/services" class="footer-link group">
+                        <iconify-icon
+                            icon="material-symbols:medical-services"
+                            width="16"
+                            height="16"
+                            class="group-hover:text-primary transition-colors"></iconify-icon>
                         Our Services
                     </a>
-                    <a href='/about' class='footer-link group'>
-                        <iconify-icon icon='material-symbols:groups' width='16' height='16' class='group-hover:text-primary transition-colors'></iconify-icon>
+                    <a href="/about" class="footer-link group">
+                        <iconify-icon
+                            icon="material-symbols:groups"
+                            width="16"
+                            height="16"
+                            class="group-hover:text-primary transition-colors"></iconify-icon>
                         About Us
                     </a>
-                    <a href='/coverage' class='footer-link group'>
-                        <iconify-icon icon='material-symbols:location-on' width='16' height='16' class='group-hover:text-primary transition-colors'
-                        ></iconify-icon>
+                    <a href="/coverage" class="footer-link group">
+                        <iconify-icon
+                            icon="material-symbols:location-on"
+                            width="16"
+                            height="16"
+                            class="group-hover:text-primary transition-colors"></iconify-icon>
                         Coverage Areas
                     </a>
-                    <a href='/contact' class='footer-link group'>
-                        <iconify-icon icon='material-symbols:contact-mail' width='16' height='16' class='group-hover:text-primary transition-colors'
-                        ></iconify-icon>
+                    <a href="/contact" class="footer-link group">
+                        <iconify-icon
+                            icon="material-symbols:contact-mail"
+                            width="16"
+                            height="16"
+                            class="group-hover:text-primary transition-colors"></iconify-icon>
                         Contact
                     </a>
                 </nav>
             </div>
 
             <!-- Contact Information -->
-            <div class='space-y-6'>
-                <h4 class='text-xl font-semibold text-white border-l-4 border-secondary pl-4'>Contact Info</h4>
-                <div class='space-y-4'>
+            <div class="space-y-6">
+                <h4 class="text-xl font-semibold text-white border-l-4 border-secondary pl-4">Contact Info</h4>
+                <div class="space-y-4">
                     <!-- Emergency STAT Line -->
-                    <div class='contact-item emergency-contact'>
-                        <div class='contact-icon bg-accent'>
-                            <iconify-icon icon='material-symbols:emergency' width='20' height='20' class='animate-pulse' style='color: white;'></iconify-icon>
+                    <div class="contact-item emergency-contact">
+                        <div class="contact-icon bg-accent">
+                            <iconify-icon
+                                icon="material-symbols:emergency"
+                                width="20"
+                                height="20"
+                                class="animate-pulse"
+                                style="color: white;"></iconify-icon>
                         </div>
                         <div>
-                            <p class='text-white bold font-semibold'>24/7 STAT Emergency</p>
-                            <a href='tel:1-800-TRIUS-911' class='text-white hover:text-accent-light transition-colors font-medium'> 1-800-TRIUS-911 </a>
+                            <p class="text-white bold font-semibold">24/7 STAT Emergency</p>
+                            <a href="tel:1-800-TRIUS-911" class="text-white hover:text-accent-light transition-colors font-medium">
+                                1-800-TRIUS-911
+                            </a>
                         </div>
                     </div>
 
                     <!-- Business Line -->
-                    <div class='contact-item'>
-                        <div class='contact-icon bg-primary-light'>
-                            <iconify-icon icon='material-symbols:call' width='20' height='20' style='color: white;'></iconify-icon>
+                    <div class="contact-item">
+                        <div class="contact-icon bg-primary-light">
+                            <iconify-icon icon="material-symbols:call" width="20" height="20" style="color: white;"></iconify-icon>
                         </div>
                         <div>
-                            <p class='text-white/70'>Business Hours</p>
-                            <span class='text-white hover:text-primary-light transition-colors font-medium'>24/7 365</span>
+                            <p class="text-white/70">Business Hours</p>
+                            <span class="text-white hover:text-primary-light transition-colors font-medium">24/7 365</span>
                         </div>
                     </div>
 
                     <!-- Email -->
-                    <div class='contact-item'>
-                        <div class='contact-icon bg-secondary'>
-                            <iconify-icon icon='material-symbols:mail' width='20' height='20' style='color: white;'></iconify-icon>
+                    <div class="contact-item">
+                        <div class="contact-icon bg-secondary">
+                            <iconify-icon icon="material-symbols:mail" width="20" height="20" style="color: white;"></iconify-icon>
                         </div>
                         <div>
-                            <p class='text-white/70'>Email</p>
-                            <a href='mailto:dispatch@trius.delivery' class='text-white hover:text-secondary-light transition-colors font-medium'>
+                            <p class="text-white/70">Email</p>
+                            <a
+                                href="mailto:dispatch@trius.delivery"
+                                class="text-white hover:text-secondary-light transition-colors font-medium"
+                            >
                                 Triusllccouriers@outlook.com
                             </a>
                         </div>
                     </div>
 
                     <!-- Address -->
-                    <div class='contact-item'>
-                        <div class='contact-icon bg-accent'>
-                            <iconify-icon icon='material-symbols:location-on' width='20' height='20' style='color: white;'></iconify-icon>
+                    <div class="contact-item">
+                        <div class="contact-icon bg-accent">
+                            <iconify-icon icon="material-symbols:location-on" width="20" height="20" style="color: white;"></iconify-icon>
                         </div>
                         <div>
-                            <p class='text-white/70'>Address</p>
-                            <address class='text-white hover:text-accent-light transition-colors font-medium not-italic'>
+                            <p class="text-white/70">Address</p>
+                            <address class="text-white hover:text-accent-light transition-colors font-medium not-italic">
                                 618 160th Street Ct E<br />
                                 Tacoma, WA 98445
                             </address>
@@ -153,114 +176,114 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
         </div>
 
         <!-- Service Areas -->
-        <div class='border-t border-white/20 pt-12 mb-12'>
-            <div class='text-center mb-10'>
+        <div class="border-t border-white/20 pt-12 mb-12">
+            <div class="text-center mb-10">
                 <h4
-                    class='text-2xl lg:text-3xl font-black text-white mb-3 bg-gradient-to-r from-white via-primary-light to-white bg-clip-text text-transparent'
+                    class="text-2xl lg:text-3xl font-black text-white mb-3 bg-gradient-to-r from-white via-primary-light to-white bg-clip-text text-transparent"
                 >
                     Service Coverage Areas
                 </h4>
-                <p class='text-white/60 text-sm font-medium'>Comprehensive medical logistics across the Pacific Northwest & California</p>
+                <p class="text-white/60 text-sm font-medium">Comprehensive medical logistics across the Pacific Northwest & California</p>
             </div>
 
             <!-- Combined State + City Badges -->
-            <div class='flex flex-wrap justify-center gap-4'>
+            <div class="flex flex-wrap justify-center gap-4">
                 <!-- Washington -->
-                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
-                    <div class='flex h-full'>
+                <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
+                    <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class='w-1/3 flex items-center justify-center'>
+                        <div class="w-1/3 flex items-center justify-center">
                             <img
-                                src='/states/WA.svg'
-                                alt='Washington State'
-                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
-                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                                src="/states/WA.svg"
+                                alt="Washington State"
+                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
                         <!-- Content Section (2/3) -->
-                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
-                            <h5 class='font-bold text-white text-sm mb-1'>Washington</h5>
-                            <p class='text-white/90 text-xs leading-tight'>Seattle, Tacoma, Spokane, Bellevue...</p>
+                        <div class="w-2/3 flex flex-col justify-center text-left pl-2">
+                            <h5 class="font-bold text-white text-sm mb-1">Washington</h5>
+                            <p class="text-white/90 text-xs leading-tight">Seattle, Tacoma, Spokane, Bellevue...</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Oregon -->
-                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
-                    <div class='flex h-full'>
+                <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
+                    <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class='w-1/3 flex items-center justify-center'>
+                        <div class="w-1/3 flex items-center justify-center">
                             <img
-                                src='/states/OR.svg'
-                                alt='Oregon State'
-                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
-                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                                src="/states/OR.svg"
+                                alt="Oregon State"
+                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
                         <!-- Content Section (2/3) -->
-                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
-                            <h5 class='font-bold text-white text-sm mb-1'>Oregon</h5>
-                            <p class='text-white/90 text-xs leading-tight'>Portland, Eugene, Salem, Gresham...</p>
+                        <div class="w-2/3 flex flex-col justify-center text-left pl-2">
+                            <h5 class="font-bold text-white text-sm mb-1">Oregon</h5>
+                            <p class="text-white/90 text-xs leading-tight">Portland, Eugene, Salem, Gresham...</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Idaho -->
-                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
-                    <div class='flex h-full'>
+                <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
+                    <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class='w-1/3 flex items-center justify-center'>
+                        <div class="w-1/3 flex items-center justify-center">
                             <img
-                                src='/states/ID.svg'
-                                alt='Idaho State'
-                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
-                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                                src="/states/ID.svg"
+                                alt="Idaho State"
+                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
                         <!-- Content Section (2/3) -->
-                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
-                            <h5 class='font-bold text-white text-sm mb-1'>Idaho</h5>
-                            <p class='text-white/90 text-xs leading-tight'>Boise, Nampa, Meridian, Idaho Falls...</p>
+                        <div class="w-2/3 flex flex-col justify-center text-left pl-2">
+                            <h5 class="font-bold text-white text-sm mb-1">Idaho</h5>
+                            <p class="text-white/90 text-xs leading-tight">Boise, Nampa, Meridian, Idaho Falls...</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Montana -->
-                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
-                    <div class='flex h-full'>
+                <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
+                    <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class='w-1/3 flex items-center justify-center'>
+                        <div class="w-1/3 flex items-center justify-center">
                             <img
-                                src='/states/MT.svg'
-                                alt='Montana State'
-                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
-                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                                src="/states/MT.svg"
+                                alt="Montana State"
+                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
                         <!-- Content Section (2/3) -->
-                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
-                            <h5 class='font-bold text-white text-sm mb-1'>Montana</h5>
-                            <p class='text-white/90 text-xs leading-tight'>Billings, Missoula, Great Falls, Bozeman...</p>
+                        <div class="w-2/3 flex flex-col justify-center text-left pl-2">
+                            <h5 class="font-bold text-white text-sm mb-1">Montana</h5>
+                            <p class="text-white/90 text-xs leading-tight">Billings, Missoula, Great Falls, Bozeman...</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- California -->
-                <div class='state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70'>
-                    <div class='flex h-full'>
+                <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
+                    <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class='w-1/3 flex items-center justify-center'>
+                        <div class="w-1/3 flex items-center justify-center">
                             <img
-                                src='/states/CA.svg'
-                                alt='California State'
-                                class='w-12 h-12 transition-all duration-300 group-hover:scale-110'
-                                style='filter: brightness(0) saturate(100%) invert(100%);'
+                                src="/states/CA.svg"
+                                alt="California State"
+                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
                         <!-- Content Section (2/3) -->
-                        <div class='w-2/3 flex flex-col justify-center text-left pl-2'>
-                            <h5 class='font-bold text-white text-sm mb-1'>California</h5>
-                            <p class='text-white/90 text-xs leading-tight'>San Francisco, San Jose, Sacramento, Oakland...</p>
+                        <div class="w-2/3 flex flex-col justify-center text-left pl-2">
+                            <h5 class="font-bold text-white text-sm mb-1">California</h5>
+                            <p class="text-white/90 text-xs leading-tight">San Francisco, San Jose, Sacramento, Oakland...</p>
                         </div>
                     </div>
                 </div>
@@ -268,57 +291,71 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
         </div>
 
         <!-- Bottom Bar -->
-        <div class='border-t border-white/20 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6'>
-            <div class='text-sm text-white/60 text-center lg:text-left'>
+        <div class="border-t border-white/20 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6">
+            <div class="text-sm text-white/60 text-center lg:text-left">
                 © {new Date().getFullYear()} Trius LLC. All rights reserved. |
-                <a href='/privacy' class='hover:text-white transition-colors'>Privacy Policy</a> |
-                <a href='/terms' class='hover:text-white transition-colors'>Terms of Service</a>
+                <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a> |
+                <a href="/terms" class="hover:text-white transition-colors">Terms of Service</a>
             </div>
 
-            <div class='flex items-center gap-4'>
-                <span class='text-sm text-white/60'>Professional Medical Logistics Since 2022</span>
-                <div class='w-2 h-2 bg-secondary rounded-full animate-pulse'></div>
+            <div class="flex items-center gap-4">
+                <span class="text-sm text-white/60">Professional Medical Logistics Since 2022</span>
+                <div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
             </div>
         </div>
 
         <!-- Custom text from CMS if available -->
-        {text && <div class='mt-8 text-center text-white/80 prose prose-invert max-w-none' data-sb-field-path='.text' set:html={marked.parse(text)} />}
+        {
+            text && (
+                <div
+                    class="mt-8 text-center text-white/80 prose prose-invert max-w-none"
+                    data-sb-field-path=".text"
+                    set:html={marked.parse(text)}
+                />
+            )
+        }
     </div>
 
     <!-- RNDTND Credit -->
-    <div class='border-t bg-primary-dark'>
-        <div class='max-w-7xl mx-auto px-4 py-4'>
-            <div class='flex flex-col items-center justify-center'>
+    <div class="border-t bg-primary-dark">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex flex-col items-center justify-center">
                 <a
-                    href='https://rndtnd.com'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    class='group flex flex-col items-center space-y-1 text-white/60 hover:text-white transition-all duration-500 hover:scale-105'
+                    href="https://rndtnd.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group flex flex-col items-center space-y-1 text-white/60 hover:text-white transition-all duration-500 hover:scale-105"
                 >
-                    <div class='relative -mb-1'>
+                    <div class="relative -mb-1">
                         <!-- RNDTND Rocket Logo with animated effects -->
                         <img
-                            src='https://rndtnd.com/images/logos/logo_rocket.svg'
-                            alt='RNDTND Rocket'
-                            class='h-12 w-12 text-white/60 group-hover:animate-rocket-hover relative z-10'
+                            src="https://rndtnd.com/images/logos/logo_rocket.svg"
+                            alt="RNDTND Rocket"
+                            class="h-12 w-12 text-white/60 group-hover:animate-rocket-hover relative z-10"
                         />
                     </div>
-                    <div class='flex items-center space-x-2'>
-                        <span class='text-xs font-medium tracking-wide'>
-                            <span class='text-white/50 group-hover:text-white/80 transition-colors duration-300'> Crafted with purpose by </span>
-                            <span class='text-white/70 group-hover:text-white font-semibold ml-1 transition-colors duration-300'> RND_TND </span>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xs font-medium tracking-wide">
+                            <span class="text-white/50 group-hover:text-white/80 transition-colors duration-300">
+                                Crafted with purpose by
+                            </span>
+                            <span class="text-white/70 group-hover:text-white font-semibold ml-1 transition-colors duration-300">
+                                RND_TND
+                            </span>
                         </span>
                         <svg
-                            class='h-3 w-3 -ml-6 text-white/40 group-hover:text-white transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1'
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            stroke='currentColor'
+                            class="h-3 w-3 -ml-6 text-white/40 group-hover:text-white transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
                         >
                             <path
-                                stroke-linecap='round'
-                                stroke-linejoin='round'
-                                stroke-width='2'
-                                d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path>
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            >
+                            </path>
                         </svg>
                     </div>
                 </a>

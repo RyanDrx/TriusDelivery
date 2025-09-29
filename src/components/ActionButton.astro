@@ -19,11 +19,16 @@ const themeClassMap = {
 
 {
     url ? (
-        <a class:list={['btn', themeClassMap[theme || 'primary'], className]} href={url} aria-label={ariaLabel} data-sb-field-path={fieldPath}>
+        <a
+            class:list={['btn', themeClassMap[theme || 'primary'], className]}
+            href={url}
+            aria-label={ariaLabel}
+            data-sb-field-path={fieldPath}
+        >
             <span data-sb-field-path={fieldPath ? '.label' : undefined}>{label}</span>
             {showArrow && (
-                <svg class='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7' />
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             )}
         </a>
@@ -31,8 +36,8 @@ const themeClassMap = {
         <button class:list={['btn', themeClassMap[theme || 'primary'], className]} aria-label={ariaLabel} data-sb-field-path={fieldPath}>
             <span data-sb-field-path={fieldPath ? '.label' : undefined}>{label}</span>
             {showArrow && (
-                <svg class='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7' />
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             )}
         </button>

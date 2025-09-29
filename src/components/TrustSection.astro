@@ -12,52 +12,39 @@ const testimonials = [
     {
         id: 'zimmer',
         quote: "Working with Trius LLC has been a game-changer for our practice. Their team is always on time, professional, and communicates clearly every step of the way. The real-time tracking and photo verification are features we didn't know we needed, but now can't imagine being without.",
-        author: "Operations Manager",
-        company: "ZimmerBiomet Orthopedics",
-        initial: "Z",
-        icon: "heroicons:star-solid",
-        color: "primary"
+        author: 'Operations Manager',
+        company: 'ZimmerBiomet Orthopedics',
+        initial: 'Z',
+        icon: 'heroicons:star-solid',
+        color: 'primary'
     },
     {
         id: 'stclaire',
-        quote: "Trius LLC has made a tremendous difference in how we manage our surgical instrument trays. Their drivers understand the importance of sterile processing—everything is scanned, documented, and tracked with precision. Thanks to Trius LLC, our SPD can focus on quality and turnaround instead of chasing down deliveries.",
-        author: "SPD Staff",
-        company: "St. Claire Hospital",
-        initial: "S",
-        icon: "heroicons:chart-bar",
-        color: "secondary"
+        quote: 'Trius LLC has made a tremendous difference in how we manage our surgical instrument trays. Their drivers understand the importance of sterile processing—everything is scanned, documented, and tracked with precision. Thanks to Trius LLC, our SPD can focus on quality and turnaround instead of chasing down deliveries.',
+        author: 'SPD Staff',
+        company: 'St. Claire Hospital',
+        initial: 'S',
+        icon: 'heroicons:chart-bar',
+        color: 'secondary'
     },
     {
         id: 'sales',
-        quote: "Trius LLC has been a huge asset to my work as a sales rep. Knowing that my instrument trays and implants are picked up and delivered on time means I can focus on my surgeons and their cases instead of worrying about logistics. Having real-time tracking has been a game changer.",
-        author: "Sales Representative", 
-        company: "Medical Device Sales",
-        initial: "R",
-        icon: "heroicons:briefcase",
-        color: "accent"
+        quote: 'Trius LLC has been a huge asset to my work as a sales rep. Knowing that my instrument trays and implants are picked up and delivered on time means I can focus on my surgeons and their cases instead of worrying about logistics. Having real-time tracking has been a game changer.',
+        author: 'Sales Representative',
+        company: 'Medical Device Sales',
+        initial: 'R',
+        icon: 'heroicons:briefcase',
+        color: 'accent'
     }
 ];
 ---
 
-<Section class='bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5 relative overflow-hidden' data-sb-field-path={fieldPath}>
-    <!-- Background Pattern -->
-    <div class='absolute inset-0 opacity-20'>
-        <div class='trust-bg-pattern absolute inset-0'></div>
-    </div>
-
-    <div class='max-w-6xl mx-auto relative z-10'>
+<Section class='py-14 lg:py-18' data-sb-field-path={fieldPath}>
+    <div class='max-w-5xl mx-auto px-6'>
         <!-- Section Header -->
-        <div class='text-center mb-16 trust-header' data-animate='fade-in-up'>
-            <div class='inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-neutral/20'>
-                <div class='w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse'></div>
-                <span class='text-sm font-bold text-neutral tracking-wide uppercase'>Trusted Partnership</span>
-            </div>
-            <h2
-                class='text-5xl lg:text-6xl font-black font-heading bg-gradient-to-r pb-2 from-neutral-dark via-primary to-secondary bg-clip-text text-transparent mb-8 leading-tight'
-            >
-                Trusted by Healthcare Professionals
-            </h2>
-            <p class='text-xl lg:text-2xl text-neutral max-w-4xl mx-auto font-body leading-relaxed'>
+        <div class='text-center mb-16' data-animate='fade-in-up'>
+            <h2 class='text-4xl lg:text-5xl font-bold text-neutral-dark mb-5 leading-tight'>Trusted by Healthcare Professionals</h2>
+            <p class='text-lg text-neutral max-w-2xl mx-auto leading-relaxed'>
                 Healthcare organizations across the Pacific Northwest rely on Trius for secure, compliant, and timely medical deliveries.
             </p>
         </div>
@@ -65,94 +52,110 @@ const testimonials = [
         <!-- Testimonial Slideshow -->
         <div class='testimonial-slideshow mb-16 max-w-4xl mx-auto' data-animate='fade-in-up'>
             <div class='testimonial-container relative overflow-hidden'>
-                {testimonials.map((testimonial, index) => (
-                    <div 
-                        class={`testimonial-slide absolute inset-0 transition-all duration-500 ${index === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
-                        data-slide={index}
-                    >
-                        <div class='testimonial-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl border border-neutral/20'>
-                            <div class='text-center'>
-                                <!-- Icon -->
-                                <div class={`w-20 h-20 bg-gradient-to-br from-${testimonial.color} to-${testimonial.color}-dark rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg`}>
-                                    <iconify-icon icon={testimonial.icon} width='40' height='40' style='color: white;'></iconify-icon>
-                                </div>
-                                
-                                <!-- Stars -->
-                                <div class='flex justify-center mb-6'>
-                                    {[...Array(5)].map(() => <iconify-icon icon='heroicons:star-solid' width='24' height='24' style='color: #fbbf24;' />)}
-                                </div>
-                                
-                                <!-- Quote -->
-                                <blockquote class='text-neutral-dark font-body text-xl lg:text-2xl leading-relaxed mb-8 italic max-w-3xl mx-auto'>
-                                    "{testimonial.quote}"
-                                </blockquote>
-                                
-                                <!-- Author -->
-                                <div class='flex items-center justify-center'>
-                                    <div class='w-16 h-16 bg-gradient-to-br from-neutral/60 to-neutral/80 rounded-full flex items-center justify-center mr-4'>
-                                        <span class='text-white font-bold text-xl'>{testimonial.initial}</span>
+                {
+                    testimonials.map((testimonial, index) => (
+                        <div
+                            class={`testimonial-slide absolute inset-0 transition-all duration-500 ${index === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
+                            data-slide={index}
+                        >
+                            <div class={`testimonial-card testimonial-${testimonial.id} relative rounded-3xl p-8 lg:p-10 border border-white/30 backdrop-blur-sm overflow-hidden`}>
+                                <!-- Background Image Layer -->
+                                <div class={`absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 ${
+                                    testimonial.id === 'zimmer' ? "bg-[url('/Images/medical monitor equip.webp')]" :
+                                    testimonial.id === 'stclaire' ? "bg-[url('/Images/medical phials.webp')]" :
+                                    "bg-[url('/Images/Courier handoff.webp')]"
+                                }`}></div>
+
+                                <!-- Gradient Overlay -->
+                                <div class={`absolute inset-0 bg-gradient-to-br ${
+                                    testimonial.id === 'zimmer' ? 'from-primary/20 via-white/90 to-secondary/10' :
+                                    testimonial.id === 'stclaire' ? 'from-secondary/20 via-white/90 to-primary/10' :
+                                    'from-accent/20 via-white/90 to-primary/10'
+                                } rounded-3xl`}></div>
+
+                                <!-- Content Layer -->
+                                <div class='relative z-10 text-center'>
+                                    <div class='flex justify-center mb-6'>
+                                        {[...Array(5)].map(() => (
+                                            <iconify-icon
+                                                icon='lucide:star'
+                                                width='20'
+                                                height='20'
+                                                style='color: #047857; fill: #047857;'
+                                                stroke-width='1.5'
+                                            />
+                                        ))}
                                     </div>
-                                    <div class='text-left'>
-                                        <div class='font-bold text-neutral-dark font-heading text-xl'>{testimonial.author}</div>
-                                        <div class='text-base text-neutral'>{testimonial.company}</div>
+
+                                    <blockquote
+                                        class='text-slate-800 text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-medium drop-shadow-sm'
+                                        cite={testimonial.author}
+                                    >
+                                        "{testimonial.quote.split('.')[0]}. {testimonial.quote.split('.')[1]}."
+                                    </blockquote>
+
+                                    <div class='flex items-center justify-center'>
+                                        <div class='text-center'>
+                                            <div class='font-bold text-slate-800 drop-shadow-sm'>{testimonial.author}</div>
+                                            <div class='text-sm text-slate-600 font-medium drop-shadow-sm'>{testimonial.company}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                }
             </div>
-            
-            <!-- Navigation dots -->
-            <div class='flex justify-center mt-8 space-x-2'>
-                {testimonials.map((_, index) => (
-                    <button 
-                        class={`nav-dot w-2 h-2 rounded-full transition-all duration-300 ${index === 0 ? 'bg-primary scale-125' : 'bg-neutral/30 hover:bg-neutral/50'}`}
-                        data-slide-to={index}
-                        aria-label={`Go to testimonial ${index + 1}`}
-                    ></button>
-                ))}
+
+            <!-- Navigation Controls -->
+            <div class='flex items-center justify-center mt-8 space-x-6'>
+                <button
+                    class='nav-prev p-2 rounded-full bg-white border border-neutral-light hover:border-neutral transition-all disabled:opacity-50 disabled:cursor-not-allowed'
+                    aria-label='Previous testimonial'
+                >
+                    <iconify-icon icon='lucide:chevron-left' width='20' height='20' style='color: #374151;' stroke-width='2'></iconify-icon>
+                </button>
+
+                <div class='flex items-center space-x-3'>
+                    <span class='text-sm font-medium text-neutral testimonial-counter'>1 / {testimonials.length}</span>
+                </div>
+
+                <button
+                    class='nav-next p-2 rounded-full bg-white border border-neutral-light hover:border-neutral transition-all disabled:opacity-50 disabled:cursor-not-allowed'
+                    aria-label='Next testimonial'
+                >
+                    <iconify-icon icon='lucide:chevron-right' width='20' height='20' style='color: #374151;' stroke-width='2'
+                    ></iconify-icon>
+                </button>
             </div>
         </div>
 
         <!-- Trust Stats -->
-        <div class='stats-container bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-2xl border border-neutral/20' data-animate='fade-in-up'>
-            <div class='grid md:grid-cols-3 gap-12 text-center'>
-                <div class='stat-item flex flex-col items-center group'>
-                    <div
-                        class='w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg'
-                    >
-                        <iconify-icon icon='heroicons:clock' width='40' height='40' style='color: white;'></iconify-icon>
-                    </div>
-                    <div class='stat-number text-5xl font-black bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent mb-3 font-heading'>
-                        99.9%
-                    </div>
-                    <div class='text-base font-bold text-neutral font-body'>On-Time Delivery Rate</div>
+        <div class='stats-container bg-white rounded-2xl p-6 lg:p-8 border border-neutral-light' data-animate='fade-in-up'>
+            <div class='grid md:grid-cols-3 gap-6 text-center'>
+                <div class='stat-item'>
+                    <iconify-icon icon='lucide:clock' width='24' height='24' style='color: #16a34a; margin: 0 auto 16px;' stroke-width='1.5'
+                    ></iconify-icon>
+                    <div class='stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums'>99.9%</div>
+                    <div class='text-base text-neutral'>On-time</div>
                 </div>
 
-                <div class='stat-item flex flex-col items-center group'>
-                    <div
-                        class='w-20 h-20 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg'
-                    >
-                        <iconify-icon icon='heroicons:clock' width='40' height='40' style='color: white;'></iconify-icon>
-                    </div>
-                    <div class='stat-number text-5xl font-black bg-gradient-to-r from-accent to-accent-dark bg-clip-text text-transparent mb-3 font-heading'>
-                        24/7
-                    </div>
-                    <div class='text-base font-bold text-neutral font-body'>Emergency Response</div>
+                <div class='stat-item'>
+                    <iconify-icon icon='lucide:phone' width='24' height='24' style='color: #374151; margin: 0 auto 16px;' stroke-width='1.5'
+                    ></iconify-icon>
+                    <div class='stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums'>24/7</div>
+                    <div class='text-base text-neutral'>Response</div>
                 </div>
-                <div class='stat-item flex flex-col items-center group'>
-                    <div
-                        class='w-20 h-20 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg'
-                    >
-                        <iconify-icon icon='heroicons:shield-check' width='40' height='40' style='color: white;'></iconify-icon>
-                    </div>
-                    <div
-                        class='stat-number text-5xl font-black bg-gradient-to-r from-secondary to-secondary-dark bg-clip-text text-transparent mb-3 font-heading'
-                    >
-                        100%
-                    </div>
-                    <div class='text-base font-bold text-neutral font-body'>HIPAA Compliance</div>
+
+                <div class='stat-item'>
+                    <iconify-icon
+                        icon='lucide:shield-check'
+                        width='24'
+                        height='24'
+                        style='color: #16a34a; margin: 0 auto 16px;'
+                        stroke-width='1.5'></iconify-icon>
+                    <div class='stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums'>100%</div>
+                    <div class='text-base text-neutral'>HIPAA</div>
                 </div>
             </div>
         </div>
@@ -191,83 +194,102 @@ const testimonials = [
     class TestimonialSlideshow {
         private container: HTMLElement | null;
         private slides: NodeListOf<Element>;
-        private dots: NodeListOf<Element>;
+        private prevBtn: HTMLElement | null;
+        private nextBtn: HTMLElement | null;
+        private counter: HTMLElement | null;
         private currentSlide: number;
-        private autoPlayInterval: number | null;
-        
+
         constructor() {
             this.container = document.querySelector('.testimonial-slideshow');
             this.slides = document.querySelectorAll('.testimonial-slide');
-            this.dots = document.querySelectorAll('.nav-dot');
+            this.prevBtn = document.querySelector('.nav-prev');
+            this.nextBtn = document.querySelector('.nav-next');
+            this.counter = document.querySelector('.testimonial-counter');
             this.currentSlide = 0;
-            this.autoPlayInterval = null;
-            
+
             if (this.container && this.slides.length > 0) {
                 this.init();
             }
         }
-        
+
         private init(): void {
-            // Start with a random testimonial
-            this.currentSlide = Math.floor(Math.random() * this.slides.length);
             this.showSlide(this.currentSlide);
-            
-            // Set up dot navigation
-            this.dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    this.goToSlide(index);
-                });
-            });
-            
+
+            // Set up navigation buttons
+            if (this.prevBtn) {
+                this.prevBtn.addEventListener('click', () => this.previousSlide());
+            }
+            if (this.nextBtn) {
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+            }
+
+            // Add keyboard navigation
+            this.initKeyboardEvents();
+
             // Add touch/swipe support for mobile
             this.initTouchEvents();
-            
-            // Auto-play every 15 seconds (longer for reading)
-            this.startAutoPlay();
         }
-        
+
+        private initKeyboardEvents(): void {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    this.previousSlide();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    this.nextSlide();
+                }
+            });
+        }
+
         private initTouchEvents(): void {
             if (!this.container) return;
-            
+
             let startX = 0;
             let startY = 0;
             let distX = 0;
             let distY = 0;
-            
-            this.container.addEventListener('touchstart', (e) => {
-                const touch = e.touches[0];
-                startX = touch.pageX;
-                startY = touch.pageY;
-            }, { passive: true });
-            
+
+            this.container.addEventListener(
+                'touchstart',
+                (e) => {
+                    const touch = e.touches[0];
+                    startX = touch.pageX;
+                    startY = touch.pageY;
+                },
+                { passive: true }
+            );
+
             this.container.addEventListener('touchmove', (e) => {
                 e.preventDefault(); // Prevent scrolling while swiping
                 const touch = e.touches[0];
                 distX = touch.pageX - startX;
                 distY = touch.pageY - startY;
             });
-            
-            this.container.addEventListener('touchend', () => {
-                // Only trigger if horizontal swipe is more prominent than vertical
-                if (Math.abs(distX) > Math.abs(distY) && Math.abs(distX) > 50) {
-                    if (distX > 0) {
-                        // Swipe right - previous slide
-                        this.currentSlide = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
-                    } else {
-                        // Swipe left - next slide
-                        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+
+            this.container.addEventListener(
+                'touchend',
+                () => {
+                    // Only trigger if horizontal swipe is more prominent than vertical
+                    if (Math.abs(distX) > Math.abs(distY) && Math.abs(distX) > 50) {
+                        if (distX > 0) {
+                            // Swipe right - previous slide
+                            this.previousSlide();
+                        } else {
+                            // Swipe left - next slide
+                            this.nextSlide();
+                        }
                     }
-                    this.showSlide(this.currentSlide);
-                    this.resetAutoPlay();
-                }
-                // Reset values
-                startX = 0;
-                startY = 0;
-                distX = 0;
-                distY = 0;
-            }, { passive: true });
+                    // Reset values
+                    startX = 0;
+                    startY = 0;
+                    distX = 0;
+                    distY = 0;
+                },
+                { passive: true }
+            );
         }
-        
+
         private showSlide(index: number): void {
             this.slides.forEach((slide, i) => {
                 const slideEl = slide as HTMLElement;
@@ -285,50 +307,37 @@ const testimonials = [
                     }
                 }
             });
-            
-            // Update dots
-            this.dots.forEach((dot, i) => {
-                const dotEl = dot as HTMLElement;
-                if (i === index) {
-                    dotEl.classList.remove('bg-neutral/30');
-                    dotEl.classList.add('bg-primary', 'scale-125');
-                } else {
-                    dotEl.classList.remove('bg-primary', 'scale-125');
-                    dotEl.classList.add('bg-neutral/30');
-                }
-            });
+
+            // Update counter
+            if (this.counter) {
+                this.counter.textContent = `${index + 1} / ${this.slides.length}`;
+            }
+
+            // Update button states
+            this.updateNavButtons();
         }
-        
-        private goToSlide(index: number): void {
-            if (index !== this.currentSlide) {
-                this.currentSlide = index;
+
+        private updateNavButtons(): void {
+            if (this.prevBtn) {
+                (this.prevBtn as HTMLButtonElement).disabled = this.currentSlide === 0;
+            }
+            if (this.nextBtn) {
+                (this.nextBtn as HTMLButtonElement).disabled = this.currentSlide === this.slides.length - 1;
+            }
+        }
+
+        private previousSlide(): void {
+            if (this.currentSlide > 0) {
+                this.currentSlide--;
                 this.showSlide(this.currentSlide);
-                this.resetAutoPlay();
             }
         }
-        
+
         private nextSlide(): void {
-            this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-            this.showSlide(this.currentSlide);
-        }
-        
-        private startAutoPlay(): void {
-            this.stopAutoPlay();
-            this.autoPlayInterval = window.setInterval(() => {
-                this.nextSlide();
-            }, 15000);
-        }
-        
-        private stopAutoPlay(): void {
-            if (this.autoPlayInterval) {
-                clearInterval(this.autoPlayInterval);
-                this.autoPlayInterval = null;
+            if (this.currentSlide < this.slides.length - 1) {
+                this.currentSlide++;
+                this.showSlide(this.currentSlide);
             }
-        }
-        
-        private resetAutoPlay(): void {
-            this.stopAutoPlay();
-            this.startAutoPlay();
         }
     }
 
@@ -336,7 +345,7 @@ const testimonials = [
     document.addEventListener('DOMContentLoaded', () => {
         // Initialize testimonial slideshow
         new TestimonialSlideshow();
-        
+
         // Observe elements with animation attributes
         const animatedElements = document.querySelectorAll('[data-animate]');
         animatedElements.forEach((el) => observer.observe(el));
@@ -406,16 +415,6 @@ const testimonials = [
 </script>
 
 <style>
-    /* Trust Section Background Pattern */
-    .trust-bg-pattern {
-        background-image:
-            radial-gradient(circle at 20% 20%, rgba(4, 120, 87, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(22, 163, 74, 0.08) 0%, transparent 50%),
-            linear-gradient(135deg, transparent 0%, rgba(4, 120, 87, 0.03) 50%, transparent 100%);
-        width: 100%;
-        height: 100%;
-    }
-
     /* Animation Keyframes */
     @keyframes fade-in-up {
         0% {
@@ -453,232 +452,94 @@ const testimonials = [
     /* Testimonial Slideshow */
     .testimonial-slideshow {
         position: relative;
-        /* Better mobile interaction */
         -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
-        /* Ensure shadows aren't clipped */
         overflow: visible;
-        padding: 0 1rem;
     }
-    
+
     .testimonial-container {
         position: relative;
-        min-height: 550px;
-        height: auto;
-        padding: 1rem;
-        padding-bottom: 3rem;
+        min-height: 280px;
         overflow: visible;
     }
-    
+
     .testimonial-slide {
         position: absolute;
-        top: 1rem;
-        left: 1rem;
-        right: 1rem;
-        width: calc(100% - 2rem);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        transition: all 0.25s ease-out;
     }
-    
-    /* Navigation dots */
-    .nav-dot {
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        /* Better touch targets for mobile */
-        min-width: 44px;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+    /* Navigation Controls */
+    .nav-prev,
+    .nav-next {
+        transition: all 0.15s ease;
     }
-    
-    .nav-dot:active {
-        transform: scale(0.95);
+
+    .nav-prev:hover:not(:disabled),
+    .nav-next:hover:not(:disabled) {
+        transform: scale(1.05);
+        border-color: #6b7280;
     }
 
     /* Testimonial Cards */
     .testimonial-card {
         position: relative;
-        backdrop-filter: blur(15px);
-        transform: translateZ(0);
+        transition:
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
 
-    .testimonial-card::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent, rgba(255, 255, 255, 0.4));
-        mask:
-            linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
-        mask-composite: xor;
-        -webkit-mask-composite: xor;
-        pointer-events: none;
+    .testimonial-card:hover {
+        transform: scale(1.01);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
     }
-
-    /* Removed hover effects for better mobile experience */
 
     /* Stats Container */
     .stats-container {
-        position: relative;
-        backdrop-filter: blur(15px);
-        transform: translateZ(0);
-    }
-
-    .stats-container::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        padding: 3px;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), transparent, rgba(255, 255, 255, 0.5));
-        mask:
-            linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
-        mask-composite: xor;
-        -webkit-mask-composite: xor;
-        pointer-events: none;
+        transition:
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
 
     /* Stat Items */
     .stat-item {
         position: relative;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .stat-item:hover {
-        transform: translateY(-8px);
     }
 
     .stat-number {
-        transition: all 0.3s ease;
         font-feature-settings: 'tnum';
+        line-height: 1;
     }
 
-    /* Trust Header Badge */
-    .trust-header .inline-flex {
-        position: relative;
-        backdrop-filter: blur(15px);
-    }
-
-    .trust-header .inline-flex::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        padding: 1px;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), transparent, rgba(255, 255, 255, 0.6));
-        mask:
-            linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
-        mask-composite: xor;
-        -webkit-mask-composite: xor;
-        pointer-events: none;
-    }
-
-    /* Testimonial slideshow responsive adjustments */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-        .testimonial-slideshow {
-            padding: 0 0.5rem;
-        }
-        
         .testimonial-container {
-            min-height: 420px;
-            padding: 0.5rem;
-            padding-bottom: 2.5rem;
+            min-height: 240px;
         }
-        
-        .testimonial-slide {
-            top: 0.5rem;
-            left: 0.5rem;
-            right: 0.5rem;
-            width: calc(100% - 1rem);
-        }
-        
+
         .testimonial-card {
-            padding: 1.5rem 1rem 2rem 1rem;
+            padding: 1.5rem;
         }
-        
-        .testimonial-card .text-xl {
-            font-size: 1.125rem;
+
+        .stats-container {
+            padding: 1.5rem;
         }
-        
-        .testimonial-card .lg\:text-2xl {
-            font-size: 1.25rem;
-        }
-        
-        /* Smaller icons on mobile */
-        .testimonial-card .w-20 {
-            width: 4rem;
-            height: 4rem;
-        }
-        
-        /* Navigation dots - better spacing on mobile */
-        .nav-dot {
-            width: 0.625rem;
-            height: 0.625rem;
-            margin: 0 0.25rem;
-        }
-    }
-    
-    @media (max-width: 640px) {
-        .testimonial-container {
-            min-height: 380px;
-            padding-bottom: 2rem;
-        }
-        
-        .testimonial-card {
-            padding: 1rem 1rem 1.5rem 1rem;
-        }
-        
-        .testimonial-card blockquote {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* More compact author section on small screens */
-        .testimonial-card .w-16 {
-            width: 3rem;
-            height: 3rem;
-        }
-        
-        .testimonial-card .font-bold {
-            font-size: 1rem;
-        }
-        
-        .testimonial-card .text-base {
-            font-size: 0.875rem;
+
+        .stat-number {
+            font-size: 2.5rem;
         }
     }
 
     /* Smooth transitions for all interactive elements */
     * {
         -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Performance optimizations */
-    .testimonial-card,
-    .stats-container,
-    .stat-item {
-        will-change: transform;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .testimonial-card {
-            padding: 1.5rem;
-        }
-
-        .stats-container {
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-        }
     }
 
     /* Reduced motion preferences */

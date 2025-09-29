@@ -18,7 +18,9 @@
     },
     "[astro]": {
         "editor.defaultFormatter": "astro-build.astro-vscode",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "prettier.documentSelectors": ["**/*.astro"],
+        "prettier.useEditorConfig": false
     },
     "[yaml]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",

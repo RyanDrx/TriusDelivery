@@ -54,7 +54,11 @@ const schema = {
         />
     </Fragment>
 
-    <Hero backgroundImage='/Banner/TRIUS_BANNER.webp' overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70' minHeight='min-h-[70vh]'>
+    <Hero
+        backgroundImage='/Images/couriour boxes.webp'
+        overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70'
+        minHeight='min-h-[70vh]'
+    >
         <div class='text-center max-w-5xl mx-auto'>
             <!-- Page Badge -->
             <div class='inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30'>
@@ -83,8 +87,8 @@ const schema = {
 
             <!-- Description -->
             <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
-                Explore our service coverage map to discover medical courier services across Washington, Oregon, Idaho, Montana, and Northern California. Click
-                on our coverage areas to learn about service levels and major cities we serve.
+                Explore our service coverage map to discover medical courier services across Washington, Oregon, Idaho, Montana, and
+                Northern California. Click on our coverage areas to learn about service levels and major cities we serve.
             </p>
 
             <!-- Action Buttons -->
@@ -92,7 +96,10 @@ const schema = {
                 <a href='/contact' class='btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'>
                     Check Availability
                 </a>
-                <a href='/services' class='text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2'>
+                <a
+                    href='/services'
+                    class='text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2'
+                >
                     View Our Services
                     <iconify-icon icon='heroicons:arrow-right' width='20' height='20'></iconify-icon>
                 </a>
@@ -100,7 +107,19 @@ const schema = {
         </div>
     </Hero>
 
-    <InteractiveCoverageMap {...mapData} />
+    <!-- Coverage Map Section with Background -->
+    <section class='relative overflow-hidden bg-gray-50'>
+        <div class='absolute inset-0 opacity-2'>
+            <div
+                class='absolute inset-0'
+                style='background-image: url("/Images/Courier back.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+            >
+            </div>
+        </div>
+        <div class='relative z-10'>
+            <InteractiveCoverageMap {...mapData} />
+        </div>
+    </section>
 
     <Cta {...ctaData} />
 </Layout>

@@ -5,28 +5,8 @@ import Hero from '@components/Hero.astro';
 import Cards from '@components/Cards.astro';
 import Section from '@components/Section.astro';
 import Cta from '@components/Cta.astro';
+import WaveClip from '@components/WaveClip.astro';
 import { graphServiceEquipment } from '../../lib/schema.ts';
-
-const heroData = {
-    _type: 'heroSection',
-    heading: 'Specialized Medical Equipment Transport',
-    body: 'Secure delivery of fragile or regulated medical devices with trained handlers and temperature controlled or secure vehicles as needed. Expert handling for your most valuable equipment.',
-    cta: [
-        {
-            _key: '1',
-            _type: 'actionButton',
-            label: 'Equipment Transport Quote',
-            url: '/contact?service=equipment',
-            theme: 'primary'
-        },
-        {
-            _key: '2',
-            _type: 'actionLink',
-            label: 'View All Services',
-            url: '/services'
-        }
-    ]
-};
 
 const capabilitiesData = {
     _type: 'cardsSection',
@@ -171,7 +151,20 @@ const schema = graphServiceEquipment();
         />
     </Fragment>
 
-    <Hero backgroundImage='/Banner/TRIUS_BANNER.webp' overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70' minHeight='min-h-[70vh]'>
+    <Hero
+        backgroundImage='/Images/medical monitor equip.webp'
+        overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70'
+        minHeight='min-h-[70vh]'
+        useWaveClip={true}
+        waveConfig={{
+            side: 'bottom',
+            amplitude: 1.5,
+            baseline: 95,
+            waves: 1.2,
+            phase: 0,
+            samples: 36
+        }}
+    >
         <div class='text-center max-w-5xl mx-auto'>
             <!-- Page Badge -->
             <div class='inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30'>
@@ -200,95 +193,142 @@ const schema = graphServiceEquipment();
 
             <!-- Description -->
             <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
-                Expert handling of fragile medical equipment, temperature-sensitive devices, and regulated materials. Our trained technicians use specialized
-                vehicles and industry best practices to ensure safe delivery.
+                Expert handling of fragile medical equipment, temperature-sensitive devices, and regulated materials. Our trained
+                technicians use specialized vehicles and industry best practices to ensure safe delivery.
             </p>
 
             <!-- Action Buttons -->
             <div class='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-                <a href='/contact?service=equipment' class='btn btn-primary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'>
+                <a
+                    href='/contact?service=equipment'
+                    class='btn btn-primary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'
+                >
                     Get Equipment Quote
                 </a>
-                <a href='tel:1-800-TRIUS-LLC' class='text-white font-semibold hover:text-primary-light transition-colors duration-300 flex items-center gap-2'>
+                <a
+                    href='tel:1-800-TRIUS-LLC'
+                    class='text-white font-semibold hover:text-primary-light transition-colors duration-300 flex items-center gap-2'
+                >
                     Call for Consultation
                     <iconify-icon icon='heroicons:phone' width='20' height='20'></iconify-icon>
                 </a>
             </div>
         </div>
     </Hero>
-    <Cards {...capabilitiesData} />
-    <Cards {...equipmentTypesData} />
+    <!-- Capabilities Section with Background -->
+    <section class='py-20 relative overflow-hidden'>
+     
 
-    <Section {...safetyData}>
-        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            <div class='bg-base-200 p-6 rounded-lg'>
-                <iconify-icon icon='mdi:certificate' class='text-4xl text-primary mb-3 block'></iconify-icon>
-                <h4 class='font-semibold mb-3'>Compliance Certifications</h4>
-                <ul class='space-y-2 text-sm'>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        FDA regulations compliance
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        HIPAA transport requirements
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        OSHA safety standards
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        DOT transportation regulations
-                    </li>
-                </ul>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10 py-8'>
+            <Cards {...capabilitiesData} />
+        </div>
+    </section>
+    <!-- Equipment Types Section -->
+    <section class='py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5'>
+
+        
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            
+            <Cards {...equipmentTypesData} />
+        </div>
+    </section>
+
+    <!-- Safety & Compliance Section with Background -->
+    <section class='py-20 relative overflow-hidden'>
+       
+
+        <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10 '>
+            <div class='text-center mb-12'>
+                <h2 class='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>{safetyData.heading}</h2>
+                <p class='text-xl text-gray-600'>{safetyData.body}</p>
             </div>
-            <div class='bg-base-200 p-6 rounded-lg'>
-                <iconify-icon icon='mdi:school' class='text-4xl text-accent mb-3 block'></iconify-icon>
-                <h4 class='font-semibold mb-3'>Staff Training</h4>
-                <ul class='space-y-2 text-sm'>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        Equipment handling certification
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        Hazmat transport training
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        Clean room procedures
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        Emergency response protocols
-                    </li>
-                </ul>
-            </div>
-            <div class='bg-base-200 p-6 rounded-lg'>
-                <iconify-icon icon='mdi:shield-check' class='text-4xl text-secondary mb-3 block'></iconify-icon>
-                <h4 class='font-semibold mb-3'>Insurance & Protection</h4>
-                <ul class='space-y-2 text-sm'>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        Comprehensive cargo insurance
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        Equipment damage protection
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        Liability coverage
-                    </li>
-                    <li class='flex items-center gap-2'>
-                        <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
-                        Transit risk management
-                    </li>
-                </ul>
+
+            <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                <div class='bg-white p-6 rounded-lg shadow-sm'>
+                    <iconify-icon icon='mdi:certificate' class='text-4xl text-primary mb-3 block'></iconify-icon>
+                    <h4 class='text-xl font-semibold mb-4 text-gray-900'>Compliance Certifications</h4>
+                    <ul class='space-y-2 text-sm'>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>FDA regulations compliance</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>HIPAA transport requirements</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>OSHA safety standards</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>DOT transportation regulations</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class='bg-white p-6 rounded-lg shadow-sm'>
+                    <iconify-icon icon='mdi:school' class='text-4xl text-accent mb-3 block'></iconify-icon>
+                    <h4 class='text-xl font-semibold mb-4 text-gray-900'>Staff Training</h4>
+                    <ul class='space-y-2 text-sm'>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>Equipment handling certification</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>Hazmat transport training</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>Clean room procedures</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>Emergency response protocols</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class='bg-white p-6 rounded-lg shadow-sm'>
+                    <iconify-icon icon='mdi:shield-check' class='text-4xl text-secondary mb-3 block'></iconify-icon>
+                    <h4 class='text-xl font-semibold mb-4 text-gray-900'>Insurance & Protection</h4>
+                    <ul class='space-y-2 text-sm'>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>Comprehensive cargo insurance</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>Equipment damage protection</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>Liability coverage</span>
+                        </li>
+                        <li class='flex items-center gap-2'>
+                            <iconify-icon icon='mdi:check' class='text-success'></iconify-icon>
+                            <span class='text-gray-600'>Transit risk management</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </Section>
+    </section>
 
-    <Cta {...ctaData} />
+    <!-- CTA Section with Background -->
+    <section class='relative overflow-hidden'>
+        <WaveClip side='top' amplitude={1} baseline={95} waves={1.25} phase={0} samples={36} class='absolute inset-0 opacity-2 py-24'>
+            <div class='absolute inset-0 opacity-2'>
+                <div
+                    class='absolute inset-0 min-h-44'
+                    style='background-image: url("/Images/personal box deliver.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+                >
+                </div>
+            </div>
+            <div class='absolute inset-0 bg-white/70'></div>
+        </WaveClip>
+
+        <div class='relative z-10 pt-36'>
+            <Cta {...ctaData} />
+        </div>
+    </section>
 </Layout>

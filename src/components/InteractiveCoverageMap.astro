@@ -260,7 +260,13 @@ const coverageStates = [
 
 <style>
     .coverage-map-container {
-        background: linear-gradient(135deg, theme('colors.base-200') 0%, rgba(28, 60, 61, 0.1) 25%, rgba(159, 115, 88, 0.1) 75%, theme('colors.base-200') 100%);
+        background: linear-gradient(
+            135deg,
+            theme('colors.base-200') 0%,
+            rgba(28, 60, 61, 0.1) 25%,
+            rgba(159, 115, 88, 0.1) 75%,
+            theme('colors.base-200') 100%
+        );
         border-radius: 1rem;
         padding: 3rem 2rem;
     }
@@ -676,42 +682,48 @@ const coverageStates = [
     }
 </style>
 
-<div class='coverage-map-container' data-sb-field-path={fieldPath}>
+<div class="coverage-map-container" data-sb-field-path={fieldPath}>
     <!-- Section Header -->
-    <div class='text-center mb-8'>
-        <h2 class='text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-4'>
+    <div class="text-center mb-8">
+        <h2 class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-4">
             {title}
         </h2>
-        <p class='text-lg text-neutral-light max-w-2xl mx-auto mb-2'>
+        <p class="text-lg text-neutral-light max-w-2xl mx-auto mb-2">
             {subtitle}
         </p>
-        <p class='text-base-content max-w-3xl mx-auto'>
+        <p class="text-base-content max-w-3xl mx-auto">
             {description}
         </p>
     </div>
 
     <!-- Interactive Map Content -->
-    <div class='map-content'>
+    <div class="map-content">
         <!-- Decorative Map Visual -->
-        <div class='decorative-map bg-primary/90'>
-            <div class='map-visual'>
-                <div class='coverage-map-svg-container'>
-                    <img src='/coverage/TRIUS_COVERAGE.svg' alt='Trius Coverage Map' class='coverage-map-svg' />
+        <div class="decorative-map bg-primary/90">
+            <div class="map-visual">
+                <div class="coverage-map-svg-container">
+                    <img src="/coverage/TRIUS_COVERAGE.svg" alt="Trius Coverage Map" class="coverage-map-svg" />
                 </div>
             </div>
-            <div class='map-content-overlay -mt-8'>
-                <h3 class='text-lg font-bold text-white mb-1'>Coverage Area</h3>
-                <p class='text-white text-xs opacity-90 mb-1'>Pacific Northwest & Northern California</p>
+            <div class="map-content-overlay -mt-8">
+                <h3 class="text-lg font-bold text-white mb-1">Coverage Area</h3>
+                <p class="text-white text-xs opacity-90 mb-1">Pacific Northwest & Northern California</p>
             </div>
         </div>
 
         <!-- Interactive State Selector -->
-        <div class='state-selector'>
+        <div class="state-selector">
             {
                 coverageStates.map((state) => (
-                    <div class={`state-box ${state.color}`} data-state={state.id} tabindex='0' role='button' aria-label={`Select ${state.name} to view cities`}>
-                        <div class='state-name'>{state.name}</div>
-                        <div class='state-abbr'>{state.abbreviation}</div>
+                    <div
+                        class={`state-box ${state.color}`}
+                        data-state={state.id}
+                        tabindex="0"
+                        role="button"
+                        aria-label={`Select ${state.name} to view cities`}
+                    >
+                        <div class="state-name">{state.name}</div>
+                        <div class="state-abbr">{state.abbreviation}</div>
                     </div>
                 ))
             }
@@ -719,27 +731,28 @@ const coverageStates = [
     </div>
 
     <!-- Cities Display -->
-    <div class='cities-display'>
-        <div class='cities-header'>
-            <h3 id='selected-state-name' class='text-2xl font-bold text-primary mb-2'>Select a State</h3>
-            <p class='text-base-content'>Click a state to view the cities we serve</p>
+    <div class="cities-display">
+        <div class="cities-header">
+            <h3 id="selected-state-name" class="text-2xl font-bold text-primary mb-2">Select a State</h3>
+            <p class="text-base-content">Click a state to view the cities we serve</p>
         </div>
 
-        <div id='cities-container'>
-            <div class='placeholder-text'>
-                <iconify-icon icon='heroicons:map-pin' width='32' height='32' class='mb-2'></iconify-icon>
+        <div id="cities-container">
+            <div class="placeholder-text">
+                <iconify-icon icon="heroicons:map-pin" width="32" height="32" class="mb-2"></iconify-icon>
                 <p>Choose a state from the left to see our service cities</p>
             </div>
         </div>
 
-        <div class='additional-service-note'>
-            <iconify-icon icon='heroicons:plus-circle' width='24' height='24' class='text-primary mb-2'></iconify-icon>
-            <h4 class='font-bold text-primary mb-2'>Additional Areas Served</h4>
-            <p class='text-base-content mb-3'>
-                We serve many more cities and rural areas beyond those listed above. Our network continues to expand to better serve the medical community.
+        <div class="additional-service-note">
+            <iconify-icon icon="heroicons:plus-circle" width="24" height="24" class="text-primary mb-2"></iconify-icon>
+            <h4 class="font-bold text-primary mb-2">Additional Areas Served</h4>
+            <p class="text-base-content mb-3">
+                We serve many more cities and rural areas beyond those listed above. Our network continues to expand to better serve the
+                medical community.
             </p>
-            <a href='/contact' class='contact-highlight'>
-                <iconify-icon icon='heroicons:phone' width='20' height='20'></iconify-icon>
+            <a href="/contact" class="contact-highlight">
+                <iconify-icon icon="heroicons:phone" width="20" height="20"></iconify-icon>
                 Contact Us About Your Area
             </a>
         </div>

@@ -2,10 +2,12 @@
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import HomeHero from '@components/HomeHero.astro';
+import SecondaryHero from '@components/SecondaryHero.astro';
 import Cards from '@components/Cards.astro';
 import TrustSection from '@components/TrustSection.astro';
 import Cta from '@components/Cta.astro';
 import { graphHome } from '../lib/schema.ts';
+import WaveClip from '@components/WaveClip.astro';
 
 // Temporary static data for home page (will be replaced with Sanity later)
 const heroData = {
@@ -31,66 +33,73 @@ const heroData = {
 
 const servicesData = {
     _type: 'cardsSection',
-    heading: 'Specialized Medical Logistics Solutions',
-    body: 'From emergency STAT deliveries to specialized equipment transport, we handle every medical shipment with precision and care.',
+    heading: 'Fast, Secure, and Compliant Medical Transport',
+    body: 'From urgent STAT deliveries to scheduled routes and specialized equipment transport, we safeguard every medical shipment with precision, privacy, and care.',
     items: [
         {
             _key: '1',
             heading: 'STAT Deliveries',
-            body: 'Urgent transport for specimens, organs, and critical medical equipment with full chain-of-custody verification and real-time tracking.',
-            icon: 'mdi:flash',
+            subheading: 'When Every Minute Counts',
+            body: 'Urgent transport for specimens, organs, and critical medical equipment—backed by full chain-of-custody verification and real-time tracking.',
+            icon: 'heroicons:bolt',
             iconColor: 'accent' as const,
+            priority: true,
             features: [
-                { icon: 'mdi:shield', text: 'Chain-of-custody verification' },
-                { icon: 'mdi:radar', text: 'Real-time tracking' },
-                { icon: 'mdi:alert', text: 'Priority handling' }
+                { icon: 'heroicons:shield-check', text: 'Verified chain of custody' },
+                { icon: 'heroicons:map-pin', text: 'Live GPS tracking' },
+                { icon: 'heroicons:star', text: 'Priority handling' }
             ],
             cta: [
                 {
                     _key: '1',
-                    _type: 'actionLink',
-                    label: 'About STAT Deliveries',
-                    url: '/services/stat-delivery'
+                    _type: 'actionButton',
+                    label: 'Request STAT Delivery',
+                    url: '/services/stat-delivery',
+                    theme: 'accent'
                 }
             ]
         },
         {
             _key: '2',
             heading: 'Scheduled Routes',
-            body: 'Reliable, recurring pickups and deliveries for clinics, labs, and research centers with ongoing logistical needs.',
-            icon: 'mdi:calendar',
+            subheading: 'Reliable, Recurring Transport',
+            body: 'Trusted daily and weekly pickups for clinics, labs, and research centers with ongoing logistical needs.',
+            icon: 'heroicons:calendar-days',
             iconColor: 'primary' as const,
             features: [
-                { icon: 'mdi:map', text: 'Optimized routing' },
-                { icon: 'mdi:clock', text: 'Flexible scheduling' },
-                { icon: 'mdi:currency-usd', text: 'Cost-effective logistics' }
+                { icon: 'heroicons:map', text: 'Optimized routing' },
+                { icon: 'heroicons:clock', text: 'Flexible scheduling' },
+                { icon: 'heroicons:currency-dollar', text: 'Cost-efficient delivery' }
             ],
             cta: [
                 {
                     _key: '1',
-                    _type: 'actionLink',
-                    label: 'About Scheduled Routes',
-                    url: '/services/scheduled-routes'
+                    _type: 'actionButton',
+                    label: 'Schedule My Route',
+                    url: '/services/scheduled-routes',
+                    theme: 'primary'
                 }
             ]
         },
         {
             _key: '3',
             heading: 'Specialized Equipment Transport',
-            body: 'Secure transport of fragile, regulated, or temperature-sensitive medical devices by trained professionals.',
-            icon: 'material-symbols:delivery-truck-bolt-rounded',
+            subheading: 'Expert Handling for Sensitive Devices',
+            body: 'Secure movement of regulated, fragile, or temperature-sensitive medical equipment by trained professionals.',
+            icon: 'heroicons:truck',
             iconColor: 'secondary' as const,
             features: [
-                { icon: 'mdi:thermometer', text: 'Temperature control' },
-                { icon: 'mdi:hand', text: 'Specialized handling' },
-                { icon: 'mdi:truck', text: 'Secure vehicles' }
+                { icon: 'heroicons:beaker', text: 'Temperature-controlled vehicles' },
+                { icon: 'heroicons:hand-raised', text: 'Specialized packaging & handling' },
+                { icon: 'heroicons:shield-exclamation', text: 'Secure fleet' }
             ],
             cta: [
                 {
                     _key: '1',
-                    _type: 'actionLink',
-                    label: 'About Specialized Equipment Transport',
-                    url: '/services/specialized-equipment'
+                    _type: 'actionButton',
+                    label: 'Book Equipment Transport',
+                    url: '/services/specialized-equipment',
+                    theme: 'secondary'
                 }
             ]
         }
@@ -99,15 +108,22 @@ const servicesData = {
 
 const ctaData = {
     _type: 'ctaSection',
-    heading: 'Ready to Partner with Trius?',
-    body: 'Join the 150+ healthcare organizations that trust Trius for their medical courier needs. Get a customized quote and experience the difference of working with true logistics professionals.',
+    heading: 'Get a Secure Medical Courier Partner Today',
+    body: 'Join 150+ healthcare organizations that trust Trius for their critical medical logistics. Start with a free, customized quote and experience HIPAA-compliant delivery excellence.',
     cta: [
         {
             _key: '1',
             _type: 'actionButton',
-            label: 'Request Quote',
+            label: 'Get Your Free Quote',
             url: '/contact',
             theme: 'primary'
+        },
+        {
+            _key: '2',
+            _type: 'actionLink',
+            label: 'Learn About Our Process',
+            url: '/services',
+            theme: 'secondary'
         }
     ]
 };
@@ -129,7 +145,80 @@ const schema = graphHome();
 
     <HomeHero {...heroData} />
 
-    <Cards {...servicesData} />
+    <SecondaryHero {...heroData} />
+
+    <!-- Services Section with Background -->
+    <section class='py-20 relative overflow-hidden'>
+        <WaveClip
+            side='both'
+            amplitude={2}
+            baseline={95}
+            waves={1.7}
+            phase={0}
+            samples={36}
+            topBaseline={10}
+            topAmplitude={1}
+            topPhase={0}
+            class='absolute inset-0 opacity-2 py-24 hidden md:block'
+        >
+            <div
+                class='absolute inset-0 min-h-44'
+                style='background-image: url("/Images/medical monitor equip.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+            >
+            </div>
+            <div class='absolute inset-0 bg-white/60'></div>
+        </WaveClip>
+        <!-- White overlay for better readability -->
+
+        <div class='relative z-10 py-16'>
+            <Cards {...servicesData} />
+
+            <!-- Trust Proof Element -->
+            <div class='text-center my-8'>
+                <div class='bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/30 max-w-2xl mx-auto'>
+                    <div class='flex items-center justify-center gap-4 mb-4'>
+                        <span class='text-xl font-bold text-primary'>Trusted by 150+ Healthcare Organizations</span>
+                    </div>
+                    <p class='text-sm text-base-content/70 font-medium'>
+                        From small clinics to major hospitals across Washington, Oregon, Idaho, Montana, and California
+                    </p>
+                    <div class='mt-6'>
+                        <a href='/contact' class='btn btn-primary btn-lg px-8 py-3 font-bold hover:scale-105 transition-all duration-300'>
+                            Get Started Today
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <TrustSection />
-    <Cta {...ctaData} />
+
+    <!-- CTA Section with Background -->
+    <section class='relative overflow-hidden'>
+        <WaveClip
+            side='top'
+            amplitude={1}
+            baseline={95}
+            waves={1.25}
+            phase={0}
+            samples={36}
+            topBaseline={10}
+            topAmplitude={1}
+            topPhase={0}
+            class='absolute inset-0 opacity-2 py-24'
+        >
+            <div class='absolute inset-0 opacity-2'>
+                <div
+                    class='absolute inset-0 min-h-44'
+                    style='background-image: url("/Images/personal box deliver.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+                >
+                </div>
+            </div>
+            <div class='absolute inset-0 bg-white/60'></div>
+        </WaveClip>
+        <div class='relative z-10 pt-24'>
+            <Cta {...ctaData} />
+        </div>
+    </section>
 </Layout>

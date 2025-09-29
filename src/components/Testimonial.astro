@@ -40,8 +40,14 @@ const { quote, author, theme, hasBorder, class: className, 'data-sb-field-path':
             author && (
                 <div class="flex flex-col gap-4 mt-4" data-sb-field-path=".author">
                     <div class="font-bold">
-                        <!-- prettier-ignore -->
-                        <span data-sb-field-path=".name">{author.name}</span>{author.title && (<>{', '}<span data-sb-field-path=".title">{author.title}</span></>)}
+                        {/* prettier-ignore */}
+                        <span data-sb-field-path=".name">{author.name}</span>
+                        {author.title && (
+                            <>
+                                {', '}
+                                <span data-sb-field-path=".title">{author.title}</span>
+                            </>
+                        )}
                     </div>
 
                     {author.image?.src && (

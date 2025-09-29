@@ -47,36 +47,40 @@ const states = [
 ---
 
 <!-- Coverage Area Section -->
-<div class='mt-12 animate-fade-in-up' style='animation-delay: 1.4s;' data-sb-field-path={fieldPath}>
+<div class="mt-12 animate-fade-in-up" style="animation-delay: 1.4s;" data-sb-field-path={fieldPath}>
     <!-- Section Header -->
-    <div class='text-center mb-6 sm:mb-10'>
-        <h3 class='text-2xl lg:text-3xl font-bold text-neutral-dark mb-4'>
+    <div class="text-center mb-6 sm:mb-10">
+        <h3 class="text-2xl lg:text-3xl font-bold text-neutral-dark mb-4">
             {title}
         </h3>
     </div>
 
     <!-- States Grid -->
-    <div class='bg-white/90 backdrop-blur-sm rounded-2xl border border-base-200 shadow-xl p-4 sm:p-8'>
-        <div class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6'>
+    <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-base-200 shadow-xl p-4 sm:p-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             {
                 states.map((state, index) => (
                     <div class={`text-center group ${index === states.length - 1 ? 'md:col-span-3 lg:col-span-1' : ''}`}>
-                        <div class='relative mb-3'>
+                        <div class="relative mb-3">
                             <div
                                 class={`w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-gradient-to-br from-${state.color}/10 to-${state.color}/20 rounded-xl flex items-center justify-center border-2 border-${state.color}/20 group-hover:border-${state.color}/40 transition-all duration-300`}
                             >
-                                <img src={state.svg} alt={state.name} class='w-8 h-8 sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-110' />
+                                <img
+                                    src={state.svg}
+                                    alt={state.name}
+                                    class="w-8 h-8 sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-110"
+                                />
                             </div>
                         </div>
                         <h4 class={`font-semibold text-${state.color} text-xs sm:text-sm mb-1`}>{state.name}</h4>
-                        <p class='text-xs text-neutral'>{state.abbreviation}</p>
+                        <p class="text-xs text-neutral">{state.abbreviation}</p>
                     </div>
                 ))
             }
         </div>
     </div>
-    <div class='text-center mb-6 sm:mb-2 mt-4'>
-        <p class='text-lg text-base-content max-w-2xl mx-auto'>
+    <div class="text-center mb-6 sm:mb-2 mt-4">
+        <p class="text-lg text-base-content max-w-2xl mx-auto">
             {description}
         </p>
     </div>

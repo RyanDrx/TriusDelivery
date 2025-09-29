@@ -3,16 +3,29 @@
     "singleQuote": true,
     "trailingComma": "none",
     "tabWidth": 4,
+    "semi": true,
+    "useTabs": false,
     "plugins": ["prettier-plugin-astro"],
     "overrides": [
         {
             "files": "*.astro",
             "options": {
-                "parser": "astro"
+                "parser": "astro",
+                "printWidth": 140,
+                "htmlWhitespaceSensitivity": "ignore",
+                "astroAllowShorthand": true,
+                "bracketSameLine": false
             }
         },
         {
-            "files": ["*.md", "*.yaml"],
+            "files": ["*.md", "*.yaml", "*.yml"],
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 80
+            }
+        },
+        {
+            "files": ["*.json"],
             "options": {
                 "tabWidth": 2
             }
