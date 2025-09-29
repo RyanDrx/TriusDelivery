@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Section from '@components/Section.astro';
+import WaveClip from '@components/WaveClip.astro';
 import { localBusiness, webSite } from '../lib/schema.ts';
 
 const formData = {
@@ -10,29 +11,6 @@ const formData = {
     title: 'Request Your Quote',
     subtitle: 'Secure inquiry form - No PHI information required',
     body: 'Complete this form to receive a customized quote for your medical courier needs. We guarantee HIPAA compliance and will respond within 24 hours.'
-};
-
-const complianceData = {
-    _type: 'cardsSection',
-    heading: 'Compliance & Privacy',
-    body: 'Your information is secure',
-    items: [
-        {
-            _key: '1',
-            heading: 'HIPAA Compliant',
-            body: 'All communications and form submissions are handled in accordance with HIPAA privacy requirements.'
-        },
-        {
-            _key: '2',
-            heading: 'Secure Communication',
-            body: 'Our inquiry forms and communications use encrypted channels to protect your information.'
-        },
-        {
-            _key: '3',
-            heading: 'No PHI Required',
-            body: "Our quote process doesn't require any protected health information - just your contact details and service needs."
-        }
-    ]
 };
 
 const schema = {
@@ -54,9 +32,9 @@ const schema = {
     </Fragment>
 
     <Hero
-        backgroundImage='/Images/Courier back.webp'
+        backgroundImage='/Images/med back.webp'
         overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70'
-        minHeight='min-h-[70vh]'
+        minHeight='min-h-[40vh]'
     >
         <div class='text-center max-w-5xl mx-auto'>
             <!-- Page Badge -->
@@ -165,7 +143,12 @@ const schema = {
     </Section>
 
     <!-- Contact Form Section with Background -->
-    <section class='py-8 sm:py-12 bg-white relative overflow-hidden'>
+    <WaveClip side='both' class='relative py-16 sm:py-20 lg:py-24 overflow-hidden'>
+        <div class='absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/40 to-secondary/50'></div>
+        <!-- Animated overlay for extra pop -->
+        <div class='absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-primary/30 opacity-80 animate-gradient-shift'>
+        </div>
+        <!-- Background Image -->
         <div class='absolute inset-0 opacity-2'>
             <div
                 class='absolute inset-0'
@@ -173,8 +156,10 @@ const schema = {
             >
             </div>
         </div>
+        <!-- Subtle texture overlay -->
+        <div class='absolute inset-0 bg-white/70'></div>
 
-        <div class='relative z-10'>
+        <div class='relative z-10 py-20'>
             <Section {...formData} class='!py-8 sm:!py-12'>
                 <div id='contact-form' class='max-w-2xl mx-auto'>
                     <form name='contact' method='POST' data-netlify='true' class='space-y-4 bg-base-100 p-6 rounded-lg shadow-lg'>
@@ -304,7 +289,7 @@ const schema = {
                 </div>
             </Section>
         </div>
-    </section>
+    </WaveClip>
 
     <!-- What Happens Next Section -->
     <Section class='bg-base-100 !py-12'>
