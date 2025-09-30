@@ -69,26 +69,6 @@ const schema = {
     </Hero>
     <!-- Our Story -->
     <section class='py-20 relative overflow-hidden'>
-        <WaveClip
-            side='both'
-            amplitude={1.5}
-            baseline={95}
-            waves={1.4}
-            phase={0}
-            samples={36}
-            topBaseline={10}
-            topAmplitude={1.2}
-            topPhase={0}
-            class='absolute inset-0 opacity-2 py-24 hidden md:block'
-        >
-            <div
-                class='absolute inset-0 min-h-44'
-                style='background-image: url("/Images/Courier handoff.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
-            >
-            </div>
-            <div class='absolute inset-0 bg-white/70'></div>
-        </WaveClip>
-
         <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10'>
             <div class='grid lg:grid-cols-2 gap-12 items-center'>
                 <div>
@@ -307,15 +287,6 @@ const schema = {
 
     <!-- Certifications -->
     <section class='py-20 relative overflow-hidden'>
-        <WaveClip side='top' amplitude={1.2} baseline={95} waves={1.6} phase={90} samples={36} class='absolute inset-0 opacity-2 py-24'>
-            <div
-                class='absolute inset-0 min-h-44'
-                style='background-image: url("/Images/medical phials.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
-            >
-            </div>
-            <div class='absolute inset-0 bg-slate-50/85'></div>
-        </WaveClip>
-
         <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10'>
             <div class='max-w-7xl mx-auto px-4 lg:px-6'>
                 <div class='text-center mb-12'>
@@ -396,32 +367,32 @@ const schema = {
                 </div>
             </div>
         </div>
-        <!-- CTA Section with Background -->
-        <section class='relative overflow-hidden'>
-            <WaveClip
-                side='top'
-                amplitude={1}
-                baseline={95}
-                waves={1.25}
-                phase={0}
-                samples={36}
-                topBaseline={10}
-                topAmplitude={1}
-                topPhase={0}
-                class='absolute inset-0 opacity-2 py-24'
-            >
-                <div class='absolute inset-0 opacity-2'>
-                    <div
-                        class='absolute inset-0 min-h-44'
-                        style='background-image: url("/Images/personal box deliver.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
-                    >
-                    </div>
+    </section>
+    <!-- CTA Section with Background -->
+    <section class='relative overflow-hidden'>
+        <WaveClip
+            side='top'
+            amplitude={1}
+            baseline={95}
+            waves={1.25}
+            phase={0}
+            samples={36}
+            topBaseline={10}
+            topAmplitude={1}
+            topPhase={0}
+            class='absolute inset-0 opacity-2 py-24'
+        >
+            <div class='absolute inset-0 opacity-2'>
+                <div
+                    class='absolute inset-0 min-h-44'
+                    style='background-image: url("/Images/Courier handoff.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+                >
                 </div>
-                <div class='absolute inset-0 bg-white/60'></div>
-            </WaveClip>
-            <div class='relative z-10 pt-24'>
-                <Cta {...ctaData} />
             </div>
-        </section>
+            <div class='absolute inset-0 bg-white/60'></div>
+        </WaveClip>
+        <div class='relative z-10 pt-24'>
+            <Cta {...ctaData} />
+        </div>
     </section>
 </Layout>
