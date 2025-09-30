@@ -13,23 +13,16 @@ const heroData = {
 };
 
 const ctaData = {
-    heading: 'Partner with Trius LLC Today',
+    title: 'Partner with Trius LLC Today',
     body: 'Ready to experience reliable, compliant medical courier services? Contact us to discuss your specific needs and discover how we can improve your medical logistics.',
-    cta: [
-        {
-            _key: '1',
-            _type: 'actionButton',
-            label: 'Request Quote',
-            url: '/contact',
-            theme: 'primary'
-        },
-        {
-            _key: '2',
-            _type: 'actionLink',
-            label: 'View Our Services',
-            url: '/services'
-        }
-    ]
+    primaryAction: {
+        label: 'Request Quote',
+        url: '/contact'
+    },
+    secondaryAction: {
+        label: 'View Our Services',
+        url: '/services'
+    }
 };
 
 const schema = {
@@ -76,7 +69,6 @@ const schema = {
     </Hero>
     <!-- Our Story -->
     <section class='py-20 relative overflow-hidden'>
-        <!-- Desktop WaveClip Background -->
         <WaveClip
             side='both'
             amplitude={1.5}
@@ -87,22 +79,17 @@ const schema = {
             topBaseline={10}
             topAmplitude={1.2}
             topPhase={0}
-            class='absolute inset-0 opacity-2 py-24 hidden lg:block'
+            class='absolute inset-0 opacity-2 py-24 hidden md:block'
         >
             <div
                 class='absolute inset-0 min-h-44'
-                style='background-image: url("/Images/Courier handoff.webp"); background-size: cover; background-repeat: no-repeat; background-position: center 30%;'
+                style='background-image: url("/Images/Courier handoff.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
             >
             </div>
             <div class='absolute inset-0 bg-white/70'></div>
         </WaveClip>
 
-        <!-- Mobile/Tablet Simple Background -->
-        <div class='absolute inset-0 lg:hidden'>
-            <div class='absolute inset-0 bg-white'></div>
-        </div>
-
-        <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10 py-8'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10'>
             <div class='grid lg:grid-cols-2 gap-12 items-center'>
                 <div>
                     <h2 class='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>Our Story</h2>
@@ -167,7 +154,7 @@ const schema = {
     </section>
 
     <!-- Mission & Values -->
-    <section class='py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5 relative overflow-hidden'>
+    <section class='py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5'>
         <div class='max-w-7xl mx-auto px-4 lg:px-6'>
             <div class='text-center mb-12'>
                 <h2 class='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>Our Mission & Values</h2>
@@ -320,6 +307,15 @@ const schema = {
 
     <!-- Certifications -->
     <section class='py-20 relative overflow-hidden'>
+        <WaveClip side='top' amplitude={1.2} baseline={95} waves={1.6} phase={90} samples={36} class='absolute inset-0 opacity-2 py-24'>
+            <div
+                class='absolute inset-0 min-h-44'
+                style='background-image: url("/Images/medical phials.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+            >
+            </div>
+            <div class='absolute inset-0 bg-slate-50/85'></div>
+        </WaveClip>
+
         <div class='max-w-7xl mx-auto px-4 lg:px-6 relative z-10'>
             <div class='max-w-7xl mx-auto px-4 lg:px-6'>
                 <div class='text-center mb-12'>
@@ -400,40 +396,32 @@ const schema = {
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section with Background -->
-    <section class='relative overflow-hidden'>
-        <!-- Desktop WaveClip Background -->
-        <WaveClip
-            side='top'
-            amplitude={1}
-            baseline={95}
-            waves={1.25}
-            phase={0}
-            samples={36}
-            topBaseline={10}
-            topAmplitude={1}
-            topPhase={0}
-            class='absolute inset-0 opacity-2 py-24 hidden lg:block'
-        >
-            <div class='absolute inset-0 opacity-2'>
-                <div
-                    class='absolute inset-0 min-h-44'
-                    style='background-image: url("/Images/personal box deliver.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
-                >
+        <!-- CTA Section with Background -->
+        <section class='relative overflow-hidden'>
+            <WaveClip
+                side='top'
+                amplitude={1}
+                baseline={95}
+                waves={1.25}
+                phase={0}
+                samples={36}
+                topBaseline={10}
+                topAmplitude={1}
+                topPhase={0}
+                class='absolute inset-0 opacity-2 py-24'
+            >
+                <div class='absolute inset-0 opacity-2'>
+                    <div
+                        class='absolute inset-0 min-h-44'
+                        style='background-image: url("/Images/personal box deliver.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+                    >
+                    </div>
                 </div>
+                <div class='absolute inset-0 bg-white/60'></div>
+            </WaveClip>
+            <div class='relative z-10 pt-24'>
+                <Cta {...ctaData} />
             </div>
-            <div class='absolute inset-0 bg-white/60'></div>
-        </WaveClip>
-
-        <!-- Mobile Simple Background -->
-        <div class='absolute inset-0 lg:hidden'>
-            <div class='absolute inset-0 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5'></div>
-        </div>
-
-        <div class='relative z-10 pt-36 md:pt-24'>
-            <Cta {...ctaData} />
-        </div>
+        </section>
     </section>
 </Layout>

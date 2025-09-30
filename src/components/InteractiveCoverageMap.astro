@@ -8,162 +8,74 @@ export interface Props {
 
 const {
     title = 'Service Coverage Map',
-    subtitle = 'Visualize our service areas',
-    description = 'Our comprehensive coverage spans across the Pacific Northwest and Northern California, connecting major medical facilities, research centers, and healthcare networks.',
+    subtitle = 'Interactive coverage areas',
+    description = 'Click on any state to view the cities we serve in that region.',
     'data-sb-field-path': fieldPath
 } = Astro.props;
 
-// State data with cities (expanded to 20 cities per state)
-const coverageStates = [
-    {
-        id: 'washington',
+// Coverage data with cities for SEO
+const coverageAreas = {
+    washington: {
         name: 'Washington',
-        abbreviation: 'WA',
-        color: 'primary',
+        serviceLevel: '24/7 STAT & Scheduled Routes',
+        responseTime: 'Under 2 hours',
         cities: [
             'Seattle',
             'Spokane',
             'Tacoma',
             'Vancouver',
             'Bellevue',
-            'Kent',
             'Everett',
-            'Renton',
-            'Federal Way',
-            'Yakima',
             'Bellingham',
             'Olympia',
-            'Redmond',
-            'Kirkland',
-            'Auburn',
-            'Puyallup',
-            'Lakewood',
-            'Bothell',
-            'Richland',
-            'Kennewick',
-            'Issaquah',
-            'Sammamish',
-            'Burien',
-            'SeaTac',
-            'Tukwila',
-            'Shoreline',
-            'Lynnwood',
-            'Edmonds',
-            'Mountlake Terrace',
-            'Mukilteo',
-            'Mill Creek',
-            'Bothell',
-            'Woodinville',
-            'Duvall',
-            'Carnation',
-            'Snoqualmie',
-            'North Bend',
-            'Maple Valley',
-            'Covington',
-            'Black Diamond'
+            'Yakima',
+            'Federal Way',
+            'Renton',
+            'Kent'
         ]
     },
-    {
-        id: 'oregon',
+    oregon: {
         name: 'Oregon',
-        abbreviation: 'OR',
-        color: 'secondary',
+        serviceLevel: '24/7 STAT & Scheduled Routes',
+        responseTime: 'Under 3 hours',
         cities: [
             'Portland',
             'Eugene',
             'Salem',
-            'Gresham',
-            'Hillsboro',
             'Bend',
-            'Beaverton',
             'Medford',
+            'Hillsboro',
+            'Beaverton',
+            'Gresham',
             'Springfield',
             'Corvallis',
-            'Albany',
-            'Tigard',
             'Lake Oswego',
-            'Keizer',
-            'Grants Pass',
-            'Oregon City',
-            'McMinnville',
-            'Redmond',
-            'Tualatin',
-            'West Linn',
-            'Milwaukie',
-            'Gladstone',
-            'Happy Valley',
-            'Clackamas',
-            'Wilsonville',
-            'Sherwood',
-            'King City',
-            'Durham',
-            'Newberg',
-            'Dayton',
-            'Forest Grove',
-            'Cornelius',
-            'Aloha',
-            'Cedar Hills',
-            'Cedar Mill',
-            'Bethany',
-            'Oak Hills',
-            'Raleigh Hills',
-            'Garden Home',
-            'Metzger'
+            'Grants Pass'
         ]
     },
-    {
-        id: 'idaho',
+    idaho: {
         name: 'Idaho',
-        abbreviation: 'ID',
-        color: 'accent',
+        serviceLevel: 'Scheduled Routes & Equipment Transport',
+        responseTime: 'Under 4 hours',
         cities: [
             'Boise',
-            'Meridian',
-            'Nampa',
             'Idaho Falls',
             'Pocatello',
-            'Caldwell',
             "Coeur d'Alene",
             'Twin Falls',
+            'Meridian',
+            'Nampa',
             'Lewiston',
+            'Caldwell',
             'Post Falls',
             'Rexburg',
-            'Eagle',
-            'Kuna',
-            'Blackfoot',
-            'Garden City',
-            'Star',
-            'Hayden',
-            'Ammon',
-            'Moscow',
-            'Sandpoint',
-            'Jerome',
-            'Burley',
-            'Mountain Home',
-            'Chubbuck',
-            'Preston',
-            'Soda Springs',
-            'Rigby',
-            'Shelley',
-            'Iona',
-            'Ucon',
-            'Rathdrum',
-            'Spirit Lake',
-            'Athol',
-            'Dalton Gardens',
-            'Fernan Lake Village',
-            'Huetter',
-            'Middleton',
-            'Notus',
-            'Parma',
-            'Wilder'
+            'Moscow'
         ]
     },
-    {
-        id: 'montana',
+    montana: {
         name: 'Montana',
-        abbreviation: 'MT',
-        color: 'neutral',
+        serviceLevel: 'Scheduled Routes & Equipment Transport',
+        responseTime: 'Under 6 hours',
         cities: [
             'Billings',
             'Missoula',
@@ -172,739 +84,295 @@ const coverageStates = [
             'Butte',
             'Helena',
             'Kalispell',
-            'Havre',
-            'Anaconda',
-            'Miles City',
-            'Livingston',
             'Whitefish',
-            'Belgrade',
-            'Laurel',
-            'Lewistown',
-            'Glendive',
-            'Sidney',
+            'Livingston',
             'Hamilton',
-            'Columbia Falls',
-            'Polson',
-            'Stevensville',
-            'Darby',
-            'Victor',
-            'Corvallis',
-            'Florence',
-            'Lolo',
-            'Frenchtown',
-            'Alberton',
-            'Superior',
-            'Thompson Falls',
-            'Trout Creek',
-            'Noxon',
-            'Libby',
-            'Troy',
-            'Eureka',
-            'Fortine',
-            'Trego',
-            'Rexford',
-            'West Glacier',
-            'Coram'
+            'Miles City',
+            'Havre'
         ]
     },
-    {
-        id: 'california',
+    california: {
         name: 'Northern California',
-        abbreviation: 'CA',
-        color: 'primary',
+        serviceLevel: '24/7 STAT & Scheduled Routes',
+        responseTime: 'Under 2 hours',
         cities: [
             'San Francisco',
             'Sacramento',
-            'Oakland',
             'San Jose',
+            'Oakland',
             'Fresno',
+            'Santa Rosa',
             'Stockton',
             'Modesto',
-            'Santa Rosa',
-            'Salinas',
-            'Vallejo',
             'Berkeley',
-            'Richmond',
-            'Antioch',
-            'Concord',
-            'Fairfield',
-            'Vacaville',
-            'San Mateo',
-            'Fremont',
-            'Hayward',
-            'Sunnyvale',
-            'Santa Clara',
             'Palo Alto',
-            'Mountain View',
-            'Cupertino',
-            'Los Altos',
-            'Milpitas',
-            'Union City',
-            'Newark',
-            'San Leandro',
-            'Castro Valley',
-            'San Lorenzo',
-            'Alameda',
-            'Emeryville',
-            'Albany',
-            'El Cerrito',
-            'San Rafael',
-            'Novato',
-            'Petaluma',
-            'Rohnert Park',
-            'Sebastopol'
+            'Santa Clara',
+            'Salinas'
         ]
     }
-];
+};
 ---
 
 <style>
     .coverage-map-container {
-        background: linear-gradient(
-            135deg,
-            theme('colors.base-200') 0%,
-            rgba(28, 60, 61, 0.1) 25%,
-            rgba(159, 115, 88, 0.1) 75%,
-            theme('colors.base-200') 100%
-        );
-        border-radius: 1rem;
-        padding: 3rem 2rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        margin: 2rem 0;
     }
 
-    .map-content {
+    .map-container {
         display: grid;
-        grid-template-columns: 6fr 9fr;
-        gap: 3rem;
-        max-width: 1200px;
-        margin: 0 auto;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
         align-items: start;
     }
 
-    .decorative-map {
+    .leaflet-map-wrapper {
+        background: rgba(28, 60, 61, 0.9);
         border-radius: 1rem;
-        padding: 2rem 2rem 2rem 2rem;
-        text-align: center;
-        min-height: 400px;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        min-height: 500px;
         position: relative;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
     }
 
-    .map-visual {
-        position: absolute;
-        top: 0;
-        left: -10%;
-        width: 120%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
-    }
-
-    .coverage-map-svg-container {
+    #coverage-map {
         width: 100%;
-        height: 100%;
-        position: relative;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        animation: float 6s ease-in-out infinite;
-        opacity: 0.3;
+        height: 450px;
+        border-radius: 0.5rem;
+        z-index: 1;
+        opacity: 0.9;
     }
 
-    .coverage-map-svg-container::before {
-        content: '';
-        position: absolute;
-        top: -10px;
-        left: -10px;
-        right: -10px;
-        bottom: -10px;
-
-        border-radius: 50%;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        animation: rotate 8s linear infinite;
-        z-index: -1;
-    }
-
-    .coverage-map-svg-container:hover {
-        transform: scale(1.1) rotate(5deg);
-        animation-play-state: paused;
-    }
-
-    .coverage-map-svg-container:hover::before {
-        opacity: 1;
-        animation-duration: 2s;
-    }
-
-    .coverage-map-svg {
-        width: 110%;
-        height: 100%;
-        object-fit: contain;
-        margin-left: -12%;
-        filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        animation: pulse-glow 4s ease-in-out infinite;
-    }
-
-    .map-content-overlay {
-        position: relative;
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        border-radius: 0.75rem;
-        padding: 1rem 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        margin-bottom: 4rem;
-        max-width: 70%;
-        margin-left: auto;
-        margin-right: 0rem;
-    }
-
-    .coverage-map-svg:hover {
-        transform: scale(1.05);
-    }
-
-    /* Cool animations */
-    @keyframes float {
-        0%,
-        100% {
-            transform: translateY(0px) rotate(0deg);
-        }
-        33% {
-            transform: translateY(-8px) rotate(1deg);
-        }
-        66% {
-            transform: translateY(-4px) rotate(-1deg);
-        }
-    }
-
-    @keyframes rotate {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes pulse-glow {
-        0%,
-        100% {
-            filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
-        }
-        50% {
-            filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
-        }
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-
-    .state-selector {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .state-box {
-        background: white;
-        border: 2px solid theme('colors.base-300');
-        border-radius: 0.75rem;
-        padding: 1rem 1.5rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .state-box:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.15);
-    }
-
-    .state-box.active {
-        border-color: theme('colors.primary.DEFAULT');
-        background: linear-gradient(135deg, theme('colors.primary.DEFAULT') / 5, theme('colors.primary.light') / 10);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.15);
-    }
-
-    .state-box.primary {
-        border-color: theme('colors.primary.light');
-    }
-
-    .state-box.primary:hover,
-    .state-box.primary.active {
-        border-color: theme('colors.primary.DEFAULT');
-        background: linear-gradient(135deg, theme('colors.primary.DEFAULT') / 5, theme('colors.primary.light') / 10);
-    }
-
-    .state-box.secondary {
-        border-color: theme('colors.secondary.light');
-    }
-
-    .state-box.secondary:hover,
-    .state-box.secondary.active {
-        border-color: theme('colors.secondary.DEFAULT');
-        background: linear-gradient(135deg, theme('colors.secondary.DEFAULT') / 5, theme('colors.secondary.light') / 10);
-    }
-
-    .state-box.accent {
-        border-color: theme('colors.accent.light');
-    }
-
-    .state-box.accent:hover,
-    .state-box.accent.active {
-        border-color: theme('colors.accent.DEFAULT');
-        background: linear-gradient(135deg, theme('colors.accent.DEFAULT') / 5, theme('colors.accent.light') / 10);
-    }
-
-    .state-box.neutral {
-        border-color: theme('colors.neutral.light');
-    }
-
-    .state-box.neutral:hover,
-    .state-box.neutral.active {
-        border-color: theme('colors.neutral.DEFAULT');
-        background: linear-gradient(135deg, theme('colors.neutral.DEFAULT') / 5, theme('colors.neutral.light') / 10);
-    }
-
-    .state-name {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: theme('colors.primary.DEFAULT');
-    }
-
-    .state-abbr {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: theme('colors.neutral.light');
-        font-family: theme('fontFamily.brand');
-    }
-
-    .cities-display {
-        background: white;
-        border-radius: 1rem;
-        padding: 2rem;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        min-height: 300px;
-        grid-column: 1 / -1;
-        margin-top: 2rem;
-    }
-
-    .cities-header {
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-
-    .cities-grid {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 0.5rem !important;
-        justify-content: flex-start !important;
-        margin-bottom: 2rem !important;
-        padding: 1.5rem !important;
-        background: #ffffff !important;
-        border-radius: 8px !important;
-        border: 1px solid #e5e7eb !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-        /* Force reload v2 */
-    }
-
-    .city-pill {
-        background: #f3f4f6;
-        color: #374151;
-        padding: 0.375rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.875rem;
-        font-weight: 500;
-        transition: all 0.2s ease;
-        cursor: pointer;
-        border: 1px solid #d1d5db;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        position: relative;
-        display: inline-block;
-        white-space: nowrap;
-        text-align: center;
-        min-width: fit-content;
-        letter-spacing: 0.025em;
-    }
-
-    .city-pill::before {
-        display: none;
-    }
-
-    .city-pill:hover {
-        transform: translateY(-1px);
-        background: #1c3c3d;
-        color: white;
-        border-color: #1c3c3d;
-        box-shadow: 0 2px 4px rgba(28, 60, 61, 0.2);
-    }
-
-    .city-pill:focus {
-        outline: 2px solid #9f7358;
-        outline-offset: 2px;
-    }
-
-    .city-pill:active {
-        transform: translateY(0px);
-        box-shadow: 0 1px 2px rgba(28, 60, 61, 0.2);
-    }
-
-    .additional-service-note {
-        background: linear-gradient(135deg, theme('colors.base-100'), theme('colors.base-200'));
-        border: 2px dashed theme('colors.primary.light');
+    .info-panel {
+        background: rgba(255, 255, 255, 0.95);
         border-radius: 1rem;
         padding: 1.5rem;
-        text-align: center;
-        margin-top: 1.5rem;
-        position: relative;
-        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
-    .additional-service-note::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, transparent, theme('colors.primary.DEFAULT') / 5, transparent);
-        transform: rotate(45deg);
-        animation: shimmer 3s ease-in-out infinite;
-    }
 
-    @keyframes shimmer {
-        0%,
-        100% {
-            transform: translateX(-100%) translateY(-100%) rotate(45deg);
-        }
-        50% {
-            transform: translateX(0%) translateY(0%) rotate(45deg);
-        }
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.1);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-
-    .contact-highlight {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: theme('colors.primary.DEFAULT');
+    .service-info {
+        background: linear-gradient(135deg, rgba(28, 60, 61, 0.9), rgba(47, 133, 90, 0.9));
         color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        margin-bottom: 1rem;
     }
 
-    .contact-highlight:hover {
-        background: theme('colors.primary.dark');
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .placeholder-text {
+    .default-message {
         text-align: center;
-        color: theme('colors.neutral.DEFAULT');
         padding: 2rem;
-        font-style: italic;
+        color: rgba(28, 60, 61, 0.7);
+    }
+
+    .state-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .state-button {
+        background: rgba(28, 60, 61, 0.1);
+        border: 2px solid rgba(28, 60, 61, 0.3);
+        color: rgba(28, 60, 61, 1);
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .state-button:hover {
+        background: rgba(28, 60, 61, 0.2);
+        border-color: rgba(28, 60, 61, 0.6);
+        transform: translateY(-2px);
+    }
+
+    .state-button.active {
+        background: rgba(28, 60, 61, 0.9);
+        color: white;
+        border-color: rgba(28, 60, 61, 1);
     }
 
     @media (max-width: 768px) {
-        .coverage-map-container {
-            padding: 2rem 1rem;
-        }
-
-        .map-content {
+        .map-container {
             grid-template-columns: 1fr;
-            gap: 2rem;
-            text-align: center;
+            gap: 1rem;
         }
 
-        .state-selector {
-            order: -1;
-        }
-
-        .state-box {
-            padding: 0.75rem 1rem;
-        }
-
-        .state-name {
-            font-size: 1rem;
-        }
-
-        .state-abbr {
-            font-size: 1.25rem;
+        #coverage-map {
+            height: 350px;
         }
     }
 </style>
 
-<div class="coverage-map-container" data-sb-field-path={fieldPath}>
+<div class='coverage-map-container' data-sb-field-path={fieldPath}>
     <!-- Section Header -->
-    <div class="text-center mb-8">
-        <h2 class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-4">
-            {title}
-        </h2>
-        <p class="text-lg text-neutral-light max-w-2xl mx-auto mb-2">
+    <div class='text-center mb-8'>
+        <p class='text-lg text-neutral-light max-w-2xl mx-auto mb-2'>
             {subtitle}
         </p>
-        <p class="text-base-content max-w-3xl mx-auto">
+        <p class='text-base-content max-w-3xl mx-auto'>
             {description}
         </p>
     </div>
 
     <!-- Interactive Map Content -->
-    <div class="map-content">
-        <!-- Decorative Map Visual -->
-        <div class="decorative-map bg-primary/90">
-            <div class="map-visual">
-                <div class="coverage-map-svg-container">
-                    <img src="/coverage/TRIUS_COVERAGE.svg" alt="Trius Coverage Map" class="coverage-map-svg" />
+    <div class='map-container'>
+        <!-- Real Map -->
+        <div class='leaflet-map-wrapper'>
+            <div id='coverage-map'></div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class='info-panel'>
+            <!-- State Selection Buttons -->
+            <div class='state-buttons'>
+                <button class='state-button' data-state='washington'>Washington</button>
+                <button class='state-button' data-state='oregon'>Oregon</button>
+                <button class='state-button' data-state='california'>N. California</button>
+                <button class='state-button' data-state='idaho'>Idaho</button>
+                <button class='state-button' data-state='montana'>Montana</button>
+            </div>
+
+            <div id='state-info'>
+                <div class='default-message'>
+                    <h3 class='text-xl font-bold text-primary mb-2'>Select a Coverage Area</h3>
+                    <p>Click on any state button above to view our coverage cities and service information for that region.</p>
                 </div>
             </div>
-            <div class="map-content-overlay -mt-8">
-                <h3 class="text-lg font-bold text-white mb-1">Coverage Area</h3>
-                <p class="text-white text-xs opacity-90 mb-1">Pacific Northwest & Northern California</p>
-            </div>
-        </div>
-
-        <!-- Interactive State Selector -->
-        <div class="state-selector">
-            {
-                coverageStates.map((state) => (
-                    <div
-                        class={`state-box ${state.color}`}
-                        data-state={state.id}
-                        tabindex="0"
-                        role="button"
-                        aria-label={`Select ${state.name} to view cities`}
-                    >
-                        <div class="state-name">{state.name}</div>
-                        <div class="state-abbr">{state.abbreviation}</div>
-                    </div>
-                ))
-            }
-        </div>
-    </div>
-
-    <!-- Cities Display -->
-    <div class="cities-display">
-        <div class="cities-header">
-            <h3 id="selected-state-name" class="text-2xl font-bold text-primary mb-2">Select a State</h3>
-            <p class="text-base-content">Click a state to view the cities we serve</p>
-        </div>
-
-        <div id="cities-container">
-            <div class="placeholder-text">
-                <iconify-icon icon="heroicons:map-pin" width="32" height="32" class="mb-2"></iconify-icon>
-                <p>Choose a state from the left to see our service cities</p>
-            </div>
-        </div>
-
-        <div class="additional-service-note">
-            <iconify-icon icon="heroicons:plus-circle" width="24" height="24" class="text-primary mb-2"></iconify-icon>
-            <h4 class="font-bold text-primary mb-2">Additional Areas Served</h4>
-            <p class="text-base-content mb-3">
-                We serve many more cities and rural areas beyond those listed above. Our network continues to expand to better serve the
-                medical community.
-            </p>
-            <a href="/contact" class="contact-highlight">
-                <iconify-icon icon="heroicons:phone" width="20" height="20"></iconify-icon>
-                Contact Us About Your Area
-            </a>
         </div>
     </div>
 </div>
 
-<script>
-    // State and cities functionality
-    document.addEventListener('DOMContentLoaded', function () {
-        const stateBoxes = document.querySelectorAll('.state-box');
-        const selectedStateName = document.getElementById('selected-state-name');
-        const citiesContainer = document.getElementById('cities-container');
+<!-- Leaflet CSS -->
+<link
+    rel='stylesheet'
+    href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
+    integrity='sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY='
+    crossorigin=''
+/>
 
-        // State data embedded for JavaScript access (expanded to 20 cities per state)
-        const stateData = {
-            washington: {
+<!-- Leaflet JS -->
+<script
+    src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
+    integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo='
+    crossorigin=''
+    defer
+></script>
+
+<script defer>
+    // @ts-ignore
+    window.addEventListener('DOMContentLoaded', function () {
+        // Coverage areas data mapped to state names in the GeoJSON
+        const coverageData = {
+            Washington: {
+                key: 'washington',
                 name: 'Washington',
+                serviceLevel: '24/7 STAT & Scheduled Routes',
+                responseTime: 'Under 2 hours',
+                center: [47.5, -120.5],
                 cities: [
                     'Seattle',
                     'Spokane',
                     'Tacoma',
                     'Vancouver',
                     'Bellevue',
-                    'Kent',
                     'Everett',
-                    'Renton',
-                    'Federal Way',
-                    'Yakima',
                     'Bellingham',
                     'Olympia',
+                    'Yakima',
+                    'Federal Way',
+                    'Renton',
+                    'Kent',
                     'Redmond',
                     'Kirkland',
-                    'Auburn',
-                    'Puyallup',
-                    'Lakewood',
                     'Bothell',
-                    'Richland',
-                    'Kennewick',
-                    'Issaquah',
-                    'Sammamish',
-                    'Burien',
-                    'SeaTac',
-                    'Tukwila',
-                    'Shoreline',
                     'Lynnwood',
                     'Edmonds',
-                    'Mountlake Terrace',
                     'Mukilteo',
-                    'Mill Creek',
-                    'Bothell',
-                    'Woodinville',
-                    'Duvall',
-                    'Carnation',
-                    'Snoqualmie',
-                    'North Bend',
-                    'Maple Valley',
-                    'Covington',
-                    'Black Diamond'
+                    'Issaquah',
+                    'Sammamish',
+                    'Mercer Island',
+                    'Burien'
                 ]
             },
-            oregon: {
+            Oregon: {
+                key: 'oregon',
                 name: 'Oregon',
+                serviceLevel: '24/7 STAT & Scheduled Routes',
+                responseTime: 'Under 3 hours',
+                center: [44.0, -120.5],
                 cities: [
                     'Portland',
                     'Eugene',
                     'Salem',
-                    'Gresham',
-                    'Hillsboro',
                     'Bend',
-                    'Beaverton',
                     'Medford',
+                    'Hillsboro',
+                    'Beaverton',
+                    'Gresham',
                     'Springfield',
                     'Corvallis',
-                    'Albany',
-                    'Tigard',
                     'Lake Oswego',
-                    'Keizer',
                     'Grants Pass',
+                    'Tigard',
+                    'Milwaukie',
                     'Oregon City',
-                    'McMinnville',
-                    'Redmond',
                     'Tualatin',
                     'West Linn',
-                    'Milwaukie',
-                    'Gladstone',
-                    'Happy Valley',
-                    'Clackamas',
-                    'Wilsonville',
-                    'Sherwood',
-                    'King City',
-                    'Durham',
-                    'Newberg',
-                    'Dayton',
-                    'Forest Grove',
-                    'Cornelius',
-                    'Aloha',
-                    'Cedar Hills',
-                    'Cedar Mill',
-                    'Bethany',
-                    'Oak Hills',
-                    'Raleigh Hills',
-                    'Garden Home',
-                    'Metzger'
+                    'McMinnville',
+                    'Ashland',
+                    'Redmond',
+                    'Klamath Falls',
+                    'Albany'
                 ]
             },
-            idaho: {
+            Idaho: {
+                key: 'idaho',
                 name: 'Idaho',
+                serviceLevel: 'Scheduled Routes & Equipment Transport',
+                responseTime: 'Under 4 hours',
+                center: [45.0, -114.0],
                 cities: [
                     'Boise',
-                    'Meridian',
-                    'Nampa',
                     'Idaho Falls',
                     'Pocatello',
-                    'Caldwell',
                     "Coeur d'Alene",
                     'Twin Falls',
+                    'Meridian',
+                    'Nampa',
                     'Lewiston',
+                    'Caldwell',
                     'Post Falls',
                     'Rexburg',
+                    'Moscow',
                     'Eagle',
                     'Kuna',
-                    'Blackfoot',
-                    'Garden City',
-                    'Star',
-                    'Hayden',
-                    'Ammon',
-                    'Moscow',
-                    'Sandpoint',
-                    'Jerome',
-                    'Burley',
                     'Mountain Home',
-                    'Chubbuck',
-                    'Preston',
-                    'Soda Springs',
-                    'Rigby',
-                    'Shelley',
-                    'Iona',
-                    'Ucon',
-                    'Rathdrum',
-                    'Spirit Lake',
-                    'Athol',
-                    'Dalton Gardens',
-                    'Fernan Lake Village',
-                    'Huetter',
+                    'Blackfoot',
+                    'Burley',
+                    'Jerome',
+                    'Sandpoint',
+                    'Star',
                     'Middleton',
-                    'Notus',
-                    'Parma',
-                    'Wilder'
+                    'Garden City'
                 ]
             },
-            montana: {
+            Montana: {
+                key: 'montana',
                 name: 'Montana',
+                serviceLevel: 'Scheduled Routes & Equipment Transport',
+                responseTime: 'Under 6 hours',
+                center: [47.0, -110.0],
                 cities: [
                     'Billings',
                     'Missoula',
@@ -913,165 +381,220 @@ const coverageStates = [
                     'Butte',
                     'Helena',
                     'Kalispell',
+                    'Whitefish',
+                    'Livingston',
+                    'Hamilton',
+                    'Miles City',
                     'Havre',
                     'Anaconda',
-                    'Miles City',
-                    'Livingston',
-                    'Whitefish',
                     'Belgrade',
                     'Laurel',
                     'Lewistown',
-                    'Glendive',
-                    'Sidney',
-                    'Hamilton',
-                    'Columbia Falls',
                     'Polson',
-                    'Stevensville',
-                    'Darby',
-                    'Victor',
-                    'Corvallis',
-                    'Florence',
-                    'Lolo',
-                    'Frenchtown',
-                    'Alberton',
-                    'Superior',
-                    'Thompson Falls',
-                    'Trout Creek',
-                    'Noxon',
-                    'Libby',
-                    'Troy',
-                    'Eureka',
-                    'Fortine',
-                    'Trego',
-                    'Rexford',
-                    'West Glacier',
-                    'Coram'
+                    'Columbia Falls',
+                    'Big Sky',
+                    'Red Lodge',
+                    'Glasgow',
+                    'Glendive'
                 ]
             },
-            california: {
+            California: {
+                key: 'california',
                 name: 'Northern California',
+                serviceLevel: '24/7 STAT & Scheduled Routes',
+                responseTime: 'Under 2 hours',
+                center: [38.5, -120.0],
                 cities: [
                     'San Francisco',
                     'Sacramento',
-                    'Oakland',
                     'San Jose',
+                    'Oakland',
                     'Fresno',
+                    'Santa Rosa',
                     'Stockton',
                     'Modesto',
-                    'Santa Rosa',
-                    'Salinas',
-                    'Vallejo',
                     'Berkeley',
-                    'Richmond',
-                    'Antioch',
-                    'Concord',
-                    'Fairfield',
-                    'Vacaville',
-                    'San Mateo',
+                    'Palo Alto',
+                    'Santa Clara',
+                    'Salinas',
                     'Fremont',
                     'Hayward',
                     'Sunnyvale',
-                    'Santa Clara',
-                    'Palo Alto',
-                    'Mountain View',
-                    'Cupertino',
-                    'Los Altos',
-                    'Milpitas',
-                    'Union City',
-                    'Newark',
-                    'San Leandro',
-                    'Castro Valley',
-                    'San Lorenzo',
-                    'Alameda',
-                    'Emeryville',
-                    'Albany',
-                    'El Cerrito',
-                    'San Rafael',
-                    'Novato',
-                    'Petaluma',
-                    'Rohnert Park',
-                    'Sebastopol'
+                    'Concord',
+                    'Vallejo',
+                    'Fairfield',
+                    'Richmond',
+                    'Antioch',
+                    'Daly City',
+                    'San Mateo'
                 ]
             }
         };
 
-        stateBoxes.forEach((box) => {
-            box.addEventListener('click', function () {
-                const stateId = (box as HTMLElement).dataset.state;
-                const state = stateData[stateId];
+        // Initialize the map without zoom control
+        const map = L.map('coverage-map', {
+            zoomControl: false
+        }).setView([45.5, -116.0], 5);
 
-                // Remove active class from all boxes
-                stateBoxes.forEach((b) => b.classList.remove('active'));
+        // Add minimal grayscale tile layer (CartoDB Positron)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '',
+            maxZoom: 10,
+            minZoom: 4,
+            subdomains: 'abcd'
+        }).addTo(map);
 
-                // Add active class to clicked box
-                box.classList.add('active');
+        // Store coverage overlays
+        const coverageOverlays = {};
 
-                // Update header
-                selectedStateName.textContent = `Cities in ${state.name}`;
+        // Load GeoJSON state boundaries from the master file
+        async function loadStateGeoJSON() {
+            try {
+                // Fetch the master GeoJSON file with all states
+                const response = await fetch('/states/geojson20m.json');
+                const allStatesData = await response.json();
 
-                // Display cities
-                displayCities(state.cities);
-            });
+                // Filter and create layers for our coverage states
+                allStatesData.features.forEach((feature) => {
+                    const stateName = feature.properties.NAME;
+                    const coverageInfo = coverageData[stateName];
 
-            // Keyboard accessibility
-            box.addEventListener('keydown', function (e) {
-                if ((e as KeyboardEvent).key === 'Enter' || (e as KeyboardEvent).key === ' ') {
-                    e.preventDefault();
-                    (box as HTMLElement).click();
-                }
+                    if (coverageInfo) {
+                        // Create GeoJSON layer for this state
+                        const geoJsonLayer = L.geoJSON(feature, {
+                            style: {
+                                color: '#2f855a',
+                                weight: 3,
+                                fillColor: '#2f855a',
+                                fillOpacity: 0.3,
+                                opacity: 0.8
+                            },
+                            onEachFeature: function (feature, layer) {
+                                // Add click handler
+                                layer.on('click', function () {
+                                    selectState(coverageInfo.key);
+                                });
+
+                                // Add tooltip
+                                layer.bindTooltip(`${coverageInfo.name}<br>${coverageInfo.serviceLevel}`, {
+                                    permanent: false,
+                                    direction: 'center'
+                                });
+                            }
+                        }).addTo(map);
+
+                        coverageOverlays[coverageInfo.key] = geoJsonLayer;
+                    }
+                });
+            } catch (error) {
+                console.log('Could not load GeoJSON file:', error);
+            }
+        }
+
+        // Load all state boundaries
+        loadStateGeoJSON();
+
+        // Get UI elements
+        const stateButtons = document.querySelectorAll('.state-button');
+        const infoPanel = document.getElementById('state-info');
+
+        // Add click listeners to state buttons
+        stateButtons.forEach((button) => {
+            button.addEventListener('click', function () {
+                const stateKey = this.getAttribute('data-state');
+                selectState(stateKey);
             });
         });
 
-        function displayCities(cities) {
-            citiesContainer.innerHTML = `
-                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; margin-bottom: 2rem; padding: 1.5rem; background: #ffffff; border-radius: 8px; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-                    ${cities
-                        .map(
-                            (city) => `
-                        <button style="background: #f3f4f6; color: #374151; padding: 6px 12px; border-radius: 20px; font-size: 14px; font-weight: 500; transition: all 0.2s ease; cursor: pointer; border: 1px solid #d1d5db; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); position: relative; display: inline-block; white-space: nowrap; text-align: center; min-width: fit-content; letter-spacing: 0.025em;" 
-                                onmouseover="this.style.transform='translateY(-1px)'; this.style.background='#1c3c3d'; this.style.color='white'; this.style.borderColor='#1c3c3d'; this.style.boxShadow='0 2px 4px rgba(28, 60, 61, 0.2)';" 
-                                onmouseout="this.style.transform='translateY(0px)'; this.style.background='#f3f4f6'; this.style.color='#374151'; this.style.borderColor='#d1d5db'; this.style.boxShadow='0 1px 2px rgba(0, 0, 0, 0.05)';" 
-                                class='city-pill' type='button'>${city}</button>
-                    `
-                        )
-                        .join('')}
-                </div>
-            `;
+        // State selection function
+        function selectState(stateKey) {
+            console.log('Selecting state:', stateKey);
+            console.log('Available overlays:', Object.keys(coverageOverlays));
 
-            // Add click effects to new city pills
-            const cityPills = citiesContainer.querySelectorAll('.city-pill');
-            cityPills.forEach((pill) => {
-                pill.addEventListener('click', function () {
-                    // Add a temporary pulse effect
-                    (this as HTMLElement).style.animation = 'pulse 0.3s ease';
+            // Update button states
+            stateButtons.forEach((btn) => btn.classList.remove('active'));
+            const activeButton = document.querySelector(`[data-state="${stateKey}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
 
-                    // Add a ripple effect
-                    const ripple = document.createElement('span');
-                    ripple.style.cssText = `
-                        position: absolute;
-                        border-radius: 50%;
-                        background: rgba(255, 255, 255, 0.6);
-                        transform: scale(0);
-                        animation: ripple 0.6s linear;
-                        left: 50%;
-                        top: 50%;
-                        width: 20px;
-                        height: 20px;
-                        margin-left: -10px;
-                        margin-top: -10px;
-                        pointer-events: none;
-                    `;
+            // Find the state data by key
+            const stateData = Object.values(coverageData).find(state => state.key === stateKey);
+            if (stateData) {
+                // Fit to the GeoJSON layer bounds
+                const overlay = coverageOverlays[stateKey];
+                if (overlay) {
+                    map.fitBounds(overlay.getBounds(), { padding: [20, 20] });
+                }
 
-                    this.appendChild(ripple);
-
-                    setTimeout(() => {
-                        (this as HTMLElement).style.animation = '';
-                        if (ripple.parentNode) {
-                            ripple.parentNode.removeChild(ripple);
+                // Highlight selected overlay
+                Object.keys(coverageOverlays).forEach((key) => {
+                    const geoJsonLayer = coverageOverlays[key];
+                    if (geoJsonLayer) {
+                        try {
+                            // GeoJSON layer styling - use eachLayer to apply to all polygons in MultiPolygon
+                            geoJsonLayer.eachLayer(function (layer) {
+                                if (key === stateKey) {
+                                    console.log('Setting red color for:', key);
+                                    // Selected state - bright red/accent color
+                                    layer.setStyle({
+                                        color: '#e63946',
+                                        weight: 4,
+                                        fillColor: '#e63946',
+                                        fillOpacity: 0.6,
+                                        opacity: 1
+                                    });
+                                } else {
+                                    // Unselected states - green
+                                    layer.setStyle({
+                                        color: '#2f855a',
+                                        weight: 3,
+                                        fillColor: '#2f855a',
+                                        fillOpacity: 0.3,
+                                        opacity: 0.8
+                                    });
+                                }
+                            });
+                        } catch (e) {
+                            console.log('Error styling overlay for', key, e);
                         }
-                    }, 600);
+                    }
                 });
-            });
+            }
+
+            // Update info panel
+            if (stateData && infoPanel) {
+                infoPanel.innerHTML = `
+                    <div class="service-info">
+                        <h3 class="text-xl font-bold mb-2">${stateData.name}</h3>
+                        <p class="text-sm opacity-90 mb-1">${stateData.serviceLevel}</p>
+                        <p class="text-sm opacity-90">Response Time: ${stateData.responseTime}</p>
+                    </div>
+                    <h4 class="text-lg font-semibold text-primary mb-3">Cities We Serve</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${stateData.cities.map((city) => `
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors duration-200">
+                                ${city}
+                            </span>
+                        `).join('')}
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="/contact" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors">
+                            Get Service Quote
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 17l10-10M17 7H7v10"/>
+                            </svg>
+                        </a>
+                    </div>
+                `;
+            }
         }
+
+        // Set initial view to show all coverage areas
+        const allBounds = [
+            [35.0, -124.8], // Southwest corner
+            [49.0, -104.0] // Northeast corner
+        ];
+        map.fitBounds(allBounds, { padding: [20, 20] });
     });
 </script>

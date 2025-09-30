@@ -142,13 +142,13 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
                                             <Action
                                                 action={item}
                                                 class:list={[
-                                                    'px-6 py-3 font-semibold text-sm tracking-wide transition-all duration-200',
+                                                    'px-6 py-3 font-semibold text-sm tracking-wide transition-all duration-200 rounded-l-none rounded-r-none nav-button',
                                                     item._type === 'actionLink'
                                                         ? isActive
                                                             ? 'text-white bg-gradient-to-r from-primary to-primary-dark'
                                                             : 'text-slate-700 hover:text-primary hover:bg-slate-50'
                                                         : item.label === 'Contact'
-                                                            ? 'text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary'
+                                                            ? 'text-white bg-gradient-to-r from-secondary to-primary-dark hover:from-primary-dark hover:to-primary'
                                                             : 'text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary'
                                                 ]}
                                                 data-sb-field-path={`.${index}`}
