@@ -159,68 +159,68 @@ const schema = graphServiceRoutes();
 ---
 
 <Layout
-    title="Scheduled Medical Courier Routes | Trius LLC"
-    description="Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing."
+    title='Scheduled Medical Courier Routes | Trius LLC'
+    description='Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing.'
 >
-    <Fragment slot="head">
+    <Fragment slot='head'>
         <SEO
-            title="Scheduled Medical Courier Routes | Trius LLC"
-            description="Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing."
+            title='Scheduled Medical Courier Routes | Trius LLC'
+            description='Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing.'
             graph={schema}
         />
     </Fragment>
 
     <Hero
-        backgroundImage="/Images/vehicle package.webp"
-        overlayClass="bg-gradient-to-r from-secondary/80 via-secondary/60 to-primary/70"
-        minHeight="min-h-[70vh]"
+        backgroundImage='/Images/vehicle package.webp'
+        overlayClass='bg-gradient-to-r from-secondary/80 via-secondary/60 to-primary/70'
+        minHeight='min-h-[70vh]'
     >
-        <div class="text-center max-w-5xl mx-auto">
+        <div class='text-center max-w-5xl mx-auto'>
             <!-- Page Badge -->
-            <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <iconify-icon icon="heroicons:calendar-days" width="24" height="24" style="color: white;"></iconify-icon>
-                <span class="text-white font-bold tracking-wide uppercase">Scheduled Service</span>
+            <div class='inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30'>
+                <iconify-icon icon='heroicons:calendar-days' width='24' height='24' style='color: white;'></iconify-icon>
+                <span class='text-white font-bold tracking-wide uppercase'>Scheduled Service</span>
             </div>
 
             <!-- Main Title -->
-            <h1 class="text-4xl lg:text-6xl font-black text-white mb-6 leading-tight">Scheduled Medical Courier Routes</h1>
+            <h1 class='text-4xl lg:text-6xl font-black text-white mb-6 leading-tight'>Scheduled Medical Courier Routes</h1>
 
             <!-- Subtitle -->
-            <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
-                <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:currency-dollar" width="20" height="20"></iconify-icon>
+            <div class='flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium'>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:currency-dollar' width='20' height='20'></iconify-icon>
                     Cost Effective
                 </span>
-                <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:user-group" width="20" height="20"></iconify-icon>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:user-group' width='20' height='20'></iconify-icon>
                     Dedicated Teams
                 </span>
-                <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:map" width="20" height="20"></iconify-icon>
+                <span class='flex items-center gap-2'>
+                    <iconify-icon icon='heroicons:map' width='20' height='20'></iconify-icon>
                     Route Optimization
                 </span>
             </div>
 
             <!-- Description -->
-            <p class="text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed">
+            <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
                 Recurring pickups and deliveries for clinics, labs, and research centers. Our scheduled routes provide efficiency,
                 consistency, and cost savings for your regular medical logistics needs.
             </p>
 
             <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div class='flex flex-col sm:flex-row gap-4 justify-center items-center'>
                 <a
-                    href="/contact?service=routes"
-                    class="btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300"
+                    href='/contact?service=routes'
+                    class='btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'
                 >
                     Schedule Routes
                 </a>
                 <a
-                    href="/coverage"
-                    class="text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2"
+                    href='/coverage'
+                    class='text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2'
                 >
                     View Coverage Areas
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20"></iconify-icon>
+                    <iconify-icon icon='heroicons:arrow-right' width='20' height='20'></iconify-icon>
                 </a>
             </div>
         </div>
@@ -229,52 +229,127 @@ const schema = graphServiceRoutes();
     <Cards {...routeTypesData} />
 
     <Section {...setupProcessData}>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-base-200 p-6 rounded-lg">
-                <div class="text-center mb-4">
-                    <div
-                        class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto"
-                    >
-                        1
-                    </div>
-                </div>
-                <h4 class="font-semibold text-center mb-2">Needs Assessment</h4>
-                <p class="text-sm text-center">We analyze your volume, timing, and special requirements to design the optimal route.</p>
+        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative'>
+            <!-- Animated progress line showing momentum (desktop only) -->
+            <div class='hidden lg:block absolute top-11 left-[12.5%] right-[12.5%] h-0.5 -z-10'>
+                <div class='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/30'></div>
+                <div class='absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent w-0 animate-progress-flow'></div>
             </div>
-            <div class="bg-base-200 p-6 rounded-lg">
-                <div class="text-center mb-4">
+
+            <!-- Arrow connectors showing forward movement (desktop only) -->
+            <div class='hidden lg:block absolute top-10 left-[calc(25%-1.5rem)] text-primary/40 text-2xl transform translate-x-8'>→</div>
+            <div class='hidden lg:block absolute top-10 left-[calc(50%-1.5rem)] text-primary/40 text-2xl transform translate-x-8'>→</div>
+            <div class='hidden lg:block absolute top-10 left-[calc(75%-1.5rem)] text-primary/40 text-2xl transform translate-x-8'>→</div>
+
+            <!-- Step 1 - Starting momentum -->
+            <div
+                class='bg-gradient-to-br from-base-200 to-base-300/50 p-6 rounded-xl border-2 border-primary/20 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group transform hover:-translate-y-1'
+            >
+                <div class='text-center mb-4'>
                     <div
-                        class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto"
+                        class='w-14 h-14 bg-gradient-to-br from-primary/90 to-primary-dark text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto shadow-lg shadow-primary/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 relative overflow-hidden ring-2 ring-primary/20 ring-offset-2'
                     >
-                        2
+                        <span class='relative z-10 text-white'>1</span>
+                        <span
+                            class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'
+                        ></span>
                     </div>
                 </div>
-                <h4 class="font-semibold text-center mb-2">Route Design</h4>
-                <p class="text-sm text-center">Our logistics team creates an optimized route plan with timing and pricing details.</p>
+                <h4 class='font-bold text-center mb-2 text-base text-primary'>Needs Assessment</h4>
+                <p class='text-sm text-center text-base-content/80 leading-relaxed'>
+                    We analyze your volume, timing, and special requirements to design the optimal route.
+                </p>
             </div>
-            <div class="bg-base-200 p-6 rounded-lg">
-                <div class="text-center mb-4">
+
+            <!-- Step 2 - Building momentum -->
+            <div
+                class='bg-gradient-to-br from-base-200 to-base-300/60 p-6 rounded-xl border-2 border-primary/30 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group transform hover:-translate-y-1'
+            >
+                <div class='text-center mb-4'>
                     <div
-                        class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto"
+                        class='w-14 h-14 bg-gradient-to-br from-primary to-primary-dark text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto shadow-lg shadow-primary/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 relative overflow-hidden ring-2 ring-primary/30 ring-offset-2'
                     >
-                        3
+                        <span class='relative z-10 text-white'>2</span>
+                        <span
+                            class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'
+                        ></span>
                     </div>
                 </div>
-                <h4 class="font-semibold text-center mb-2">Team Assignment</h4>
-                <p class="text-sm text-center">Dedicated courier team assignment ensures consistency and familiarity with your needs.</p>
+                <h4 class='font-bold text-center mb-2 text-base text-primary'>Route Design</h4>
+                <p class='text-sm text-center text-base-content/80 leading-relaxed'>
+                    Our logistics team creates an optimized route plan with timing and pricing details.
+                </p>
             </div>
-            <div class="bg-base-200 p-6 rounded-lg">
-                <div class="text-center mb-4">
+
+            <!-- Step 3 - Accelerating momentum -->
+            <div
+                class='bg-gradient-to-br from-base-200 to-base-300/70 p-6 rounded-xl border-2 border-primary/40 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group transform hover:-translate-y-1'
+            >
+                <div class='text-center mb-4'>
                     <div
-                        class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center text-xl font-bold mx-auto"
+                        class='w-14 h-14 bg-gradient-to-br from-primary to-primary-dark text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto shadow-lg shadow-primary/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 relative overflow-hidden ring-2 ring-primary/40 ring-offset-2'
                     >
-                        4
+                        <span class='relative z-10 text-white'>3</span>
+                        <span
+                            class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'
+                        ></span>
                     </div>
                 </div>
-                <h4 class="font-semibold text-center mb-2">Service Launch</h4>
-                <p class="text-sm text-center">Route implementation with ongoing monitoring and optimization as your needs evolve.</p>
+                <h4 class='font-bold text-center mb-2 text-base text-primary'>Team Assignment</h4>
+                <p class='text-sm text-center text-base-content/80 leading-relaxed'>
+                    Dedicated courier team assignment ensures consistency and familiarity with your needs.
+                </p>
+            </div>
+
+            <!-- Step 4 - Peak momentum/completion -->
+            <div
+                class='bg-gradient-to-br from-base-200 to-base-300/80 p-6 rounded-xl border-2 border-primary/50 hover:border-primary/70 hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 group transform hover:-translate-y-2'
+            >
+                <div class='text-center mb-4'>
+                    <div
+                        class='w-14 h-14 bg-gradient-to-br from-primary to-primary-dark text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto shadow-xl shadow-primary/40 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-primary/50 transition-all duration-300 relative overflow-hidden ring-2 ring-primary/50 ring-offset-2'
+                    >
+                        <span class='relative z-10 text-white'>4</span>
+                        <span
+                            class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'
+                        ></span>
+                        <!-- Success checkmark overlay on hover -->
+                        <span class='absolute inset-0 bg-success/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
+                            <svg class='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M5 13l4 4L19 7'></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <h4 class='font-bold text-center mb-2 text-base text-primary'>Service Launch</h4>
+                <p class='text-sm text-center text-base-content/80 leading-relaxed'>
+                    Route implementation with ongoing monitoring and optimization as your needs evolve.
+                </p>
             </div>
         </div>
+
+        <style>
+            @keyframes progress-flow {
+                0% {
+                    width: 0%;
+                }
+                100% {
+                    width: 100%;
+                }
+            }
+
+            .animate-progress-flow {
+                animation: progress-flow 3s ease-out forwards;
+                animation-delay: 0.5s;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .animate-progress-flow {
+                    animation: none;
+                    width: 100%;
+                }
+            }
+        </style>
     </Section>
 
     <Cta {...ctaData} />

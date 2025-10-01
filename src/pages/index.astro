@@ -148,7 +148,7 @@ const schema = graphHome();
     <SecondaryHero {...heroData} />
 
     <!-- Services Section with Background -->
-    <section class='py-20 relative overflow-hidden'>
+    <section class='md:py-20 relative overflow-hidden'>
         <!-- Desktop WaveClip Background -->
         <WaveClip
             side='both'
@@ -160,11 +160,12 @@ const schema = graphHome();
             topBaseline={10}
             topAmplitude={1}
             topPhase={0}
-            class='absolute inset-0 opacity-2 py-24 hidden md:block'
+            class='absolute inset-0 opacity-2 md:py-24 hidden md:block'
         >
             <div
                 class='absolute inset-0 min-h-44'
-                style='background-image: url("/Images/medical monitor equip.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+                style='background-image: url("/Images/medical monitor equip.webp"); background-size: cover; 
+                background-repeat: no-repeat; background-position: center;'
             >
             </div>
             <div class='absolute inset-0 bg-white/60'></div>
@@ -174,7 +175,7 @@ const schema = graphHome();
         <div class='absolute inset-0 lg:hidden bg-gradient-to-br from-white via-primary/4 to-secondary/4'></div>
         <!-- White overlay for better readability -->
 
-        <div class='relative z-10 md:py-16'>
+        <div class='relative z-10 md:py-24'>
             <Cards {...servicesData} />
 
             <!-- Trust Proof Element -->
