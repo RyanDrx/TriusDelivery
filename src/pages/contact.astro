@@ -143,13 +143,13 @@ const schema = {
     </Section>
 
     <!-- Contact Form Section with Background -->
-    <WaveClip side='both' class='relative py-16 sm:py-20 lg:py-24 overflow-hidden'>
+    <WaveClip side='both' class='relative py-8 lg:py-24 overflow-hidden'>
         <div class='absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/40 to-secondary/50'></div>
         <!-- Animated overlay for extra pop -->
         <div class='absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-primary/30 opacity-80 animate-gradient-shift'>
         </div>
         <!-- Background Image -->
-        <div class='absolute inset-0 opacity-2'>
+        <div class='absolute inset-0 opacity-2 hidden md:block'>
             <div
                 class='absolute inset-0'
                 style='background-image: url("/Images/couriour boxes.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
@@ -159,8 +159,8 @@ const schema = {
         <!-- Subtle texture overlay -->
         <div class='absolute inset-0 bg-white/70'></div>
 
-        <div class='relative z-10 py-20'>
-            <Section {...formData} class='!py-8 sm:!py-12'>
+        <div class='relative z-10 py-36 md:py-8'>
+            <Section {...formData} class=''>
                 <div id='contact-form' class='max-w-2xl mx-auto'>
                     <form name='contact' method='POST' data-netlify='true' class='space-y-4 bg-base-100 p-6 rounded-2xl shadow-lg'>
                         <input type='hidden' name='form-name' value='contact' />
@@ -312,9 +312,14 @@ const schema = {
 
             <!-- Step 1 - Instant -->
             <div class='text-center group'>
-                <div class='w-16 h-16 bg-gradient-to-br from-primary/90 to-primary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 relative overflow-hidden ring-2 ring-primary/20 ring-offset-2'>
+                <div
+                    class='w-16 h-16 bg-gradient-to-br from-primary/90 to-primary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 relative overflow-hidden ring-2 ring-primary/20 ring-offset-2'
+                >
                     <span class='text-2xl font-black text-white relative z-10'>1</span>
-                    <span class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'></span>
+                    <span
+                        class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'
+                    >
+                    </span>
                 </div>
                 <h3 class='text-lg font-bold text-primary mb-2'>Immediate Confirmation</h3>
                 <p class='text-sm text-base-content/70 leading-relaxed'>You'll receive confirmation we've received your inquiry</p>
@@ -322,9 +327,14 @@ const schema = {
 
             <!-- Step 2 - Building momentum -->
             <div class='text-center group'>
-                <div class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-secondary/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-secondary/40 transition-all duration-300 relative overflow-hidden ring-2 ring-secondary/30 ring-offset-2'>
+                <div
+                    class='w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-secondary/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-secondary/40 transition-all duration-300 relative overflow-hidden ring-2 ring-secondary/30 ring-offset-2'
+                >
                     <span class='text-2xl font-black text-white relative z-10'>2</span>
-                    <span class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'></span>
+                    <span
+                        class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'
+                    >
+                    </span>
                 </div>
                 <h3 class='text-lg font-bold text-primary mb-2'>Needs Assessment</h3>
                 <p class='text-sm text-base-content/70 leading-relaxed'>We'll review your requirements and contact you for details</p>
@@ -332,9 +342,14 @@ const schema = {
 
             <!-- Step 3 - Accelerating -->
             <div class='text-center group'>
-                <div class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-accent/40 transition-all duration-300 relative overflow-hidden ring-2 ring-accent/40 ring-offset-2'>
+                <div
+                    class='w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-accent/40 transition-all duration-300 relative overflow-hidden ring-2 ring-accent/40 ring-offset-2'
+                >
                     <span class='text-2xl font-black text-white relative z-10'>3</span>
-                    <span class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'></span>
+                    <span
+                        class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'
+                    >
+                    </span>
                 </div>
                 <h3 class='text-lg font-bold text-primary mb-2'>Custom Quote</h3>
                 <p class='text-sm text-base-content/70 leading-relaxed'>Within 24 hours, receive a detailed tailored quote</p>
@@ -342,11 +357,18 @@ const schema = {
 
             <!-- Step 4 - Complete -->
             <div class='text-center group'>
-                <div class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl shadow-primary/40 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-primary/50 transition-all duration-300 relative overflow-hidden ring-2 ring-primary/50 ring-offset-2'>
+                <div
+                    class='w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl shadow-primary/40 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-primary/50 transition-all duration-300 relative overflow-hidden ring-2 ring-primary/50 ring-offset-2'
+                >
                     <span class='text-2xl font-black text-white relative z-10'>4</span>
-                    <span class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'></span>
+                    <span
+                        class='absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700'
+                    >
+                    </span>
                     <!-- Success checkmark on hover -->
-                    <span class='absolute inset-0 bg-success/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
+                    <span
+                        class='absolute inset-0 bg-success/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'
+                    >
                         <svg class='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                             <path stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M5 13l4 4L19 7'></path>
                         </svg>
@@ -358,7 +380,9 @@ const schema = {
         </div>
 
         <!-- Enhanced compliance note -->
-        <div class='mt-12 text-center bg-gradient-to-br from-base-200 to-base-300/50 rounded-xl p-6 max-w-4xl mx-auto border-2 border-base-300 hover:border-primary/20 transition-all duration-300 shadow-md'>
+        <div
+            class='mt-12 text-center bg-gradient-to-br from-base-200 to-base-300/50 rounded-xl p-6 max-w-4xl mx-auto border-2 border-base-300 hover:border-primary/20 transition-all duration-300 shadow-md'
+        >
             <div class='flex items-center justify-center gap-2 mb-3'>
                 <span class='text-2xl'>🔒</span>
                 <h3 class='text-lg font-bold text-primary'>Your Information is Secure</h3>
