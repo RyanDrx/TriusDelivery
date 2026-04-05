@@ -8,8 +8,8 @@ import WaveClip from '@components/WaveClip.astro';
 
 const heroData = {
     title: 'About Trius LLC',
-    subtitle: 'Trusted Medical Logistics Partner Since 2022',
-    body: 'Founded with a mission to provide reliable, compliant medical courier services across the Pacific Northwest and California. We understand the critical nature of medical logistics and deliver with precision.'
+    subtitle: 'Built from Real-World Experience in Medical Logistics',
+    body: 'Founded with a simple mission: to provide reliable, professional, and responsive courier services tailored specifically to the medical and healthcare industry.'
 };
 
 const ctaData = {
@@ -74,34 +74,31 @@ const schema = {
                 <div>
                     <h2 class='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>Our Story</h2>
                     <p class='text-lg text-gray-600 mb-6'>
-                        Founded in 2022 by [Founder Name], a [healthcare professional/logistics expert] with over [X] years of experience in
-                        medical logistics. After witnessing firsthand the critical need for reliable, compliant medical courier services,
-                        [he/she] established Trius LLC to bridge the gap between healthcare providers and specialized logistics.
+                        After years of working in orthopedic operations and logistics, we saw firsthand the gaps in traditional delivery
+                        services&mdash;missed time windows, lack of accountability, and limited understanding of how critical medical
+                        deliveries truly are. Trius LLC was created to bridge that gap.
+                    </p>
+                    <p class='text-lg text-gray-600 mb-6'>
+                        We specialize in the safe and efficient transportation of medical devices, surgical instruments, and time-sensitive
+                        healthcare materials. Our drivers are trained in industry systems such as SetTrax and Casechek, understand hospital
+                        workflows, and are experienced with everything from routine deliveries to urgent, same-day case support.
                     </p>
                     <p class='text-lg text-gray-600 mb-8'>
-                        Starting with a single van and a commitment to excellence, we've grown to serve hundreds of healthcare facilities
-                        across the Pacific Northwest and California. Our personal approach to each client relationship sets us apart in an
-                        industry where trust and reliability are paramount.
+                        With TSA-verified drivers and access to secure facilities including airports and military bases, we provide a level
+                        of reliability our clients can count on.
                     </p>
-                    <div class='grid grid-cols-3 gap-4 text-center'>
-                        <div class='p-4'>
-                            <div class='text-3xl font-bold text-primary mb-2'>[500+]</div>
-                            <div class='text-sm text-gray-600'>Deliveries Monthly</div>
-                        </div>
-                        <div class='p-4'>
-                            <div class='text-3xl font-bold text-primary mb-2'>[99.8%]</div>
-                            <div class='text-sm text-gray-600'>On-Time Rate</div>
-                        </div>
-                        <div class='p-4'>
-                            <div class='text-3xl font-bold text-primary mb-2'>[50+]</div>
-                            <div class='text-sm text-gray-600'>Healthcare Partners</div>
-                        </div>
+                    <div class='bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg'>
+                        <p class='text-lg text-gray-700 italic'>
+                            "At Trius, we don't just move packages&mdash;we support patient care by ensuring the right equipment gets to the
+                            right place, at the right time."
+                        </p>
                     </div>
                 </div>
                 <div class='bg-gray-50 p-8 rounded-lg'>
                     <h3 class='text-2xl font-bold text-gray-900 mb-6'>Meet Our Team</h3>
                     <div class='space-y-6'>
                         <div class='flex items-start space-x-4'>
+                            <!-- TODO: Replace with Kevin's headshot when available -->
                             <div class='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center'>
                                 <svg class='w-8 h-8 text-primary' fill='currentColor' viewBox='0 0 20 20'>
                                     <path fill-rule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clip-rule='evenodd'>
@@ -109,24 +106,36 @@ const schema = {
                                 </svg>
                             </div>
                             <div>
-                                <h4 class='font-semibold text-gray-900'>[Founder Name]</h4>
-                                <p class='text-sm text-gray-600'>Founder & CEO</p>
-                                <p class='text-sm text-gray-500 mt-2'>[Brief bio about founder's background in healthcare/logistics]</p>
+                                <h4 class='font-semibold text-gray-900'>Kevin Hyatt</h4>
+                                <p class='text-sm text-gray-600'>Founder</p>
+                                <p class='text-sm text-gray-500 mt-2'>With years of experience in orthopedic operations and logistics, Kevin founded Trius LLC to deliver the reliability and accountability that medical professionals deserve.</p>
                             </div>
                         </div>
-                        <div class='flex items-start space-x-4'>
-                            <div class='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center'>
-                                <svg class='w-8 h-8 text-primary' fill='currentColor' viewBox='0 0 20 20'>
-                                    <path fill-rule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clip-rule='evenodd'>
-                                    </path>
-                                </svg>
+                    </div>
+
+                    <!-- Photo Gallery - action shots & customer photos -->
+                    <div class='mt-8 pt-6 border-t border-gray-200'>
+                        <h4 class='font-semibold text-gray-900 mb-4'>In the Field</h4>
+                        <!-- TODO: Replace with Kevin's hand-to-hand action shots and happy customer photos -->
+                        <div class='grid grid-cols-2 gap-3'>
+                            <div class='aspect-[4/3] rounded-lg overflow-hidden'>
+                                <img
+                                    src='/Images/Courier handoff.webp'
+                                    alt='Trius courier completing a delivery handoff'
+                                    class='w-full h-full object-cover'
+                                    loading='lazy'
+                                />
                             </div>
-                            <div>
-                                <h4 class='font-semibold text-gray-900'>[Operations Manager Name]</h4>
-                                <p class='text-sm text-gray-600'>Operations Manager</p>
-                                <p class='text-sm text-gray-500 mt-2'>[Brief bio about operations manager's role and experience]</p>
+                            <div class='aspect-[4/3] rounded-lg overflow-hidden'>
+                                <img
+                                    src='/Images/vehicle package.webp'
+                                    alt='Trius delivery vehicle loaded with medical equipment'
+                                    class='w-full h-full object-cover'
+                                    loading='lazy'
+                                />
                             </div>
                         </div>
+                        <p class='text-xs text-gray-400 mt-2 text-center'>More photos coming soon</p>
                     </div>
                 </div>
             </div>

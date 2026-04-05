@@ -46,9 +46,13 @@ Our core values guide every delivery:
 
 ### Company Background
 
-Founded in **2022** and based in **Tacoma, Washington**, Trius LLC was built to meet the growing demand for **specialized medical courier services** throughout the Pacific Northwest and Northern California. As a **Washington State registered LLC (UBI: 604949797)**, we have maintained an active status and strong operational presence since our establishment.
+Trius LLC was founded with a simple mission: to provide reliable, professional, and responsive courier services tailored specifically to the medical and healthcare industry. After years of working in orthopedic operations and logistics, we saw firsthand the gaps in traditional delivery services—missed time windows, lack of accountability, and limited understanding of how critical medical deliveries truly are.
 
-We invest in **state-of-the-art logistics technology**, including real-time tracking and automated updates, while maintaining a rigorous **chain of custody** from pickup to delivery. This combination of human expertise and smart technology ensures that packages arrive **on time, intact, and fully compliant**.
+Built from real-world experience, Trius was created to bridge that gap.
+
+We specialize in the safe and efficient transportation of medical devices, surgical instruments, and time-sensitive healthcare materials. Our drivers are trained in industry systems such as SetTrax and Casechek, understand hospital workflows, and are experienced with everything from routine deliveries to urgent, same-day case support. With TSA-verified drivers and access to secure facilities including airports and military bases, we provide a level of reliability our clients can count on.
+
+At Trius, we don't just move packages—we support patient care by ensuring the right equipment gets to the right place, at the right time.
 
 ### Corporate Record
 
