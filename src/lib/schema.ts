@@ -22,7 +22,7 @@ export const WEBSITE_ID = ORIGIN + '#website';
 // Optional shared contact info
 export const DISPATCH_EMAIL = 'Triusllccouriers@outlook.com';
 export const SALES_EMAIL = 'Triusllccouriers@outlook.com';
-export const MAIN_PHONE = '+1-XXX-XXX-XXXX';
+export const MAIN_PHONE = '+1-800-TRIUS-911';
 
 // ---- Node builders
 
@@ -76,8 +76,8 @@ export function localBusiness(): LocalBusiness {
         name: 'Trius LLC',
         alternateName: 'Trius Medical Courier',
         url: ORIGIN,
-        logo: ORIGIN + 'static/logo.png',
-        image: [ORIGIN + 'static/hero.jpg', ORIGIN + 'static/fleet.jpg'],
+        logo: ORIGIN + 'logos/Trius_Logo.svg',
+        image: [ORIGIN + 'Images/Courier%20handoff.webp', ORIGIN + 'Images/vehicle%20package.webp'],
         slogan: 'Reliable medical courier services you can trust.',
         description:
             'Trius LLC provides HIPAA compliant and OSHA compliant medical courier services, including STAT specimen transport, scheduled medical logistics, and specialized equipment delivery across Washington, Oregon, Idaho, Montana, and California.',
@@ -111,7 +111,7 @@ export function localBusiness(): LocalBusiness {
         ],
         contactPoint: [support, sales],
         hasOfferCatalog: catalog,
-        sameAs: ['https://www.linkedin.com/company/YOUR_LINKEDIN', 'https://www.facebook.com/YOUR_FACEBOOK', 'https://x.com/YOUR_TWITTER']
+        sameAs: []
     };
 }
 
@@ -140,7 +140,7 @@ export function webPageHome(): WebPage {
         about: { '@id': ORG_ID },
         primaryImageOfPage: {
             '@type': 'ImageObject',
-            url: ORIGIN + 'static/hero.jpg'
+            url: ORIGIN + 'Images/medical%20back%20stehescope.webp'
         },
         description:
             'HIPAA and OSHA compliant medical courier services. STAT deliveries, scheduled routes, and specialized equipment transport in WA, OR, ID, MT, and CA.',
