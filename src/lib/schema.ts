@@ -80,7 +80,7 @@ export function localBusiness(): LocalBusiness {
         image: [ORIGIN + 'Images/Courier%20handoff.webp', ORIGIN + 'Images/vehicle%20package.webp'],
         slogan: 'Reliable medical courier services you can trust.',
         description:
-            'Trius LLC provides HIPAA compliant and OSHA compliant medical courier services, including STAT specimen transport, scheduled medical logistics, and specialized equipment delivery across Washington, Oregon, Idaho, Montana, and California.',
+            'Trius LLC provides professional medical courier services, including STAT specimen transport, scheduled medical logistics, and specialized equipment delivery across Washington, Oregon, Idaho, Montana, and California.',
         email: `mailto:${DISPATCH_EMAIL}`,
         telephone: MAIN_PHONE,
         priceRange: '$$',
@@ -94,8 +94,8 @@ export function localBusiness(): LocalBusiness {
             'specimen transport',
             'STAT delivery',
             'chain of custody',
-            'HIPAA compliance',
-            'OSHA compliance',
+            'medical logistics',
+            'secure transport',
             'temperature controlled transport',
             'biohazard handling',
             'laboratory logistics',
@@ -143,7 +143,7 @@ export function webPageHome(): WebPage {
             url: ORIGIN + 'Images/medical%20back%20stehescope.webp'
         },
         description:
-            'HIPAA and OSHA compliant medical courier services. STAT deliveries, scheduled routes, and specialized equipment transport in WA, OR, ID, MT, and CA.',
+            'Professional medical courier services. STAT deliveries, scheduled routes, and specialized equipment transport in WA, OR, ID, MT, and CA.',
         breadcrumb: { '@id': ORIGIN + '#breadcrumb-home' }
     };
 }
