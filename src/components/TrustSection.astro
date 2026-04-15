@@ -153,11 +153,6 @@ const testimonials = [
                     ))
                 }
             </div>
-
-            <!-- Counter -->
-            <div class="flex items-center justify-center mt-6">
-                <span class="text-sm font-semibold text-slate-500 tabular-nums testimonial-counter">1 / {testimonials.length}</span>
-            </div>
         </div>
 
         <!-- Trust Stats -->
@@ -226,7 +221,6 @@ const testimonials = [
         private slides: NodeListOf<Element>;
         private prevBtn: HTMLElement | null;
         private nextBtn: HTMLElement | null;
-        private counter: HTMLElement | null;
         private currentSlide: number;
 
         constructor() {
@@ -234,7 +228,6 @@ const testimonials = [
             this.slides = document.querySelectorAll('.testimonial-slide');
             this.prevBtn = document.querySelector('.nav-prev');
             this.nextBtn = document.querySelector('.nav-next');
-            this.counter = document.querySelector('.testimonial-counter');
             this.currentSlide = 0;
 
             if (this.container && this.slides.length > 0) {
@@ -337,11 +330,6 @@ const testimonials = [
                     }
                 }
             });
-
-            // Update counter
-            if (this.counter) {
-                this.counter.textContent = `${index + 1} / ${this.slides.length}`;
-            }
 
             // Update button states
             this.updateNavButtons();
