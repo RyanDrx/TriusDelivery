@@ -50,7 +50,23 @@ const testimonials = [
         </div>
 
         <!-- Testimonial Slideshow -->
-        <div class="testimonial-slideshow mb-16 max-w-4xl mx-auto" data-animate="fade-in-up">
+        <div class="testimonial-slideshow mb-16 max-w-4xl mx-auto relative" data-animate="fade-in-up">
+            <!-- Left Arrow -->
+            <button
+                class="nav-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 lg:-translate-x-6 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
+                aria-label="Previous testimonial"
+            >
+                <iconify-icon icon="lucide:chevron-left" width="20" height="20" class="text-slate-700" stroke-width="2"></iconify-icon>
+            </button>
+
+            <!-- Right Arrow -->
+            <button
+                class="nav-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 lg:translate-x-6 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
+                aria-label="Next testimonial"
+            >
+                <iconify-icon icon="lucide:chevron-right" width="20" height="20" class="text-slate-700" stroke-width="2"></iconify-icon>
+            </button>
+
             <div class="testimonial-container relative">
                 {
                     testimonials.map((testimonial, index) => (
@@ -138,23 +154,9 @@ const testimonials = [
                 }
             </div>
 
-            <!-- Navigation Controls -->
-            <div class="flex items-center justify-center mt-10 gap-6">
-                <button
-                    class="nav-prev w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
-                    aria-label="Previous testimonial"
-                >
-                    <iconify-icon icon="lucide:chevron-left" width="20" height="20" class="text-slate-700" stroke-width="2"></iconify-icon>
-                </button>
-
+            <!-- Counter -->
+            <div class="flex items-center justify-center mt-6">
                 <span class="text-sm font-semibold text-slate-500 tabular-nums testimonial-counter">1 / {testimonials.length}</span>
-
-                <button
-                    class="nav-next w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
-                    aria-label="Next testimonial"
-                >
-                    <iconify-icon icon="lucide:chevron-right" width="20" height="20" class="text-slate-700" stroke-width="2"></iconify-icon>
-                </button>
             </div>
         </div>
 
