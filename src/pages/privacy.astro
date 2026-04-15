@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
+import { breadcrumb } from '../lib/schema.ts';
 
 const schema = {
     '@context': 'https://schema.org',
@@ -14,7 +15,8 @@ const schema = {
                 'Privacy policy for Trius LLC medical courier services. Learn how we protect your information and maintain data security.',
             isPartOf: { '@id': 'https://trius.delivery/#website' },
             about: { '@id': 'https://trius.delivery/#org' }
-        }
+        },
+        breadcrumb([{ name: 'Privacy Policy', url: 'privacy' }])
     ]
 };
 ---
@@ -22,6 +24,7 @@ const schema = {
 <Layout
     title="Privacy Policy | Trius LLC"
     description="Privacy policy for Trius LLC medical courier services. Learn how we protect your information and maintain data security."
+    image={{ src: "/og-image.png" }}
 >
     <Fragment slot="head">
         <SEO

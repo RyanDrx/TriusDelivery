@@ -62,22 +62,12 @@ const testimonials = [
                                 class={`testimonial-card testimonial-${testimonial.id} relative rounded-3xl p-8 lg:p-10 border border-white/30 backdrop-blur-sm overflow-hidden`}
                             >
                                 <div
-                                    class={`absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 ${
-                                        testimonial.id === 'zimmer'
-                                            ? "bg-[url('/Images/medical monitor equip.webp')]"
-                                            : testimonial.id === 'stclaire'
-                                              ? "bg-[url('/Images/medical phials.webp')]"
-                                              : "bg-[url('/Images/Courier handoff.webp')]"
-                                    }`}
-                                />
-
-                                <div
                                     class={`absolute inset-0 bg-gradient-to-br ${
                                         testimonial.id === 'zimmer'
-                                            ? 'from-primary/20 via-white/90 to-secondary/10'
+                                            ? 'from-primary/10 via-white/95 to-secondary/5'
                                             : testimonial.id === 'stclaire'
-                                              ? 'from-secondary/20 via-white/90 to-primary/10'
-                                              : 'from-accent/20 via-white/90 to-primary/10'
+                                              ? 'from-secondary/10 via-white/95 to-primary/5'
+                                              : 'from-accent/10 via-white/95 to-primary/5'
                                     } rounded-3xl`}
                                 />
 
@@ -88,14 +78,15 @@ const testimonials = [
                                                 icon='lucide:star'
                                                 width='20'
                                                 height='20'
-                                                style='color: #047857; fill: #047857;'
+                                                class='text-secondary-dark'
+                                                style='fill: currentColor;'
                                                 stroke-width='1.5'
                                             />
                                         ))}
                                     </div>
 
                                     <blockquote
-                                        class='text-slate-800 text-lg leading-relaxed mb-8 max-w-2xl mx-auto font-medium drop-shadow-sm min-h-[120px] max-h-[200px] md:max-h-[160px] overflow-y-auto'
+                                    class='text-slate-800 text-lg leading-relaxed mb-8 max-w-2xl mx-auto font-medium drop-shadow-sm min-h-[120px]'
                                         cite={testimonial.author}
                                     >
                                         "{testimonial.quote.split('.')[0]}. {testimonial.quote.split('.')[1]}."
@@ -120,7 +111,7 @@ const testimonials = [
                     class='nav-prev p-2 rounded-full bg-white border border-neutral-light hover:border-neutral transition-all disabled:opacity-50 disabled:cursor-not-allowed'
                     aria-label='Previous testimonial'
                 >
-                    <iconify-icon icon='lucide:chevron-left' width='20' height='20' style='color: #374151;' stroke-width='2'></iconify-icon>
+                    <iconify-icon icon='lucide:chevron-left' width='20' height='20' class='text-neutral-dark' stroke-width='2'></iconify-icon>
                 </button>
 
                 <div class='flex items-center space-x-3'>
@@ -131,7 +122,7 @@ const testimonials = [
                     class='nav-next p-2 rounded-full bg-white border border-neutral-light hover:border-neutral transition-all disabled:opacity-50 disabled:cursor-not-allowed'
                     aria-label='Next testimonial'
                 >
-                    <iconify-icon icon='lucide:chevron-right' width='20' height='20' style='color: #374151;' stroke-width='2'
+                    <iconify-icon icon='lucide:chevron-right' width='20' height='20' class='text-neutral-dark' stroke-width='2'
                     ></iconify-icon>
                 </button>
             </div>
@@ -141,14 +132,14 @@ const testimonials = [
         <div class='stats-container bg-white rounded-2xl p-6 lg:p-8 border border-neutral-light hidden md:block' data-animate='fade-in-up'>
             <div class='grid md:grid-cols-3 gap-6 text-center'>
                 <div class='stat-item'>
-                    <iconify-icon icon='lucide:clock' width='24' height='24' style='color: #16a34a; margin: 0 auto 16px;' stroke-width='1.5'
+                    <iconify-icon icon='lucide:clock' width='24' height='24' class='text-secondary-dark mx-auto mb-4' stroke-width='1.5'
                     ></iconify-icon>
                     <div class='stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums'>99.9%</div>
                     <div class='text-base text-neutral'>On-time</div>
                 </div>
 
                 <div class='stat-item'>
-                    <iconify-icon icon='lucide:phone' width='24' height='24' style='color: #374151; margin: 0 auto 16px;' stroke-width='1.5'
+                    <iconify-icon icon='lucide:phone' width='24' height='24' class='text-neutral-dark mx-auto mb-4' stroke-width='1.5'
                     ></iconify-icon>
                     <div class='stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums'>24/7</div>
                     <div class='text-base text-neutral'>Response</div>
@@ -159,7 +150,7 @@ const testimonials = [
                         icon='lucide:shield-check'
                         width='24'
                         height='24'
-                        style='color: #16a34a; margin: 0 auto 16px;'
+                        class='text-secondary-dark mx-auto mb-4'
                         stroke-width='1.5'></iconify-icon>
                     <div class='stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums'>100%</div>
                     <div class='text-base text-neutral'>Secure</div>

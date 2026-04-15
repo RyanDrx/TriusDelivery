@@ -1,5 +1,5 @@
 ---
-import { marked } from 'marked';
+import { safeMarkdown } from '@utils/markdown';
 import { type CardsSection } from 'types';
 import Card from '@components/Card.astro';
 import Section from '@components/Section.astro';
@@ -28,7 +28,7 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                     <div
                         class='text-xl text-base-content/70 max-w-3xl mx-auto font-body leading-relaxed'
                         data-sb-field-path='.body'
-                        set:html={marked.parse(body)}
+                        set:html={safeMarkdown(body)}
                     />
                 )
             }
@@ -50,22 +50,11 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
             >
                 {items?.map((item, idx) => (
                     <div
-                        class={`group hover:scale-105 transition-transform duration-300 w-full h-full flex ${(item as any).priority ? 'order-first lg:order-none' : ''}`}
+                        class={`group transition-transform duration-300 w-full h-full flex ${(item as any).priority ? 'order-first lg:order-none' : ''}`}
                     >
                         <div
-                            class={`card bg-white shadow-lg border hover:shadow-2xl transition-all duration-300 h-full flex flex-col w-full p-8 relative overflow-hidden ${(item as any).priority ? 'border-accent/30 ring-2 ring-accent/20 shadow-accent/10' : 'border-base-300'}`}
+                            class={`card bg-white shadow-lg border hover:shadow-xl transition-all duration-300 h-full flex flex-col w-full p-8 relative overflow-hidden ${(item as any).priority ? 'border-accent/30 ring-2 ring-accent/20 shadow-accent/10' : 'border-base-300'}`}
                         >
-                            <!-- Banner Background Texture -->
-                            <div class='absolute inset-0 opacity-3'>
-                                <div
-                                    class='absolute inset-0'
-                                    style='background-image: url("/Banner/TRIUS_BANNER.webp"); background-size: cover; background-repeat: no-repeat; background-position: center; filter: grayscale(100%);'
-                                >
-                                </div>
-                            </div>
-                            <!-- White Overlay -->
-                            <div class='absolute inset-0 bg-white/95'>
-                            </div>
                             <!-- Content Wrapper -->
                             <div class='relative z-10 h-full flex flex-col'>
                             {/* Service Icon */}
@@ -104,7 +93,7 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                                     <div
                                         class='text-base-content/70 font-body leading-relaxed mb-6 flex-grow'
                                         data-sb-field-path={`.${idx}.body`}
-                                        set:html={marked.parse(item.body)}
+                                        set:html={safeMarkdown(item.body)}
                                     />
                                 )}
 
@@ -118,15 +107,16 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                                                         icon={feature.icon}
                                                         width='18'
                                                         height='18'
-                                                        style={`margin-right: 0.5rem; flex-shrink: 0; color: ${
+                                                        class:list={[
+                                                            'mr-2 flex-shrink-0',
                                                             item.iconColor === 'accent'
-                                                                ? '#C53030'
+                                                                ? 'text-accent'
                                                                 : item.iconColor === 'primary'
-                                                                  ? '#1c3c3d'
+                                                                  ? 'text-primary'
                                                                   : item.iconColor === 'secondary'
-                                                                    ? '#2f855a'
-                                                                    : '#4A5568'
-                                                        };`}
+                                                                    ? 'text-secondary-dark'
+                                                                    : 'text-neutral'
+                                                        ]}
                                                     />
                                                     {feature.text}
                                                 </li>
@@ -140,7 +130,7 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                                         {item.cta.map((action, actionIdx) => (
                                             <ActionButton
                                                 {...action}
-                                                class={`btn btn-lg font-bold px-8 py-3 w-full transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl ${
+                                                class={`btn btn-lg font-bold px-8 py-3 w-full transition-all duration-300 shadow-lg hover:shadow-xl ${
                                                     action._type === 'actionButton' && (action as any).theme === 'accent'
                                                         ? 'bg-gradient-to-r from-accent to-accent-dark text-white border-0 hover:shadow-accent/30'
                                                         : action._type === 'actionButton' && (action as any).theme === 'primary'

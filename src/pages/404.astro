@@ -1,0 +1,32 @@
+---
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout
+    title='Page Not Found - Trius LLC'
+    description='The page you requested could not be found. Return to Trius LLC for reliable medical courier services.'
+>
+    <section class='min-h-[70vh] flex items-center justify-center px-4'>
+        <div class='text-center max-w-2xl'>
+            <p class='text-8xl font-black text-primary/20 mb-4'>404</p>
+            <h1 class='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>Page Not Found</h1>
+            <p class='text-lg text-gray-600 mb-8'>
+                Sorry, the page you're looking for doesn't exist or has been moved.
+            </p>
+            <div class='flex flex-col sm:flex-row gap-4 justify-center'>
+                <a
+                    href='/'
+                    class='inline-block px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors'
+                >
+                    Return Home
+                </a>
+                <a
+                    href='/contact'
+                    class='inline-block px-8 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors'
+                >
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>

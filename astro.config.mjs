@@ -7,6 +7,8 @@ import { sanityConfig } from './src/utils/sanity-client';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://trius.delivery',
+    output: 'static',
+    compressHTML: true,
     image: {
         domains: ['cdn.sanity.io']
     },

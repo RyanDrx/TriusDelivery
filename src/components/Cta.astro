@@ -1,5 +1,5 @@
 ---
-import { marked } from 'marked';
+import { safeMarkdown } from '@utils/markdown';
 import { type CtaSection } from 'types';
 import Action from '@components/Action.astro';
 import Section from '@components/Section.astro';
@@ -13,8 +13,8 @@ const { heading, body, cta, ...rest } = Astro.props;
 
 <Section {...rest} class=''>
     <div class='text-center max-w-5xl mx-auto'>
-        <!-- Main CTA Content Box -->
-        <div class='bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-white/40 mb-16'>
+        <!-- Main CTA Content Box with Integrated Supporting Details -->
+        <div class='bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-white/40'>
             {
                 heading && (
                     <h2 class='text-4xl lg:text-6xl font-black font-heading text-primary mb-8 leading-tight' data-sb-field-path='.heading'>
@@ -27,12 +27,43 @@ const { heading, body, cta, ...rest } = Astro.props;
                     <div
                         class='text-xl lg:text-2xl text-base-content/80 max-w-4xl mx-auto mb-12 font-body leading-relaxed'
                         data-sb-field-path='.body'
-                        set:html={marked.parse(body)}
+                        set:html={safeMarkdown(body)}
                     />
                 )
             }
 
-            <!-- CTA Buttons with Enhanced Spacing -->
+            <!-- Why Choose Trius - Integrated Grid -->
+            <div class='grid md:grid-cols-3 gap-6 text-center mb-10'>
+                <div class='flex flex-col items-center'>
+                    <div class='w-12 h-12 bg-gradient-to-br from-primary/80 to-primary/60 rounded-xl flex items-center justify-center mb-3 shadow-md'>
+                        <iconify-icon icon='heroicons:shield-check' width='24' height='24' class='text-white'></iconify-icon>
+                    </div>
+                    <h4 class='text-md font-bold font-heading text-primary mb-2'>TSA Verified Drivers</h4>
+                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
+                        Secure access to airports, military bases, and restricted facilities
+                    </p>
+                </div>
+                <div class='flex flex-col items-center'>
+                    <div class='w-12 h-12 bg-gradient-to-br from-secondary/80 to-secondary/60 rounded-xl flex items-center justify-center mb-3 shadow-md'>
+                        <iconify-icon icon='heroicons:academic-cap' width='24' height='24' class='text-white'></iconify-icon>
+                    </div>
+                    <h4 class='text-md font-bold font-heading text-secondary-dark mb-2'>Industry Trained</h4>
+                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
+                        SetTrax and Casechek certified couriers with hospital workflow expertise
+                    </p>
+                </div>
+                <div class='flex flex-col items-center'>
+                    <div class='w-12 h-12 bg-gradient-to-br from-accent/80 to-accent/60 rounded-xl flex items-center justify-center mb-3 shadow-md'>
+                        <iconify-icon icon='heroicons:clock' width='24' height='24' class='text-white'></iconify-icon>
+                    </div>
+                    <h4 class='text-md font-bold font-heading text-accent mb-2'>24/7 Available</h4>
+                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
+                        Round-the-clock emergency and STAT delivery services
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
             {
                 cta && cta.length > 0 && (
                     <div class='flex flex-col sm:flex-row items-center justify-center gap-6 mb-8' data-sb-field-path='.cta'>
@@ -41,7 +72,7 @@ const { heading, body, cta, ...rest } = Astro.props;
                                 action={item}
                                 class:list={[
                                     item._type === 'actionButton' && (item as any).theme === 'primary'
-                                        ? 'btn bg-gradient-to-r from-accent to-accent-dark text-white btn-lg px-12 py-6 text-xl font-bold shadow-2xl hover:shadow-accent/50 hover:scale-110 hover:-translate-y-2 transition-all duration-500 border-0 min-w-[320px] group relative overflow-hidden'
+                                        ? 'btn bg-gradient-to-r from-accent to-accent-dark text-white btn-lg px-12 py-6 text-xl font-bold shadow-2xl hover:shadow-accent/50 transition-all duration-500 border-0 w-full sm:w-auto group relative overflow-hidden focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/50'
                                         : item._type === 'actionLink'
                                           ? 'text-primary hover:text-primary-dark font-semibold text-lg underline-offset-4 hover:underline transition-all duration-300 flex items-center gap-2'
                                           : 'font-bold underline hover:no-underline text-lg'
@@ -59,59 +90,13 @@ const { heading, body, cta, ...rest } = Astro.props;
                     <iconify-icon icon='heroicons:shield-check' width='20' height='20'></iconify-icon>
                     <span class='text-sm font-medium'>Secure & Compliant</span>
                 </div>
-                <div class='flex items-center gap-2 text-secondary font-semibold'>
+                <div class='flex items-center gap-2 text-secondary-dark font-semibold'>
                     <iconify-icon icon='heroicons:clock' width='20' height='20'></iconify-icon>
                     <span class='text-sm font-medium'>24-Hour Response</span>
                 </div>
                 <div class='flex items-center gap-2 text-accent font-semibold'>
                     <iconify-icon icon='heroicons:check-circle' width='20' height='20'></iconify-icon>
                     <span class='text-sm font-medium'>Free Quote</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Supporting Details - Visually Subordinate -->
-        <div class='bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-base-200 max-w-4xl mx-auto opacity-90'>
-            <h3 class='text-lg font-bold text-center text-primary mb-6'>Why Healthcare Organizations Choose Trius</h3>
-
-            <div class='grid md:grid-cols-3 gap-6 text-center'>
-                <!-- TSA Verified -->
-                <div class='flex flex-col items-center'>
-                    <div
-                        class='w-12 h-12 bg-gradient-to-br from-primary/80 to-primary/60 rounded-xl flex items-center justify-center mb-3 shadow-md'
-                    >
-                        <iconify-icon icon='heroicons:shield-check' width='24' height='24' style='color: white;'></iconify-icon>
-                    </div>
-                    <h4 class='text-md font-bold font-heading text-primary mb-2'>TSA Verified Drivers</h4>
-                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
-                        Secure access to airports, military bases, and restricted facilities
-                    </p>
-                </div>
-
-                <!-- Industry Trained -->
-                <div class='flex flex-col items-center'>
-                    <div
-                        class='w-12 h-12 bg-gradient-to-br from-secondary/80 to-secondary/60 rounded-xl flex items-center justify-center mb-3 shadow-md'
-                    >
-                        <iconify-icon icon='heroicons:academic-cap' width='24' height='24' style='color: white;'></iconify-icon>
-                    </div>
-                    <h4 class='text-md font-bold font-heading text-secondary mb-2'>Industry Trained</h4>
-                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
-                        SetTrax and Casechek certified couriers with hospital workflow expertise
-                    </p>
-                </div>
-
-                <!-- 24/7 Service -->
-                <div class='flex flex-col items-center'>
-                    <div
-                        class='w-12 h-12 bg-gradient-to-br from-accent/80 to-accent/60 rounded-xl flex items-center justify-center mb-3 shadow-md'
-                    >
-                        <iconify-icon icon='heroicons:clock' width='24' height='24' style='color: white;'></iconify-icon>
-                    </div>
-                    <h4 class='text-md font-bold font-heading text-accent mb-2'>24/7 Available</h4>
-                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
-                        Round-the-clock emergency and STAT delivery services
-                    </p>
                 </div>
             </div>
 

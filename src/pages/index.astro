@@ -2,18 +2,19 @@
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import HomeHero from '@components/HomeHero.astro';
-import SecondaryHero from '@components/SecondaryHero.astro';
 import Cards from '@components/Cards.astro';
 import TrustSection from '@components/TrustSection.astro';
 import Cta from '@components/Cta.astro';
+import FAQSection from '@components/FAQSection.astro';
 import { graphHome } from '../lib/schema.ts';
 import WaveClip from '@components/WaveClip.astro';
+import { homeFaqs } from '../data/seoContent';
 
 // Temporary static data for home page (will be replaced with Sanity later)
 const heroData = {
     _type: 'heroSection',
     heading: 'Reliable Medical Courier Services You Can Trust',
-    body: 'Safe, accurate, and compliant medical deliveries—every shipment, every time. Serving hospitals, laboratories, clinics, and research facilities across the Pacific Northwest and California with specialized medical logistics.',
+    body: 'Safe, accurate, and compliant medical courier deliveries for hospitals, laboratories, surgery centers, clinics, and research facilities. We handle STAT specimen transport, scheduled route work, and specialized medical equipment logistics across Washington, Oregon, Idaho, Montana, and California.',
     cta: [
         {
             _key: '1',
@@ -34,7 +35,7 @@ const heroData = {
 const servicesData = {
     _type: 'cardsSection',
     heading: 'Fast, Secure, and Compliant Medical Transport',
-    body: 'From urgent STAT deliveries to scheduled routes and specialized equipment transport, we safeguard every medical shipment with precision, privacy, and care.',
+    body: 'From urgent STAT specimen deliveries to scheduled lab routes and specialized equipment transport, Trius supports hospitals, clinics, laboratories, pharmacies, and research teams with secure medical courier service.',
     items: [
         {
             _key: '1',
@@ -128,24 +129,45 @@ const ctaData = {
     ]
 };
 
+const facilitiesServed = [
+    'Hospitals and health systems',
+    'Laboratories and diagnostic centers',
+    'Clinics and physician offices',
+    'Ambulatory surgery centers',
+    'Pharmacies and infusion teams',
+    'Research and life sciences operations',
+    'Medical device representatives',
+    'Imaging and specialty care groups'
+];
+
+const deliveryTypes = [
+    'Medical specimens and lab samples',
+    'Bloodwork, pathology materials, and test kits',
+    'Pharmaceuticals and temperature-sensitive packages',
+    'Surgical instruments and implant support',
+    'Diagnostic devices and sensitive equipment',
+    'Interoffice transfers between healthcare locations',
+    'Emergency STAT pickups with chain of custody',
+    'Recurring route-based medical logistics'
+];
+
 const schema = graphHome();
 ---
 
 <Layout
     title='Medical Courier Services | Trius LLC'
-    description='Reliable STAT deliveries, scheduled routes, and specialized equipment transport across WA, OR, ID, MT, and CA.'
+    description='Medical courier services for hospitals, labs, clinics, surgery centers, pharmacies, and research teams. Trius handles STAT specimen transport, scheduled routes, and medical equipment delivery across Washington, Oregon, Idaho, Montana, and Northern California.'
+    image={{ src: "/og-image.png" }}
 >
     <Fragment slot='head'>
         <SEO
             title='Medical Courier Services | Trius LLC'
-            description='Reliable STAT deliveries, scheduled routes, and specialized equipment transport across WA, OR, ID, MT, and CA.'
+            description='Medical courier services for hospitals, labs, clinics, surgery centers, pharmacies, and research teams. Trius handles STAT specimen transport, scheduled routes, and medical equipment delivery across Washington, Oregon, Idaho, Montana, and Northern California.'
             graph={schema}
         />
     </Fragment>
 
     <HomeHero {...heroData} />
-
-    <SecondaryHero {...heroData} />
 
     <!-- Services Section with Background -->
     <section class='md:py-20 relative overflow-hidden'>
@@ -168,7 +190,6 @@ const schema = graphHome();
                 background-repeat: no-repeat; background-position: center;'
             >
             </div>
-            <div class='absolute inset-0 bg-white/60'></div>
         </WaveClip>
 
         <!-- Mobile Simple Background -->
@@ -188,7 +209,7 @@ const schema = graphHome();
                         From small clinics to major hospitals across Washington, Oregon, Idaho, Montana, and California
                     </p>
                     <div class='mt-6'>
-                        <a href='/contact' class='btn btn-primary btn-lg px-8 py-3 font-bold hover:scale-105 transition-all duration-300'>
+                        <a href='/contact' class='btn btn-primary btn-lg px-8 py-3 font-bold transition-all duration-300'>
                             Get Started Today
                         </a>
                     </div>
@@ -198,6 +219,86 @@ const schema = graphHome();
     </section>
 
     <TrustSection />
+
+    <section class='py-20 bg-white'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='text-center max-w-4xl mx-auto'>
+                <div class='inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary'>
+                    <iconify-icon icon='heroicons:building-office-2' width='18' height='18'></iconify-icon>
+                    Search-Focused Service Detail
+                </div>
+                <h2 class='mt-5 text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight'>
+                    Medical Courier Support for the Facilities and Deliveries That Keep Healthcare Moving
+                </h2>
+                <p class='mt-6 text-lg leading-8 text-slate-600'>
+                    Trius is built for healthcare logistics, so the service scope is clear: urgent medical courier support, scheduled route
+                    coverage, and specialized handling for sensitive deliveries across Washington, Oregon, Idaho, Montana, and Northern
+                    California.
+                </p>
+            </div>
+
+            <div class='mt-12 grid gap-8 lg:grid-cols-2'>
+                <article class='rounded-[2rem] border border-slate-200 bg-slate-50/80 p-8 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.35)]'>
+                    <div class='inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-4 py-2 text-xs font-bold tracking-[0.14em] uppercase text-primary'>
+                        <iconify-icon icon='heroicons:user-group' width='18' height='18'></iconify-icon>
+                        Facilities We Serve
+                    </div>
+                    <h3 class='mt-5 text-2xl font-black text-slate-900'>Healthcare organizations that need dependable courier coverage</h3>
+                    <p class='mt-4 text-base leading-7 text-slate-600'>
+                        We support healthcare operations where timing, accountability, and handling standards matter more than generic parcel
+                        delivery.
+                    </p>
+                    <ul class='mt-6 grid gap-3 sm:grid-cols-2'>
+                        {facilitiesServed.map((item) => (
+                            <li class='rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700'>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </article>
+
+                <article class='rounded-[2rem] border border-slate-200 bg-slate-50/80 p-8 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.35)]'>
+                    <div class='inline-flex items-center gap-2 rounded-full border border-secondary/15 bg-white px-4 py-2 text-xs font-bold tracking-[0.14em] uppercase text-secondary-dark'>
+                        <iconify-icon icon='heroicons:archive-box' width='18' height='18'></iconify-icon>
+                        What We Transport
+                    </div>
+                    <h3 class='mt-5 text-2xl font-black text-slate-900'>Common medical deliveries handled by Trius</h3>
+                    <p class='mt-4 text-base leading-7 text-slate-600'>
+                        The strongest medical courier pages are explicit about shipment types. Trius stays focused on healthcare-specific
+                        deliveries and documented handoffs.
+                    </p>
+                    <ul class='mt-6 grid gap-3 sm:grid-cols-2'>
+                        {deliveryTypes.map((item) => (
+                            <li class='rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700'>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </article>
+            </div>
+
+            <div class='mt-10 flex flex-wrap justify-center gap-3'>
+                <a href='/services/stat-delivery' class='rounded-full border border-accent/20 bg-accent/5 px-5 py-3 text-sm font-bold text-accent transition-colors hover:bg-accent/10'>
+                    STAT medical courier service
+                </a>
+                <a href='/services/scheduled-routes' class='rounded-full border border-primary/20 bg-primary/5 px-5 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/10'>
+                    scheduled medical routes
+                </a>
+                <a href='/services/specialized-equipment' class='rounded-full border border-secondary/20 bg-secondary/5 px-5 py-3 text-sm font-bold text-secondary-dark transition-colors hover:bg-secondary/10'>
+                    medical equipment transport
+                </a>
+                <a href='/coverage' class='rounded-full border border-slate-200 bg-slate-100 px-5 py-3 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-200'>
+                    Pacific Northwest coverage
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <FAQSection
+        heading='Answers to Common Medical Courier Questions'
+        intro='This keeps high-intent search questions on the homepage in plain language while reinforcing the services, service area, and delivery types Trius already offers.'
+        items={homeFaqs}
+    />
 
     <!-- CTA Section with Background -->
     <section class='relative overflow-hidden'>
@@ -214,14 +315,11 @@ const schema = graphHome();
             topPhase={0}
             class='absolute inset-0 opacity-2 py-24 hidden lg:block'
         >
-            <div class='absolute inset-0 opacity-2'>
-                <div
-                    class='absolute inset-0 min-h-44'
-                    style='background-image: url("/Images/personal box deliver.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
-                >
-                </div>
+            <div
+                class='absolute inset-0 min-h-44'
+                style='background-image: url("/Images/personal box deliver.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+            >
             </div>
-            <div class='absolute inset-0 bg-white/60'></div>
         </WaveClip>
 
         <!-- Mobile Simple Background -->

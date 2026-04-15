@@ -4,7 +4,7 @@ import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Section from '@components/Section.astro';
 import WaveClip from '@components/WaveClip.astro';
-import { localBusiness, webSite } from '../lib/schema.ts';
+import { localBusiness, webSite, breadcrumb } from '../lib/schema.ts';
 
 const formData = {
     _type: 'section',
@@ -15,13 +15,26 @@ const formData = {
 
 const schema = {
     '@context': 'https://schema.org',
-    '@graph': [localBusiness(), webSite()]
+    '@graph': [
+        localBusiness(),
+        webSite(),
+        {
+            '@type': 'ContactPage',
+            '@id': 'https://trius.delivery/contact',
+            url: 'https://trius.delivery/contact',
+            name: 'Contact Us - Trius LLC Medical Courier Services',
+            isPartOf: { '@id': 'https://trius.delivery/#website' },
+            about: { '@id': 'https://trius.delivery/#org' }
+        },
+        breadcrumb([{ name: 'Contact', url: 'contact' }])
+    ]
 };
 ---
 
 <Layout
     title='Contact Us - Trius LLC Medical Courier Services'
     description='Contact Trius LLC for medical courier services. 24/7 STAT line available. Request quotes for scheduled routes and equipment transport. Secure communication.'
+    image={{ src: "/og-image.png" }}
 >
     <Fragment slot='head'>
         <SEO
@@ -162,8 +175,9 @@ const schema = {
         <div class='relative z-10 py-36 md:py-8'>
             <Section {...formData} class=''>
                 <div id='contact-form' class='max-w-2xl mx-auto'>
-                    <form name='contact' method='POST' data-netlify='true' class='space-y-4 bg-base-100 p-6 rounded-2xl shadow-lg'>
+                    <form name='contact' method='POST' data-netlify='true' netlify-honeypot='bot-field' class='space-y-4 bg-base-100 p-6 rounded-2xl shadow-lg'>
                         <input type='hidden' name='form-name' value='contact' />
+                        <p class='hidden'><label>Don't fill this out: <input name='bot-field' /></label></p>
                         <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <div class='form-control'>
                                 <label class='label' for='name'>

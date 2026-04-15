@@ -13,6 +13,7 @@ import type {
     ContactPoint,
     ImageObject
 } from 'schema-dts';
+import { homeFaqs } from '../data/seoContent';
 
 // ---- Site constants
 export const ORIGIN = 'https://trius.delivery/';
@@ -122,11 +123,7 @@ export function webSite(): WebSite {
         url: ORIGIN,
         name: 'Trius LLC',
         inLanguage: 'en',
-        publisher: { '@id': ORG_ID },
-        potentialAction: {
-            '@type': 'SearchAction',
-            target: ORIGIN + 'search?q={search_term_string}'
-        }
+        publisher: { '@id': ORG_ID }
     };
 }
 
@@ -152,10 +149,21 @@ export function breadcrumbHome(): BreadcrumbList {
     return {
         '@type': 'BreadcrumbList',
         '@id': ORIGIN + '#breadcrumb-home',
+        itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: ORIGIN }]
+    };
+}
+
+export function breadcrumb(items: Array<{ name: string; url: string }>): BreadcrumbList {
+    return {
+        '@type': 'BreadcrumbList',
         itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Home', item: ORIGIN },
-            { '@type': 'ListItem', position: 2, name: 'Services', item: ORIGIN + 'services' },
-            { '@type': 'ListItem', position: 3, name: 'Contact', item: ORIGIN + 'contact' }
+            ...items.map((item, i) => ({
+                '@type': 'ListItem' as const,
+                position: i + 2,
+                name: item.name,
+                item: ORIGIN + item.url.replace(/^\//, '')
+            }))
         ]
     };
 }
@@ -177,12 +185,16 @@ export function serviceStat(): Service {
         url: ORIGIN + 'services/stat-delivery',
         offers: {
             '@type': 'Offer',
-            url: ORIGIN + 'request-quote?service=stat',
+            url: ORIGIN + 'contact?service=stat',
             availability: 'https://schema.org/InStock',
             priceSpecification: {
                 '@type': 'PriceSpecification',
                 priceCurrency: 'USD',
-                price: '0'
+                price: undefined,
+                eligibleTransactionVolume: {
+                    '@type': 'PriceSpecification',
+                    name: 'Contact for custom quote'
+                }
             }
         }
     };
@@ -202,12 +214,16 @@ export function serviceRoutes(): Service {
         url: ORIGIN + 'services/scheduled-routes',
         offers: {
             '@type': 'Offer',
-            url: ORIGIN + 'request-route-estimate',
+            url: ORIGIN + 'contact?service=routes',
             availability: 'https://schema.org/InStock',
             priceSpecification: {
                 '@type': 'PriceSpecification',
                 priceCurrency: 'USD',
-                price: '0'
+                price: undefined,
+                eligibleTransactionVolume: {
+                    '@type': 'PriceSpecification',
+                    name: 'Contact for custom quote'
+                }
             }
         }
     };
@@ -231,7 +247,11 @@ export function serviceEquipment(): Service {
             priceSpecification: {
                 '@type': 'PriceSpecification',
                 priceCurrency: 'USD',
-                price: '0'
+                price: undefined,
+                eligibleTransactionVolume: {
+                    '@type': 'PriceSpecification',
+                    name: 'Contact for custom quote'
+                }
             }
         }
     };
@@ -240,19 +260,28 @@ export function serviceEquipment(): Service {
 // ---- Page specific graphs
 
 export function graphHome(): Graph {
-    return withGraph(localBusiness(), webSite(), webPageHome(), breadcrumbHome());
+    return withGraph(localBusiness(), webSite(), webPageHome(), breadcrumbHome(), homeFaqPage());
 }
 
 export function graphServiceStat(): Graph {
-    return withGraph(localBusiness(), webSite(), serviceStat());
+    return withGraph(localBusiness(), webSite(), serviceStat(), breadcrumb([
+        { name: 'Services', url: 'services' },
+        { name: 'STAT Deliveries', url: 'services/stat-delivery' }
+    ]));
 }
 
 export function graphServiceRoutes(): Graph {
-    return withGraph(localBusiness(), webSite(), serviceRoutes());
+    return withGraph(localBusiness(), webSite(), serviceRoutes(), breadcrumb([
+        { name: 'Services', url: 'services' },
+        { name: 'Scheduled Routes', url: 'services/scheduled-routes' }
+    ]));
 }
 
 export function graphServiceEquipment(): Graph {
-    return withGraph(localBusiness(), webSite(), serviceEquipment());
+    return withGraph(localBusiness(), webSite(), serviceEquipment(), breadcrumb([
+        { name: 'Services', url: 'services' },
+        { name: 'Specialized Equipment', url: 'services/specialized-equipment' }
+    ]));
 }
 
 // ---- Utilities
@@ -266,5 +295,20 @@ function offerRef(name: string, hashRef: string): Offer {
         '@type': 'Offer',
         name,
         itemOffered: { '@id': ORIGIN + hashRef }
+    };
+}
+
+function homeFaqPage() {
+    return {
+        '@type': 'FAQPage',
+        '@id': ORIGIN + '#faq-home',
+        mainEntity: homeFaqs.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer
+            }
+        }))
     };
 }

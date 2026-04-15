@@ -253,6 +253,21 @@ const coverageAreas = {
     </div>
 </div>
 
+<noscript>
+    <div class='bg-base-200 p-8 rounded-2xl text-center'>
+        <h3 class='text-xl font-bold text-primary mb-4'>Service Coverage Areas</h3>
+        <p class='text-gray-600 mb-4'>Our interactive map requires JavaScript. We serve the following states:</p>
+        <div class='flex flex-wrap justify-center gap-3'>
+            <span class='px-4 py-2 bg-primary/10 text-primary rounded-full font-medium'>Washington</span>
+            <span class='px-4 py-2 bg-primary/10 text-primary rounded-full font-medium'>Oregon</span>
+            <span class='px-4 py-2 bg-primary/10 text-primary rounded-full font-medium'>Idaho</span>
+            <span class='px-4 py-2 bg-primary/10 text-primary rounded-full font-medium'>Montana</span>
+            <span class='px-4 py-2 bg-primary/10 text-primary rounded-full font-medium'>Northern California</span>
+        </div>
+        <a href='/contact' class='inline-block mt-6 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors'>Contact Us for Coverage Details</a>
+    </div>
+</noscript>
+
 <!-- Leaflet CSS -->
 <link
     rel='stylesheet'
@@ -270,7 +285,6 @@ const coverageAreas = {
 ></script>
 
 <script defer>
-    // @ts-ignore
     window.addEventListener('DOMContentLoaded', function () {
         // Coverage areas data mapped to state names in the GeoJSON
         const coverageData = {
@@ -577,7 +591,7 @@ const coverageAreas = {
                                 ${city}
                             </span>
                         `).join('')}
-                        <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-secondary/10 text-secondary border border-secondary/20 italic">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-secondary/10 text-secondary-dark border border-secondary/20 italic">
                             and more...
                         </span>
                     </div>

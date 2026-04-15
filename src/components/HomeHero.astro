@@ -9,16 +9,12 @@ interface Props extends HeroSection {
 const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
 ---
 
-<div {...rest} class='hero md:min-h-[100vh] relative overflow-hidden'>
+<div {...rest} class='hero md:min-h-dvh relative overflow-hidden'>
     <!-- Desktop Background with Wave Clip -->
     <WaveClip side='bottom' class='absolute inset-0 -z-20 hidden lg:block'>
-        <div class="w-full h-[100vh] bg-[url('/Images/Courier_back.webp')] bg-cover bg-[center_60%] bg-no-repeat opacity-90"></div>
-        <!-- Dynamic gradient overlay with primary/secondary colors -->
+        <div class="w-full h-dvh bg-[url('/Images/Courier_back.webp')] bg-cover bg-[center_60%] bg-no-repeat opacity-90"></div>
+        <!-- Single gradient overlay -->
         <div class='absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/40 to-secondary/50'></div>
-        <!-- Animated overlay for extra pop -->
-        <div class='absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-primary/30 opacity-80'></div>
-        <!-- Subtle texture overlay -->
-        <div class='absolute inset-0 bg-white/10'></div>
     </WaveClip>
 
     <div class='hero-content text-center w-full relative z-10 pt-6 md:pt-12 pb-12 md:pb-24'>
@@ -32,15 +28,6 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
                     class='relative bg-white/75 backdrop-blur-md rounded-xl md:rounded-2xl border-2 border-white/50 hover:border-primary/40 hover:bg-white/85 transition-all duration-500 p-6 md:p-8 lg:p-12 animate-fade-in-up shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.16)] overflow-hidden'
                     style='animation-delay: 0.2s;'
                 >
-                    <!-- Subtle Banner Background Texture -->
-                    <div class='absolute inset-0 pointer-events-none'>
-                        <div
-                            class='absolute inset-0'
-                            style='background-image: url("/Banner/TRIUS_BANNER.webp"); background-size: cover; background-repeat: no-repeat; background-position: center; filter: grayscale(100%); opacity: 0.05;'
-                        >
-                        </div>
-                    </div>
-
                     <!-- Subtle gradient overlay for depth -->
                     <div class='absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-secondary/[0.02] pointer-events-none'></div>
 
@@ -71,7 +58,7 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
 
                             <!-- Primary Wordmark -->
                             <h1
-                                class='text-5xl md:text-7xl mt-1 md:mt-3 -ml-1 lg:text-9xl font-black text-primary leading-none font-brand cursor-default relative animate-letter-spacing'
+                                class='text-5xl md:text-6xl mt-1 md:mt-3 -ml-1 lg:text-7xl font-black text-primary leading-none font-brand cursor-default relative animate-letter-spacing'
                             >
                                 <span class='relative inline-block'>
                                     TRIUS
@@ -110,7 +97,7 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
                             <a
                                 href='/contact'
                                 aria-label='Schedule a medical courier pickup'
-                                class='btn-primary btn-neumorphic bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold text-base md:text-xl px-6 md:px-10 py-3 md:py-5 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto sm:min-w-[200px] md:min-w-[240px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/50 relative overflow-hidden group'
+                                class='btn-primary btn-neumorphic bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold text-base md:text-xl px-6 md:px-10 py-3 md:py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/50 relative overflow-hidden group'
                             >
                                 <span class='relative z-10'>Schedule a Pickup</span>
                                 <!-- Subtle shine effect -->
@@ -128,7 +115,7 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
                         <!-- Trust & Benefits Section -->
                         <div class='space-y-3 md:space-y-4 pt-4 md:pt-6'>
                             <!-- Trust Indicators -->
-                            <div class='flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-6'>
+                        <div class='flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-6'>
                                 <span
                                     class='inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-4 py-1.5 md:py-2 bg-gradient-to-br from-primary/10 to-primary/5 text-primary font-bold text-xs md:text-sm rounded-lg border border-primary/20 shadow-sm'
                                 >
@@ -141,7 +128,7 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
                                     TSA VERIFIED
                                 </span>
                                 <span
-                                    class='inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-4 py-1.5 md:py-2 bg-gradient-to-br from-secondary/10 to-secondary/5 text-secondary font-bold text-xs md:text-sm rounded-lg border border-secondary/20 shadow-sm'
+                                    class='inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-4 py-1.5 md:py-2 bg-gradient-to-br from-secondary/10 to-secondary/5 text-secondary-dark font-bold text-xs md:text-sm rounded-lg border border-secondary/20 shadow-sm'
                                 >
                                     <svg class='w-3 h-3 md:w-4 md:h-4' fill='currentColor' viewBox='0 0 24 24'>
                                         <path
@@ -161,43 +148,6 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
                                         </path>
                                     </svg>
                                     24/7 AVAILABLE
-                                </span>
-                            </div>
-
-                            <!-- Service Benefits -->
-                            <div class='flex flex-wrap justify-center gap-2 md:gap-4 text-xs md:text-sm text-neutral font-medium'>
-                                <span class='flex items-center gap-1'>
-                                    <svg class='w-3 h-3 md:w-4 md:h-4 text-primary' fill='currentColor' viewBox='0 0 20 20'>
-                                        <path
-                                            fill-rule='evenodd'
-                                            d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                                            clip-rule='evenodd'
-                                        >
-                                        </path>
-                                    </svg>
-                                    No setup fees
-                                </span>
-                                <span class='flex items-center gap-1'>
-                                    <svg class='w-3 h-3 md:w-4 md:h-4 text-primary' fill='currentColor' viewBox='0 0 20 20'>
-                                        <path
-                                            fill-rule='evenodd'
-                                            d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                                            clip-rule='evenodd'
-                                        >
-                                        </path>
-                                    </svg>
-                                    Instant quotes
-                                </span>
-                                <span class='flex items-center gap-1'>
-                                    <svg class='w-3 h-3 md:w-4 md:h-4 text-primary' fill='currentColor' viewBox='0 0 20 20'>
-                                        <path
-                                            fill-rule='evenodd'
-                                            d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                                            clip-rule='evenodd'
-                                        >
-                                        </path>
-                                    </svg>
-                                    24/7 emergency service
                                 </span>
                             </div>
                         </div>

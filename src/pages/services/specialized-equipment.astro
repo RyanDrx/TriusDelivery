@@ -11,7 +11,7 @@ import { graphServiceEquipment } from '../../lib/schema.ts';
 const capabilitiesData = {
     _type: 'cardsSection',
     heading: 'Equipment Transport Capabilities',
-    body: 'Our specialized equipment transport service handles the most delicate and valuable medical devices with expert care.',
+    body: 'Our specialized equipment transport service handles delicate, regulated, and high-value medical devices with expert care, secure packaging, and documented handoff procedures.',
     items: [
         {
             _key: '1',
@@ -54,8 +54,9 @@ const capabilitiesData = {
 
 const equipmentTypesData = {
     _type: 'cardsSection',
+    columns: 'two' as const,
     heading: 'Equipment Types We Handle',
-    body: 'From small diagnostic devices to large imaging equipment, we have the expertise and equipment to handle all types of medical devices.',
+    body: 'From small diagnostic devices and surgical instruments to larger imaging and laboratory systems, we handle a wide range of medical equipment for healthcare facilities and vendors.',
     items: [
         {
             _key: '1',
@@ -141,12 +142,13 @@ const schema = graphServiceEquipment();
 
 <Layout
     title='Specialized Medical Equipment Transport | Trius LLC'
-    description='Expert transport of fragile medical equipment with temperature control, secure handling, and specialized packaging. Trained technicians for valuable medical devices.'
+    description='Expert transport of fragile medical equipment, imaging systems, surgical instruments, and diagnostic devices with temperature control, secure handling, and specialized packaging.'
+    image={{ src: "/og-image.png" }}
 >
     <Fragment slot='head'>
         <SEO
             title='Specialized Medical Equipment Transport | Trius LLC'
-            description='Expert transport of fragile medical equipment with temperature control, secure handling, and specialized packaging. Trained technicians for valuable medical devices.'
+            description='Expert transport of fragile medical equipment, imaging systems, surgical instruments, and diagnostic devices with temperature control, secure handling, and specialized packaging.'
             graph={schema}
         />
     </Fragment>
@@ -193,8 +195,8 @@ const schema = graphServiceEquipment();
 
             <!-- Description -->
             <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
-                Expert handling of fragile medical equipment, temperature-sensitive devices, and regulated materials. Our trained
-                technicians use specialized vehicles and industry best practices to ensure safe delivery.
+                Expert handling of fragile medical equipment, temperature-sensitive devices, imaging components, and regulated materials.
+                Our trained technicians use specialized vehicles and industry best practices to ensure safe delivery.
             </p>
 
             <!-- Action Buttons -->
@@ -215,6 +217,67 @@ const schema = graphServiceEquipment();
             </div>
         </div>
     </Hero>
+
+    <section class='py-20 bg-white'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center'>
+                <div class='order-2 lg:order-1'>
+                    <div class='inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary'>
+                        <iconify-icon icon='mdi:account-hard-hat' width='18' height='18'></iconify-icon>
+                        Field Handling
+                    </div>
+                    <h2 class='mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight'>
+                        Real Equipment Handoffs Need More Than a Standard Courier Workflow
+                    </h2>
+                    <p class='mt-5 text-lg leading-8 text-slate-600 max-w-2xl'>
+                        Specialized equipment moves require trained handling, controlled transfer, and direct accountability at pickup and delivery.
+                        This is the kind of handoff where condition, packaging, timing, and signoff all matter.
+                    </p>
+
+                    <div class='mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                        <div class='rounded-2xl border border-slate-200 bg-slate-50 p-5'>
+                            <div class='text-sm font-bold uppercase tracking-[0.14em] text-primary'>Protected Transfer</div>
+                            <p class='mt-2 text-sm leading-6 text-slate-600'>
+                                Sensitive components are moved with controlled handling instead of being treated like routine parcel freight.
+                            </p>
+                        </div>
+                        <div class='rounded-2xl border border-slate-200 bg-slate-50 p-5'>
+                            <div class='text-sm font-bold uppercase tracking-[0.14em] text-secondary'>Chain of Responsibility</div>
+                            <p class='mt-2 text-sm leading-6 text-slate-600'>
+                                We maintain clear handoff points so facilities know exactly who received the equipment and when.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='order-1 lg:order-2'>
+                    <div class='relative mx-auto max-w-md'>
+                        <div class='absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/12 via-transparent to-secondary/12 blur-2xl'></div>
+                        <figure class='relative rounded-[2rem] border border-slate-200 bg-white p-3 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]'>
+                            <div class='relative overflow-hidden rounded-[1.4rem] bg-slate-100 aspect-[4/5]'>
+                                <img
+                                    src='/handoff.webp'
+                                    alt='Trius team members coordinating a medical equipment handoff in a healthcare facility'
+                                    class='absolute top-1/2 left-1/2 block h-auto w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 rotate-90 transform'
+                                    loading='lazy'
+                                />
+                            </div>
+                            <figcaption class='flex items-center justify-between gap-4 px-2 pt-4 pb-1'>
+                                <div>
+                                    <div class='text-sm font-bold text-slate-900'>Equipment Delivery in Practice</div>
+                                    <div class='text-sm text-slate-500'>Coordinated handoff for sensitive medical equipment inside a healthcare facility</div>
+                                </div>
+                                <div class='rounded-full bg-accent/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-accent'>
+                                    On Site
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Capabilities Section with Background -->
     <section class='py-20 relative overflow-hidden'>
      
@@ -289,7 +352,7 @@ const schema = graphServiceEquipment();
                     </ul>
                 </div>
                 <div class='bg-white p-6 rounded-lg shadow-sm'>
-                    <iconify-icon icon='mdi:shield-check' class='text-4xl text-secondary mb-3 block'></iconify-icon>
+                    <iconify-icon icon='mdi:shield-check' class='text-4xl text-secondary-dark mb-3 block'></iconify-icon>
                     <h4 class='text-xl font-semibold mb-4 text-gray-900'>Insurance & Protection</h4>
                     <ul class='space-y-2 text-sm'>
                         <li class='flex items-center gap-2'>
@@ -329,6 +392,23 @@ const schema = graphServiceEquipment();
 
         <div class='relative z-10 pt-36'>
             <Cta {...ctaData} />
+        </div>
+    </section>
+
+    <!-- Related Services -->
+    <section class='py-16 bg-base-200'>
+        <div class='max-w-5xl mx-auto px-4'>
+            <h2 class='text-2xl font-bold text-gray-900 text-center mb-8'>Explore Our Other Services</h2>
+            <div class='grid md:grid-cols-2 gap-6'>
+                <a href='/services/stat-delivery' class='block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100'>
+                    <h3 class='text-lg font-semibold text-primary mb-2'>STAT Deliveries</h3>
+                    <p class='text-sm text-gray-600'>Rapid, secure transport of specimens, organs, and urgent medical equipment with real-time tracking.</p>
+                </a>
+                <a href='/services/scheduled-routes' class='block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100'>
+                    <h3 class='text-lg font-semibold text-primary mb-2'>Scheduled Routes</h3>
+                    <p class='text-sm text-gray-600'>Recurring pickups and deliveries for clinics, labs, and research centers with route optimization.</p>
+                </a>
+            </div>
         </div>
     </section>
 </Layout>

@@ -10,7 +10,7 @@ import { graphServiceRoutes } from '../../lib/schema.ts';
 const heroData = {
     _type: 'heroSection',
     heading: 'Scheduled Medical Courier Routes',
-    body: 'Recurring pickups and deliveries for clinics, labs, and research centers. Route optimization improves reliability and reduces transit time for your regular medical logistics needs.',
+    body: 'Recurring medical courier pickups and deliveries for clinics, hospitals, laboratories, pharmacies, and research centers. Route optimization improves reliability, shortens transit time, and supports regular specimen transport and supply movement.',
     cta: [
         {
             _key: '1',
@@ -31,7 +31,7 @@ const heroData = {
 const benefitsData = {
     _type: 'cardsSection',
     heading: 'Scheduled Route Benefits',
-    body: 'Our scheduled route service provides predictable, cost-effective logistics for healthcare facilities with regular courier needs.',
+    body: 'Our scheduled route service provides predictable, cost-effective logistics for healthcare facilities that need regular specimen pickups, supply transfers, and recurring medical deliveries.',
     items: [
         {
             _key: '1',
@@ -74,6 +74,7 @@ const benefitsData = {
 
 const routeTypesData = {
     _type: 'cardsSection',
+    columns: 'two',
     heading: 'Route Scheduling Options',
     body: 'Choose from various scheduling options designed to meet different facility needs and logistics requirements.',
     items: [
@@ -160,12 +161,13 @@ const schema = graphServiceRoutes();
 
 <Layout
     title='Scheduled Medical Courier Routes | Trius LLC'
-    description='Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing.'
+    description='Cost-effective scheduled medical courier routes for clinics, hospitals, labs, pharmacies, and research centers. Recurring specimen pickups and deliveries with route optimization and reliable timing.'
+    image={{ src: "/og-image.png" }}
 >
     <Fragment slot='head'>
         <SEO
             title='Scheduled Medical Courier Routes | Trius LLC'
-            description='Cost-effective scheduled medical courier routes for clinics, labs, and research centers. Recurring pickups and deliveries with route optimization and reliable timing.'
+            description='Cost-effective scheduled medical courier routes for clinics, hospitals, labs, pharmacies, and research centers. Recurring specimen pickups and deliveries with route optimization and reliable timing.'
             graph={schema}
         />
     </Fragment>
@@ -203,8 +205,8 @@ const schema = graphServiceRoutes();
 
             <!-- Description -->
             <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
-                Recurring pickups and deliveries for clinics, labs, and research centers. Our scheduled routes provide efficiency,
-                consistency, and cost savings for your regular medical logistics needs.
+                Recurring pickups and deliveries for clinics, hospitals, labs, pharmacies, and research centers. Our scheduled routes
+                provide efficiency, consistency, and cost savings for regular specimen transport, supply transfers, and medical logistics.
             </p>
 
             <!-- Action Buttons -->
@@ -353,4 +355,21 @@ const schema = graphServiceRoutes();
     </Section>
 
     <Cta {...ctaData} />
+
+    <!-- Related Services -->
+    <section class='py-16 bg-base-200'>
+        <div class='max-w-5xl mx-auto px-4'>
+            <h2 class='text-2xl font-bold text-gray-900 text-center mb-8'>Explore Our Other Services</h2>
+            <div class='grid md:grid-cols-2 gap-6'>
+                <a href='/services/stat-delivery' class='block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100'>
+                    <h3 class='text-lg font-semibold text-primary mb-2'>STAT Deliveries</h3>
+                    <p class='text-sm text-gray-600'>Rapid, secure transport of specimens, organs, and urgent medical equipment with real-time tracking.</p>
+                </a>
+                <a href='/services/specialized-equipment' class='block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100'>
+                    <h3 class='text-lg font-semibold text-primary mb-2'>Specialized Equipment Transport</h3>
+                    <p class='text-sm text-gray-600'>Secure delivery of fragile medical devices with trained handlers and temperature control.</p>
+                </a>
+            </div>
+        </div>
+    </section>
 </Layout>

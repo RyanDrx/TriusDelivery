@@ -45,6 +45,7 @@ const schema = {
 <Layout
     title='Service Coverage Map - Trius LLC Medical Courier Services'
     description='Explore Trius LLC medical courier coverage across Washington, Oregon, Idaho, Montana, and California. Interactive map with top 10 cities, service levels, and facility locations for STAT deliveries and specialized transport.'
+    image={{ src: "/og-image.png" }}
 >
     <Fragment slot='head'>
         <SEO
@@ -106,6 +107,38 @@ const schema = {
             </div>
         </div>
     </Hero>
+
+    <section class='py-16 bg-white'>
+        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
+            <div class='grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center rounded-[2rem] border border-slate-200 bg-slate-50/70 p-6 lg:p-8 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.35)]'>
+                <div>
+                    <div class='inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary'>
+                        <iconify-icon icon='mdi:truck-fast-outline' width='18' height='18'></iconify-icon>
+                        Regional Operations
+                    </div>
+                    <h2 class='mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight'>Coverage Backed by an Active Fleet, Not Just a Map</h2>
+                    <p class='mt-5 text-lg leading-8 text-slate-600 max-w-2xl'>
+                        Our coverage area reflects where Trius is actively operating for healthcare clients across the Pacific Northwest and Northern California.
+                        We support recurring routes, STAT requests, and facility-to-facility handoffs with vehicles already moving in these service regions.
+                    </p>
+                </div>
+
+                <div class='relative'>
+                    <div class='absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-2xl'></div>
+                    <div class='relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-lg'>
+                        <div class='aspect-[4/3] overflow-hidden rounded-[1.2rem]'>
+                            <img
+                                src='/Images/trius-van-suburban.webp'
+                                alt='Trius medical courier vehicle operating in the regional service area'
+                                class='w-full h-full object-cover object-center'
+                                loading='lazy'
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Coverage Map Section with Background -->
     <section class='relative overflow-hidden bg-gray-50'>

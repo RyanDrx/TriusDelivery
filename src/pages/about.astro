@@ -3,7 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
-import { localBusiness, webSite } from '../lib/schema.ts';
+import { localBusiness, webSite } from '../lib/schema';
 import WaveClip from '@components/WaveClip.astro';
 
 const heroData = {
@@ -34,6 +34,7 @@ const schema = {
 <Layout
     title='About Us - Trius LLC Medical Courier Services'
     description="Learn about Trius LLC's mission to provide reliable, professional medical courier services across WA, OR, ID, MT, and CA. Specialized expertise in medical logistics."
+    image={{ src: "/og-image.png" }}
 >
     <Fragment slot='head'>
         <SEO
@@ -95,75 +96,64 @@ const schema = {
                     </div>
                 </div>
                 <div class='bg-gray-50 p-8 rounded-lg'>
-                    <h3 class='text-2xl font-bold text-gray-900 mb-6'>Meet Our Team</h3>
+                    <h3 class='text-2xl font-bold text-gray-900 mb-6'>Meet Our Founder</h3>
                     <div class='space-y-6'>
-                        <div class='flex items-start space-x-4'>
-                            <!-- TODO: Replace with Kevin's headshot when available -->
-                            <div class='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center'>
-                                <svg class='w-8 h-8 text-primary' fill='currentColor' viewBox='0 0 20 20'>
-                                    <path fill-rule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clip-rule='evenodd'>
-                                    </path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class='font-semibold text-gray-900'>Kevin Hyatt</h4>
-                                <p class='text-sm text-gray-600'>Founder</p>
-                                <p class='text-sm text-gray-500 mt-2'>With years of experience in orthopedic operations and logistics, Kevin founded Trius LLC to deliver the reliability and accountability that medical professionals deserve.</p>
-                            </div>
+                        <div class='flex flex-col items-center text-center'>
+                            <img
+                                src='/kevin_profile.webp'
+                                alt='Kevin Hyatt, Founder of Trius LLC'
+                                class='w-72 h-72 rounded-full object-cover mb-4'
+                                style='object-position: center 20%;'
+                                loading='lazy'
+                            />
+                            <h4 class='font-semibold text-gray-900 text-lg'>Kevin Hyatt</h4>
+                            <p class='text-sm text-gray-600'>Founder</p>
+                            <p class='text-sm text-gray-500 mt-2'>With years of experience in orthopedic operations and logistics, Kevin founded Trius LLC to deliver the reliability and accountability that medical professionals deserve.</p>
                         </div>
                     </div>
 
                     <!-- Fleet Gallery -->
                     <div class='mt-8 pt-6 border-t border-gray-200'>
-                        <h4 class='font-semibold text-gray-900 mb-4'>Our Fleet</h4>
-                        <div class='grid grid-cols-3 gap-3'>
-                            <div class='aspect-[3/4] rounded-lg overflow-hidden'>
+                        <div class='flex items-center justify-between mb-4'>
+                            <div>
+                                <div class='text-xs font-bold uppercase tracking-[0.16em] text-primary'>In the Field</div>
+                                <div class='text-sm text-gray-500 mt-1'>A snapshot of Trius vehicles serving healthcare facilities</div>
+                            </div>
+                        </div>
+
+                        <div class='grid grid-cols-1 gap-3'>
+                            <div class='relative rounded-2xl overflow-hidden aspect-[16/9] shadow-md'>
                                 <img
                                     src='/Images/trius-van-hospital.webp'
                                     alt='Trius delivery van at hospital facility'
-                                    class='w-full h-full object-cover object-center'
+                                    class='w-full h-full object-cover'
+                                    style='object-position: center center;'
                                     loading='lazy'
                                 />
+                                <div class='absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/70 to-transparent p-4'>
+                                    <p class='text-sm font-semibold text-white'>Hospital and facility service</p>
+                                </div>
                             </div>
-                            <div class='aspect-[3/4] rounded-lg overflow-hidden'>
-                                <img
-                                    src='/Images/trius-van-office.webp'
-                                    alt='Trius delivery van at office building'
-                                    class='w-full h-full object-cover object-center'
-                                    loading='lazy'
-                                />
-                            </div>
-                            <div class='aspect-[3/4] rounded-lg overflow-hidden'>
-                                <img
-                                    src='/Images/trius-van-residential.webp'
-                                    alt='Trius delivery van on location'
-                                    class='w-full h-full object-cover object-center'
-                                    loading='lazy'
-                                />
-                            </div>
-                            <div class='aspect-[3/4] rounded-lg overflow-hidden'>
-                                <img
-                                    src='/Images/trius-van-building.webp'
-                                    alt='Trius delivery van at medical facility'
-                                    class='w-full h-full object-cover object-center'
-                                    loading='lazy'
-                                />
-                            </div>
-                            <div class='aspect-[3/4] rounded-lg overflow-hidden'>
-                                <img
-                                    src='/Images/trius-van-suburban.webp'
-                                    alt='Trius delivery van in service area'
-                                    class='w-full h-full object-cover object-center'
-                                    loading='lazy'
-                                />
-                            </div>
-                            <div class='aspect-[3/4] rounded-lg overflow-hidden'>
-                                <img
-                                    src='/Images/trius-van-facility.webp'
-                                    alt='Trius delivery van at healthcare facility'
-                                    class='w-full h-full object-cover object-center'
-                                    loading='lazy'
-                                />
+
+                            <div class='grid grid-cols-1 md:grid-cols-2 gap-3'>
+                                <div class='relative rounded-2xl overflow-hidden aspect-[16/10] shadow-md'>
+                                    <img
+                                        src='/Images/trius-van-office.webp'
+                                        alt='Trius delivery van at office building'
+                                        class='w-full h-full object-cover'
+                                        style='object-position: center center;'
+                                        loading='lazy'
+                                    />
+                                </div>
+                                <div class='relative rounded-2xl overflow-hidden aspect-[16/10] shadow-md'>
+                                    <img
+                                        src='/Images/trius-van-building.webp'
+                                        alt='Trius delivery van at medical facility'
+                                        class='w-full h-full object-cover'
+                                        style='object-position: center center;'
+                                        loading='lazy'
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
