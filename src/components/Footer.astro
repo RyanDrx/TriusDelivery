@@ -48,19 +48,19 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                 <!-- Trust Badges -->
                 <div class="flex flex-wrap gap-3 mt-6">
                     <div class="trust-badge">
-                        <iconify-icon icon="material-symbols:verified-user" width="20" height="20"></iconify-icon>
+                        <iconify-icon icon="material-symbols:verified-user" class="footer-badge-icon"></iconify-icon>
                         <span>TSA Verified</span>
                     </div>
                     <div class="trust-badge">
-                        <iconify-icon icon="material-symbols:security" width="20" height="20"></iconify-icon>
+                        <iconify-icon icon="material-symbols:security" class="footer-badge-icon"></iconify-icon>
                         <span>Insured & Bonded</span>
                     </div>
                     <div class="trust-badge american-business">
-                        <iconify-icon icon="twemoji:flag-for-flag-united-states" width="20" height="20"></iconify-icon>
+                        <iconify-icon icon="material-symbols:flag" class="footer-badge-icon"></iconify-icon>
                         <span>US Based</span>
                     </div>
                     <div class="trust-badge small-business">
-                        <iconify-icon icon="material-symbols:apartment" width="20" height="20"></iconify-icon>
+                        <iconify-icon icon="material-symbols:apartment" class="footer-badge-icon"></iconify-icon>
                         <span>Small Business</span>
                     </div>
                 </div>
@@ -73,33 +73,23 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                     <a href="/services" class="footer-link group">
                         <iconify-icon
                             icon="material-symbols:medical-services"
-                            width="16"
-                            height="16"
-                            class="group-hover:text-primary transition-colors"></iconify-icon>
+                            class="footer-nav-icon group-hover:text-primary transition-colors"></iconify-icon>
                         Our Services
                     </a>
                     <a href="/about" class="footer-link group">
-                        <iconify-icon
-                            icon="material-symbols:groups"
-                            width="16"
-                            height="16"
-                            class="group-hover:text-primary transition-colors"></iconify-icon>
+                        <iconify-icon icon="material-symbols:groups" class="footer-nav-icon group-hover:text-primary transition-colors"
+                        ></iconify-icon>
                         About Us
                     </a>
                     <a href="/coverage" class="footer-link group">
-                        <iconify-icon
-                            icon="material-symbols:location-on"
-                            width="16"
-                            height="16"
-                            class="group-hover:text-primary transition-colors"></iconify-icon>
+                        <iconify-icon icon="material-symbols:location-on" class="footer-nav-icon group-hover:text-primary transition-colors"
+                        ></iconify-icon>
                         Coverage Areas
                     </a>
                     <a href="/contact" class="footer-link group">
                         <iconify-icon
                             icon="material-symbols:contact-mail"
-                            width="16"
-                            height="16"
-                            class="group-hover:text-primary transition-colors"></iconify-icon>
+                            class="footer-nav-icon group-hover:text-primary transition-colors"></iconify-icon>
                         Contact
                     </a>
                 </nav>
@@ -188,11 +178,11 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                 <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
                     <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class="w-1/3 flex items-center justify-center">
+                        <div class="w-1/3 flex items-center justify-center state-badge-icon-wrap">
                             <img
                                 src="/states/WA.svg"
                                 alt="Washington State"
-                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                class="state-badge-icon transition-all duration-300 group-hover:scale-110"
                                 style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
@@ -208,11 +198,11 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                 <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
                     <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class="w-1/3 flex items-center justify-center">
+                        <div class="w-1/3 flex items-center justify-center state-badge-icon-wrap">
                             <img
                                 src="/states/OR.svg"
                                 alt="Oregon State"
-                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                class="state-badge-icon transition-all duration-300 group-hover:scale-110"
                                 style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
@@ -228,11 +218,11 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                 <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
                     <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class="w-1/3 flex items-center justify-center">
+                        <div class="w-1/3 flex items-center justify-center state-badge-icon-wrap">
                             <img
                                 src="/states/ID.svg"
                                 alt="Idaho State"
-                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                class="state-badge-icon transition-all duration-300 group-hover:scale-110"
                                 style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
@@ -248,11 +238,11 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                 <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
                     <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class="w-1/3 flex items-center justify-center">
+                        <div class="w-1/3 flex items-center justify-center state-badge-icon-wrap">
                             <img
                                 src="/states/MT.svg"
                                 alt="Montana State"
-                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                class="state-badge-icon transition-all duration-300 group-hover:scale-110"
                                 style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
@@ -268,11 +258,11 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                 <div class="state-city-badge group bg-gradient-to-br from-primary/90 to-primary-dark/70">
                     <div class="flex h-full">
                         <!-- Icon Section (1/3) -->
-                        <div class="w-1/3 flex items-center justify-center">
+                        <div class="w-1/3 flex items-center justify-center state-badge-icon-wrap">
                             <img
                                 src="/states/CA.svg"
                                 alt="California State"
-                                class="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+                                class="state-badge-icon transition-all duration-300 group-hover:scale-110"
                                 style="filter: brightness(0) saturate(100%) invert(100%);"
                             />
                         </div>
@@ -376,6 +366,14 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
         @apply inline-flex items-center gap-2 px-3 py-2 bg-white/10 rounded-lg text-sm font-medium text-white/90 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300;
     }
 
+    .footer-badge-icon {
+        width: 1.125rem;
+        height: 1.125rem;
+        min-width: 1.125rem;
+        min-height: 1.125rem;
+        display: block;
+    }
+
     .trust-badge:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(26, 78, 138, 0.3);
@@ -384,6 +382,14 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
     /* Footer Links */
     .footer-link {
         @apply flex items-center gap-3 text-white/80 hover:text-white transition-all duration-300 py-2;
+    }
+
+    .footer-nav-icon {
+        width: 1rem;
+        height: 1rem;
+        min-width: 1rem;
+        min-height: 1rem;
+        display: block;
     }
 
     .footer-link:hover {
@@ -397,6 +403,14 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
 
     .contact-icon {
         @apply w-10 h-10 rounded-lg flex items-center justify-center text-white shadow-lg;
+    }
+
+    .contact-icon iconify-icon {
+        width: 1.125rem;
+        height: 1.125rem;
+        min-width: 1.125rem;
+        min-height: 1.125rem;
+        display: block;
     }
 
     .emergency-contact {
@@ -445,6 +459,17 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
     .state-city-badge {
         @apply p-4 rounded-2xl backdrop-blur-sm border border-white/30 hover:scale-105 transition-all duration-300 cursor-pointer min-w-[200px] max-w-[240px] h-20;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .state-badge-icon-wrap {
+        min-width: 3rem;
+    }
+
+    .state-badge-icon {
+        width: 2.75rem;
+        height: 2.75rem;
+        object-fit: contain;
+        display: block;
     }
 
     .state-city-badge:hover {

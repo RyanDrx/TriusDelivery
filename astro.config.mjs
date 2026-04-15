@@ -19,8 +19,7 @@ export default defineConfig({
         sitemap({
             changefreq: 'weekly',
             priority: 0.7,
-            lastmod: new Date(),
-            sitemapSize: 10000
+            lastmod: new Date()
         }),
         // Only add Sanity integration if projectId is properly configured
         sanityConfig.projectId !== 'placeholder-project-id' ? sanity(sanityConfig) : null

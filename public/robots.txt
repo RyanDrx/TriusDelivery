@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://trius.delivery/sitemap.xml
+Sitemap: https://trius.delivery/sitemap-index.xml
