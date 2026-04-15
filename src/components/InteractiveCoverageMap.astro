@@ -7,14 +7,14 @@ export interface Props {
 }
 
 const {
-    title = 'Service Coverage Map',
+    title: _title = 'Service Coverage Map',
     subtitle = 'Interactive coverage areas',
     description = 'Click on any state to view the cities we serve in that region.',
     'data-sb-field-path': fieldPath
 } = Astro.props;
 
 // Coverage data with cities for SEO
-const coverageAreas = {
+const _coverageAreas = {
     washington: {
         name: 'Washington',
         serviceLevel: '24/7 STAT & Scheduled Routes',

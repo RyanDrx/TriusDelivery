@@ -7,27 +7,6 @@ import Section from '@components/Section.astro';
 import Cta from '@components/Cta.astro';
 import { graphServiceRoutes } from '../../lib/schema.ts';
 
-const heroData = {
-    _type: 'heroSection',
-    heading: 'Scheduled Medical Courier Routes',
-    body: 'Recurring medical courier pickups and deliveries for clinics, hospitals, laboratories, pharmacies, and research centers. Route optimization improves reliability, shortens transit time, and supports regular specimen transport and supply movement.',
-    cta: [
-        {
-            _key: '1',
-            _type: 'actionButton',
-            label: 'Schedule Routes',
-            url: '/contact?service=routes',
-            theme: 'primary'
-        },
-        {
-            _key: '2',
-            _type: 'actionLink',
-            label: 'View All Services',
-            url: '/services'
-        }
-    ]
-};
-
 const benefitsData = {
     _type: 'cardsSection',
     heading: 'Scheduled Route Benefits',

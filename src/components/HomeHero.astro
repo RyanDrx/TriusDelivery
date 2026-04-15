@@ -6,7 +6,7 @@ interface Props extends HeroSection {
     'data-sb-field-path'?: string;
 }
 
-const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
+const { heading: _heading, body: _body, cta: _cta, backgroundImage: _backgroundImage, ...rest } = Astro.props;
 ---
 
 <div {...rest} class='hero md:min-h-dvh relative overflow-hidden'>

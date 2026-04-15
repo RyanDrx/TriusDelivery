@@ -1,7 +1,6 @@
 ---
 import { safeMarkdown } from '@utils/markdown';
 import { type CardsSection } from 'types';
-import Card from '@components/Card.astro';
 import Section from '@components/Section.astro';
 import ActionButton from '@components/ActionButton.astro';
 
@@ -112,7 +111,7 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                                 {item.features && item.features.length > 0 && (
                                     <div class='mb-6 flex-grow'>
                                         <ul class='text-sm space-y-3'>
-                                            {item.features.map((feature, featureIdx) => (
+                                            {item.features.map((feature, _featureIdx) => (
                                                 <li class='flex items-center justify-center text-base-content/70 font-medium'>
                                                     <iconify-icon
                                                         icon={feature.icon}

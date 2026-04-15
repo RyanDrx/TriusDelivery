@@ -11,7 +11,6 @@ import type {
     PostalAddress,
     GeoCoordinates,
     ContactPoint,
-    ImageObject
 } from 'schema-dts';
 import { homeFaqs } from '../data/seoContent';
 
@@ -300,7 +299,7 @@ export function graphServiceEquipment(): Graph {
 
 // ---- Utilities
 
-function withGraph(...items: any[]): Graph {
+function withGraph(...items: (LocalBusiness | WebSite | WebPage | BreadcrumbList | Service | ReturnType<typeof homeFaqPage>)[]): Graph {
     return { '@context': 'https://schema.org', '@graph': items };
 }
 

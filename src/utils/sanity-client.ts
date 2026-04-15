@@ -38,8 +38,8 @@ export const client = SANITY_PROJECT_ID && SANITY_PROJECT_ID !== 'placeholder-pr
  * Creating Sanity listener to subscribe to whenever a new document is created or deleted to refresh the list in Create
  */
 if (client) {
-    [{ client: client, types: ['page'] }].forEach(({ client, types }: { client: SanityClient; types: Array<String> }) =>
-        client.listen(`*[_type in ${JSON.stringify(types)}]`, {}, { visibility: 'query' }).subscribe(async (event: any) => {
+    [{ client: client, types: ['page'] }].forEach(({ client, types }: { client: SanityClient; types: Array<string> }) =>
+        client.listen(`*[_type in ${JSON.stringify(types)}]`, {}, { visibility: 'query' }).subscribe(async (event: { transition?: string }) => {
             // only refresh when pages are deleted or created
             if (event.transition === 'appear' || event.transition === 'disappear') {
                 const filePath = path.join(__dirname, '../layouts/Layout.astro');

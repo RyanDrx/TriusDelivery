@@ -8,7 +8,7 @@ interface Props extends Header {
     currentPage?: string;
 }
 
-const { title, logo, navLinks, currentPage, 'data-sb-field-path': fieldPath } = Astro.props;
+const { title: _title, logo, navLinks, currentPage, 'data-sb-field-path': fieldPath } = Astro.props;
 
 function isActiveNavItem(item: any, currentPage: string): boolean {
     if (!currentPage || !item.url) return false;
@@ -120,7 +120,7 @@ function isActiveNavItem(item: any, currentPage: string): boolean {
                                 </div>
                             </div>
 
-                            {navLinks.filter(item => item.label !== 'Services').map((item, index) => {
+                            {navLinks.filter(item => item.label !== 'Services').map((item, _index) => {
                                 const isActive = isActiveNavItem(item, currentPage);
                                 const isContact = item._type === 'actionButton' || item.label === 'Contact';
                                 return isContact ? (

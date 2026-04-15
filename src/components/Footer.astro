@@ -71,25 +71,27 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                 <h4 class="text-xl font-semibold text-white border-l-4 border-secondary-light pl-4">Quick Links</h4>
                 <nav class="space-y-3">
                     <a href="/services" class="footer-link group">
-                        <iconify-icon
-                            icon="material-symbols:medical-services"
-                            class="footer-nav-icon group-hover:text-primary transition-colors"></iconify-icon>
+                        <span class="footer-nav-icon-wrap">
+                            <iconify-icon icon="heroicons:truck" class="footer-nav-icon"></iconify-icon>
+                        </span>
                         Our Services
                     </a>
                     <a href="/about" class="footer-link group">
-                        <iconify-icon icon="material-symbols:groups" class="footer-nav-icon group-hover:text-primary transition-colors"
-                        ></iconify-icon>
+                        <span class="footer-nav-icon-wrap">
+                            <iconify-icon icon="heroicons:user-group" class="footer-nav-icon"></iconify-icon>
+                        </span>
                         About Us
                     </a>
                     <a href="/coverage" class="footer-link group">
-                        <iconify-icon icon="material-symbols:location-on" class="footer-nav-icon group-hover:text-primary transition-colors"
-                        ></iconify-icon>
+                        <span class="footer-nav-icon-wrap">
+                            <iconify-icon icon="heroicons:map" class="footer-nav-icon"></iconify-icon>
+                        </span>
                         Coverage Areas
                     </a>
                     <a href="/contact" class="footer-link group">
-                        <iconify-icon
-                            icon="material-symbols:contact-mail"
-                            class="footer-nav-icon group-hover:text-primary transition-colors"></iconify-icon>
+                        <span class="footer-nav-icon-wrap">
+                            <iconify-icon icon="heroicons:envelope" class="footer-nav-icon"></iconify-icon>
+                        </span>
                         Contact
                     </a>
                 </nav>
@@ -102,12 +104,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                     <!-- Emergency STAT Line -->
                     <div class="contact-item emergency-contact">
                         <div class="contact-icon bg-accent">
-                            <iconify-icon
-                                icon="material-symbols:emergency"
-                                width="20"
-                                height="20"
-                                class="animate-pulse"
-                                style="color: white;"></iconify-icon>
+                            <iconify-icon icon="heroicons:bolt" class="contact-symbol"></iconify-icon>
                         </div>
                         <div>
                             <p class="text-white bold font-semibold">24/7 STAT Emergency</p>
@@ -120,7 +117,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                     <!-- Business Line -->
                     <div class="contact-item">
                         <div class="contact-icon bg-primary-light">
-                            <iconify-icon icon="material-symbols:call" width="20" height="20" style="color: white;"></iconify-icon>
+                            <iconify-icon icon="heroicons:clock" class="contact-symbol"></iconify-icon>
                         </div>
                         <div>
                             <p class="text-white/70">Business Hours</p>
@@ -131,7 +128,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                     <!-- Email -->
                     <div class="contact-item">
                         <div class="contact-icon bg-secondary">
-                            <iconify-icon icon="material-symbols:mail" width="20" height="20" style="color: white;"></iconify-icon>
+                            <iconify-icon icon="heroicons:envelope" class="contact-symbol"></iconify-icon>
                         </div>
                         <div>
                             <p class="text-white/70">Email</p>
@@ -147,7 +144,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                     <!-- Address -->
                     <div class="contact-item">
                         <div class="contact-icon bg-accent">
-                            <iconify-icon icon="material-symbols:location-on" width="20" height="20" style="color: white;"></iconify-icon>
+                            <iconify-icon icon="heroicons:map-pin" class="contact-symbol"></iconify-icon>
                         </div>
                         <div>
                             <p class="text-white/70">Address</p>
@@ -384,6 +381,10 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
         @apply flex items-center gap-3 text-white/80 hover:text-white transition-all duration-300 py-2;
     }
 
+    .footer-nav-icon-wrap {
+        @apply flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white/10 transition-colors duration-300;
+    }
+
     .footer-nav-icon {
         width: 1rem;
         height: 1rem;
@@ -396,21 +397,29 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
         transform: translateX(8px);
     }
 
+    .footer-link:hover .footer-nav-icon-wrap {
+        background: rgba(255, 255, 255, 0.18);
+    }
+
     /* Contact Items */
     .contact-item {
         @apply flex items-start gap-3;
     }
 
     .contact-icon {
-        @apply w-10 h-10 rounded-lg flex items-center justify-center text-white shadow-lg;
+        @apply w-10 h-10 flex-shrink-0 rounded-lg flex items-center justify-center text-white shadow-lg;
     }
 
     .contact-icon iconify-icon {
-        width: 1.125rem;
-        height: 1.125rem;
-        min-width: 1.125rem;
-        min-height: 1.125rem;
+        width: 1rem;
+        height: 1rem;
+        min-width: 1rem;
+        min-height: 1rem;
         display: block;
+    }
+
+    .contact-symbol {
+        color: white;
     }
 
     .emergency-contact {
