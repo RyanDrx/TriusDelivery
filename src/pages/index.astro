@@ -14,7 +14,7 @@ import { homeFaqs } from '../data/seoContent';
 const heroData = {
     _type: 'heroSection',
     heading: 'Reliable Medical Courier Services You Can Trust',
-    body: 'Safe, accurate, and compliant medical courier deliveries for hospitals, laboratories, surgery centers, clinics, and research facilities. We handle STAT specimen transport, scheduled route work, and specialized medical equipment logistics across Washington, Oregon, Idaho, Montana, and California.',
+    body: 'Medical courier services for hospitals, labs, clinics, and surgery centers. STAT transport, scheduled routes, and equipment logistics across five states.',
     cta: [
         {
             _key: '1',
@@ -35,7 +35,7 @@ const heroData = {
 const servicesData = {
     _type: 'cardsSection',
     heading: 'Fast, Secure, and Compliant Medical Transport',
-    body: 'From urgent STAT specimen deliveries to scheduled lab routes and specialized equipment transport, Trius supports hospitals, clinics, laboratories, pharmacies, and research teams with secure medical courier service.',
+    body: 'STAT specimen deliveries, scheduled lab routes, and specialized equipment transport for healthcare teams across five states.',
     items: [
         {
             _key: '1',
@@ -110,7 +110,7 @@ const servicesData = {
 const ctaData = {
     _type: 'ctaSection',
     heading: 'Get a Secure Medical Courier Partner Today',
-    body: 'Join 150+ healthcare organizations that trust Trius for their critical medical logistics. Start with a free, customized quote and experience delivery excellence.',
+    body: 'Join 150+ healthcare organizations that trust Trius. Get a free quote today.',
     cta: [
         {
             _key: '1',
@@ -202,14 +202,12 @@ const schema = graphHome();
 
             <!-- Trust Proof Element -->
             <div class="text-center my-8">
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/30 max-w-2xl mx-auto">
-                    <div class="flex items-center justify-center gap-4 mb-4">
-                        <span class="text-xl font-bold text-primary">Trusted by 150+ Healthcare Organizations</span>
-                    </div>
-                    <p class="text-sm text-base-content/70 font-medium">
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-white/30 max-w-2xl mx-auto">
+                    <span class="text-lg md:text-xl font-bold text-primary">Trusted by 150+ Healthcare Organizations</span>
+                    <p class="text-sm text-base-content/70 font-medium mt-2 hidden md:block">
                         From small clinics to major hospitals across Washington, Oregon, Idaho, Montana, and California
                     </p>
-                    <div class="mt-6">
+                    <div class="mt-4 md:mt-6">
                         <a href="/contact" class="btn btn-primary btn-lg px-8 py-3 font-bold transition-all duration-300">
                             Get Started Today
                         </a>
@@ -231,9 +229,10 @@ const schema = graphHome();
                     Healthcare Delivery Coverage
                 </div>
                 <h2 class="mt-5 text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
-                    Medical Courier Support for the Facilities and Deliveries That Keep Healthcare Moving
+                    <span class="md:hidden">Who We Serve and What We Deliver</span>
+                    <span class="hidden md:inline">Medical Courier Support for the Facilities and Deliveries That Keep Healthcare Moving</span>
                 </h2>
-                <p class="mt-6 text-lg leading-8 text-slate-600">
+                <p class="mt-6 text-lg leading-8 text-slate-600 hidden md:block">
                     Trius is built for healthcare logistics, so the service scope is clear: urgent medical courier support, scheduled route
                     coverage, and specialized handling for sensitive deliveries across Washington, Oregon, Idaho, Montana, and Northern
                     California.
@@ -248,8 +247,11 @@ const schema = graphHome();
                         <iconify-icon icon="heroicons:user-group" width="18" height="18"></iconify-icon>
                         Facilities We Serve
                     </div>
-                    <h3 class="mt-5 text-2xl font-black text-slate-900 min-h-[4rem] lg:min-h-[3.5rem]">Healthcare organizations that need dependable courier coverage</h3>
-                    <p class="mt-4 text-base leading-7 text-slate-600 min-h-[3.5rem]">
+                    <h3 class="mt-5 text-2xl font-black text-slate-900 min-h-[4rem] lg:min-h-[3.5rem]">
+                        <span class="md:hidden">Facilities we serve</span>
+                        <span class="hidden md:inline">Healthcare organizations that need dependable courier coverage</span>
+                    </h3>
+                    <p class="mt-4 text-base leading-7 text-slate-600 min-h-[3.5rem] hidden md:block">
                         We support healthcare operations where timing, accountability, and handling standards matter more than generic
                         parcel delivery.
                     </p>
@@ -271,8 +273,11 @@ const schema = graphHome();
                         <iconify-icon icon="heroicons:archive-box" width="18" height="18"></iconify-icon>
                         What We Transport
                     </div>
-                    <h3 class="mt-5 text-2xl font-black text-slate-900 min-h-[4rem] lg:min-h-[3.5rem]">Common medical deliveries handled by Trius</h3>
-                    <p class="mt-4 text-base leading-7 text-slate-600 min-h-[3.5rem]">
+                    <h3 class="mt-5 text-2xl font-black text-slate-900 min-h-[4rem] lg:min-h-[3.5rem]">
+                        <span class="md:hidden">What we transport</span>
+                        <span class="hidden md:inline">Common medical deliveries handled by Trius</span>
+                    </h3>
+                    <p class="mt-4 text-base leading-7 text-slate-600 min-h-[3.5rem] hidden md:block">
                         From routine route work to urgent handoffs, Trius stays focused on healthcare-specific deliveries and documented
                         transfer protocols.
                     </p>
