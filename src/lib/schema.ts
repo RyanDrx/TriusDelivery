@@ -139,8 +139,7 @@ export function webPageHome(): WebPage {
             '@type': 'ImageObject',
             url: ORIGIN + 'Images/medical%20back%20stehescope.webp'
         },
-        description:
-            'Professional medical courier services. STAT deliveries, scheduled routes, and specialized equipment transport in WA, OR, ID, MT, and CA.',
+        description: 'Professional medical courier services. STAT deliveries, scheduled routes, and specialized equipment transport in WA, OR, ID, MT, and CA.',
         breadcrumb: { '@id': ORIGIN + '#breadcrumb-home' }
     };
 }
@@ -264,24 +263,39 @@ export function graphHome(): Graph {
 }
 
 export function graphServiceStat(): Graph {
-    return withGraph(localBusiness(), webSite(), serviceStat(), breadcrumb([
-        { name: 'Services', url: 'services' },
-        { name: 'STAT Deliveries', url: 'services/stat-delivery' }
-    ]));
+    return withGraph(
+        localBusiness(),
+        webSite(),
+        serviceStat(),
+        breadcrumb([
+            { name: 'Services', url: 'services' },
+            { name: 'STAT Deliveries', url: 'services/stat-delivery' }
+        ])
+    );
 }
 
 export function graphServiceRoutes(): Graph {
-    return withGraph(localBusiness(), webSite(), serviceRoutes(), breadcrumb([
-        { name: 'Services', url: 'services' },
-        { name: 'Scheduled Routes', url: 'services/scheduled-routes' }
-    ]));
+    return withGraph(
+        localBusiness(),
+        webSite(),
+        serviceRoutes(),
+        breadcrumb([
+            { name: 'Services', url: 'services' },
+            { name: 'Scheduled Routes', url: 'services/scheduled-routes' }
+        ])
+    );
 }
 
 export function graphServiceEquipment(): Graph {
-    return withGraph(localBusiness(), webSite(), serviceEquipment(), breadcrumb([
-        { name: 'Services', url: 'services' },
-        { name: 'Specialized Equipment', url: 'services/specialized-equipment' }
-    ]));
+    return withGraph(
+        localBusiness(),
+        webSite(),
+        serviceEquipment(),
+        breadcrumb([
+            { name: 'Services', url: 'services' },
+            { name: 'Specialized Equipment', url: 'services/specialized-equipment' }
+        ])
+    );
 }
 
 // ---- Utilities

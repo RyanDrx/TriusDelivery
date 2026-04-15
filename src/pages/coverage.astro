@@ -4,7 +4,8 @@ import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import InteractiveCoverageMap from '@components/InteractiveCoverageMap.astro';
-import { localBusiness, webSite } from '../lib/schema.ts';
+import { localBusiness, webSite, breadcrumb } from '../lib/schema.ts';
+import { coverageHighlights } from '../data/seoContent';
 
 // No heroData object needed - we'll define the hero content directly in the component
 
@@ -38,100 +39,110 @@ const ctaData = {
 
 const schema = {
     '@context': 'https://schema.org',
-    '@graph': [localBusiness(), webSite()]
+    '@graph': [localBusiness(), webSite(), breadcrumb([{ name: 'Coverage', url: 'coverage' }])]
 };
 ---
 
 <Layout
-    title='Service Coverage Map - Trius LLC Medical Courier Services'
-    description='Explore Trius LLC medical courier coverage across Washington, Oregon, Idaho, Montana, and California. Interactive map with top 10 cities, service levels, and facility locations for STAT deliveries and specialized transport.'
-    image={{ src: "/og-image.png" }}
+    title="Medical Courier Coverage in WA, OR, ID, MT and Northern CA | Trius LLC"
+    description="Explore Trius medical courier coverage across Washington, Oregon, Idaho, Montana, and Northern California. Review state-by-state service areas, major cities, and availability for STAT deliveries, scheduled routes, and equipment transport."
+    image={{ src: '/og-image.png' }}
 >
-    <Fragment slot='head'>
+    <Fragment slot="head">
         <SEO
-            title='Service Coverage Map - Trius LLC Medical Courier Services'
-            description='Explore Trius LLC medical courier coverage across Washington, Oregon, Idaho, Montana, and California. Interactive map with top 10 cities, service levels, and facility locations for STAT deliveries and specialized transport.'
+            title="Medical Courier Coverage in WA, OR, ID, MT and Northern CA | Trius LLC"
+            description="Explore Trius medical courier coverage across Washington, Oregon, Idaho, Montana, and Northern California. Review state-by-state service areas, major cities, and availability for STAT deliveries, scheduled routes, and equipment transport."
             graph={schema}
         />
     </Fragment>
 
     <Hero
-        backgroundImage='/Images/couriour boxes.webp'
-        overlayClass='bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70'
-        minHeight='min-h-[70vh]'
+        backgroundImage="/Images/couriour boxes.webp"
+        overlayClass="bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70"
+        minHeight="min-h-[70vh]"
     >
-        <div class='text-center max-w-5xl mx-auto'>
+        <div class="text-center max-w-5xl mx-auto">
             <!-- Page Badge -->
-            <div class='inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30'>
-                <iconify-icon icon='material-symbols:map' width='24' height='24' style='color: white;'></iconify-icon>
-                <span class='text-white font-bold tracking-wide uppercase'>Coverage Areas</span>
+            <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                <iconify-icon icon="material-symbols:map" width="24" height="24" style="color: white;"></iconify-icon>
+                <span class="text-white font-bold tracking-wide uppercase">Coverage Areas</span>
             </div>
 
             <!-- Main Title -->
-            <h1 class='text-4xl lg:text-6xl font-black text-white mb-6 leading-tight'>Service Coverage Areas</h1>
+            <h1 class="text-4xl lg:text-6xl font-black text-white mb-6 leading-tight">Service Coverage Areas</h1>
 
             <!-- Subtitle -->
-            <div class='flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium'>
-                <span class='flex items-center gap-2'>
-                    <iconify-icon icon='heroicons:map-pin' width='20' height='20'></iconify-icon>
+            <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="heroicons:map-pin" width="20" height="20"></iconify-icon>
                     5 States Covered
                 </span>
-                <span class='flex items-center gap-2'>
-                    <iconify-icon icon='heroicons:building-office-2' width='20' height='20'></iconify-icon>
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="heroicons:building-office-2" width="20" height="20"></iconify-icon>
                     500+ Medical Facilities
                 </span>
-                <span class='flex items-center gap-2'>
-                    <iconify-icon icon='heroicons:clock' width='20' height='20'></iconify-icon>
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="heroicons:clock" width="20" height="20"></iconify-icon>
                     24/7 STAT Service
                 </span>
             </div>
 
             <!-- Description -->
-            <p class='text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed'>
+            <p class="text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed">
                 Explore our service coverage map to discover medical courier services across Washington, Oregon, Idaho, Montana, and
                 Northern California. Click on our coverage areas to learn about service levels and major cities we serve.
             </p>
 
             <!-- Action Buttons -->
-            <div class='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-                <a href='/contact' class='btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300'>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="/contact" class="btn btn-secondary btn-lg px-8 py-4 text-lg font-bold hover:scale-105 transition-all duration-300">
                     Check Availability
                 </a>
                 <a
-                    href='/services'
-                    class='text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2'
+                    href="/services"
+                    class="text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2"
                 >
                     View Our Services
-                    <iconify-icon icon='heroicons:arrow-right' width='20' height='20'></iconify-icon>
+                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20"></iconify-icon>
                 </a>
             </div>
         </div>
     </Hero>
 
-    <section class='py-16 bg-white'>
-        <div class='max-w-7xl mx-auto px-4 lg:px-6'>
-            <div class='grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center rounded-[2rem] border border-slate-200 bg-slate-50/70 p-6 lg:p-8 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.35)]'>
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-6">
+            <div
+                class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center rounded-[2rem] border border-slate-200 bg-slate-50/70 p-6 lg:p-8 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.35)]"
+            >
                 <div>
-                    <div class='inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary'>
-                        <iconify-icon icon='mdi:truck-fast-outline' width='18' height='18'></iconify-icon>
+                    <div
+                        class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary"
+                    >
+                        <iconify-icon icon="mdi:truck-fast-outline" width="18" height="18"></iconify-icon>
                         Regional Operations
                     </div>
-                    <h2 class='mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight'>Coverage Backed by an Active Fleet, Not Just a Map</h2>
-                    <p class='mt-5 text-lg leading-8 text-slate-600 max-w-2xl'>
-                        Our coverage area reflects where Trius is actively operating for healthcare clients across the Pacific Northwest and Northern California.
-                        We support recurring routes, STAT requests, and facility-to-facility handoffs with vehicles already moving in these service regions.
+                    <h2 class="mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+                        Coverage Backed by an Active Fleet, Not Just a Map
+                    </h2>
+                    <p class="mt-5 text-lg leading-8 text-slate-600 max-w-2xl">
+                        Our coverage area reflects where Trius is actively operating for healthcare clients across the Pacific Northwest and
+                        Northern California. We support recurring routes, STAT requests, and facility-to-facility handoffs with vehicles
+                        already moving in these service regions.
                     </p>
                 </div>
 
-                <div class='relative'>
-                    <div class='absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-2xl'></div>
-                    <div class='relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-lg'>
-                        <div class='aspect-[4/3] overflow-hidden rounded-[1.2rem]'>
+                <div class="relative">
+                    <div
+                        class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-2xl"
+                    >
+                    </div>
+                    <div class="relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-lg">
+                        <div class="aspect-[4/3] overflow-hidden rounded-[1.2rem]">
                             <img
-                                src='/Images/trius-van-suburban.webp'
-                                alt='Trius medical courier vehicle operating in the regional service area'
-                                class='w-full h-full object-cover object-center'
-                                loading='lazy'
+                                src="/Images/trius-van-suburban.webp"
+                                alt="Trius medical courier vehicle operating in the regional service area"
+                                class="w-full h-full object-cover object-center"
+                                loading="lazy"
                             />
                         </div>
                     </div>
@@ -141,21 +152,76 @@ const schema = {
     </section>
 
     <!-- Coverage Map Section with Background -->
-    <section class='relative overflow-hidden bg-gray-50'>
+    <section class="relative overflow-hidden bg-gray-50">
         <!-- Desktop Background Image -->
-        <div class='absolute inset-0 opacity-2 hidden lg:block'>
+        <div class="absolute inset-0 opacity-2 hidden lg:block">
             <div
-                class='absolute inset-0'
+                class="absolute inset-0"
                 style='background-image: url("/Images/Courier back.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
             >
             </div>
         </div>
 
         <!-- Mobile/Tablet Simple Background -->
-        <div class='absolute inset-0 lg:hidden bg-gradient-to-br from-gray-50 via-primary/3 to-secondary/3'></div>
+        <div class="absolute inset-0 lg:hidden bg-gradient-to-br from-gray-50 via-primary/3 to-secondary/3"></div>
 
-        <div class='relative z-10'>
+        <div class="relative z-10">
             <InteractiveCoverageMap {...mapData} />
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-6">
+            <div class="text-center max-w-4xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary"
+                >
+                    <iconify-icon icon="heroicons:map" width="18" height="18"></iconify-icon>
+                    Regional Coverage Details
+                </div>
+                <h2 class="mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight">Cities and regions we regularly support</h2>
+                <p class="mt-5 text-lg leading-8 text-slate-600">
+                    Browse the areas where Trius regularly supports healthcare facilities, medical courier routes, STAT requests, and
+                    specialized equipment deliveries.
+                </p>
+            </div>
+
+            <div class="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+                {
+                    coverageHighlights.map((area) => (
+                        <article class="rounded-[1.75rem] border border-slate-200 bg-slate-50/80 p-6 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.35)]">
+                            <div class="flex items-start justify-between gap-4">
+                                <div>
+                                    <h3 class="text-2xl font-black text-slate-900">{area.name}</h3>
+                                    <p class="mt-2 text-sm font-semibold text-primary">{area.serviceLevel}</p>
+                                </div>
+                                <span class="rounded-full bg-white px-3 py-2 text-xs font-bold uppercase tracking-[0.14em] text-slate-600">
+                                    {area.responseTime}
+                                </span>
+                            </div>
+
+                            <p class="mt-4 text-sm leading-6 text-slate-600">{area.description}</p>
+
+                            <ul class="mt-6 flex flex-wrap gap-2">
+                                {area.cities.map((city) => (
+                                    <li>
+                                        <span class="inline-flex rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700">
+                                            {city}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))
+                }
+            </div>
+
+            <div class="mt-10 text-center">
+                <p class="text-base text-slate-600">
+                    Need confirmation for a specific hospital, clinic, laboratory, or surgery center?
+                    <a href="/contact" class="ml-1 font-bold text-primary hover:text-primary-dark">Request coverage details.</a>
+                </p>
+            </div>
         </div>
     </section>
 

@@ -156,7 +156,6 @@ const coverageAreas = {
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
-
     .service-info {
         background: linear-gradient(135deg, rgba(28, 60, 61, 0.9), rgba(47, 133, 90, 0.9));
         color: white;
@@ -264,7 +263,12 @@ const coverageAreas = {
             <span class='px-4 py-2 bg-primary/10 text-primary rounded-full font-medium'>Montana</span>
             <span class='px-4 py-2 bg-primary/10 text-primary rounded-full font-medium'>Northern California</span>
         </div>
-        <a href='/contact' class='inline-block mt-6 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors'>Contact Us for Coverage Details</a>
+        <a
+            href='/contact'
+            class='inline-block mt-6 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors'
+        >
+            Contact Us for Coverage Details
+        </a>
     </div>
 </noscript>
 
@@ -533,7 +537,7 @@ const coverageAreas = {
             }
 
             // Find the state data by key
-            const stateData = Object.values(coverageData).find(state => state.key === stateKey);
+            const stateData = Object.values(coverageData).find((state) => state.key === stateKey);
             if (stateData) {
                 // Fit to the GeoJSON layer bounds
                 const overlay = coverageOverlays[stateKey];
@@ -586,11 +590,15 @@ const coverageAreas = {
                     </div>
                     <h4 class="text-lg font-semibold text-primary mb-3">Cities We Serve</h4>
                     <div class="flex flex-wrap gap-2">
-                        ${stateData.cities.map((city) => `
+                        ${stateData.cities
+                            .map(
+                                (city) => `
                             <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors duration-200">
                                 ${city}
                             </span>
-                        `).join('')}
+                        `
+                            )
+                            .join('')}
                         <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-secondary/10 text-secondary-dark border border-secondary/20 italic">
                             and more...
                         </span>
