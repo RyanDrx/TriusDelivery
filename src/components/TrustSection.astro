@@ -62,12 +62,22 @@ const testimonials = [
                                 class={`testimonial-card testimonial-${testimonial.id} relative rounded-3xl p-8 lg:p-10 border border-white/30 backdrop-blur-sm overflow-hidden`}
                             >
                                 <div
+                                    class={`absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 ${
+                                        testimonial.id === 'zimmer'
+                                            ? "bg-[url('/Images/medical monitor equip.webp')]"
+                                            : testimonial.id === 'stclaire'
+                                              ? "bg-[url('/Images/medical phials.webp')]"
+                                              : "bg-[url('/Images/Courier handoff.webp')]"
+                                    }`}
+                                />
+
+                                <div
                                     class={`absolute inset-0 bg-gradient-to-br ${
                                         testimonial.id === 'zimmer'
-                                            ? 'from-primary/10 via-white/95 to-secondary/5'
+                                            ? 'from-primary/20 via-white/90 to-secondary/10'
                                             : testimonial.id === 'stclaire'
-                                              ? 'from-secondary/10 via-white/95 to-primary/5'
-                                              : 'from-accent/10 via-white/95 to-primary/5'
+                                              ? 'from-secondary/20 via-white/90 to-primary/10'
+                                              : 'from-accent/20 via-white/90 to-primary/10'
                                     } rounded-3xl`}
                                 />
 

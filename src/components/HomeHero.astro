@@ -13,8 +13,12 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
     <!-- Desktop Background with Wave Clip -->
     <WaveClip side='bottom' class='absolute inset-0 -z-20 hidden lg:block'>
         <div class="w-full h-dvh bg-[url('/Images/Courier_back.webp')] bg-cover bg-[center_60%] bg-no-repeat opacity-90"></div>
-        <!-- Single gradient overlay -->
+        <!-- Dynamic gradient overlay with primary/secondary colors -->
         <div class='absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/40 to-secondary/50'></div>
+        <!-- Animated overlay for extra pop -->
+        <div class='absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-primary/30 opacity-80'></div>
+        <!-- Subtle texture overlay -->
+        <div class='absolute inset-0 bg-white/10'></div>
     </WaveClip>
 
     <div class='hero-content text-center w-full relative z-10 pt-6 md:pt-12 pb-12 md:pb-24'>
@@ -28,6 +32,15 @@ const { heading, body, cta, backgroundImage, ...rest } = Astro.props;
                     class='relative bg-white/75 backdrop-blur-md rounded-xl md:rounded-2xl border-2 border-white/50 hover:border-primary/40 hover:bg-white/85 transition-all duration-500 p-6 md:p-8 lg:p-12 animate-fade-in-up shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.16)] overflow-hidden'
                     style='animation-delay: 0.2s;'
                 >
+                    <!-- Subtle Banner Background Texture -->
+                    <div class='absolute inset-0 pointer-events-none'>
+                        <div
+                            class='absolute inset-0'
+                            style='background-image: url("/Banner/TRIUS_BANNER.webp"); background-size: cover; background-repeat: no-repeat; background-position: center; filter: grayscale(100%); opacity: 0.05;'
+                        >
+                        </div>
+                    </div>
+
                     <!-- Subtle gradient overlay for depth -->
                     <div class='absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-secondary/[0.02] pointer-events-none'></div>
 
