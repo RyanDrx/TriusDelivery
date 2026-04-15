@@ -87,10 +87,18 @@ const backgroundStyle = backgroundImage
 
 // Only apply background to main section when not using WaveClip
 const sectionBackgroundStyle = useWaveClip ? '' : backgroundStyle;
+const hasBackgroundImage = Boolean(backgroundImage);
 ---
 
 <section
-    class:list={['hero-section relative overflow-hidden', minHeight, centerContent && 'flex items-center', useWaveClip && 'pb-8', className]}
+    class:list={[
+        'hero-section relative overflow-hidden',
+        minHeight,
+        centerContent && 'flex items-center',
+        useWaveClip && 'pb-8',
+        hasBackgroundImage && 'rounded-[1.75rem] md:rounded-none',
+        className
+    ]}
     style={sectionBackgroundStyle}
     {...rest}
 >

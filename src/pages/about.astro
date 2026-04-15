@@ -8,13 +8,13 @@ import WaveClip from '@components/WaveClip.astro';
 
 const heroData = {
     title: 'About Trius LLC',
-    subtitle: 'Built from Real-World Experience in Medical Logistics',
-    body: 'Founded with a simple mission: to provide reliable, professional, and responsive courier services tailored specifically to the medical and healthcare industry.'
+    subtitle: 'A Medical Courier Company Based in Tacoma, WA',
+    body: 'We started Trius because the courier services hospitals were using kept dropping the ball. Missed windows, no tracking, drivers who didn\'t know a specimen from a package. We figured we could do better.'
 };
 
 const ctaData = {
-    title: 'Partner with Trius LLC Today',
-    body: 'Ready to experience reliable, compliant medical courier services? Contact us to discuss your specific needs and discover how we can improve your medical logistics.',
+    title: 'Want to talk about your routes?',
+    body: 'Call or email. We\'ll put together a quote based on your actual volume, not a pricing calculator.',
     primaryAction: {
         label: 'Request Quote',
         url: '/contact'
@@ -73,25 +73,19 @@ const schema = {
         <div class="max-w-7xl mx-auto px-4 lg:px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">How We Got Here</h2>
                     <p class="text-lg text-gray-600 mb-6">
-                        After years of working in orthopedic operations and logistics, we saw firsthand the gaps in traditional delivery
-                        services&mdash;missed time windows, lack of accountability, and limited understanding of how critical medical
-                        deliveries truly are. Trius LLC was created to bridge that gap.
+                        Kevin spent years in orthopedic operations. He watched courier after courier show up late, lose track of implant trays, or just not understand why a 30-minute delay on a specimen matters. The good services were booked solid. The available ones were unreliable.
                     </p>
                     <p class="text-lg text-gray-600 mb-6">
-                        We specialize in the safe and efficient transportation of medical devices, surgical instruments, and time-sensitive
-                        healthcare materials. Our drivers are trained in industry systems such as SetTrax and Casechek, understand hospital
-                        workflows, and are experienced with everything from routine deliveries to urgent, same-day case support.
+                        So he started Trius out of Tacoma in 2022. Small fleet, tight routes, healthcare only. Every driver gets trained on SetTrax and Casechek before they touch a delivery. They know what SPD is, they know how to check in at a surgical suite, and they know not to stack a tray sideways.
                     </p>
                     <p class="text-lg text-gray-600 mb-8">
-                        With TSA-verified drivers and access to secure facilities including airports and military bases, we provide a level
-                        of reliability our clients can count on.
+                        We're still small and that's on purpose. When you call, you talk to someone who knows your account. When something goes wrong, we fix it the same day.
                     </p>
                     <div class="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg">
                         <p class="text-lg text-gray-700 italic">
-                            "At Trius, we don't just move packages&mdash;we support patient care by ensuring the right equipment gets to the
-                            right place, at the right time."
+                            "Hospitals don't need another delivery app. They need a driver who shows up on time, handles the handoff correctly, and documents everything."
                         </p>
                     </div>
                 </div>
@@ -112,8 +106,7 @@ const schema = {
                             <h4 class="font-semibold text-gray-900 text-lg">Kevin Hyatt</h4>
                             <p class="text-sm text-gray-600">Founder</p>
                             <p class="text-sm text-gray-500 mt-2">
-                                With years of experience in orthopedic operations and logistics, Kevin founded Trius LLC to deliver the
-                                reliability and accountability that medical professionals deserve.
+                                Background in orthopedic operations and medical device logistics. Started Trius in 2022 after seeing too many missed deliveries cost surgical teams time they didn't have.
                             </p>
                         </div>
                     </div>
@@ -177,66 +170,42 @@ const schema = {
         </div>
     </section>
 
-    <!-- Mission & Values -->
+    <!-- How We Work -->
     <section class="py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5">
         <div class="max-w-7xl mx-auto px-4 lg:px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Mission & Values</h2>
-                <p class="text-xl text-gray-600">What drives us every day</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How We Actually Work</h2>
+                <p class="text-xl text-gray-600">Three things we care about. Everything else follows.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-sm text-center">
                     <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                            >
-                            </path>
-                        </svg>
+                        <iconify-icon icon="heroicons:clock" width="32" height="32" class="text-primary"></iconify-icon>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Reliability First</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Show Up On Time</h3>
                     <p class="text-gray-600">
-                        We understand that medical logistics can be life-critical. Our commitment to reliability means your shipments arrive
-                        on time, every time, with complete chain-of-custody documentation.
+                        If the pickup window is 2:15, we're there at 2:10. Surgical schedules don't flex because a driver hit traffic.
+                        We plan for that.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm text-center">
                     <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                            >
-                            </path>
-                        </svg>
+                        <iconify-icon icon="heroicons:document-check" width="32" height="32" class="text-primary"></iconify-icon>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Compliance Focused</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Document Everything</h3>
                     <p class="text-gray-600">
-                        Regulatory compliance is our foundation. We maintain the highest standards for secure handling of medical specimens
-                        and equipment, with ongoing training for every courier.
+                        Chain of custody, photo verification, temperature logs when needed. If something goes sideways, there's a paper
+                        trail. That's the point.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm text-center">
                     <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                            >
-                            </path>
-                        </svg>
+                        <iconify-icon icon="heroicons:phone" width="32" height="32" class="text-primary"></iconify-icon>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Technology Driven</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Pick Up the Phone</h3>
                     <p class="text-gray-600">
-                        Real-time tracking, digital documentation, and automated notifications keep you informed every step of the way.
-                        Modern technology for modern healthcare.
+                        You call, a real person answers. Not a menu, not a chatbot, not a callback in 24 hours. We answer because that's
+                        what matters when a case is on the line.
                     </p>
                 </div>
             </div>
