@@ -53,7 +53,7 @@ const testimonials = [
         <div class="testimonial-slideshow mb-16 max-w-4xl mx-auto relative" data-animate="fade-in-up">
             <!-- Left Arrow -->
             <button
-                class="nav-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 lg:-translate-x-6 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
+                class="nav-prev absolute left-3 lg:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md backdrop-blur-sm"
                 aria-label="Previous testimonial"
             >
                 <iconify-icon icon="lucide:chevron-left" width="20" height="20" class="text-slate-700" stroke-width="2"></iconify-icon>
@@ -61,7 +61,7 @@ const testimonials = [
 
             <!-- Right Arrow -->
             <button
-                class="nav-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 lg:translate-x-6 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
+                class="nav-next absolute right-3 lg:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md backdrop-blur-sm"
                 aria-label="Next testimonial"
             >
                 <iconify-icon icon="lucide:chevron-right" width="20" height="20" class="text-slate-700" stroke-width="2"></iconify-icon>
@@ -474,13 +474,12 @@ const testimonials = [
         -moz-user-select: none;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
-        overflow: visible;
     }
 
     .testimonial-container {
         position: relative;
         min-height: 350px;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .testimonial-slide {
