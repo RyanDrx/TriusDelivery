@@ -1,5 +1,5 @@
 ---
-import { marked } from 'marked';
+import { safeMarkdown } from '@utils/markdown';
 import { type Footer } from 'types';
 
 interface Props extends Footer {
@@ -306,7 +306,7 @@ const { text, 'data-sb-field-path': fieldPath } = Astro.props;
                 <div
                     class="mt-8 text-center text-white/80 prose prose-invert max-w-none"
                     data-sb-field-path=".text"
-                    set:html={marked.parse(text)}
+                    set:html={safeMarkdown(text)}
                 />
             )
         }
