@@ -23,7 +23,7 @@ export const WEBSITE_ID = ORIGIN + '#website';
 // Optional shared contact info
 export const DISPATCH_EMAIL = 'Triusllccouriers@outlook.com';
 export const SALES_EMAIL = 'Triusllccouriers@outlook.com';
-export const MAIN_PHONE = '+1-800-TRIUS-911';
+export const MAIN_PHONE = '+1-253-426-9546';
 
 // ---- Node builders
 
