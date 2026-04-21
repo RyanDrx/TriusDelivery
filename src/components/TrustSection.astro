@@ -7,611 +7,101 @@ interface Props {
 
 const { 'data-sb-field-path': fieldPath } = Astro.props;
 
-// Testimonials data - separated from layout
 const testimonials = [
     {
-        id: 'sales',
         quote: 'Trius LLC has been a huge asset to my work as a sales rep. Knowing that my instrument trays and implants are picked up and delivered on time means I can focus on my surgeons and their cases instead of worrying about logistics. Having real-time tracking has been a game changer.',
         author: 'Sales Representative',
         company: 'Medical Device Sales',
-        initial: 'R',
-        icon: 'heroicons:briefcase',
-        color: 'accent'
+        initial: 'R'
     },
     {
-        id: 'zimmer',
         quote: "Working with Trius LLC has been a game-changer for our practice. Their team is always on time, professional, and communicates clearly every step of the way. The real-time tracking and photo verification are features we didn't know we needed, but now can't imagine being without.",
         author: 'Operations Manager',
         company: 'ZimmerBiomet Orthopedics',
-        initial: 'Z',
-        icon: 'heroicons:star-solid',
-        color: 'primary'
+        initial: 'Z'
     },
     {
-        id: 'stclaire',
         quote: 'Trius LLC has made a tremendous difference in how we manage our surgical instrument trays. Their drivers understand the importance of sterile processing. Everything is scanned, documented, and tracked with precision. Thanks to Trius LLC, our SPD can focus on quality and turnaround instead of chasing down deliveries.',
         author: 'SPD Staff',
         company: 'St. Claire Hospital',
-        initial: 'S',
-        icon: 'heroicons:chart-bar',
-        color: 'secondary'
+        initial: 'S'
     }
 ];
 ---
 
-<Section class="py-14 lg:py-18" data-sb-field-path={fieldPath}>
-    <div class="max-w-5xl mx-auto px-6">
+<Section class="py-14 lg:py-20 bg-base-200" data-sb-field-path={fieldPath}>
+    <div class="max-w-6xl mx-auto px-6">
         <!-- Section Header -->
-        <div class="text-center mb-16" data-animate="fade-in-up">
-            <h2 class="text-4xl lg:text-5xl font-bold text-neutral-dark mb-5 leading-tight">Trusted by Healthcare Professionals</h2>
-            <p class="text-lg text-neutral max-w-2xl mx-auto leading-relaxed">
-                Healthcare organizations across the Pacific Northwest rely on Trius for secure, compliant, and timely medical deliveries.
+        <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-bold text-neutral-dark mb-4">What Our Clients Say</h2>
+            <p class="text-base text-neutral max-w-xl mx-auto">
+                Healthcare professionals across the Pacific Northwest trust Trius for reliable medical deliveries.
             </p>
         </div>
 
-        <!-- Testimonial Slideshow -->
-        <div class="testimonial-slideshow mb-16 max-w-4xl mx-auto relative" data-animate="fade-in-up">
-            <!-- Left Arrow -->
-            <button
-                class="nav-prev absolute left-3 lg:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md backdrop-blur-sm"
-                aria-label="Previous testimonial"
-            >
-                <iconify-icon icon="lucide:chevron-left" width="20" height="20" class="text-slate-700" stroke-width="2"></iconify-icon>
-            </button>
+        <!-- Testimonial Cards Grid -->
+        <div class="grid gap-8 md:grid-cols-3">
+            {testimonials.map((t) => (
+                <div class="testimonial-card bg-white rounded-xl p-6 lg:p-8 border border-base-300 flex flex-col">
+                    <!-- Star Rating -->
+                    <div class="flex gap-0.5 mb-4 text-amber-400" aria-label="5 out of 5 stars">
+                        {[...Array(5)].map(() => (
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.176 0l-3.37 2.448c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
+                            </svg>
+                        ))}
+                    </div>
 
-            <!-- Right Arrow -->
-            <button
-                class="nav-next absolute right-3 lg:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 border border-slate-200 hover:border-slate-400 flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md backdrop-blur-sm"
-                aria-label="Next testimonial"
-            >
-                <iconify-icon icon="lucide:chevron-right" width="20" height="20" class="text-slate-700" stroke-width="2"></iconify-icon>
-            </button>
+                    <!-- Quote -->
+                    <blockquote class="text-neutral-dark text-[0.95rem] leading-relaxed flex-1 mb-6">
+                        &ldquo;{t.quote}&rdquo;
+                    </blockquote>
 
-            <div class="testimonial-container relative">
-                {
-                    testimonials.map((testimonial, index) => (
-                        <div
-                            class={`testimonial-slide absolute inset-0 transition-all duration-500 ${index === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
-                            data-slide={index}
-                        >
-                            <div
-                                class={`testimonial-card testimonial-${testimonial.id} relative rounded-3xl p-8 lg:p-10 border border-slate-200/80 backdrop-blur-sm overflow-hidden min-h-[360px] lg:min-h-[380px]`}
-                            >
-                                <div
-                                    class={`absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.08] ${
-                                        testimonial.id === 'zimmer'
-                                            ? "bg-[url('/Images/medical monitor equip.webp')]"
-                                            : testimonial.id === 'stclaire'
-                                              ? "bg-[url('/Images/medical phials.webp')]"
-                                              : "bg-[url('/Images/Courier handoff.webp')]"
-                                    }`}
-                                />
-
-                                <div
-                                    class={`absolute inset-0 bg-gradient-to-br ${
-                                        testimonial.id === 'zimmer'
-                                            ? 'from-primary/10 via-white/95 to-secondary/5'
-                                            : testimonial.id === 'stclaire'
-                                              ? 'from-secondary/10 via-white/95 to-primary/5'
-                                              : 'from-accent/10 via-white/95 to-primary/5'
-                                    } rounded-3xl`}
-                                />
-
-                                <div class="relative z-10 text-center h-full flex flex-col">
-                                    <div class="flex items-center justify-center gap-3 mb-7">
-                                        <div
-                                            class:list={[
-                                                'inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.18em]',
-                                                testimonial.color === 'primary'
-                                                    ? 'border-primary/20 bg-primary/10 text-primary'
-                                                    : testimonial.color === 'secondary'
-                                                      ? 'border-secondary/20 bg-secondary/10 text-secondary-dark'
-                                                      : 'border-accent/20 bg-accent/10 text-accent'
-                                            ]}
-                                        >
-                                            <iconify-icon icon={testimonial.icon} width="16" height="16" />
-                                            {testimonial.author}
-                                        </div>
-                                        <div class="hidden sm:flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/75 px-3 py-2 text-xs font-semibold text-slate-500">
-                                            <span class="h-1.5 w-1.5 rounded-full bg-secondary-dark" />
-                                            Verified Client Feedback
-                                        </div>
-                                    </div>
-
-                                    <blockquote
-                                        class="text-slate-800 text-lg lg:text-[1.2rem] leading-relaxed max-w-2xl mx-auto font-medium min-h-[156px] flex-1"
-                                        cite={testimonial.author}
-                                    >
-                                        <span class="text-3xl leading-none align-top text-slate-300 mr-1">"</span>
-                                        {testimonial.quote}
-                                        <span class="text-3xl leading-none align-bottom text-slate-300 ml-1">"</span>
-                                    </blockquote>
-
-                                    <div class="flex items-center justify-center mt-8">
-                                        <div class="flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-white/80 px-5 py-4 shadow-[0_12px_32px_-24px_rgba(15,23,42,0.35)]">
-                                            <div
-                                                class:list={[
-                                                    'flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-black',
-                                                    testimonial.color === 'primary'
-                                                        ? 'bg-primary text-white'
-                                                        : testimonial.color === 'secondary'
-                                                          ? 'bg-secondary text-white'
-                                                          : 'bg-accent text-white'
-                                                ]}
-                                            >
-                                                {testimonial.initial}
-                                            </div>
-                                            <div class="text-left">
-                                                <div class="font-bold text-slate-900">{testimonial.author}</div>
-                                                <div class="text-sm text-slate-600 font-medium">{testimonial.company}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Author -->
+                    <div class="flex items-center gap-3 pt-4 border-t border-base-300">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
+                            {t.initial}
                         </div>
-                    ))
-                }
-            </div>
+                        <div>
+                            <div class="font-semibold text-neutral-dark text-sm">{t.author}</div>
+                            <div class="text-xs text-neutral">{t.company}</div>
+                        </div>
+                    </div>
+                </div>
+            ))}
         </div>
 
         <!-- Trust Stats -->
-        <div class="stats-container bg-white rounded-2xl p-6 lg:p-8 border border-neutral-light hidden md:block" data-animate="fade-in-up">
-            <div class="grid md:grid-cols-3 gap-6 text-center">
-                <div class="stat-item">
-                    <iconify-icon icon="lucide:clock" width="24" height="24" class="text-secondary-dark mx-auto mb-4" stroke-width="1.5"
-                    ></iconify-icon>
-                    <div class="stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums">99.9%</div>
-                    <div class="text-base text-neutral">On-time</div>
-                </div>
-
-                <div class="stat-item">
-                    <iconify-icon icon="lucide:phone" width="24" height="24" class="text-neutral-dark mx-auto mb-4" stroke-width="1.5"
-                    ></iconify-icon>
-                    <div class="stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums">24/7</div>
-                    <div class="text-base text-neutral">Response</div>
-                </div>
-
-                <div class="stat-item">
-                    <iconify-icon
-                        icon="lucide:shield-check"
-                        width="24"
-                        height="24"
-                        class="text-secondary-dark mx-auto mb-4"
-                        stroke-width="1.5"></iconify-icon>
-                    <div class="stat-number text-4xl font-bold text-neutral-dark mb-1 font-mono tabular-nums">100%</div>
-                    <div class="text-base text-neutral">Secure</div>
-                </div>
+        <div class="grid grid-cols-3 gap-6 mt-12 max-w-2xl mx-auto text-center">
+            <div>
+                <div class="text-2xl lg:text-3xl font-bold text-primary">99.9%</div>
+                <div class="text-sm text-neutral mt-1">On-Time</div>
+            </div>
+            <div>
+                <div class="text-2xl lg:text-3xl font-bold text-primary">24/7</div>
+                <div class="text-sm text-neutral mt-1">Support</div>
+            </div>
+            <div>
+                <div class="text-2xl lg:text-3xl font-bold text-primary">100%</div>
+                <div class="text-sm text-neutral mt-1">Secure</div>
             </div>
         </div>
     </div>
 </Section>
 
-<script>
-    // Smooth scroll animation with Intersection Observer
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -10% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1]
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const target = entry.target as HTMLElement;
-            const animationType = target.getAttribute('data-animate');
-
-            if (entry.isIntersecting) {
-                if (animationType === 'fade-in-up') {
-                    target.classList.add('animate-fade-in-up');
-                } else if (animationType === 'stagger-up') {
-                    const children = target.children;
-                    Array.from(children).forEach((child, index) => {
-                        setTimeout(() => {
-                            (child as HTMLElement).classList.add('animate-fade-in-up');
-                        }, index * 200);
-                    });
-                }
-            }
-        });
-    }, observerOptions);
-
-    // Testimonial slideshow functionality
-    class TestimonialSlideshow {
-        private container: HTMLElement | null;
-        private slides: NodeListOf<Element>;
-        private prevBtn: HTMLElement | null;
-        private nextBtn: HTMLElement | null;
-        private currentSlide: number;
-
-        constructor() {
-            this.container = document.querySelector('.testimonial-slideshow');
-            this.slides = document.querySelectorAll('.testimonial-slide');
-            this.prevBtn = document.querySelector('.nav-prev');
-            this.nextBtn = document.querySelector('.nav-next');
-            this.currentSlide = 0;
-
-            if (this.container && this.slides.length > 0) {
-                this.init();
-            }
-        }
-
-        private init(): void {
-            this.showSlide(this.currentSlide);
-
-            // Set up navigation buttons
-            if (this.prevBtn) {
-                this.prevBtn.addEventListener('click', () => this.previousSlide());
-            }
-            if (this.nextBtn) {
-                this.nextBtn.addEventListener('click', () => this.nextSlide());
-            }
-
-            // Add keyboard navigation
-            this.initKeyboardEvents();
-
-            // Add touch/swipe support for mobile
-            this.initTouchEvents();
-        }
-
-        private initKeyboardEvents(): void {
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    this.previousSlide();
-                } else if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    this.nextSlide();
-                }
-            });
-        }
-
-        private initTouchEvents(): void {
-            if (!this.container) return;
-
-            let startX = 0;
-            let startY = 0;
-            let distX = 0;
-            let distY = 0;
-
-            this.container.addEventListener(
-                'touchstart',
-                (e) => {
-                    const touch = e.touches[0];
-                    startX = touch.pageX;
-                    startY = touch.pageY;
-                },
-                { passive: true }
-            );
-
-            this.container.addEventListener('touchmove', (e) => {
-                e.preventDefault(); // Prevent scrolling while swiping
-                const touch = e.touches[0];
-                distX = touch.pageX - startX;
-                distY = touch.pageY - startY;
-            });
-
-            this.container.addEventListener(
-                'touchend',
-                () => {
-                    // Only trigger if horizontal swipe is more prominent than vertical
-                    if (Math.abs(distX) > Math.abs(distY) && Math.abs(distX) > 50) {
-                        if (distX > 0) {
-                            // Swipe right - previous slide
-                            this.previousSlide();
-                        } else {
-                            // Swipe left - next slide
-                            this.nextSlide();
-                        }
-                    }
-                    // Reset values
-                    startX = 0;
-                    startY = 0;
-                    distX = 0;
-                    distY = 0;
-                },
-                { passive: true }
-            );
-        }
-
-        private showSlide(index: number): void {
-            this.slides.forEach((slide, i) => {
-                const slideEl = slide as HTMLElement;
-                if (i === index) {
-                    slideEl.classList.remove('opacity-0', 'translate-x-full', 'translate-x-[-100%]');
-                    slideEl.classList.add('opacity-100', 'translate-x-0');
-                } else {
-                    slideEl.classList.remove('opacity-100', 'translate-x-0');
-                    if (i < index) {
-                        slideEl.classList.add('opacity-0', 'translate-x-[-100%]');
-                        slideEl.classList.remove('translate-x-full');
-                    } else {
-                        slideEl.classList.add('opacity-0', 'translate-x-full');
-                        slideEl.classList.remove('translate-x-[-100%]');
-                    }
-                }
-            });
-
-            // Update button states
-            this.updateNavButtons();
-        }
-
-        private updateNavButtons(): void {
-            if (this.prevBtn) {
-                (this.prevBtn as HTMLButtonElement).disabled = this.currentSlide === 0;
-            }
-            if (this.nextBtn) {
-                (this.nextBtn as HTMLButtonElement).disabled = this.currentSlide === this.slides.length - 1;
-            }
-        }
-
-        private previousSlide(): void {
-            if (this.currentSlide > 0) {
-                this.currentSlide--;
-                this.showSlide(this.currentSlide);
-            }
-        }
-
-        private nextSlide(): void {
-            if (this.currentSlide < this.slides.length - 1) {
-                this.currentSlide++;
-                this.showSlide(this.currentSlide);
-            }
-        }
-    }
-
-    // Wait for DOM to be fully loaded
-    document.addEventListener('DOMContentLoaded', () => {
-        // Initialize testimonial slideshow
-        new TestimonialSlideshow();
-
-        // Observe elements with animation attributes
-        const animatedElements = document.querySelectorAll('[data-animate]');
-        animatedElements.forEach((el) => observer.observe(el));
-
-        // Counter animation for stats
-        const animateCounters = () => {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach((counter) => {
-                const target = counter.textContent;
-                if (!target) return;
-
-                const isPercentage = target.includes('%');
-                const isPlus = target.includes('+');
-                const isSlash = target.includes('/');
-
-                let finalValue;
-                let suffix = '';
-
-                if (isPercentage) {
-                    finalValue = parseFloat(target);
-                    suffix = '%';
-                } else if (isPlus) {
-                    finalValue = parseInt(target);
-                    suffix = '+';
-                } else if (isSlash) {
-                    counter.textContent = target; // Keep as is for "24/7"
-                    return;
-                } else {
-                    finalValue = parseInt(target);
-                }
-
-                let currentValue = 0;
-                const increment = finalValue / 100;
-                const duration = 2000; // 2 seconds
-                const stepTime = duration / 100;
-
-                const timer = setInterval(() => {
-                    currentValue += increment;
-                    if (currentValue >= finalValue) {
-                        counter.textContent = finalValue + suffix;
-                        clearInterval(timer as any);
-                    } else {
-                        counter.textContent = Math.floor(currentValue) + suffix;
-                    }
-                }, stepTime);
-            });
-        };
-
-        // Trigger counter animation when stats section is visible
-        const statsContainer = document.querySelector('.stats-container');
-        if (statsContainer) {
-            const statsObserver = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            animateCounters();
-                            statsObserver.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.5 }
-            );
-
-            statsObserver.observe(statsContainer);
-        }
-    });
-</script>
-
 <style>
-    /* Animation Keyframes */
-    @keyframes fade-in-up {
-        0% {
-            opacity: 0;
-            transform: translateY(40px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes scale-in {
-        0% {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    /* Apply animations */
-    .animate-fade-in-up {
-        opacity: 0;
-        animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
-    .animate-scale-in {
-        opacity: 0;
-        animation: scale-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
-    /* Testimonial Slideshow */
-    .testimonial-slideshow {
-        position: relative;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    .testimonial-container {
-        position: relative;
-        min-height: 350px;
-        overflow: hidden;
-    }
-
-    .testimonial-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        transition: all 0.25s ease-out;
-    }
-
-    /* Navigation Controls */
-    .nav-prev,
-    .nav-next {
-        transition: all 0.15s ease;
-        z-index: 10;
-    }
-
-    .nav-prev:hover:not(:disabled),
-    .nav-next:hover:not(:disabled) {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Testimonial Cards */
     .testimonial-card {
-        position: relative;
-        transition:
-            transform 0.15s ease,
-            box-shadow 0.15s ease;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Custom scrollbar for blockquote */
-    .testimonial-card blockquote {
-        scrollbar-width: thin;
-        scrollbar-color: #d1d5db transparent;
-    }
-
-    .testimonial-card blockquote::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    .testimonial-card blockquote::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    .testimonial-card blockquote::-webkit-scrollbar-thumb {
-        background-color: #d1d5db;
-        border-radius: 3px;
-        transition: background-color 0.2s ease;
-    }
-
-    .testimonial-card blockquote::-webkit-scrollbar-thumb:hover {
-        background-color: #9ca3af;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        transition: box-shadow 0.2s ease;
     }
 
     .testimonial-card:hover {
-        transform: scale(1.01);
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* Stats Container */
-    .stats-container {
-        transition:
-            transform 0.15s ease,
-            box-shadow 0.15s ease;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Stat Items */
-    .stat-item {
-        position: relative;
-    }
-
-    .stat-number {
-        font-feature-settings: 'tnum';
-        line-height: 1;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .testimonial-container {
-            min-height: 380px;
-        }
-
-        .testimonial-card {
-            padding: 1.5rem 1.5rem 2rem 1.5rem;
-        }
-
-        .stats-container {
-            padding: 1.5rem;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-        }
-    }
-
-    /* Smooth transitions for all interactive elements */
-    * {
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Reduced motion preferences */
     @media (prefers-reduced-motion: reduce) {
-        .animate-fade-in-up,
-        .animate-scale-in {
-            opacity: 1;
-            transform: none;
-            animation: none;
-        }
-
-        .testimonial-card:hover,
-        .stat-item:hover {
-            transform: none;
-        }
-
-        .testimonial-slide {
-            transform: none !important;
-        }
-    }
-
-    /* High contrast mode support */
-    @media (prefers-contrast: high) {
-        .testimonial-card,
-        .stats-container {
-            border-width: 3px;
-            border-color: currentColor;
-        }
-
-        .trust-bg-pattern {
-            display: none;
+        .testimonial-card {
+            transition: none;
         }
     }
 </style>
