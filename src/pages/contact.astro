@@ -4,7 +4,7 @@ import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Section from '@components/Section.astro';
 import WaveClip from '@components/WaveClip.astro';
-import { localBusiness, webSite, breadcrumb } from '../lib/schema.ts';
+import { graphContact } from '../lib/schema.ts';
 
 const formData = {
     _type: 'section',
@@ -13,22 +13,7 @@ const formData = {
     body: 'Complete this form to receive a customized quote for your medical courier needs. We will respond within 24 hours.'
 };
 
-const schema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-        localBusiness(),
-        webSite(),
-        {
-            '@type': 'ContactPage',
-            '@id': 'https://trius.delivery/contact',
-            url: 'https://trius.delivery/contact',
-            name: 'Contact Us - Trius LLC Medical Courier Services',
-            isPartOf: { '@id': 'https://trius.delivery/#website' },
-            about: { '@id': 'https://trius.delivery/#org' }
-        },
-        breadcrumb([{ name: 'Contact', url: 'contact' }])
-    ]
-};
+const schema = graphContact();
 ---
 
 <Layout

@@ -5,7 +5,7 @@ import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import FeatureCard from '@components/FeatureCard.astro';
 import ComplianceCard from '@components/ComplianceCard.astro';
-import { localBusiness, webSite, serviceStat, serviceRoutes, serviceEquipment, breadcrumb } from '../lib/schema.ts';
+import { graphServices } from '../lib/schema.ts';
 import WaveClip from '@components/WaveClip.astro';
 
 const ctaData = {
@@ -65,17 +65,7 @@ const shipmentTypes = [
     'Urgent same-day medical courier requests'
 ];
 
-const schema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-        localBusiness(),
-        webSite(),
-        serviceStat(),
-        serviceRoutes(),
-        serviceEquipment(),
-        breadcrumb([{ name: 'Services', url: 'services' }])
-    ]
-};
+const schema = graphServices();
 ---
 
 <Layout

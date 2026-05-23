@@ -1,24 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
-import { breadcrumb } from '../lib/schema.ts';
+import { graphLegal } from '../lib/schema.ts';
 
-const schema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-        {
-            '@type': 'WebPage',
-            '@id': 'https://trius.delivery/terms',
-            url: 'https://trius.delivery/terms',
-            name: 'Terms of Service | Trius LLC',
-            description:
-                'Terms of service for Trius LLC medical courier services. Learn about our service terms, liability, and operational policies.',
-            isPartOf: { '@id': 'https://trius.delivery/#website' },
-            about: { '@id': 'https://trius.delivery/#org' }
-        },
-        breadcrumb([{ name: 'Terms of Service', url: 'terms' }])
-    ]
-};
+const schema = graphLegal(
+    'terms',
+    'Terms of Service | Trius LLC',
+    'Terms of service for Trius LLC medical courier services. Learn about our service terms, liability, and operational policies.'
+);
 ---
 
 <Layout

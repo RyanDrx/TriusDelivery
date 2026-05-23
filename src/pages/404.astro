@@ -1,11 +1,23 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import SEO from '@components/SEO.astro';
+import { graphNotFound } from '../lib/schema.ts';
+
+const schema = graphNotFound();
 ---
 
 <Layout
     title='Page Not Found - Trius LLC'
     description='The page you requested could not be found. Return to Trius LLC for reliable medical courier services.'
 >
+    <Fragment slot="head">
+        <SEO
+            title="Page Not Found - Trius LLC"
+            description="The page you requested could not be found. Return to Trius LLC for reliable medical courier services."
+            graph={schema}
+            noindex
+        />
+    </Fragment>
     <section class='min-h-[70vh] flex items-center justify-center px-4'>
         <div class='text-center max-w-2xl'>
             <p class='text-8xl font-black text-primary/20 mb-4'>404</p>

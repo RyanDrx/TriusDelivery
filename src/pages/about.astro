@@ -3,7 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
-import { localBusiness, webSite, founder, breadcrumb } from '../lib/schema';
+import { graphAbout } from '../lib/schema';
 import WaveClip from '@components/WaveClip.astro';
 
 const heroData = {
@@ -25,10 +25,7 @@ const ctaData = {
     }
 };
 
-const schema = {
-    '@context': 'https://schema.org',
-    '@graph': [localBusiness(), webSite(), founder(), breadcrumb([{ name: 'About', url: 'about' }])]
-};
+const schema = graphAbout();
 ---
 
 <Layout

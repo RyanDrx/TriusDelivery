@@ -4,7 +4,7 @@ import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import InteractiveCoverageMap from '@components/InteractiveCoverageMap.astro';
-import { localBusiness, webSite, breadcrumb } from '../lib/schema.ts';
+import { graphCoverage } from '../lib/schema.ts';
 import { coverageHighlights } from '../data/seoContent';
 
 // No heroData object needed - we'll define the hero content directly in the component
@@ -37,10 +37,7 @@ const ctaData = {
     ]
 };
 
-const schema = {
-    '@context': 'https://schema.org',
-    '@graph': [localBusiness(), webSite(), breadcrumb([{ name: 'Coverage', url: 'coverage' }])]
-};
+const schema = graphCoverage();
 ---
 
 <Layout
