@@ -166,6 +166,14 @@ function formatCanonicalURL(url: string | URL) {
         <meta property="twitter:description" content={description} />
         {resolvedImage?.src && <meta property="twitter:image" content={resolvedImage.src} />}
 
+        <!-- Ahrefs Web Analytics -->
+        <script
+            is:inline
+            src="https://analytics.ahrefs.com/analytics.js"
+            data-key="N51vJ+2paIve3w9U7pT+aw"
+            async
+        ></script>
+
         <!-- Additional head content from pages -->
         <slot name="head" />
     </head>
