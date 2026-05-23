@@ -28,7 +28,7 @@ export const FOUNDER_ID = ORIGIN + '#kevin-hyatt';
 // Optional shared contact info
 export const DISPATCH_EMAIL = 'Triusllccouriers@outlook.com';
 export const SALES_EMAIL = 'Triusllccouriers@outlook.com';
-export const MAIN_PHONE = '+1-253-426-9546';
+export const MAIN_PHONE = '+1-253-231-0615';
 
 // ---- Node builders
 
