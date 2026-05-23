@@ -256,8 +256,54 @@ const schema = graphHome();
 
     <TrustSection />
 
-    <section class="py-16 md:py-24 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6">
+    <section class="relative py-16 md:py-24 lg:py-28 bg-white overflow-hidden">
+        <!-- Desktop WaveClip background — brand signature on the Coverage section -->
+        <WaveClip
+            side="both"
+            amplitude={1.6}
+            baseline={95}
+            waves={1.4}
+            phase={0}
+            samples={36}
+            topBaseline={5}
+            topAmplitude={1.2}
+            topPhase={0}
+            class="absolute inset-0 hidden md:block pointer-events-none"
+        >
+            <div
+                class="absolute inset-0"
+                style='background-image: url("/Images/med package.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+            >
+            </div>
+            <!-- Heavy white overlay so the photo reads only as a faint tonal texture, not competing with text -->
+            <div class="absolute inset-0 bg-white/97"></div>
+            <div
+                aria-hidden="true"
+                class="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-white"
+            >
+            </div>
+        </WaveClip>
+
+        <!-- Mobile simple background -->
+        <div
+            aria-hidden="true"
+            class="absolute inset-0 md:hidden bg-gradient-to-br from-white via-primary/[0.04] to-secondary/[0.04] pointer-events-none"
+        >
+        </div>
+
+        <!-- Subtle brand radial accents -->
+        <div
+            aria-hidden="true"
+            class="absolute -top-32 right-0 w-[40rem] h-[20rem] bg-[radial-gradient(ellipse_at_top_right,rgba(14,112,164,0.08),transparent_65%)] pointer-events-none"
+        >
+        </div>
+        <div
+            aria-hidden="true"
+            class="absolute -bottom-32 left-0 w-[40rem] h-[20rem] bg-[radial-gradient(ellipse_at_bottom_left,rgba(95,168,67,0.06),transparent_65%)] pointer-events-none"
+        >
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 lg:px-6">
             <!-- Section header -->
             <header class="mb-12 lg:mb-16 max-w-2xl">
                 <div class="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.22em] text-primary mb-5">
