@@ -12,8 +12,12 @@ import type {
     GeoCoordinates,
     ContactPoint,
     Person,
+    State,
+    City,
+    FAQPage,
+    ContactPage,
 } from 'schema-dts';
-import { homeFaqs } from '../data/seoContent';
+import { homeFaqs, equipmentFaqs, routesFaqs, statFaqs, coverageHighlights } from '../data/seoContent';
 
 // ---- Site constants
 export const ORIGIN = 'https://trius.delivery/';
