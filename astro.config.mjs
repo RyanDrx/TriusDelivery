@@ -19,7 +19,11 @@ export default defineConfig({
         sitemap({
             changefreq: 'weekly',
             priority: 0.7,
-            lastmod: new Date()
+            lastmod: new Date(),
+            // Pages that should not be advertised to crawlers:
+            // - /thanks: post-submission page, already noindex
+            // - /404: error route, already noindex
+            filter: (page) => !page.includes('/thanks') && !page.includes('/404')
         }),
         // Only add Sanity integration if projectId is properly configured
         sanityConfig.projectId !== 'placeholder-project-id' ? sanity(sanityConfig) : null

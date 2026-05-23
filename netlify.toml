@@ -1,6 +1,13 @@
 [dev]
   targetPort = 3000
 
+# Redirect the conventional /sitemap.xml path to the generated sitemap index
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
