@@ -32,7 +32,7 @@ export const statFaqs = [
     },
     {
         question: 'Is STAT service available 24/7?',
-        answer: 'Yes. The Trius STAT line at (253) 426-9546 is staffed 24 hours a day, 7 days a week, 365 days a year. A real person answers, not a menu or callback queue, because middle-of-the-night STAT cases cannot wait.'
+        answer: 'Yes. The Trius STAT line at (253) 231-0615 is staffed 24 hours a day, 7 days a week, 365 days a year. A real person answers, not a menu or callback queue, because middle-of-the-night STAT cases cannot wait.'
     },
     {
         question: 'How is STAT delivery priced compared to scheduled service?',

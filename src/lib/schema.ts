@@ -536,6 +536,18 @@ export function graphNotFound(): Graph {
     );
 }
 
+export function graphThanks(): Graph {
+    return withGraph(
+        localBusiness(),
+        webSite(),
+        webPage({
+            path: 'thanks',
+            name: 'Request Received | Trius LLC',
+            description: 'Your medical courier quote request was received. Trius LLC will respond within 24 hours. For urgent STAT pickups, call (253) 231-0615.'
+        })
+    );
+}
+
 // ---- Utilities
 
 function withGraph(

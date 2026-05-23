@@ -138,6 +138,7 @@ const schema = graphContact();
                     <form
                         name="contact"
                         method="POST"
+                        action="/thanks/"
                         data-netlify="true"
                         netlify-honeypot="bot-field"
                         class="space-y-4 bg-base-100 p-6 rounded-2xl shadow-lg"
@@ -153,6 +154,7 @@ const schema = graphContact();
                                     type="text"
                                     id="name"
                                     name="name"
+                                    autocomplete="name"
                                     required
                                     class="input input-bordered w-full"
                                     placeholder="Your full name"
@@ -167,6 +169,7 @@ const schema = graphContact();
                                     type="text"
                                     id="company"
                                     name="company"
+                                    autocomplete="organization"
                                     required
                                     class="input input-bordered w-full"
                                     placeholder="Hospital, clinic, lab, etc."
@@ -183,6 +186,7 @@ const schema = graphContact();
                                     type="email"
                                     id="email"
                                     name="email"
+                                    autocomplete="email"
                                     required
                                     class="input input-bordered w-full"
                                     placeholder="your@email.com"
@@ -197,6 +201,7 @@ const schema = graphContact();
                                     type="tel"
                                     id="phone"
                                     name="phone"
+                                    autocomplete="tel"
                                     required
                                     class="input input-bordered w-full"
                                     placeholder="(555) 123-4567"
@@ -247,7 +252,13 @@ const schema = graphContact();
 
                         <div class="form-control">
                             <label class="label cursor-pointer justify-start gap-3">
-                                <input type="checkbox" class="checkbox checkbox-primary" required />
+                                <input
+                                    type="checkbox"
+                                    name="privacy_consent"
+                                    value="agreed"
+                                    required
+                                    class="checkbox checkbox-primary"
+                                />
                                 <span class="label-text">
                                     I agree to the <a href="/privacy" class="link link-primary">privacy policy</a> and understand that no PHI
                                     should be included in this form.
