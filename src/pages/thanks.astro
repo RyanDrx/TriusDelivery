@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
+import WaveClip from '@components/WaveClip.astro';
 import { graphThanks } from '../lib/schema.ts';
 
 const schema = graphThanks();
@@ -19,7 +20,19 @@ const schema = graphThanks();
         />
     </Fragment>
 
-    <section class="relative bg-white py-20 lg:py-28 min-h-[80vh] flex items-center overflow-hidden">
+    <section class="relative bg-white pt-20 pb-20 lg:pt-28 lg:pb-28 min-h-[80vh] flex items-center overflow-hidden">
+        <!-- Brand signature wave at the top (carries from contact page) -->
+        <WaveClip
+            side="top"
+            amplitude={1.8}
+            baseline={6}
+            waves={1.25}
+            samples={36}
+            class="absolute inset-x-0 top-0 h-24 -z-0"
+        >
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/12 via-secondary/8 to-transparent"></div>
+        </WaveClip>
+
         <!-- Subtle brand accents -->
         <div
             aria-hidden="true"
