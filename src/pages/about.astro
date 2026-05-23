@@ -3,7 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
-import { localBusiness, webSite } from '../lib/schema';
+import { localBusiness, webSite, founder, breadcrumb } from '../lib/schema';
 import WaveClip from '@components/WaveClip.astro';
 
 const heroData = {
@@ -27,7 +27,7 @@ const ctaData = {
 
 const schema = {
     '@context': 'https://schema.org',
-    '@graph': [localBusiness(), webSite()]
+    '@graph': [localBusiness(), webSite(), founder(), breadcrumb([{ name: 'About', url: 'about' }])]
 };
 ---
 
@@ -51,20 +51,27 @@ const schema = {
         useWaveClip={true}
     >
         <div class="text-center max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+            <div class="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.22em] text-white/85 mb-6">
+                <span class="h-px w-8 bg-white/40"></span>
+                About
+                <span class="text-white/40">·</span>
+                <span class="text-white/70">Tacoma, WA</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 tracking-tight leading-[1.05]">
                 {heroData.title}
             </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-4">
+            <p class="text-lg md:text-xl text-white/85 mb-4 font-medium">
                 {heroData.subtitle}
             </p>
-            <p class="text-lg text-gray-300 mb-8">
+            <p class="text-base md:text-lg text-white/75 leading-relaxed mb-8 max-w-2xl mx-auto">
                 {heroData.body}
             </p>
             <a
                 href="/contact"
-                class="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+                class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary font-semibold rounded-full hover:bg-white/95 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
             >
                 Get Started
+                <iconify-icon icon="heroicons:arrow-right" width="16" height="16" />
             </a>
         </div>
     </Hero>
@@ -73,45 +80,48 @@ const schema = {
         <div class="max-w-7xl mx-auto px-4 lg:px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-                    <p class="text-lg text-gray-600 mb-6">
+                    <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Our Story</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.15]">
+                        Built by people who lived the logistics problem first.
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
                         After years of working in orthopedic operations and logistics, we saw firsthand the gaps in traditional delivery
-                        services&mdash;missed time windows, lack of accountability, and limited understanding of how critical medical
+                        services. Missed time windows, lack of accountability, and limited understanding of how critical medical
                         deliveries truly are. Trius LLC was created to bridge that gap.
                     </p>
-                    <p class="text-lg text-gray-600 mb-6">
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
                         We specialize in the safe and efficient transportation of medical devices, surgical instruments, and time-sensitive
                         healthcare materials. Our drivers are trained in industry systems such as SetTrax and Casechek, understand hospital
                         workflows, and are experienced with everything from routine deliveries to urgent, same-day case support.
                     </p>
-                    <p class="text-lg text-gray-600 mb-8">
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
                         With TSA-verified drivers and access to secure facilities including airports and military bases, we provide a level
                         of reliability our clients can count on.
                     </p>
-                    <div class="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg">
-                        <p class="text-lg text-gray-700 italic">
-                            "At Trius, we don't just move packages&mdash;we support patient care by ensuring the right equipment gets to the
-                            right place, at the right time."
-                        </p>
-                    </div>
+                    <figure class="mt-8 relative bg-primary/5 rounded-2xl p-6 lg:p-8">
+                        <span aria-hidden="true" class="absolute -top-3 left-6 text-5xl leading-none font-brand font-black text-primary/40 select-none">&ldquo;</span>
+                        <blockquote class="text-lg text-slate-700 italic leading-relaxed">
+                            At Trius, we don't just move packages, we support patient care by ensuring the right equipment gets to the right place, at the right time.
+                        </blockquote>
+                    </figure>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-lg">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Meet Our Founder</h3>
-                    <div class="space-y-6">
+                <div class="bg-slate-50/70 ring-1 ring-slate-200 p-8 rounded-2xl">
+                    <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Meet The Founder</span>
+                    <div>
                         <div class="flex flex-col items-center text-center">
                             <img
                                 src="/kevin_profile.webp"
                                 alt="Kevin Hyatt, Founder of Trius LLC"
-                                class="w-72 h-72 rounded-full object-cover mb-4"
+                                class="w-64 h-64 lg:w-72 lg:h-72 rounded-full object-cover mb-5 ring-1 ring-slate-200"
                                 style="object-position: center 20%;"
                                 loading="lazy"
                                 decoding="async"
                                 width="480"
                                 height="640"
                             />
-                            <h4 class="font-semibold text-gray-900 text-lg">Kevin Hyatt</h4>
-                            <p class="text-sm text-gray-600">Founder</p>
-                            <p class="text-sm text-gray-500 mt-2">
+                            <h3 class="font-bold text-slate-900 text-lg">Kevin Hyatt</h3>
+                            <p class="text-sm text-slate-500 font-medium tracking-wide uppercase mt-1">Founder</p>
+                            <p class="text-sm text-slate-600 mt-3 leading-relaxed max-w-xs">
                                 With years of experience in orthopedic operations and logistics, Kevin founded Trius LLC to deliver the
                                 reliability and accountability that medical professionals deserve.
                             </p>
@@ -119,11 +129,11 @@ const schema = {
                     </div>
 
                     <!-- Fleet Gallery -->
-                    <div class="mt-8 pt-6 border-t border-gray-200">
+                    <div class="mt-8 pt-6 border-t border-slate-200">
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <div class="text-xs font-bold uppercase tracking-[0.16em] text-primary">In the Field</div>
-                                <div class="text-sm text-gray-500 mt-1">A snapshot of Trius vehicles serving healthcare facilities</div>
+                                <div class="text-sm text-slate-500 mt-1">A snapshot of Trius vehicles serving healthcare facilities</div>
                             </div>
                         </div>
 
@@ -179,43 +189,48 @@ const schema = {
 
     <!-- How We Work -->
     <section class="py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How We Actually Work</h2>
-                <p class="text-xl text-gray-600">Three things we care about. Everything else follows.</p>
+        <div class="max-w-5xl mx-auto px-4 lg:px-6">
+            <div class="mb-14 max-w-2xl">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">How We Work</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                    Three things we care about. Everything else follows.
+                </h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <iconify-icon icon="heroicons:clock" width="32" height="32" class="text-primary"></iconify-icon>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Show Up On Time</h3>
-                    <p class="text-gray-600">
-                        If the pickup window is 2:15, we're there at 2:10. Surgical schedules don't flex because a driver hit traffic.
-                        We plan for that.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <iconify-icon icon="heroicons:document-check" width="32" height="32" class="text-primary"></iconify-icon>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Document Everything</h3>
-                    <p class="text-gray-600">
-                        Chain of custody, photo verification, temperature logs when needed. If something goes sideways, there's a paper
-                        trail. That's the point.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <iconify-icon icon="heroicons:phone" width="32" height="32" class="text-primary"></iconify-icon>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Pick Up the Phone</h3>
-                    <p class="text-gray-600">
-                        You call, a real person answers. Not a menu, not a chatbot, not a callback in 24 hours. We answer because that's
-                        what matters when a case is on the line.
-                    </p>
-                </div>
-            </div>
+
+            <ol class="divide-y divide-slate-200/80">
+                {[
+                    {
+                        title: 'Show Up On Time',
+                        body: "If the pickup window is 2:15, we're there at 2:10. Surgical schedules don't flex because a driver hit traffic. We plan for that.",
+                        icon: 'heroicons:clock'
+                    },
+                    {
+                        title: 'Document Everything',
+                        body: "Chain of custody, photo verification, temperature logs when needed. If something goes sideways, there's a paper trail. That's the point.",
+                        icon: 'heroicons:document-check'
+                    },
+                    {
+                        title: 'Pick Up the Phone',
+                        body: "You call, a real person answers. Not a menu, not a chatbot, not a callback in 24 hours. We answer because that's what matters when a case is on the line.",
+                        icon: 'heroicons:phone'
+                    }
+                ].map((item, idx) => (
+                    <li class="py-8 lg:py-10 first:pt-0 last:pb-0">
+                        <div class="grid grid-cols-[auto_1fr] lg:grid-cols-[7rem_1fr] gap-6 lg:gap-12 items-start">
+                            <div class="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-4">
+                                <span class="font-mono text-2xl lg:text-3xl font-bold text-primary tabular-nums leading-none">
+                                    {String(idx + 1).padStart(2, '0')}
+                                </span>
+                                <iconify-icon icon={item.icon} width="22" height="22" class="text-slate-400 hidden lg:block" />
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-xl lg:text-2xl font-bold text-slate-900 mb-3 tracking-tight">{item.title}</h3>
+                                <p class="text-base lg:text-lg text-slate-600 leading-relaxed max-w-2xl">{item.body}</p>
+                            </div>
+                        </div>
+                    </li>
+                ))}
+            </ol>
         </div>
     </section>
 
@@ -224,7 +239,7 @@ const schema = {
         <div class="max-w-6xl mx-auto px-4 lg:px-6">
             <div class="mb-16">
                 <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Why Trius</span>
-                <h2 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight max-w-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 leading-[1.1] max-w-2xl">
                     We haul medical cargo.<br class="hidden sm:block" /> That's it. That's the whole company.
                 </h2>
             </div>
@@ -283,66 +298,56 @@ const schema = {
 
     <!-- Credentials -->
     <section class="py-20 bg-slate-50 relative overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 lg:px-6 relative z-10">
-            <div class="mb-16">
+        <div class="max-w-5xl mx-auto px-4 lg:px-6 relative z-10">
+            <div class="mb-14 max-w-2xl">
                 <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Credentials</span>
-                <h2 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight max-w-3xl">
-                    The paperwork that gets us past the badge reader
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 leading-[1.1] max-w-3xl">
+                    The paperwork that gets us past the badge reader.
                 </h2>
-                <p class="mt-4 text-lg text-slate-500 max-w-2xl">
+                <p class="mt-4 text-lg text-slate-600 max-w-2xl leading-relaxed">
                     Restricted docks, sterile processing, airside facilities. We carry the clearances so your deliveries don't stall at the front desk.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-2xl border border-slate-200 p-7 flex gap-5">
-                    <div class="w-11 h-11 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                        <iconify-icon icon="heroicons:shield-check" width="22" height="22" class="text-white"></iconify-icon>
+            <dl class="divide-y divide-slate-200/80 border-y border-slate-200/80">
+                {[
+                    {
+                        title: 'TSA Verified',
+                        body: 'Cleared for airports, military installations, and secured healthcare wings where standard couriers get turned away at the gate.',
+                        icon: 'heroicons:shield-check'
+                    },
+                    {
+                        title: 'SetTrax & Casechek certified',
+                        body: 'We log into the same case management systems your SPD team uses: scan, verify, confirm. No training lag on day one.',
+                        icon: 'heroicons:academic-cap'
+                    },
+                    {
+                        title: 'DOT compliant',
+                        body: 'Interstate-rated vehicles, current inspections, compliant driver records. The boring stuff that matters when cargo crosses state lines.',
+                        icon: 'heroicons:document-check'
+                    },
+                    {
+                        title: 'Fully insured, every run',
+                        body: "Commercial cargo coverage plus liability on every pickup. A $40K implant tray doesn't ride without a policy behind it.",
+                        icon: 'heroicons:shield-exclamation'
+                    }
+                ].map((item) => (
+                    <div class="grid grid-cols-[auto_1fr] md:grid-cols-[14rem_1fr] gap-x-6 md:gap-x-10 gap-y-2 py-7 lg:py-8">
+                        <dt class="flex items-center gap-3">
+                            <iconify-icon
+                                icon={item.icon}
+                                width="20"
+                                height="20"
+                                class="text-primary shrink-0"
+                            />
+                            <span class="text-base font-bold text-slate-900 tracking-tight">{item.title}</span>
+                        </dt>
+                        <dd class="text-base text-slate-600 leading-relaxed col-start-1 md:col-start-2 max-w-2xl">
+                            {item.body}
+                        </dd>
                     </div>
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900 mb-1.5">TSA Verified</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Cleared for airports, military installations, and secured healthcare wings where standard couriers get turned away at the gate.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl border border-slate-200 p-7 flex gap-5">
-                    <div class="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                        <iconify-icon icon="heroicons:academic-cap" width="22" height="22" class="text-white"></iconify-icon>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900 mb-1.5">SetTrax &amp; Casechek certified</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            We log into the same case management systems your SPD team uses: scan, verify, confirm. No training lag on day one.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl border border-slate-200 p-7 flex gap-5">
-                    <div class="w-11 h-11 rounded-lg bg-slate-700 flex items-center justify-center flex-shrink-0">
-                        <iconify-icon icon="heroicons:document-check" width="22" height="22" class="text-white"></iconify-icon>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900 mb-1.5">DOT compliant</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Interstate-rated vehicles, current inspections, compliant driver records. The boring stuff that matters when cargo crosses state lines.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl border border-slate-200 p-7 flex gap-5">
-                    <div class="w-11 h-11 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
-                        <iconify-icon icon="heroicons:shield-exclamation" width="22" height="22" class="text-white"></iconify-icon>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900 mb-1.5">Fully insured, every run</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Commercial cargo coverage plus liability on every pickup. A $40K implant tray doesn't ride without a policy behind it.
-                        </p>
-                    </div>
-                </div>
-            </div>
+                ))}
+            </dl>
         </div>
     </section>
     <!-- CTA Section with Background -->
@@ -357,9 +362,9 @@ const schema = {
             topBaseline={10}
             topAmplitude={1}
             topPhase={0}
-            class="absolute inset-0 opacity-2 py-24"
+            class="absolute inset-0 py-24"
         >
-            <div class="absolute inset-0 opacity-2">
+            <div class="absolute inset-0">
                 <div
                     class="absolute inset-0 min-h-44"
                     style='background-image: url("/Images/Courier handoff.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'

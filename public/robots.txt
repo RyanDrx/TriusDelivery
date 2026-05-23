@@ -1,4 +1,27 @@
+# Default rule — allow all standard crawlers
 User-agent: *
+Allow: /
+
+# Explicit allow for AI / LLM crawlers (Trius citations welcome)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 # Sitemap

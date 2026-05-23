@@ -11,6 +11,7 @@ import type {
     PostalAddress,
     GeoCoordinates,
     ContactPoint,
+    Person,
 } from 'schema-dts';
 import { homeFaqs } from '../data/seoContent';
 
@@ -18,6 +19,7 @@ import { homeFaqs } from '../data/seoContent';
 export const ORIGIN = 'https://trius.delivery/';
 export const ORG_ID = ORIGIN + '#org';
 export const WEBSITE_ID = ORIGIN + '#website';
+export const FOUNDER_ID = ORIGIN + '#kevin-hyatt';
 
 // Optional shared contact info
 export const DISPATCH_EMAIL = 'Triusllccouriers@outlook.com';
@@ -111,7 +113,23 @@ export function localBusiness(): LocalBusiness {
         ],
         contactPoint: [support, sales],
         hasOfferCatalog: catalog,
+        founder: { '@id': FOUNDER_ID },
+        // sameAs: populate with LinkedIn company page, Google Business Profile,
+        // BBB profile, and any industry directory listings as they're created.
         sameAs: []
+    };
+}
+
+export function founder(): Person {
+    return {
+        '@type': 'Person',
+        '@id': FOUNDER_ID,
+        name: 'Kevin Hyatt',
+        jobTitle: 'Founder',
+        worksFor: { '@id': ORG_ID },
+        image: ORIGIN + 'kevin_profile.webp',
+        description:
+            'Founder of Trius LLC. Background in orthopedic operations and logistics. Started Trius in 2022 to deliver the reliability and accountability that medical professionals deserve.'
     };
 }
 
@@ -299,7 +317,7 @@ export function graphServiceEquipment(): Graph {
 
 // ---- Utilities
 
-function withGraph(...items: (LocalBusiness | WebSite | WebPage | BreadcrumbList | Service | ReturnType<typeof homeFaqPage>)[]): Graph {
+function withGraph(...items: (LocalBusiness | WebSite | WebPage | BreadcrumbList | Service | Person | ReturnType<typeof homeFaqPage>)[]): Graph {
     return { '@context': 'https://schema.org', '@graph': items };
 }
 

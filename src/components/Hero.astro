@@ -175,20 +175,6 @@ const hasBackgroundImage = Boolean(backgroundImage);
         width: 100%;
     }
 
-    /* Enhanced background attachment for desktop */
-    @media (min-width: 768px) {
-        .hero-section[style*='background-image'] {
-            background-attachment: fixed;
-        }
-    }
-
-    /* Mobile optimization - disable fixed background on mobile for better performance */
-    @media (max-width: 767px) {
-        .hero-section[style*='background-image'] {
-            background-attachment: scroll;
-        }
-    }
-
     /* Smooth scroll behavior */
     .hero-section {
         scroll-behavior: smooth;
@@ -207,9 +193,6 @@ const hasBackgroundImage = Boolean(backgroundImage);
             animation: none;
         }
 
-        .hero-section[style*='background-image'] {
-            background-attachment: scroll;
-        }
     }
 
     /* High contrast mode support */

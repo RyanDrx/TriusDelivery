@@ -12,12 +12,12 @@ const { heading, body, cta, ...rest } = Astro.props;
 ---
 
 <Section {...rest} class=''>
-    <div class='text-center max-w-5xl mx-auto'>
-        <!-- Main CTA Content Box with Integrated Supporting Details -->
-        <div class='bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-white/40'>
+    <div class='text-center max-w-4xl mx-auto'>
+        <!-- Main CTA Content Box -->
+        <div class='bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl border border-white/40'>
             {
                 heading && (
-                    <h2 class='text-4xl lg:text-6xl font-black font-heading text-primary mb-8 leading-tight' data-sb-field-path='.heading'>
+                    <h2 class='text-3xl md:text-4xl lg:text-5xl font-black font-heading text-primary mb-6 leading-tight' data-sb-field-path='.heading'>
                         {heading}
                     </h2>
                 )
@@ -25,43 +25,12 @@ const { heading, body, cta, ...rest } = Astro.props;
             {
                 body && (
                     <div
-                        class='text-xl lg:text-2xl text-base-content/80 max-w-4xl mx-auto mb-12 font-body leading-relaxed'
+                        class='text-lg md:text-xl text-base-content/80 max-w-3xl mx-auto mb-10 font-body leading-relaxed'
                         data-sb-field-path='.body'
                         set:html={safeMarkdown(body)}
                     />
                 )
             }
-
-            <!-- Why Choose Trius - Integrated Grid -->
-            <div class='grid md:grid-cols-3 gap-6 text-center mb-10'>
-                <div class='flex flex-col items-center'>
-                    <div class='w-12 h-12 bg-gradient-to-br from-primary/80 to-primary/60 rounded-xl flex items-center justify-center mb-3 shadow-md'>
-                        <iconify-icon icon='heroicons:shield-check' width='24' height='24' class='text-white'></iconify-icon>
-                    </div>
-                    <h4 class='text-md font-bold font-heading text-primary mb-2'>TSA Verified Drivers</h4>
-                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
-                        Secure access to airports, military bases, and restricted facilities
-                    </p>
-                </div>
-                <div class='flex flex-col items-center'>
-                    <div class='w-12 h-12 bg-gradient-to-br from-secondary/80 to-secondary/60 rounded-xl flex items-center justify-center mb-3 shadow-md'>
-                        <iconify-icon icon='heroicons:academic-cap' width='24' height='24' class='text-white'></iconify-icon>
-                    </div>
-                    <h4 class='text-md font-bold font-heading text-secondary-dark mb-2'>Industry Trained</h4>
-                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
-                        SetTrax and Casechek certified couriers with hospital workflow expertise
-                    </p>
-                </div>
-                <div class='flex flex-col items-center'>
-                    <div class='w-12 h-12 bg-gradient-to-br from-accent/80 to-accent/60 rounded-xl flex items-center justify-center mb-3 shadow-md'>
-                        <iconify-icon icon='heroicons:clock' width='24' height='24' class='text-white'></iconify-icon>
-                    </div>
-                    <h4 class='text-md font-bold font-heading text-accent mb-2'>24/7 Available</h4>
-                    <p class='text-sm text-base-content/70 font-body leading-relaxed'>
-                        Round-the-clock emergency and STAT delivery services
-                    </p>
-                </div>
-            </div>
 
             <!-- CTA Buttons -->
             {
@@ -85,30 +54,19 @@ const { heading, body, cta, ...rest } = Astro.props;
             }
 
             <!-- Trust Indicators Line -->
-            <div class='flex flex-wrap items-center justify-center gap-8 pt-6 border-t border-base-200'>
-                <div class='flex items-center gap-2 text-primary font-semibold'>
+            <div class='flex flex-wrap items-center justify-center gap-6 md:gap-8 pt-6 border-t border-base-200'>
+                <div class='flex items-center gap-2 text-primary'>
                     <iconify-icon icon='heroicons:shield-check' width='20' height='20'></iconify-icon>
-                    <span class='text-sm font-medium'>Secure & Compliant</span>
+                    <span class='text-sm font-semibold'>Secure & Compliant</span>
                 </div>
-                <div class='flex items-center gap-2 text-secondary-dark font-semibold'>
+                <div class='flex items-center gap-2 text-secondary-dark'>
                     <iconify-icon icon='heroicons:clock' width='20' height='20'></iconify-icon>
-                    <span class='text-sm font-medium'>24-Hour Response</span>
+                    <span class='text-sm font-semibold'>24-Hour Response</span>
                 </div>
-                <div class='flex items-center gap-2 text-accent font-semibold'>
+                <div class='flex items-center gap-2 text-accent'>
                     <iconify-icon icon='heroicons:check-circle' width='20' height='20'></iconify-icon>
-                    <span class='text-sm font-medium'>Free Quote</span>
+                    <span class='text-sm font-semibold'>Free Quote</span>
                 </div>
-            </div>
-
-            <!-- Guarantee Statement -->
-            <div class='mt-6 pt-4 border-t border-base-200 text-center'>
-                <div class='flex items-center justify-center gap-2 text-primary font-semibold mb-2'>
-                    <iconify-icon icon='heroicons:shield-check' width='20' height='20'></iconify-icon>
-                    <span class='text-md font-heading'>24-Hour Response Guarantee</span>
-                </div>
-                <p class='text-sm text-base-content/70 font-body'>
-                    Response to all quote requests within 24 hours, with same-day service for emergency deliveries.
-                </p>
             </div>
         </div>
     </div>

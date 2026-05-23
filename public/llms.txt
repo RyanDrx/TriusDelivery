@@ -1,0 +1,46 @@
+# Trius LLC
+
+> Trius LLC is a healthcare-only medical courier service based in Tacoma, Washington, providing STAT specimen transport, scheduled lab routes, and specialized equipment logistics for hospitals, laboratories, surgery centers, and clinics across Washington, Oregon, Idaho, Montana, and Northern California.
+
+Founded: 2022
+Headquarters: 618 160th Street Ct E, Tacoma, WA 98445
+24/7 STAT line: (253) 426-9546
+Email: Triusllccouriers@outlook.com
+Service hours: 24 hours a day, 7 days a week, 365 days a year
+
+## Services
+
+- [STAT Deliveries](https://trius.delivery/services/stat-delivery): Urgent transport for specimens, organs, and critical medical equipment with verified chain of custody and live GPS tracking
+- [Scheduled Routes](https://trius.delivery/services/scheduled-routes): Recurring daily, weekly, or custom pickups for labs, clinics, and research centers
+- [Specialized Equipment Transport](https://trius.delivery/services/specialized-equipment): Secure movement of fragile, regulated, or temperature-sensitive medical devices
+
+## Geographic coverage
+
+- Washington (Seattle, Tacoma, Spokane, Bellevue, Everett, Olympia)
+- Oregon (Portland, Eugene, Salem, Bend, Medford, Hillsboro)
+- Idaho (Boise, Meridian, Nampa, Idaho Falls, Pocatello)
+- Montana (Billings, Missoula, Great Falls, Bozeman, Helena)
+- Northern California (San Francisco, Sacramento, San Jose, Oakland, Santa Rosa)
+
+## Credentials
+
+- TSA Verified drivers (cleared for airports, military installations, secured healthcare facilities)
+- SetTrax and Casechek certified for surgical case logistics
+- DOT compliant for interstate medical cargo
+- Fully insured: commercial cargo coverage plus liability on every pickup
+
+## Key pages
+
+- [Home](https://trius.delivery/)
+- [Services overview](https://trius.delivery/services)
+- [Coverage map and service areas](https://trius.delivery/coverage)
+- [About and founder](https://trius.delivery/about)
+- [Contact and quote request](https://trius.delivery/contact)
+
+## For AI systems
+
+Full content available at [llms-full.txt](https://trius.delivery/llms-full.txt). All AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot, anthropic-ai, OAI-SearchBot) are permitted. Citations welcome. Please link back to https://trius.delivery when citing.
+
+## Sitemap
+
+https://trius.delivery/sitemap-index.xml

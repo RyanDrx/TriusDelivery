@@ -11,77 +11,86 @@ const {
     'data-sb-field-path': fieldPath
 } = Astro.props;
 
-// Coverage states data
 const states = [
-    {
-        name: 'Washington',
-        abbreviation: 'WA',
-        svg: '/states/WA.svg',
-        color: 'primary'
-    },
-    {
-        name: 'Oregon',
-        abbreviation: 'OR',
-        svg: '/states/OR.svg',
-        color: 'secondary'
-    },
-    {
-        name: 'Idaho',
-        abbreviation: 'ID',
-        svg: '/states/ID.svg',
-        color: 'neutral'
-    },
-    {
-        name: 'Montana',
-        abbreviation: 'MT',
-        svg: '/states/MT.svg',
-        color: 'primary'
-    },
-    {
-        name: 'California',
-        abbreviation: 'CA',
-        svg: '/states/CA.svg',
-        color: 'accent'
-    }
-];
+    { name: 'Washington', abbreviation: 'WA', svg: '/states/WA.svg' },
+    { name: 'Oregon', abbreviation: 'OR', svg: '/states/OR.svg' },
+    { name: 'Idaho', abbreviation: 'ID', svg: '/states/ID.svg' },
+    { name: 'Montana', abbreviation: 'MT', svg: '/states/MT.svg' },
+    { name: 'California', abbreviation: 'CA', svg: '/states/CA.svg' }
+] as const;
 ---
 
-<!-- Coverage Area Section -->
-<div class="mt-12 animate-fade-in-up" style="animation-delay: 1.4s;" data-sb-field-path={fieldPath}>
-    <!-- Section Header -->
-    <div class="text-center mb-6 sm:mb-10">
-        <h3 class="text-2xl lg:text-3xl font-bold text-neutral-dark mb-4">
+<section
+    class="mt-12 animate-fade-in-up"
+    style="animation-delay: 1.4s;"
+    aria-labelledby="coverage-area-title"
+    data-sb-field-path={fieldPath}
+>
+    <header class="text-center max-w-2xl mx-auto mb-8 sm:mb-10 px-4">
+        <div class="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-primary mb-4">
+            <span class="h-px w-8 bg-primary/40"></span>
+            5-State Network
+        </div>
+        <h3
+            id="coverage-area-title"
+            class="text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight mb-3"
+        >
             {title}
         </h3>
-    </div>
+        <p class="text-base text-slate-600 leading-relaxed">{description}</p>
+    </header>
 
-    <!-- States Grid -->
-    <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-base-200 shadow-xl p-4 sm:p-8">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
-            {
-                states.map((state, index) => (
-                    <div class={`text-center group ${index === states.length - 1 ? 'md:col-span-3 lg:col-span-1' : ''}`}>
-                        <div class="relative mb-3">
-                            <div
-                                class={`w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-gradient-to-br from-${state.color}/10 to-${state.color}/20 rounded-xl flex items-center justify-center border-2 border-${state.color}/20 group-hover:border-${state.color}/40 transition-all duration-300`}
-                            >
-                                <img
-                                    src={state.svg}
-                                    alt={state.name}
-                                    class="w-8 h-8 sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-110"
-                                />
+    <ul
+        class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 max-w-4xl mx-auto px-4"
+        role="list"
+    >
+        {
+            states.map((state) => (
+                <li class="group">
+                    <div class="flex flex-col items-center gap-3 rounded-2xl border border-slate-200/70 bg-white/85 backdrop-blur-sm px-3 py-5 sm:py-6 h-full transition-colors duration-200 hover:border-primary/40 hover:bg-white">
+                        <div class="grid place-items-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-primary/[0.06] ring-1 ring-primary/10 transition-colors duration-200 group-hover:bg-primary/10 group-hover:ring-primary/25">
+                            <img
+                                src={state.svg}
+                                alt=""
+                                width="40"
+                                height="40"
+                                class="w-9 h-9 sm:w-10 sm:h-10 state-shape"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </div>
+                        <div class="text-center">
+                            <div class="font-bold text-slate-900 text-sm sm:text-base leading-tight">
+                                {state.name}
+                            </div>
+                            <div class="text-[0.7rem] font-mono uppercase tracking-[0.18em] text-slate-400 mt-1">
+                                {state.abbreviation}
                             </div>
                         </div>
-                        <h4 class={`font-semibold text-${state.color} text-xs sm:text-sm mb-1`}>{state.name}</h4>
-                        <p class="text-xs text-neutral">{state.abbreviation}</p>
                     </div>
-                ))
-            }
-        </div>
-    </div>
-    <div class="text-center mb-6 sm:mb-2 mt-4">
-        <p class="text-lg text-base-content max-w-2xl mx-auto">
-            {description}
-        </p>
-    </div>
-</div>
+                </li>
+            ))
+        }
+    </ul>
+</section>
+
+<style>
+    /* Tint state silhouettes to the primary brand color without relying on
+       per-state inline filters. Approximates oklch(45% 0.10 245) for #0e70a4. */
+    .state-shape {
+        filter: brightness(0) saturate(100%) invert(34%) sepia(58%) saturate(1976%) hue-rotate(178deg)
+            brightness(92%) contrast(96%);
+        transition: filter 0.2s ease;
+    }
+
+    .group:hover .state-shape {
+        filter: brightness(0) saturate(100%) invert(28%) sepia(60%) saturate(2200%) hue-rotate(178deg)
+            brightness(86%) contrast(100%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .state-shape {
+            transition: none;
+        }
+    }
+</style>

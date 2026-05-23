@@ -13,25 +13,23 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
 ---
 
 <Section {...rest} class:list={[className]}>
-    <div class='text-center mb-16'>
-        <div class='bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/30 max-w-4xl mx-auto'>
-            {
-                heading && (
-                    <h2 class='text-4xl lg:text-5xl font-black font-heading text-primary mb-6' data-sb-field-path='.heading'>
-                        {heading}
-                    </h2>
-                )
-            }
-            {
-                body && (
-                    <div
-                        class='text-xl text-base-content/70 max-w-3xl mx-auto font-body leading-relaxed'
-                        data-sb-field-path='.body'
-                        set:html={safeMarkdown(body)}
-                    />
-                )
-            }
-        </div>
+    <div class='text-center mb-14 max-w-4xl mx-auto'>
+        {
+            heading && (
+                <h2 class='text-3xl md:text-4xl lg:text-5xl font-black font-heading text-primary mb-5' data-sb-field-path='.heading'>
+                    {heading}
+                </h2>
+            )
+        }
+        {
+            body && (
+                <div
+                    class='text-lg md:text-xl text-base-content/70 max-w-3xl mx-auto font-body leading-relaxed'
+                    data-sb-field-path='.body'
+                    set:html={safeMarkdown(body)}
+                />
+            )
+        }
     </div>
 
     {
@@ -52,20 +50,8 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                         class={`group transition-transform duration-300 w-full h-full flex ${(item as any).priority ? 'order-first lg:order-none' : ''}`}
                     >
                         <div
-                            class={`card bg-white shadow-lg border hover:shadow-xl transition-all duration-300 h-full flex flex-col w-full p-8 relative overflow-hidden ${(item as any).priority ? 'border-accent/30 ring-2 ring-accent/20 shadow-accent/10' : 'border-base-300'}`}
+                            class={`card bg-white shadow-md border hover:shadow-lg transition-shadow duration-300 h-full flex flex-col w-full p-8 relative overflow-hidden ${(item as any).priority ? 'border-accent/30 ring-1 ring-accent/20' : 'border-base-300'}`}
                         >
-                            <!-- Banner Background Texture -->
-                            <div class='absolute inset-0 opacity-3'>
-                                <div
-                                    class='absolute inset-0'
-                                    style='background-image: url("/Banner/TRIUS_BANNER.webp"); background-size: cover; background-repeat: no-repeat; background-position: center; filter: grayscale(100%);'
-                                >
-                                </div>
-                            </div>
-                            <!-- White Overlay -->
-                            <div class='absolute inset-0 bg-white/95'>
-                            </div>
-                            <!-- Content Wrapper -->
                             <div class='relative z-10 h-full flex flex-col'>
                             {/* Service Icon */}
                             <div class='pb-6'>
