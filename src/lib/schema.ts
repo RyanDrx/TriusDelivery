@@ -173,9 +173,10 @@ export function breadcrumbHome(): BreadcrumbList {
     };
 }
 
-export function breadcrumb(items: Array<{ name: string; url: string }>): BreadcrumbList {
+export function breadcrumb(items: Array<{ name: string; url: string }>, id?: string): BreadcrumbList {
     return {
         '@type': 'BreadcrumbList',
+        ...(id && { '@id': id }),
         itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Home', item: ORIGIN },
             ...items.map((item, i) => ({
@@ -185,6 +186,92 @@ export function breadcrumb(items: Array<{ name: string; url: string }>): Breadcr
                 item: ORIGIN + item.url.replace(/^\//, '')
             }))
         ]
+    };
+}
+
+// ---- Page-level helpers
+
+interface WebPageOpts {
+    path: string;
+    name: string;
+    description: string;
+    image?: string;
+    breadcrumbId?: string;
+}
+
+export function webPage(opts: WebPageOpts): WebPage {
+    const url = ORIGIN + opts.path.replace(/^\//, '');
+    const id = `${url}#webpage`;
+    const buildDate = new Date().toISOString().split('T')[0];
+    return {
+        '@type': 'WebPage',
+        '@id': id,
+        url,
+        name: opts.name,
+        isPartOf: { '@id': WEBSITE_ID },
+        about: { '@id': ORG_ID },
+        description: opts.description,
+        inLanguage: 'en',
+        ...(opts.image && {
+            primaryImageOfPage: {
+                '@type': 'ImageObject',
+                url: ORIGIN + opts.image.replace(/^\//, '')
+            }
+        }),
+        ...(opts.breadcrumbId && { breadcrumb: { '@id': opts.breadcrumbId } }),
+        datePublished: '2022-04-15',
+        dateModified: buildDate
+    };
+}
+
+export function faqPage(id: string, faqs: ReadonlyArray<{ question: string; answer: string }>): FAQPage {
+    return {
+        '@type': 'FAQPage',
+        '@id': id,
+        mainEntity: faqs.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer
+            }
+        }))
+    };
+}
+
+export function statesServed(): State[] {
+    return coverageHighlights.map((s) => {
+        const slug = s.name.toLowerCase().replace(/\s+/g, '-');
+        const cities: City[] = s.cities.map((c) => ({
+            '@type': 'City',
+            name: c
+        }));
+        return {
+            '@type': 'State',
+            '@id': `${ORIGIN}#area-${slug}`,
+            name: s.name,
+            description: s.description,
+            containedInPlace: { '@type': 'Country', name: 'United States' },
+            containsPlace: cities
+        };
+    });
+}
+
+export function contactPage(): ContactPage {
+    const url = ORIGIN + 'contact';
+    return {
+        '@type': 'ContactPage',
+        '@id': `${url}#webpage`,
+        url,
+        name: 'Contact Trius LLC | Medical Courier Services',
+        description:
+            'Contact Trius LLC for medical courier services. 24/7 STAT line available. Request quotes for scheduled routes and specialized equipment transport.',
+        isPartOf: { '@id': WEBSITE_ID },
+        about: { '@id': ORG_ID },
+        inLanguage: 'en',
+        datePublished: '2022-04-15',
+        dateModified: new Date().toISOString().split('T')[0],
+        breadcrumb: { '@id': `${url}#breadcrumb` }
     };
 }
 
