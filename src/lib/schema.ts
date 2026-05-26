@@ -35,17 +35,17 @@ export const MAIN_PHONE = '+1-253-231-0615';
 export function localBusiness(): LocalBusiness {
     const address: PostalAddress = {
         '@type': 'PostalAddress',
-        streetAddress: '618 160th Street Ct E',
-        addressLocality: 'Tacoma',
+        streetAddress: 'P.O. Box 1304',
+        addressLocality: 'Spanaway',
         addressRegion: 'WA',
-        postalCode: '98445',
+        postalCode: '98387',
         addressCountry: 'US'
     };
 
     const geo: GeoCoordinates = {
         '@type': 'GeoCoordinates',
-        latitude: '47.1379',
-        longitude: '-122.4594'
+        latitude: '47.1037',
+        longitude: '-122.4329'
     };
 
     const support: ContactPoint = {
