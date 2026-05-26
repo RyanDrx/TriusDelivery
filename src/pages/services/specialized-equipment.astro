@@ -2,117 +2,81 @@
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
-import Cards from '@components/Cards.astro';
 import Cta from '@components/Cta.astro';
 import WaveClip from '@components/WaveClip.astro';
 import { graphServiceEquipment } from '../../lib/schema.ts';
 
-const capabilitiesData = {
-    _type: 'cardsSection',
-    heading: 'Equipment Transport Capabilities',
-    body: 'Our specialized equipment transport service handles delicate, regulated, and high-value medical devices with expert care, secure packaging, and documented handoff procedures.',
-    items: [
-        {
-            _key: '1',
-            heading: 'Temperature Control',
-            body: 'Climate-controlled vehicles and specialized packaging for temperature-sensitive medical equipment and pharmaceuticals.',
-            icon: 'mdi:thermometer',
-            iconColor: 'primary' as const,
-            features: [
-                { icon: 'mdi:snowflake', text: 'Refrigerated transport (2-8°C)' },
-                { icon: 'mdi:fire', text: 'Heated transport options' },
-                { icon: 'mdi:chart-line', text: 'Temperature monitoring & logging' }
-            ]
-        },
-        {
-            _key: '2',
-            heading: 'Fragile Handling',
-            body: 'Specialized training and equipment for transporting delicate medical instruments and sensitive diagnostic equipment.',
-            icon: 'mdi:hand-heart',
-            iconColor: 'accent' as const,
-            features: [
-                { icon: 'mdi:package-variant', text: 'Custom packaging solutions' },
-                { icon: 'mdi:account-hard-hat', text: 'Certified handling technicians' },
-                { icon: 'mdi:shield-check', text: 'Shock & vibration protection' }
-            ]
-        },
-        {
-            _key: '3',
-            heading: 'Secure Transport',
-            body: 'High-value equipment transport with enhanced security measures and comprehensive insurance coverage.',
-            icon: 'mdi:shield-lock',
-            iconColor: 'secondary' as const,
-            features: [
-                { icon: 'mdi:lock', text: 'Secure vehicle locks' },
-                { icon: 'mdi:cctv', text: 'GPS tracking & monitoring' },
-                { icon: 'mdi:shield-account', text: 'Bonded & insured transport' }
-            ]
-        }
-    ]
-};
+const capabilities = [
+    {
+        heading: 'Temperature Control',
+        body: 'Climate-controlled vehicles and specialized packaging for temperature-sensitive medical equipment and pharmaceuticals.',
+        icon: 'mdi:thermometer',
+        color: 'primary',
+        features: ['Refrigerated transport (2-8°C)', 'Heated transport options', 'Temperature monitoring & logging']
+    },
+    {
+        heading: 'Fragile Handling',
+        body: 'Specialized training and equipment for transporting delicate medical instruments and sensitive diagnostic equipment.',
+        icon: 'mdi:hand-heart',
+        color: 'accent',
+        features: ['Custom packaging solutions', 'Certified handling technicians', 'Shock & vibration protection']
+    },
+    {
+        heading: 'Secure Transport',
+        body: 'High-value equipment transport with enhanced security measures and comprehensive insurance coverage.',
+        icon: 'mdi:shield-lock',
+        color: 'secondary',
+        features: ['Secure vehicle locks', 'GPS tracking & monitoring', 'Bonded & insured transport']
+    }
+];
 
-const equipmentTypesData = {
-    _type: 'cardsSection',
-    columns: 'two' as const,
-    heading: 'Equipment Types We Handle',
-    body: 'From small diagnostic devices and surgical instruments to larger imaging and laboratory systems, we handle a wide range of medical equipment for healthcare facilities and vendors.',
-    items: [
-        {
-            _key: '1',
-            heading: 'Diagnostic Equipment',
-            body: 'Precise handling of sensitive diagnostic instruments including analyzers, scanners, and testing equipment.',
-            icon: 'mdi:monitor-dashboard',
-            features: [
-                { icon: 'mdi:test-tube', text: 'Laboratory analyzers' },
-                { icon: 'mdi:camera', text: 'Portable X-ray equipment' },
-                { icon: 'mdi:heart-pulse', text: 'Ultrasound machines' },
-                { icon: 'mdi:heart-flash', text: 'ECG/EKG equipment' }
-            ]
-        },
-        {
-            _key: '2',
-            heading: 'Surgical Instruments',
-            body: 'Sterile transport of surgical instruments and specialized medical tools with contamination prevention.',
-            icon: 'mdi:medical-bag',
-            features: [
-                { icon: 'mdi:medical-bag', text: 'Sterile instrument sets' },
-                { icon: 'mdi:robot', text: 'Robotic surgery components' },
-                { icon: 'mdi:magnify', text: 'Microsurgical instruments' },
-                { icon: 'mdi:heart', text: 'Implantable devices' }
-            ]
-        },
-        {
-            _key: '3',
-            heading: 'Imaging Equipment',
-            body: 'Large equipment transport including MRI components, CT scan parts, and other heavy medical imaging devices.',
-            icon: 'mdi:image-multiple',
-            features: [
-                { icon: 'mdi:magnet', text: 'MRI machine components' },
-                { icon: 'mdi:scan-helper', text: 'CT scanner parts' },
-                { icon: 'mdi:account-search', text: 'Mammography equipment' },
-                { icon: 'mdi:camera-iris', text: 'Digital radiography systems' }
-            ]
-        },
-        {
-            _key: '4',
-            heading: 'Laboratory Equipment',
-            body: 'Specialized handling for laboratory instruments including centrifuges, microscopes, and analytical equipment.',
-            icon: 'mdi:flask',
-            features: [
-                { icon: 'mdi:rotate-360', text: 'High-speed centrifuges' },
-                { icon: 'mdi:microscope', text: 'Electron microscopes' },
-                { icon: 'mdi:wave', text: 'Spectrophotometers' },
-                { icon: 'mdi:dna', text: 'PCR machines' }
-            ]
-        }
-    ]
-};
+const equipmentTypes = [
+    {
+        heading: 'Diagnostic Equipment',
+        body: 'Precise handling of sensitive diagnostic instruments including analyzers, scanners, and testing equipment.',
+        icon: 'mdi:monitor-dashboard',
+        features: ['Laboratory analyzers', 'Portable X-ray equipment', 'Ultrasound machines', 'ECG/EKG equipment']
+    },
+    {
+        heading: 'Surgical Instruments',
+        body: 'Sterile transport of surgical instruments and specialized medical tools with contamination prevention.',
+        icon: 'mdi:medical-bag',
+        features: ['Sterile instrument sets', 'Robotic surgery components', 'Microsurgical instruments', 'Implantable devices']
+    },
+    {
+        heading: 'Imaging Equipment',
+        body: 'Large equipment transport including MRI components, CT scan parts, and other heavy medical imaging devices.',
+        icon: 'mdi:image-multiple',
+        features: ['MRI machine components', 'CT scanner parts', 'Mammography equipment', 'Digital radiography systems']
+    },
+    {
+        heading: 'Laboratory Equipment',
+        body: 'Specialized handling for laboratory instruments including centrifuges, microscopes, and analytical equipment.',
+        icon: 'mdi:flask',
+        features: ['High-speed centrifuges', 'Electron microscopes', 'Spectrophotometers', 'PCR machines']
+    }
+];
 
-const safetyData = {
-    _type: 'section',
-    heading: 'Safety & Compliance Standards',
-    body: 'Our equipment transport service meets the highest industry standards for safety, compliance, and equipment protection.'
-};
+const safetyStandards = [
+    {
+        heading: 'Compliance Certifications',
+        icon: 'mdi:certificate',
+        color: 'primary',
+        features: ['FDA regulations compliance', 'Privacy and transport requirements', 'Safety standards', 'DOT transportation regulations']
+    },
+    {
+        heading: 'Staff Training',
+        icon: 'mdi:school',
+        color: 'accent',
+        features: ['Equipment handling certification', 'Hazmat transport training', 'Clean room procedures', 'Emergency response protocols']
+    },
+    {
+        heading: 'Insurance & Protection',
+        icon: 'mdi:shield-check',
+        color: 'secondary',
+        features: ['Comprehensive cargo insurance', 'Equipment damage protection', 'Liability coverage', 'Transit risk management']
+    }
+];
 
 const ctaData = {
     _type: 'ctaSection',
@@ -217,160 +181,178 @@ const schema = graphServiceEquipment();
         </div>
     </Hero>
 
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
-                <div class="order-2 lg:order-1">
-                    <div
-                        class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary"
-                    >
-                        <iconify-icon icon="mdi:account-hard-hat" width="18" height="18"></iconify-icon>
+    <!-- Field Handling Intro Section -->
+    <section class="py-20 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
+                <div>
+                    <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
+                        <iconify-icon icon="mdi:account-hard-hat" width="16" height="16"></iconify-icon>
                         Field Handling
                     </div>
-                    <h2 class="mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">
                         Real Equipment Handoffs Need More Than a Standard Courier Workflow
                     </h2>
-                    <p class="mt-5 text-lg leading-8 text-slate-600 max-w-2xl">
+                    <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">
                         Specialized equipment moves require trained handling, controlled transfer, and direct accountability at pickup and
                         delivery. This is the kind of handoff where condition, packaging, timing, and signoff all matter.
                     </p>
 
-                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                            <div class="text-sm font-bold uppercase tracking-[0.14em] text-primary">Protected Transfer</div>
-                            <p class="mt-2 text-sm leading-6 text-slate-600">
-                                Sensitive components are moved with controlled handling instead of being treated like routine parcel
-                                freight.
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <div class="text-sm font-bold uppercase tracking-[0.14em] text-primary mb-3">Protected Transfer</div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Sensitive components are moved with controlled handling instead of being treated like routine parcel freight.
                             </p>
                         </div>
-                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                            <div class="text-sm font-bold uppercase tracking-[0.14em] text-secondary">Chain of Responsibility</div>
-                            <p class="mt-2 text-sm leading-6 text-slate-600">
+                        <div>
+                            <div class="text-sm font-bold uppercase tracking-[0.14em] text-secondary-dark mb-3">Chain of Responsibility</div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
                                 We maintain clear handoff points so facilities know exactly who received the equipment and when.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="order-1 lg:order-2">
-                    <div class="relative mx-auto max-w-md">
-                        <div
-                            class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/12 via-transparent to-secondary/12 blur-2xl"
-                        >
-                        </div>
-                        <figure
-                            class="relative rounded-[2rem] border border-slate-200 bg-white p-3 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]"
-                        >
-                            <div class="relative overflow-hidden rounded-[1.4rem] bg-slate-100 aspect-[4/5]">
-                                <img
-                                    src="/handoff.webp"
-                                    alt="Trius team members coordinating a medical equipment handoff in a healthcare facility"
-                                    class="absolute top-1/2 left-1/2 block h-auto w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 rotate-90 transform"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="640"
-                                    height="480"
-                                />
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/78 via-slate-900/28 to-transparent"></div>
-                                <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-primary/20 via-secondary/10 to-transparent"></div>
-                                <div class="absolute inset-x-0 bottom-0 flex items-end justify-end p-5">
-                                </div>
-                            </div>
-                        </figure>
+                <figure class="lg:sticky lg:top-24">
+                    <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 aspect-[4/5]">
+                        <img
+                            src="/handoff.webp"
+                            alt="Trius team members coordinating a medical equipment handoff in a healthcare facility"
+                            class="absolute top-1/2 left-1/2 block h-auto w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 rotate-90 transform"
+                            loading="lazy"
+                            decoding="async"
+                            width="640"
+                            height="480"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent"></div>
                     </div>
-                </div>
+                </figure>
             </div>
         </div>
     </section>
 
-    <!-- Capabilities Section with Background -->
-    <section class="py-20 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6 relative z-10 py-8">
-            <Cards {...capabilitiesData} />
+    <!-- Capabilities Section -->
+    <section class="py-20 lg:py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-14 lg:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Equipment Transport Capabilities</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Our specialized equipment transport service handles delicate, regulated, and high-value medical devices with expert care, secure packaging, and documented handoff procedures.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                {
+                    capabilities.map((c) => (
+                        <article class="bg-white rounded-2xl border border-slate-200 p-7">
+                            <iconify-icon
+                                icon={c.icon}
+                                width="28"
+                                height="28"
+                                class:list={[
+                                    'mb-4',
+                                    c.color === 'primary' && 'text-primary',
+                                    c.color === 'accent' && 'text-accent',
+                                    c.color === 'secondary' && 'text-secondary-dark'
+                                ]}
+                            />
+                            <h3 class="text-lg font-bold text-slate-900 mb-3">{c.heading}</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-5">{c.body}</p>
+                            <ul class="space-y-2 pt-5 border-t border-slate-200">
+                                {c.features.map((f) => (
+                                    <li class="flex items-start gap-2 text-sm text-slate-700">
+                                        <iconify-icon
+                                            icon="heroicons:check"
+                                            width="14"
+                                            height="14"
+                                            class:list={[
+                                                'mt-1 shrink-0',
+                                                c.color === 'primary' && 'text-primary',
+                                                c.color === 'accent' && 'text-accent',
+                                                c.color === 'secondary' && 'text-secondary-dark'
+                                            ]}
+                                        />
+                                        <span class="leading-snug">{f}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))
+                }
+            </div>
         </div>
     </section>
+
     <!-- Equipment Types Section -->
-    <section class="py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6">
-            <Cards {...equipmentTypesData} />
+    <section class="py-20 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-14 lg:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Equipment Types We Handle</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    From small diagnostic devices and surgical instruments to larger imaging and laboratory systems, we handle a wide range of medical equipment for healthcare facilities and vendors.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                {
+                    equipmentTypes.map((e) => (
+                        <article class="bg-white rounded-2xl border border-slate-200 p-7">
+                            <iconify-icon icon={e.icon} width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                            <h3 class="text-lg font-bold text-slate-900 mb-3">{e.heading}</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-5">{e.body}</p>
+                            <ul class="grid grid-cols-2 gap-2 pt-5 border-t border-slate-200">
+                                {e.features.map((f) => (
+                                    <li class="flex items-start gap-2 text-sm text-slate-700">
+                                        <iconify-icon icon="heroicons:check" width="14" height="14" class="text-primary mt-1 shrink-0"></iconify-icon>
+                                        <span class="leading-snug">{f}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))
+                }
+            </div>
         </div>
     </section>
 
-    <!-- Safety & Compliance Section with Background -->
-    <section class="py-20 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{safetyData.heading}</h2>
-                <p class="text-xl text-gray-600">{safetyData.body}</p>
+    <!-- Safety & Compliance Section -->
+    <section class="py-20 lg:py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-14 lg:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Safety & Compliance Standards</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Our equipment transport service meets the highest industry standards for safety, compliance, and equipment protection.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <iconify-icon icon="mdi:certificate" class="text-4xl text-primary mb-3 block"></iconify-icon>
-                    <h4 class="text-xl font-semibold mb-4 text-gray-900">Compliance Certifications</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">FDA regulations compliance</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Privacy and transport requirements</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Safety standards</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">DOT transportation regulations</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <iconify-icon icon="mdi:school" class="text-4xl text-accent mb-3 block"></iconify-icon>
-                    <h4 class="text-xl font-semibold mb-4 text-gray-900">Staff Training</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Equipment handling certification</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Hazmat transport training</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Clean room procedures</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Emergency response protocols</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <iconify-icon icon="mdi:shield-check" class="text-4xl text-secondary-dark mb-3 block"></iconify-icon>
-                    <h4 class="text-xl font-semibold mb-4 text-gray-900">Insurance & Protection</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Comprehensive cargo insurance</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Equipment damage protection</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Liability coverage</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <iconify-icon icon="mdi:check" class="text-success"></iconify-icon>
-                            <span class="text-gray-600">Transit risk management</span>
-                        </li>
-                    </ul>
-                </div>
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                {
+                    safetyStandards.map((s) => (
+                        <article class="bg-white rounded-2xl border border-slate-200 p-7">
+                            <iconify-icon
+                                icon={s.icon}
+                                width="32"
+                                height="32"
+                                class:list={[
+                                    'mb-5',
+                                    s.color === 'primary' && 'text-primary',
+                                    s.color === 'accent' && 'text-accent',
+                                    s.color === 'secondary' && 'text-secondary-dark'
+                                ]}
+                            />
+                            <h4 class="text-lg font-bold text-slate-900 mb-5">{s.heading}</h4>
+                            <ul class="space-y-2.5">
+                                {s.features.map((f) => (
+                                    <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                                        <iconify-icon icon="mdi:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                                        <span class="leading-snug">{f}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))
+                }
             </div>
         </div>
     </section>
@@ -394,27 +376,23 @@ const schema = graphServiceEquipment();
     </section>
 
     <!-- Related Services -->
-    <section class="py-16 bg-base-200">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Explore Our Other Services</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <a
-                    href="/services/stat-delivery"
-                    class="block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100"
-                >
-                    <h3 class="text-lg font-semibold text-primary mb-2">STAT Deliveries</h3>
-                    <p class="text-sm text-gray-600">
-                        Rapid, secure transport of specimens, organs, and urgent medical equipment with real-time tracking.
-                    </p>
+    <section class="py-16 lg:py-20 bg-white border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 lg:px-10">
+            <h2 class="text-xl font-bold text-slate-900 mb-8">Explore Our Other Services</h2>
+            <div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
+                <a href="/services/stat-delivery" class="group flex items-start justify-between gap-4 py-4 border-b border-slate-200 hover:border-accent transition-colors">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-accent transition-colors mb-1">STAT Deliveries</h3>
+                        <p class="text-sm text-slate-600">Rapid, secure transport of specimens, organs, and urgent medical equipment with real-time tracking.</p>
+                    </div>
+                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-accent mt-1.5 transition-colors"></iconify-icon>
                 </a>
-                <a
-                    href="/services/scheduled-routes"
-                    class="block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100"
-                >
-                    <h3 class="text-lg font-semibold text-primary mb-2">Scheduled Routes</h3>
-                    <p class="text-sm text-gray-600">
-                        Recurring pickups and deliveries for clinics, labs, and research centers with route optimization.
-                    </p>
+                <a href="/services/scheduled-routes" class="group flex items-start justify-between gap-4 py-4 border-b border-slate-200 hover:border-secondary-dark transition-colors">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-secondary-dark transition-colors mb-1">Scheduled Routes</h3>
+                        <p class="text-sm text-slate-600">Recurring pickups and deliveries for clinics, labs, and research centers with route optimization.</p>
+                    </div>
+                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-secondary-dark mt-1.5 transition-colors"></iconify-icon>
                 </a>
             </div>
         </div>

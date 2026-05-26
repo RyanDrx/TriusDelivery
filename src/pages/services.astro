@@ -3,8 +3,6 @@ import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
-import FeatureCard from '@components/FeatureCard.astro';
-import ComplianceCard from '@components/ComplianceCard.astro';
 import { graphServices } from '../lib/schema.ts';
 import WaveClip from '@components/WaveClip.astro';
 
@@ -134,255 +132,245 @@ const schema = graphServices();
             </div>
         </div>
     </Hero>
+
     <!-- Main Services Section -->
-    <section class="py-20 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-black text-neutral-dark mb-6">Comprehensive Medical Logistics Solutions</h2>
-                <p class="text-xl text-neutral max-w-3xl mx-auto">
+    <section class="py-20 lg:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-16 lg:mb-20">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Comprehensive Medical Logistics Solutions</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
                     Professional, compliant, and reliable courier services tailored for healthcare organizations and medical supply chains
                 </p>
             </div>
 
-            <div class="space-y-20">
+            <div class="space-y-16 lg:space-y-20">
                 <!-- STAT Deliveries -->
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 lg:order-1">
-                        <div class="inline-flex items-center gap-3 mb-6 px-4 py-2 bg-accent/10 rounded-full">
-                            <iconify-icon icon="heroicons:clock" width="20" height="20" style="color: #ef4444;"></iconify-icon>
-                            <span class="text-accent font-bold text-sm uppercase tracking-wide">Emergency Service</span>
+                <article class="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start pb-16 lg:pb-20 border-b border-slate-200">
+                    <div>
+                        <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-accent">
+                            <iconify-icon icon="heroicons:clock" width="16" height="16"></iconify-icon>
+                            Emergency Service
                         </div>
-                        <h3 class="text-3xl lg:text-4xl font-black text-neutral-dark mb-4">STAT Deliveries</h3>
-                        <p class="text-lg text-neutral mb-6 leading-relaxed">
+                        <h3 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">STAT Deliveries</h3>
+                        <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
                             Rapid, secure, and compliant transport for specimens, bloodwork, pathology materials, organs, and urgent medical
                             devices. When time is critical, Trius STAT delivery provides immediate response with documented chain-of-custody
                             protocols and real-time tracking.
                         </p>
 
-                        <div class="grid md:grid-cols-2 gap-4 mb-8">
+                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 mb-10 max-w-2xl">
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:clock" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:clock" width="18" height="18" class="text-accent mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Emergency Response</h4>
-                                    <p class="text-sm text-neutral">Response within 30 minutes</p>
+                                    <div class="font-bold text-slate-900 text-sm">Emergency Response</div>
+                                    <p class="text-sm text-slate-600">Response within 30 minutes</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:map-pin" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:map-pin" width="18" height="18" class="text-accent mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Real-Time Tracking</h4>
-                                    <p class="text-sm text-neutral">Live GPS tracking updates</p>
+                                    <div class="font-bold text-slate-900 text-sm">Real-Time Tracking</div>
+                                    <p class="text-sm text-slate-600">Live GPS tracking updates</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:document-check" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:document-check" width="18" height="18" class="text-accent mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Chain-of-Custody</h4>
-                                    <p class="text-sm text-neutral">Complete documentation</p>
+                                    <div class="font-bold text-slate-900 text-sm">Chain-of-Custody</div>
+                                    <p class="text-sm text-slate-600">Complete documentation</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:shield-check" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:shield-check" width="18" height="18" class="text-accent mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Fully Compliant</h4>
-                                    <p class="text-sm text-neutral">Full regulatory compliance</p>
+                                    <div class="font-bold text-slate-900 text-sm">Fully Compliant</div>
+                                    <p class="text-sm text-slate-600">Full regulatory compliance</p>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="/services/stat-delivery" class="btn btn-accent btn-lg">Learn More About STAT Delivery</a>
+                        <a href="/services/stat-delivery" class="group inline-flex items-center gap-2 text-sm font-bold text-accent hover:text-accent-dark transition-colors">
+                            Learn More About STAT Delivery
+                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
+                        </a>
                     </div>
-                    <div class="order-1 lg:order-2">
-                        <div class="bg-gradient-to-br from-accent/10 to-accent/5 rounded-3xl p-8 text-center">
-                            <iconify-icon icon="heroicons:truck" width="120" height="120" style="color: #ef4444;" class="mx-auto mb-6"
-                            ></iconify-icon>
-                            <div class="text-4xl font-black text-accent mb-2">24/7</div>
-                            <div class="text-neutral font-medium">Emergency Response</div>
-                        </div>
+                    <div class="lg:w-48 lg:pl-8 lg:border-l border-slate-200">
+                        <div class="font-mono font-bold text-5xl lg:text-6xl text-accent leading-none tracking-tight">24/7</div>
+                        <div class="mt-3 text-xs font-bold tracking-[0.16em] uppercase text-slate-500">Emergency Response</div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Scheduled Routes -->
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-3xl p-8 text-center">
-                        <iconify-icon icon="heroicons:calendar-days" width="120" height="120" style="color: #2f855a;" class="mx-auto mb-6"
-                        ></iconify-icon>
-                        <div class="text-4xl font-black text-secondary-dark mb-2">Daily</div>
-                        <div class="text-neutral font-medium">Reliable Routes</div>
-                    </div>
+                <article class="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start pb-16 lg:pb-20 border-b border-slate-200">
                     <div>
-                        <div class="inline-flex items-center gap-3 mb-6 px-4 py-2 bg-secondary/10 rounded-full">
-                            <iconify-icon icon="heroicons:calendar-days" width="20" height="20" style="color: #2f855a;"></iconify-icon>
-                            <span class="text-secondary-dark font-bold text-sm uppercase tracking-wide">Scheduled Service</span>
+                        <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-secondary-dark">
+                            <iconify-icon icon="heroicons:calendar-days" width="16" height="16"></iconify-icon>
+                            Scheduled Service
                         </div>
-                        <h3 class="text-3xl lg:text-4xl font-black text-neutral-dark mb-4">Scheduled Routes</h3>
-                        <p class="text-lg text-neutral mb-6 leading-relaxed">
+                        <h3 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">Scheduled Routes</h3>
+                        <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
                             For organizations with predictable transport needs, our scheduled routes provide efficiency and consistency.
                             From daily specimen pickups and interoffice lab transfers to recurring supply deliveries, Trius builds routes
                             around your timeline.
                         </p>
 
-                        <div class="grid md:grid-cols-2 gap-4 mb-8">
+                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 mb-10 max-w-2xl">
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:calendar-days" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:calendar-days" width="18" height="18" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Flexible Scheduling</h4>
-                                    <p class="text-sm text-neutral">Daily, weekly, or monthly</p>
+                                    <div class="font-bold text-slate-900 text-sm">Flexible Scheduling</div>
+                                    <p class="text-sm text-slate-600">Daily, weekly, or monthly</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:user-group" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:user-group" width="18" height="18" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Dedicated Couriers</h4>
-                                    <p class="text-sm text-neutral">Consistent assignments</p>
+                                    <div class="font-bold text-slate-900 text-sm">Dedicated Couriers</div>
+                                    <p class="text-sm text-slate-600">Consistent assignments</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:map" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:map" width="18" height="18" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Route Optimization</h4>
-                                    <p class="text-sm text-neutral">Technology-driven efficiency</p>
+                                    <div class="font-bold text-slate-900 text-sm">Route Optimization</div>
+                                    <p class="text-sm text-slate-600">Technology-driven efficiency</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:currency-dollar" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:currency-dollar" width="18" height="18" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Cost-Effective</h4>
-                                    <p class="text-sm text-neutral">Bulk transport pricing</p>
+                                    <div class="font-bold text-slate-900 text-sm">Cost-Effective</div>
+                                    <p class="text-sm text-slate-600">Bulk transport pricing</p>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="/services/scheduled-routes" class="btn btn-secondary btn-lg">Learn More About Scheduled Routes</a>
+                        <a href="/services/scheduled-routes" class="group inline-flex items-center gap-2 text-sm font-bold text-secondary-dark hover:text-secondary transition-colors">
+                            Learn More About Scheduled Routes
+                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
+                        </a>
                     </div>
-                </div>
+                    <div class="lg:w-48 lg:pl-8 lg:border-l border-slate-200">
+                        <div class="font-mono font-bold text-5xl lg:text-6xl text-secondary-dark leading-none tracking-tight">Daily</div>
+                        <div class="mt-3 text-xs font-bold tracking-[0.16em] uppercase text-slate-500">Reliable Routes</div>
+                    </div>
+                </article>
 
                 <!-- Specialized Equipment Transport -->
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 lg:order-1">
-                        <div class="inline-flex items-center gap-3 mb-6 px-4 py-2 bg-primary/10 rounded-full">
-                            <iconify-icon icon="heroicons:beaker" width="20" height="20" style="color: #1a4e8a;"></iconify-icon>
-                            <span class="text-primary font-bold text-sm uppercase tracking-wide">Specialized Service</span>
+                <article class="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start">
+                    <div>
+                        <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
+                            <iconify-icon icon="heroicons:beaker" width="16" height="16"></iconify-icon>
+                            Specialized Service
                         </div>
-                        <h3 class="text-3xl lg:text-4xl font-black text-neutral-dark mb-4">Specialized Equipment Transport</h3>
-                        <p class="text-lg text-neutral mb-6 leading-relaxed">
+                        <h3 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">Specialized Equipment Transport</h3>
+                        <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
                             Transporting fragile or regulated medical equipment requires special expertise. Our couriers are trained in
                             handling sensitive devices, biohazard materials, and temperature-controlled shipments.
                         </p>
 
-                        <div class="grid md:grid-cols-2 gap-4 mb-8">
+                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 mb-10 max-w-2xl">
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:beaker" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:beaker" width="18" height="18" class="text-primary mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Temperature Control</h4>
-                                    <p class="text-sm text-neutral">Climate-controlled transport</p>
+                                    <div class="font-bold text-slate-900 text-sm">Temperature Control</div>
+                                    <p class="text-sm text-slate-600">Climate-controlled transport</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon
-                                    icon="heroicons:shield-exclamation"
-                                    width="20"
-                                    height="20"
-                                    style="color: #1a4e8a;"
-                                    class="mt-1"></iconify-icon>
+                                <iconify-icon icon="heroicons:shield-exclamation" width="18" height="18" class="text-primary mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Hazmat Certified</h4>
-                                    <p class="text-sm text-neutral">Certified drivers</p>
+                                    <div class="font-bold text-slate-900 text-sm">Hazmat Certified</div>
+                                    <p class="text-sm text-slate-600">Certified drivers</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:cube" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:cube" width="18" height="18" class="text-primary mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Custom Packaging</h4>
-                                    <p class="text-sm text-neutral">Specialized solutions</p>
+                                    <div class="font-bold text-slate-900 text-sm">Custom Packaging</div>
+                                    <p class="text-sm text-slate-600">Specialized solutions</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:document-text" width="20" height="20" style="color: #1a4e8a;" class="mt-1"
-                                ></iconify-icon>
+                                <iconify-icon icon="heroicons:document-text" width="18" height="18" class="text-primary mt-1 shrink-0"></iconify-icon>
                                 <div>
-                                    <h4 class="font-bold text-neutral-dark">Full Insurance</h4>
-                                    <p class="text-sm text-neutral">Comprehensive coverage</p>
+                                    <div class="font-bold text-slate-900 text-sm">Full Insurance</div>
+                                    <p class="text-sm text-slate-600">Comprehensive coverage</p>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="/services/specialized-equipment" class="btn btn-primary btn-lg">Learn More About Equipment Transport</a>
+                        <a href="/services/specialized-equipment" class="group inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-dark transition-colors">
+                            Learn More About Equipment Transport
+                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
+                        </a>
                     </div>
-                    <div class="order-1 lg:order-2">
-                        <div class="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 text-center">
-                            <iconify-icon icon="heroicons:cube" width="120" height="120" style="color: #1a4e8a;" class="mx-auto mb-6"
-                            ></iconify-icon>
-                            <div class="text-4xl font-black text-primary mb-2">100%</div>
-                            <div class="text-neutral font-medium">Secure Transport</div>
-                        </div>
+                    <div class="lg:w-48 lg:pl-8 lg:border-l border-slate-200">
+                        <div class="font-mono font-bold text-5xl lg:text-6xl text-primary leading-none tracking-tight">100%</div>
+                        <div class="mt-3 text-xs font-bold tracking-[0.16em] uppercase text-slate-500">Secure Transport</div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Trius Section -->
-    <section class="py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-black text-neutral-dark mb-6">Why Choose Trius LLC?</h2>
-                <p class="text-xl text-neutral max-w-3xl mx-auto">More than a courier. We are your long-term logistics partner.</p>
+    <section class="py-20 lg:py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-14 lg:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Why Choose Trius LLC?</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">More than a courier. We are your long-term logistics partner.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <FeatureCard
-                    icon="heroicons:shield-check"
-                    title="Accuracy & Safety"
-                    description="Every courier is rigorously trained to prevent misdeliveries and protect specimen integrity. Our documented procedures ensure safe, on-time delivery."
-                    gradient="primary"
-                />
-                <FeatureCard
-                    icon="heroicons:clock"
-                    title="Reliability & Readiness"
-                    description="Always on-call, 24/7, for both scheduled and urgent deliveries. When healthcare organizations need dependable logistics, Trius delivers."
-                    gradient="secondary"
-                />
-                <FeatureCard
-                    icon="heroicons:academic-cap"
-                    title="Expertise & Professionalism"
-                    description="Experienced professionals oversee shipments with precision and courtesy. Our team understands the critical nature of medical logistics."
-                    gradient="accent"
-                />
-                <FeatureCard
-                    icon="material-symbols:lightbulb-2-outline"
-                    title="Innovative Solutions"
-                    description="Technology-driven logistics with optimized routes and proactive communication. We embrace complex challenges with cutting-edge solutions."
-                    gradient="primary"
-                />
-                <FeatureCard
-                    icon="material-symbols:handshake-outline-sharp"
-                    title="Partnership Approach"
-                    description="We build lasting partnerships that create mutual success. Tailoring logistics solutions to meet your unique organizational needs."
-                    gradient="secondary"
-                />
-                <FeatureCard
-                    icon="heroicons:document-check"
-                    title="Compliance Excellence"
-                    description="We prioritize regulatory compliance and continuous training to stay ahead of industry standards."
-                    gradient="accent"
-                />
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+                <div>
+                    <iconify-icon icon="heroicons:shield-check" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <h3 class="text-lg font-bold text-slate-900 mb-3">Accuracy & Safety</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Every courier is rigorously trained to prevent misdeliveries and protect specimen integrity. Our documented procedures ensure safe, on-time delivery.
+                    </p>
+                </div>
+                <div>
+                    <iconify-icon icon="heroicons:clock" width="28" height="28" class="text-secondary-dark mb-4"></iconify-icon>
+                    <h3 class="text-lg font-bold text-slate-900 mb-3">Reliability & Readiness</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Always on-call, 24/7, for both scheduled and urgent deliveries. When healthcare organizations need dependable logistics, Trius delivers.
+                    </p>
+                </div>
+                <div>
+                    <iconify-icon icon="heroicons:academic-cap" width="28" height="28" class="text-accent mb-4"></iconify-icon>
+                    <h3 class="text-lg font-bold text-slate-900 mb-3">Expertise & Professionalism</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Experienced professionals oversee shipments with precision and courtesy. Our team understands the critical nature of medical logistics.
+                    </p>
+                </div>
+                <div>
+                    <iconify-icon icon="material-symbols:lightbulb-2-outline" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <h3 class="text-lg font-bold text-slate-900 mb-3">Innovative Solutions</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Technology-driven logistics with optimized routes and proactive communication. We embrace complex challenges with cutting-edge solutions.
+                    </p>
+                </div>
+                <div>
+                    <iconify-icon icon="material-symbols:handshake-outline-sharp" width="28" height="28" class="text-secondary-dark mb-4"></iconify-icon>
+                    <h3 class="text-lg font-bold text-slate-900 mb-3">Partnership Approach</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        We build lasting partnerships that create mutual success. Tailoring logistics solutions to meet your unique organizational needs.
+                    </p>
+                </div>
+                <div>
+                    <iconify-icon icon="heroicons:document-check" width="28" height="28" class="text-accent mb-4"></iconify-icon>
+                    <h3 class="text-lg font-bold text-slate-900 mb-3">Compliance Excellence</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        We prioritize regulatory compliance and continuous training to stay ahead of industry standards.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Compliance Section -->
-    <section class="py-20 relative overflow-hidden">
+    <section class="py-20 lg:py-24 relative overflow-hidden bg-white">
         <!-- Desktop WaveClip Background -->
         <WaveClip
             side="both"
@@ -398,171 +386,113 @@ const schema = graphServices();
                 style='background-image: url("/Images/medical phials.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
             >
             </div>
-            <div class="absolute inset-0 bg-white/85"></div>
+            <div class="absolute inset-0 bg-white/90"></div>
         </WaveClip>
 
-        <!-- Mobile Simple Background -->
-        <div class="absolute inset-0 lg:hidden bg-gradient-to-br from-white via-primary/3 to-secondary/5"></div>
-
-        <div class="max-w-7xl mx-auto px-4 lg:px-6 relative z-10 py-24">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-black text-neutral-dark mb-6">Compliance & Safety Standards</h2>
-                <p class="text-xl text-neutral max-w-3xl mx-auto">Absolute regulatory adherence for healthcare logistics</p>
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 py-12 lg:py-20">
+            <div class="max-w-3xl mb-14 lg:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Compliance & Safety Standards</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">Absolute regulatory adherence for healthcare logistics</p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8">
-                <ComplianceCard
-                    icon="heroicons:shield-check"
-                    title="Secure Handling"
-                    description="Secure handling of all protected health information and medical specimens. We maintain a strict 'no PHI collection' policy."
-                    gradient="primary"
-                    features={[
-                        'Secure handling of protected health information',
-                        'Privacy protection protocols at every step',
-                        'No PHI collection in digital communications'
-                    ]}
-                />
-                <ComplianceCard
-                    icon="heroicons:academic-cap"
-                    title="Industry Trained"
-                    description="All drivers are trained in SetTrax and Casechek systems with ongoing certification in specimen handling and safe transport procedures."
-                    gradient="secondary"
-                    features={['SetTrax and Casechek certified', 'Ongoing safety training', 'Proper specimen handling protocols']}
-                />
-                <ComplianceCard
-                    icon="heroicons:document-text"
-                    title="Insured & Bonded"
-                    description="Comprehensive insurance coverage and bonding for complete protection. State-of-the-art logistics technology with rigorous chain of custody procedures."
-                    gradient="accent"
-                    features={['Full insurance coverage for all shipments', 'Bonded courier services', 'Chain of custody documentation']}
-                />
+            <div class="grid lg:grid-cols-3 gap-8 lg:gap-10">
+                <div class="bg-white border border-slate-200 rounded-2xl p-8">
+                    <iconify-icon icon="heroicons:shield-check" width="32" height="32" class="text-primary mb-5"></iconify-icon>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Secure Handling</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Secure handling of all protected health information and medical specimens. We maintain a strict 'no PHI collection' policy.
+                    </p>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0"></iconify-icon>
+                            <span>Secure handling of protected health information</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0"></iconify-icon>
+                            <span>Privacy protection protocols at every step</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0"></iconify-icon>
+                            <span>No PHI collection in digital communications</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-8">
+                    <iconify-icon icon="heroicons:academic-cap" width="32" height="32" class="text-secondary-dark mb-5"></iconify-icon>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Industry Trained</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        All drivers are trained in SetTrax and Casechek systems with ongoing certification in specimen handling and safe transport procedures.
+                    </p>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                            <span>SetTrax and Casechek certified</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                            <span>Ongoing safety training</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                            <span>Proper specimen handling protocols</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-8">
+                    <iconify-icon icon="heroicons:document-text" width="32" height="32" class="text-accent mb-5"></iconify-icon>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Insured & Bonded</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Comprehensive insurance coverage and bonding for complete protection. State-of-the-art logistics technology with rigorous chain of custody procedures.
+                    </p>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0"></iconify-icon>
+                            <span>Full insurance coverage for all shipments</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0"></iconify-icon>
+                            <span>Bonded courier services</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0"></iconify-icon>
+                            <span>Chain of custody documentation</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Coverage Area Section -->
-    <section class="py-20 bg-gradient-to-br from-slate-50 via-primary/5 to-secondary/5">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-black text-neutral-dark mb-6">Service Coverage Areas</h2>
-                <p class="text-xl text-neutral max-w-3xl mx-auto">
+    <section class="py-20 lg:py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-14 lg:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Service Coverage Areas</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
                     Comprehensive medical logistics across the Pacific Northwest & California
                 </p>
             </div>
 
-            <div class="max-w-4xl mx-auto">
-                <!-- Coverage Details -->
+            <div class="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
                 <div>
-                    <div class="inline-flex items-center gap-3 mb-6 px-4 py-2 bg-primary/10 rounded-full">
-                        <iconify-icon icon="heroicons:map" width="20" height="20" style="color: #1a4e8a;"></iconify-icon>
-                        <span class="text-primary font-bold text-sm uppercase tracking-wide">Regional Coverage</span>
+                    <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
+                        <iconify-icon icon="heroicons:map" width="16" height="16"></iconify-icon>
+                        Regional Coverage
                     </div>
 
-                    <h3 class="text-3xl lg:text-4xl font-black text-neutral-dark mb-6">Five-State Service Network</h3>
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight mb-5">Five-State Service Network</h3>
 
-                    <p class="text-lg text-neutral mb-8 leading-relaxed">
+                    <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-8 max-w-lg">
                         Trius proudly serves healthcare organizations across the Pacific Northwest and California. With deep local knowledge
                         and growing regional coverage, we provide dependable in-state and cross-state deliveries.
                     </p>
 
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="rounded-2xl bg-white border border-slate-200 p-6">
                         <div class="flex items-start gap-3">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2"
-                            >
-                                <img
-                                    src="/states/WA.svg"
-                                    alt="Washington State"
-                                    class="w-full h-full object-contain"
-                                    style="filter: brightness(0) saturate(100%) invert(100%);"
-                                />
-                            </div>
+                            <iconify-icon icon="heroicons:information-circle" width="22" height="22" class="text-primary mt-0.5 shrink-0"></iconify-icon>
                             <div>
-                                <h4 class="font-bold text-neutral-dark mb-1">Washington</h4>
-                                <p class="text-sm text-neutral">Seattle, Tacoma, Spokane, Bellevue</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2"
-                            >
-                                <img
-                                    src="/states/OR.svg"
-                                    alt="Oregon State"
-                                    class="w-full h-full object-contain"
-                                    style="filter: brightness(0) saturate(100%) invert(100%);"
-                                />
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-neutral-dark mb-1">Oregon</h4>
-                                <p class="text-sm text-neutral">Portland, Eugene, Salem, Gresham</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2"
-                            >
-                                <img
-                                    src="/states/ID.svg"
-                                    alt="Idaho State"
-                                    class="w-full h-full object-contain"
-                                    style="filter: brightness(0) saturate(100%) invert(100%);"
-                                />
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-neutral-dark mb-1">Idaho</h4>
-                                <p class="text-sm text-neutral">Boise, Nampa, Meridian, Idaho Falls</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2"
-                            >
-                                <img
-                                    src="/states/MT.svg"
-                                    alt="Montana State"
-                                    class="w-full h-full object-contain"
-                                    style="filter: brightness(0) saturate(100%) invert(100%);"
-                                />
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-neutral-dark mb-1">Montana</h4>
-                                <p class="text-sm text-neutral">Billings, Missoula, Great Falls, Bozeman</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-3 md:col-span-2">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center flex-shrink-0 p-2"
-                            >
-                                <img
-                                    src="/states/CA.svg"
-                                    alt="California State"
-                                    class="w-full h-full object-contain"
-                                    style="filter: brightness(0) saturate(100%) invert(100%);"
-                                />
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-neutral-dark mb-1">California</h4>
-                                <p class="text-sm text-neutral">San Francisco, San Jose, Sacramento, Oakland</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-neutral/20">
-                        <div class="flex items-start gap-3">
-                            <iconify-icon
-                                icon="heroicons:information-circle"
-                                width="24"
-                                height="24"
-                                style="color: #1a4e8a;"
-                                class="mt-1 flex-shrink-0"></iconify-icon>
-                            <div>
-                                <h4 class="font-bold text-neutral-dark mb-2">Expanding Coverage</h4>
-                                <p class="text-sm text-neutral leading-relaxed">
+                                <h4 class="font-bold text-slate-900 mb-2">Expanding Coverage</h4>
+                                <p class="text-sm text-slate-600 leading-relaxed">
                                     If you're outside these states, please contact us to confirm service availability. We're continuously
                                     expanding our network to serve more healthcare organizations.
                                 </p>
@@ -570,20 +500,44 @@ const schema = graphServices();
                         </div>
                     </div>
 
-                    <div class="mt-8 text-center">
-                        <a href="/coverage" class="btn btn-primary btn-lg text-lg px-8 py-4">
-                            <iconify-icon icon="heroicons:map" width="24" height="24" class="mr-2"></iconify-icon>
+                    <div class="mt-8">
+                        <a href="/coverage" class="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-white text-sm font-bold hover:bg-primary-dark transition-colors">
+                            <iconify-icon icon="heroicons:map" width="18" height="18"></iconify-icon>
                             View Coverage Map
+                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
                         </a>
-                        <p class="text-sm text-neutral mt-3">See detailed coverage areas and service zones</p>
+                        <p class="text-sm text-slate-500 mt-3">See detailed coverage areas and service zones</p>
                     </div>
                 </div>
+
+                <dl class="divide-y divide-slate-200 bg-white border border-slate-200 rounded-2xl px-6">
+                    <div class="py-5 grid grid-cols-[7rem_1fr] gap-6 items-baseline">
+                        <dt class="font-bold text-slate-900">Washington</dt>
+                        <dd class="text-sm text-slate-600">Seattle, Tacoma, Spokane, Bellevue</dd>
+                    </div>
+                    <div class="py-5 grid grid-cols-[7rem_1fr] gap-6 items-baseline">
+                        <dt class="font-bold text-slate-900">Oregon</dt>
+                        <dd class="text-sm text-slate-600">Portland, Eugene, Salem, Gresham</dd>
+                    </div>
+                    <div class="py-5 grid grid-cols-[7rem_1fr] gap-6 items-baseline">
+                        <dt class="font-bold text-slate-900">Idaho</dt>
+                        <dd class="text-sm text-slate-600">Boise, Nampa, Meridian, Idaho Falls</dd>
+                    </div>
+                    <div class="py-5 grid grid-cols-[7rem_1fr] gap-6 items-baseline">
+                        <dt class="font-bold text-slate-900">Montana</dt>
+                        <dd class="text-sm text-slate-600">Billings, Missoula, Great Falls, Bozeman</dd>
+                    </div>
+                    <div class="py-5 grid grid-cols-[7rem_1fr] gap-6 items-baseline">
+                        <dt class="font-bold text-slate-900">California</dt>
+                        <dd class="text-sm text-slate-600">San Francisco, San Jose, Sacramento, Oakland</dd>
+                    </div>
+                </dl>
             </div>
         </div>
     </section>
 
     <!-- Technology & Innovation Section -->
-    <section class="py-20 relative overflow-hidden">
+    <section class="py-20 lg:py-24 relative overflow-hidden bg-white">
         <!-- Desktop WaveClip Background -->
         <WaveClip
             side="both"
@@ -602,26 +556,23 @@ const schema = graphServices();
                 style='background-image: url("/Images/meidcal lights.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
             >
             </div>
-            <div class="absolute inset-0 bg-white/85"></div>
+            <div class="absolute inset-0 bg-white/90"></div>
         </WaveClip>
 
-        <!-- Mobile Simple Background -->
-        <div class="absolute inset-0 lg:hidden bg-gradient-to-br from-white via-secondary/3 to-primary/5"></div>
-
-        <div class="max-w-7xl mx-auto px-4 lg:px-6 relative z-10 py-14">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-black text-neutral-dark mb-6">Technology & Innovation</h2>
-                <p class="text-xl text-neutral max-w-3xl mx-auto">Combining human expertise with cutting-edge logistics technology</p>
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 py-12 lg:py-20">
+            <div class="max-w-3xl mb-14 lg:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Technology & Innovation</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">Combining human expertise with cutting-edge logistics technology</p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
                 <div>
-                    <div class="inline-flex items-center gap-3 mb-6 px-4 py-2 bg-primary/10 rounded-full">
-                        <iconify-icon icon="heroicons:cog-6-tooth" width="20" height="20" style="color: #1a4e8a;"></iconify-icon>
-                        <span class="text-primary font-bold text-sm uppercase tracking-wide">Advanced Systems</span>
+                    <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
+                        <iconify-icon icon="heroicons:cog-6-tooth" width="16" height="16"></iconify-icon>
+                        Advanced Systems
                     </div>
-                    <h3 class="text-3xl lg:text-4xl font-black text-neutral-dark mb-6">State-of-the-Art Logistics</h3>
-                    <p class="text-lg text-neutral mb-8 leading-relaxed">
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight mb-5">State-of-the-Art Logistics</h3>
+                    <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">
                         We invest in state-of-the-art logistics technology, including real-time tracking and automated updates, while
                         maintaining a rigorous chain of custody from pickup to delivery. This combination of human expertise and smart
                         technology ensures packages arrive on time, intact, and fully compliant.
@@ -629,29 +580,20 @@ const schema = graphServices();
 
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center flex-shrink-0"
-                            >
-                                <iconify-icon icon="heroicons:device-phone-mobile" width="24" height="24" style="color: white;"
-                                ></iconify-icon>
-                            </div>
+                            <iconify-icon icon="heroicons:device-phone-mobile" width="24" height="24" class="text-primary mt-1 shrink-0"></iconify-icon>
                             <div>
-                                <h4 class="font-bold text-neutral-dark mb-2">Real-Time Tracking</h4>
-                                <p class="text-sm text-neutral">
+                                <h4 class="font-bold text-slate-900 mb-1.5">Real-Time Tracking</h4>
+                                <p class="text-sm text-slate-600 leading-relaxed">
                                     Live GPS tracking with automated updates and proactive communication throughout the delivery process.
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center flex-shrink-0"
-                            >
-                                <iconify-icon icon="heroicons:map" width="24" height="24" style="color: white;"></iconify-icon>
-                            </div>
+                            <iconify-icon icon="heroicons:map" width="24" height="24" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
                             <div>
-                                <h4 class="font-bold text-neutral-dark mb-2">Route Optimization</h4>
-                                <p class="text-sm text-neutral">
+                                <h4 class="font-bold text-slate-900 mb-1.5">Route Optimization</h4>
+                                <p class="text-sm text-slate-600 leading-relaxed">
                                     Advanced algorithms optimize delivery routes for efficiency, reducing travel times and improving
                                     reliability.
                                 </p>
@@ -659,14 +601,10 @@ const schema = graphServices();
                         </div>
 
                         <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center flex-shrink-0"
-                            >
-                                <iconify-icon icon="heroicons:document-text" width="24" height="24" style="color: white;"></iconify-icon>
-                            </div>
+                            <iconify-icon icon="heroicons:document-text" width="24" height="24" class="text-accent mt-1 shrink-0"></iconify-icon>
                             <div>
-                                <h4 class="font-bold text-neutral-dark mb-2">Digital Documentation</h4>
-                                <p class="text-sm text-neutral">
+                                <h4 class="font-bold text-slate-900 mb-1.5">Digital Documentation</h4>
+                                <p class="text-sm text-slate-600 leading-relaxed">
                                     Comprehensive digital chain-of-custody documentation with secure, compliant record keeping.
                                 </p>
                             </div>
@@ -674,93 +612,89 @@ const schema = graphServices();
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8">
-                    <div class="grid grid-cols-2 gap-6 text-center">
-                        <div class="bg-white rounded-2xl p-6">
-                            <div class="text-3xl font-black text-primary mb-2">24/7</div>
-                            <div class="text-sm text-neutral font-medium">System Monitoring</div>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6">
-                            <div class="text-3xl font-black text-secondary-dark mb-2">99.8%</div>
-                            <div class="text-sm text-neutral font-medium">On-Time Delivery</div>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6">
-                            <div class="text-3xl font-black text-accent mb-2">30 min</div>
-                            <div class="text-sm text-neutral font-medium">STAT Response</div>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6">
-                            <div class="text-3xl font-black text-primary mb-2">100%</div>
-                            <div class="text-sm text-neutral font-medium">Compliant</div>
-                        </div>
+                <dl class="grid grid-cols-2 divide-x divide-y divide-slate-200 border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                    <div class="p-6 lg:p-8">
+                        <dt class="font-mono font-bold text-3xl lg:text-4xl text-primary leading-none tracking-tight">24/7</dt>
+                        <dd class="mt-3 text-xs font-bold tracking-[0.14em] uppercase text-slate-500">System Monitoring</dd>
                     </div>
-                </div>
+                    <div class="p-6 lg:p-8">
+                        <dt class="font-mono font-bold text-3xl lg:text-4xl text-secondary-dark leading-none tracking-tight">99.8%</dt>
+                        <dd class="mt-3 text-xs font-bold tracking-[0.14em] uppercase text-slate-500">On-Time Delivery</dd>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <dt class="font-mono font-bold text-3xl lg:text-4xl text-accent leading-none tracking-tight">30 min</dt>
+                        <dd class="mt-3 text-xs font-bold tracking-[0.14em] uppercase text-slate-500">STAT Response</dd>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <dt class="font-mono font-bold text-3xl lg:text-4xl text-primary leading-none tracking-tight">100%</dt>
+                        <dd class="mt-3 text-xs font-bold tracking-[0.14em] uppercase text-slate-500">Compliant</dd>
+                    </div>
+                </dl>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6">
+    <!-- Healthcare Use Cases Section -->
+    <section class="py-20 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
             <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-start">
                 <div>
-                    <div
-                        class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary"
-                    >
-                        <iconify-icon icon="heroicons:building-office-2" width="18" height="18"></iconify-icon>
+                    <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
+                        <iconify-icon icon="heroicons:building-office-2" width="16" height="16"></iconify-icon>
                         Healthcare Use Cases
                     </div>
-                    <h2 class="mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">
                         Medical courier coverage built around how healthcare teams actually operate
                     </h2>
-                    <p class="mt-5 text-lg leading-8 text-slate-600 max-w-2xl">
+                    <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl">
                         Trius is structured around real healthcare workflows, from urgent pickups and recurring lab routes to controlled
                         equipment handoffs and direct facility support.
                     </p>
 
-                    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                    <div class="mt-10 grid gap-4 sm:grid-cols-2">
                         {
                             serviceUseCases.map((item) => (
-                                <article class="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-5 shadow-[0_20px_60px_-44px_rgba(15,23,42,0.35)]">
-                                    <h3 class="text-lg font-black text-slate-900">{item.title}</h3>
-                                    <p class="mt-3 text-sm leading-6 text-slate-600">{item.body}</p>
+                                <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                                    <h3 class="text-base font-bold text-slate-900">{item.title}</h3>
+                                    <p class="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
                                 </article>
                             ))
                         }
                     </div>
                 </div>
 
-                <aside class="rounded-[2rem] border border-slate-200 bg-slate-50/80 p-8 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.35)]">
-                    <div
-                        class="inline-flex items-center gap-2 rounded-full border border-secondary/15 bg-white px-4 py-2 text-xs font-bold tracking-[0.14em] uppercase text-secondary-dark"
-                    >
-                        <iconify-icon icon="heroicons:archive-box" width="18" height="18"></iconify-icon>
+                <aside class="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+                    <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.14em] uppercase text-secondary-dark">
+                        <iconify-icon icon="heroicons:archive-box" width="16" height="16"></iconify-icon>
                         Common Shipment Types
                     </div>
-                    <h3 class="mt-5 text-2xl font-black text-slate-900">What Trius helps move every day</h3>
-                    <p class="mt-4 text-base leading-7 text-slate-600">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">What Trius helps move every day</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
                         These are the delivery categories healthcare clients most often need support with across the Trius service area.
                     </p>
 
-                    <ul class="mt-6 grid gap-3">
+                    <ul class="grid gap-2.5">
                         {
                             shipmentTypes.map((item) => (
-                                <li class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700">
-                                    {item}
+                                <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                                    <iconify-icon icon="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                                    <span class="leading-snug">{item}</span>
                                 </li>
                             ))
                         }
                     </ul>
 
-                    <div class="mt-8 rounded-2xl border border-primary/10 bg-primary/5 p-5">
-                        <div class="text-xs font-bold uppercase tracking-[0.14em] text-primary">Service Area</div>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
+                    <div class="mt-8 pt-6 border-t border-slate-200">
+                        <div class="text-xs font-bold uppercase tracking-[0.14em] text-primary mb-2">Service Area</div>
+                        <p class="text-sm leading-6 text-slate-600">
                             Trius supports medical courier operations across Washington, Oregon, Idaho, Montana, and Northern California.
                         </p>
                         <a
                             href="/coverage"
-                            class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-dark"
+                            class="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-dark"
                         >
                             View coverage by state and city
-                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16"></iconify-icon>
+                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
                         </a>
                     </div>
                 </aside>
@@ -769,85 +703,69 @@ const schema = graphServices();
     </section>
 
     <!-- Training & Expertise Section -->
-    <section class="py-20 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 lg:px-6 relative z-10 py-14">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-black text-neutral-dark mb-6">Training & Expertise</h2>
-                <p class="text-xl text-neutral max-w-3xl mx-auto">
+    <section class="py-20 lg:py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-14 lg:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">Training & Expertise</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
                     Rigorous training programs ensure every courier meets the highest standards
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-4"
-                    >
-                        <iconify-icon icon="heroicons:beaker" width="32" height="32" style="color: white;"></iconify-icon>
-                    </div>
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Specimen Handling</h3>
-                    <p class="text-sm text-neutral">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6">
+                    <iconify-icon icon="heroicons:beaker" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">Specimen Handling</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
                         Specialized training in proper specimen collection, transport, and delivery procedures.
                     </p>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mx-auto mb-4"
-                    >
-                        <iconify-icon icon="heroicons:shield-check" width="32" height="32" style="color: white;"></iconify-icon>
-                    </div>
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Privacy Protection</h3>
-                    <p class="text-sm text-neutral">Comprehensive privacy training and PHI protection protocols for all personnel.</p>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6">
+                    <iconify-icon icon="heroicons:shield-check" width="28" height="28" class="text-secondary-dark mb-4"></iconify-icon>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">Privacy Protection</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Comprehensive privacy training and PHI protection protocols for all personnel.</p>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mx-auto mb-4"
-                    >
-                        <iconify-icon icon="heroicons:exclamation-triangle" width="32" height="32" style="color: white;"></iconify-icon>
-                    </div>
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Safety Procedures</h3>
-                    <p class="text-sm text-neutral">Certified biohazard and safety training for hazardous material handling.</p>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6">
+                    <iconify-icon icon="heroicons:exclamation-triangle" width="28" height="28" class="text-accent mb-4"></iconify-icon>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">Safety Procedures</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Certified biohazard and safety training for hazardous material handling.</p>
                 </div>
 
-                <div class="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-4"
-                    >
-                        <iconify-icon icon="heroicons:arrow-path" width="32" height="32" style="color: white;"></iconify-icon>
-                    </div>
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Continuous Training</h3>
-                    <p class="text-sm text-neutral">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6">
+                    <iconify-icon icon="heroicons:arrow-path" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">Continuous Training</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
                         Ongoing education ensures our team stays ahead of industry standards and regulations.
                     </p>
                 </div>
             </div>
 
-            <div class="mt-16 bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-neutral/20">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-neutral-dark mb-4">Our Commitment to Excellence</h3>
-                    <p class="text-neutral leading-relaxed max-w-3xl mx-auto">
+            <div class="mt-14 lg:mt-16 bg-white rounded-2xl border border-slate-200 p-8 lg:p-10">
+                <div class="max-w-3xl mb-10">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Our Commitment to Excellence</h3>
+                    <p class="text-base text-slate-600 leading-relaxed">
                         At Trius, we know that lives depend on timely and accurate medical deliveries. That's why we combine rigorous safety
                         protocols with a customer-first mindset. Our trained couriers handle every specimen and piece of equipment with
                         precision, ensuring chain-of-custody integrity, real-time tracking, and on-time delivery.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <div>
-                        <div class="text-3xl font-black text-primary mb-2">40+ hrs</div>
-                        <div class="text-sm text-neutral font-medium">Initial Training Program</div>
+                <dl class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-slate-200 -mx-8 lg:-mx-10">
+                    <div class="px-8 py-6 lg:px-10 lg:py-8">
+                        <dt class="font-mono font-bold text-3xl lg:text-4xl text-primary leading-none tracking-tight">40+ hrs</dt>
+                        <dd class="mt-3 text-xs font-bold tracking-[0.14em] uppercase text-slate-500">Initial Training Program</dd>
                     </div>
-                    <div>
-                        <div class="text-3xl font-black text-secondary-dark mb-2">12+ hrs</div>
-                        <div class="text-sm text-neutral font-medium">Monthly Continuing Ed</div>
+                    <div class="px-8 py-6 lg:px-10 lg:py-8">
+                        <dt class="font-mono font-bold text-3xl lg:text-4xl text-secondary-dark leading-none tracking-tight">12+ hrs</dt>
+                        <dd class="mt-3 text-xs font-bold tracking-[0.14em] uppercase text-slate-500">Monthly Continuing Ed</dd>
                     </div>
-                    <div>
-                        <div class="text-3xl font-black text-accent mb-2">100%</div>
-                        <div class="text-sm text-neutral font-medium">Certification Required</div>
+                    <div class="px-8 py-6 lg:px-10 lg:py-8">
+                        <dt class="font-mono font-bold text-3xl lg:text-4xl text-accent leading-none tracking-tight">100%</dt>
+                        <dd class="mt-3 text-xs font-bold tracking-[0.14em] uppercase text-slate-500">Certification Required</dd>
                     </div>
-                </div>
+                </dl>
             </div>
         </div>
     </section>
