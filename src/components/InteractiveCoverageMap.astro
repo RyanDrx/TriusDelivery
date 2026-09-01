@@ -148,6 +148,11 @@ const _coverageAreas = {
         opacity: 0.9;
     }
 
+    /* Desaturate OSM tiles so the basemap stays a light, minimal grayscale */
+    #coverage-map :global(.leaflet-tile-pane) {
+        filter: grayscale(100%) brightness(1.08) contrast(0.92);
+    }
+
     .info-panel {
         background: rgba(255, 255, 255, 0.95);
         border-radius: 1rem;
@@ -454,12 +459,12 @@ const _coverageAreas = {
             zoomControl: false
         }).setView([45.5, -116.0], 5);
 
-        // Add minimal grayscale tile layer (CartoDB Positron)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-            attribution: '',
+        // Add OpenStreetMap tile layer (no API key required).
+        // Tiles are desaturated via CSS (see .leaflet-tile-pane) for a minimal grayscale look.
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
             maxZoom: 10,
-            minZoom: 4,
-            subdomains: 'abcd'
+            minZoom: 4
         }).addTo(map);
 
         // Store coverage overlays
