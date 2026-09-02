@@ -97,7 +97,7 @@ export function localBusiness(): LocalBusiness {
         alternateName: COMPANY_ALT_NAME,
         url: ORIGIN,
         logo: ORIGIN + 'logos/Trius_Logo.svg',
-        image: [ORIGIN + 'Images/Courier%20handoff.webp', ORIGIN + 'Images/vehicle%20package.webp'],
+        image: [ORIGIN + 'Images/courier-handoff.webp', ORIGIN + 'Images/vehicle-package.webp'],
         slogan: 'Reliable medical courier services you can trust.',
         description:
             'Trius LLC provides professional medical courier services, including STAT specimen transport, scheduled medical logistics, and specialized equipment delivery across Washington, Oregon, Idaho, Montana, and California.',
@@ -172,7 +172,7 @@ export function webPageHome(): WebPage {
         about: { '@id': ORG_ID },
         primaryImageOfPage: {
             '@type': 'ImageObject',
-            url: ORIGIN + 'Images/medical%20back%20stehescope.webp'
+            url: ORIGIN + 'Images/medical-back-stethoscope.webp'
         },
         description: 'Professional medical courier services. STAT deliveries, scheduled routes, and specialized equipment transport in WA, OR, ID, MT, and CA.',
         breadcrumb: { '@id': ORIGIN + '#breadcrumb-home' }
