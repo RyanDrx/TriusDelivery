@@ -1,6 +1,7 @@
 ---
 import { safeMarkdown } from '@utils/markdown';
 import { type Footer } from 'types';
+import { Icon } from 'astro-icon/components';
 
 interface Props extends Footer {
     'data-sb-field-path'?: string;
@@ -237,8 +238,8 @@ const year = new Date().getFullYear();
                 <span class="font-semibold tracking-wide text-white/60 group-hover:text-white transition-colors">
                     RND_TND
                 </span>
-                <iconify-icon
-                    icon="heroicons:arrow-up-right"
+                <Icon
+                    name="heroicons:arrow-up-right"
                     width="12"
                     height="12"
                     class="opacity-60 group-hover:opacity-100 group-hover:-translate-y-px transition-all"

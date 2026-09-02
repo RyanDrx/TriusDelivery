@@ -3,6 +3,7 @@ import { safeMarkdown } from '@utils/markdown';
 import { type CtaSection } from 'types';
 import Action from '@components/Action.astro';
 import Section from '@components/Section.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props extends CtaSection {
     'data-sb-field-path'?: string;
@@ -56,15 +57,15 @@ const { heading, body, cta, ...rest } = Astro.props;
             <!-- Trust Indicators Line -->
             <div class='flex flex-wrap items-center justify-center gap-6 md:gap-8 pt-6 border-t border-base-200'>
                 <div class='flex items-center gap-2 text-primary'>
-                    <iconify-icon icon='heroicons:shield-check' width='20' height='20'></iconify-icon>
+                    <Icon name='heroicons:shield-check' width='20' height='20' />
                     <span class='text-sm font-semibold'>Secure & Compliant</span>
                 </div>
                 <div class='flex items-center gap-2 text-secondary-dark'>
-                    <iconify-icon icon='heroicons:clock' width='20' height='20'></iconify-icon>
+                    <Icon name='heroicons:clock' width='20' height='20' />
                     <span class='text-sm font-semibold'>24-Hour Response</span>
                 </div>
                 <div class='flex items-center gap-2 text-accent'>
-                    <iconify-icon icon='heroicons:check-circle' width='20' height='20'></iconify-icon>
+                    <Icon name='heroicons:check-circle' width='20' height='20' />
                     <span class='text-sm font-semibold'>Free Quote</span>
                 </div>
             </div>

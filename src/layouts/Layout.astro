@@ -178,9 +178,6 @@ function formatCanonicalURL(url: string | URL) {
         <slot name="head" />
     </head>
     <body class="antialiased overflow-x-hidden">
-        <!-- Iconify Icons -->
-        <script type="module" src="/iconify-icon.js"></script>
-
         <Header {...headerData} {currentPage} data-sb-field-path={`${configData?._id}:header`} />
         <main>
             <slot />

@@ -6,6 +6,7 @@ import Cta from '@components/Cta.astro';
 import InteractiveCoverageMap from '@components/InteractiveCoverageMap.astro';
 import { graphCoverage } from '../lib/schema.ts';
 import { coverageHighlights } from '../data/seoContent';
+import { Icon } from 'astro-icon/components';
 
 // No heroData object needed - we'll define the hero content directly in the component
 
@@ -62,7 +63,7 @@ const schema = graphCoverage();
         <div class="text-center max-w-5xl mx-auto">
             <!-- Page Badge -->
             <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <iconify-icon icon="material-symbols:map" width="24" height="24" style="color: white;"></iconify-icon>
+                <Icon name="material-symbols:map" width="24" height="24" style="color: white;" />
                 <span class="text-white font-bold tracking-wide uppercase">Coverage Areas</span>
             </div>
 
@@ -72,15 +73,15 @@ const schema = graphCoverage();
             <!-- Subtitle -->
             <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:map-pin" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:map-pin" width="20" height="20" />
                     5 States Covered
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:building-office-2" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:building-office-2" width="20" height="20" />
                     500+ Medical Facilities
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:clock" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:clock" width="20" height="20" />
                     24/7 STAT Service
                 </span>
             </div>
@@ -101,7 +102,7 @@ const schema = graphCoverage();
                     class="text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2"
                 >
                     View Our Services
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" />
                 </a>
             </div>
         </div>
@@ -116,7 +117,7 @@ const schema = graphCoverage();
                     <div
                         class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary"
                     >
-                        <iconify-icon icon="mdi:truck-fast-outline" width="18" height="18"></iconify-icon>
+                        <Icon name="mdi:truck-fast-outline" width="18" height="18" />
                         Regional Operations
                     </div>
                     <h2 class="mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight">
@@ -177,7 +178,7 @@ const schema = graphCoverage();
                 <div
                     class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary"
                 >
-                    <iconify-icon icon="heroicons:map" width="18" height="18"></iconify-icon>
+                    <Icon name="heroicons:map" width="18" height="18" />
                     Regional Coverage Details
                 </div>
                 <h2 class="mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight">Cities and regions we regularly support</h2>

@@ -1,5 +1,6 @@
 ---
 import Section from '@components/Section.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
     'data-sb-field-path'?: string;
@@ -89,8 +90,8 @@ const stats = [
                 {
                     stats.map((stat) => (
                         <div class="flex items-start gap-4 sm:flex-col sm:items-start sm:gap-3">
-                            <iconify-icon
-                                icon={stat.icon}
+                            <Icon
+                                name={stat.icon}
                                 width="22"
                                 height="22"
                                 class="text-primary shrink-0 mt-1 sm:mt-0"

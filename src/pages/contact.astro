@@ -5,6 +5,7 @@ import Hero from '@components/Hero.astro';
 import Section from '@components/Section.astro';
 import WaveClip from '@components/WaveClip.astro';
 import { graphContact } from '../lib/schema.ts';
+import { Icon } from 'astro-icon/components';
 
 const formData = {
     _type: 'section',
@@ -38,7 +39,7 @@ const schema = graphContact();
         <div class="text-center max-w-5xl mx-auto">
             <!-- Page Badge -->
             <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <iconify-icon icon="heroicons:phone" width="24" height="24" style="color: white;"></iconify-icon>
+                <Icon name="heroicons:phone" width="24" height="24" style="color: white;" />
                 <span class="text-white font-bold tracking-wide uppercase">Contact Us</span>
             </div>
 
@@ -48,15 +49,15 @@ const schema = graphContact();
             <!-- Subtitle -->
             <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:clock" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:clock" width="20" height="20" />
                     24/7 Support
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:bolt" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:bolt" width="20" height="20" />
                     Fast Response
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:shield-check" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:shield-check" width="20" height="20" />
                     Professional Service
                 </span>
             </div>
@@ -80,7 +81,7 @@ const schema = graphContact();
                     class="text-white font-semibold hover:text-primary-light transition-colors duration-300 flex items-center gap-2"
                 >
                     Request Quote
-                    <iconify-icon icon="heroicons:arrow-down" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:arrow-down" width="20" height="20" />
                 </a>
             </div>
         </div>
@@ -92,7 +93,7 @@ const schema = graphContact();
                 <!-- Phone -->
                 <a href="tel:+12532310615" class="group bg-white rounded-2xl border border-slate-200 p-8 flex gap-5 items-start hover:border-primary/30 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
-                        <iconify-icon icon="heroicons:phone" width="24" height="24" class="text-white"></iconify-icon>
+                        <Icon name="heroicons:phone" width="24" height="24" class="text-white" />
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 mb-1">Call us anytime</h3>
@@ -104,7 +105,7 @@ const schema = graphContact();
                 <!-- Email -->
                 <a href="mailto:Triusllccouriers@outlook.com" class="group bg-white rounded-2xl border border-slate-200 p-8 flex gap-5 items-start hover:border-secondary/30 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
-                        <iconify-icon icon="heroicons:envelope" width="24" height="24" class="text-white"></iconify-icon>
+                        <Icon name="heroicons:envelope" width="24" height="24" class="text-white" />
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 mb-1">Email us</h3>
