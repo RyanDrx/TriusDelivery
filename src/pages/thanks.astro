@@ -4,6 +4,7 @@ import SEO from '@components/SEO.astro';
 import WaveClip from '@components/WaveClip.astro';
 import { graphThanks } from '../lib/schema.ts';
 import { Icon } from 'astro-icon/components';
+import { PHONE_DISPLAY, PHONE_TEL_HREF } from '@data/contact';
 
 const schema = graphThanks();
 ---
@@ -85,11 +86,11 @@ const schema = graphThanks();
                         STAT pickups can't wait on email. Call the 24/7 STAT line and we'll dispatch.
                     </p>
                     <a
-                        href="tel:+12532310615"
+                        href={PHONE_TEL_HREF}
                         class="mt-3 inline-flex items-center gap-2 text-xl font-bold text-slate-900 hover:text-accent transition-colors"
                     >
                         <Icon name="heroicons:phone" width="20" height="20" />
-                        (253) 231-0615
+                        {PHONE_DISPLAY}
                     </a>
                 </div>
             </div>
