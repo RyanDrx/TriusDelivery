@@ -18,6 +18,20 @@ import type {
     ContactPage,
 } from 'schema-dts';
 import { homeFaqs, equipmentFaqs, routesFaqs, statFaqs, coverageHighlights } from '../data/seoContent';
+import {
+    COMPANY_NAME,
+    COMPANY_ALT_NAME,
+    ADDRESS,
+    PHONE_DISPLAY,
+    PHONE_E164_DASHED,
+    DISPATCH_EMAIL as CONTACT_DISPATCH_EMAIL,
+    SALES_EMAIL as CONTACT_SALES_EMAIL,
+    FOUNDED_YEAR,
+    FOUNDER_NAME,
+    SERVICE_STATES,
+    SERVICE_STATE_CODES,
+    HEADQUARTERED_IN
+} from '../data/contact';
 
 // ---- Site constants
 export const ORIGIN = 'https://trius.delivery/';
@@ -25,21 +39,21 @@ export const ORG_ID = ORIGIN + '#org';
 export const WEBSITE_ID = ORIGIN + '#website';
 export const FOUNDER_ID = ORIGIN + '#kevin-hyatt';
 
-// Optional shared contact info
-export const DISPATCH_EMAIL = 'Triusllccouriers@outlook.com';
-export const SALES_EMAIL = 'Triusllccouriers@outlook.com';
-export const MAIN_PHONE = '+1-253-231-0615';
+// Shared contact info (re-exported from src/data/contact.ts, the single source of truth)
+export const DISPATCH_EMAIL: string = CONTACT_DISPATCH_EMAIL;
+export const SALES_EMAIL: string = CONTACT_SALES_EMAIL;
+export const MAIN_PHONE: string = PHONE_E164_DASHED;
 
 // ---- Node builders
 
 export function localBusiness(): LocalBusiness {
     const address: PostalAddress = {
         '@type': 'PostalAddress',
-        streetAddress: 'P.O. Box 1304',
-        addressLocality: 'Spanaway',
-        addressRegion: 'WA',
-        postalCode: '98387',
-        addressCountry: 'US'
+        streetAddress: ADDRESS.streetAddress,
+        addressLocality: ADDRESS.locality,
+        addressRegion: ADDRESS.region,
+        postalCode: ADDRESS.postalCode,
+        addressCountry: ADDRESS.country
     };
 
     const geo: GeoCoordinates = {
@@ -54,7 +68,7 @@ export function localBusiness(): LocalBusiness {
         telephone: MAIN_PHONE,
         email: DISPATCH_EMAIL,
         availableLanguage: ['English'],
-        areaServed: ['US-WA', 'US-OR', 'US-ID', 'US-MT', 'US-CA']
+        areaServed: [...SERVICE_STATE_CODES]
     };
 
     const sales: ContactPoint = {
@@ -63,7 +77,7 @@ export function localBusiness(): LocalBusiness {
         telephone: MAIN_PHONE,
         email: SALES_EMAIL,
         availableLanguage: ['English'],
-        areaServed: ['US-WA', 'US-OR', 'US-ID', 'US-MT', 'US-CA']
+        areaServed: [...SERVICE_STATE_CODES]
     };
 
     const catalog: OfferCatalog = {
@@ -79,8 +93,8 @@ export function localBusiness(): LocalBusiness {
     return {
         '@type': 'LocalBusiness',
         '@id': ORG_ID,
-        name: 'Trius LLC',
-        alternateName: 'Trius Medical Courier',
+        name: COMPANY_NAME,
+        alternateName: COMPANY_ALT_NAME,
         url: ORIGIN,
         logo: ORIGIN + 'logos/Trius_Logo.svg',
         image: [ORIGIN + 'Images/Courier%20handoff.webp', ORIGIN + 'Images/vehicle%20package.webp'],
@@ -90,11 +104,11 @@ export function localBusiness(): LocalBusiness {
         email: `mailto:${DISPATCH_EMAIL}`,
         telephone: MAIN_PHONE,
         priceRange: '$$',
-        foundingDate: '2022',
+        foundingDate: FOUNDED_YEAR,
         address,
         geo,
-        areaServed: ['Washington', 'Oregon', 'Idaho', 'Montana', 'California'].map((n) => ({ '@type': 'State', name: n })),
-        serviceArea: ['Washington', 'Oregon', 'Idaho', 'Montana', 'California'].map((n) => ({ '@type': 'AdministrativeArea', name: n })),
+        areaServed: SERVICE_STATES.map((n) => ({ '@type': 'State', name: n })),
+        serviceArea: SERVICE_STATES.map((n) => ({ '@type': 'AdministrativeArea', name: n })),
         knowsAbout: [
             'medical courier',
             'specimen transport',
@@ -128,7 +142,7 @@ export function founder(): Person {
     return {
         '@type': 'Person',
         '@id': FOUNDER_ID,
-        name: 'Kevin Hyatt',
+        name: FOUNDER_NAME,
         jobTitle: 'Founder',
         worksFor: { '@id': ORG_ID },
         image: ORIGIN + 'kevin_profile.webp',
@@ -142,7 +156,7 @@ export function webSite(): WebSite {
         '@type': 'WebSite',
         '@id': WEBSITE_ID,
         url: ORIGIN,
-        name: 'Trius LLC',
+        name: COMPANY_NAME,
         inLanguage: 'en',
         publisher: { '@id': ORG_ID }
     };
@@ -285,7 +299,7 @@ export function serviceStat(): Service {
         serviceType: 'Medical courier',
         category: 'STAT delivery',
         provider: { '@id': ORG_ID },
-        areaServed: ['Washington', 'Oregon', 'Idaho', 'Montana', 'California'],
+        areaServed: [...SERVICE_STATES],
         isRelatedTo: [{ '@id': ORIGIN + '#service-routes' }, { '@id': ORIGIN + '#service-equipment' }],
         description: 'Rapid, secure transport of specimens, organs, and urgent medical equipment with documented chain of custody and real time tracking.',
         termsOfService: ORIGIN + 'terms',
@@ -315,7 +329,7 @@ export function serviceRoutes(): Service {
         serviceType: 'Medical courier',
         category: 'Scheduled route',
         provider: { '@id': ORG_ID },
-        areaServed: ['Washington', 'Oregon', 'Idaho', 'Montana', 'California'],
+        areaServed: [...SERVICE_STATES],
         description:
             'Recurring pickups and deliveries for clinics, labs, and research centers. Route optimization improves reliability and reduces transit time.',
         url: ORIGIN + 'services/scheduled-routes',
@@ -344,7 +358,7 @@ export function serviceEquipment(): Service {
         serviceType: 'Medical courier',
         category: 'Specialized equipment',
         provider: { '@id': ORG_ID },
-        areaServed: ['Washington', 'Oregon', 'Idaho', 'Montana', 'California'],
+        areaServed: [...SERVICE_STATES],
         description: 'Secure delivery of fragile or regulated medical devices with trained handlers and temperature controlled or secure vehicles as needed.',
         url: ORIGIN + 'services/specialized-equipment',
         offers: {
@@ -380,7 +394,7 @@ export function graphAbout(): Graph {
             path: 'about',
             name: 'About Trius LLC | Medical Courier Services',
             description:
-                'Learn about Trius LLC, a healthcare-only medical courier service founded in 2022 by Kevin Hyatt and headquartered in Tacoma, Washington.',
+                `Learn about Trius LLC, a healthcare-only medical courier service founded in ${FOUNDED_YEAR} by ${FOUNDER_NAME} and headquartered in ${HEADQUARTERED_IN}.`,
             image: 'kevin_profile.webp',
             breadcrumbId
         }),
@@ -543,7 +557,7 @@ export function graphThanks(): Graph {
         webPage({
             path: 'thanks',
             name: 'Request Received | Trius LLC',
-            description: 'Your medical courier quote request was received. Trius LLC will respond within 24 hours. For urgent STAT pickups, call (253) 231-0615.'
+            description: `Your medical courier quote request was received. Trius LLC will respond within 24 hours. For urgent STAT pickups, call ${PHONE_DISPLAY}.`
         })
     );
 }

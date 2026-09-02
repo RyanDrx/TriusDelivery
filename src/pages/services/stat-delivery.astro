@@ -4,6 +4,9 @@ import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import { graphServiceStat } from '../../lib/schema.ts';
+import { PHONE_TEL_HREF } from '@data/contact';
+import { PHONE_TEL_HREF } from '@data/contact';
+import { PHONE_TEL_HREF } from '@data/contact';
 
 const featuresData = {
     items: [
@@ -70,7 +73,7 @@ const ctaData = {
             _key: '1',
             _type: 'actionButton',
             label: 'Call STAT Line',
-            url: 'tel:+12532310615',
+            url: PHONE_TEL_HREF,
             theme: 'accent'
         },
         {
@@ -88,13 +91,13 @@ const schema = graphServiceStat();
 
 <Layout
     title="STAT Medical Courier Deliveries | Trius LLC"
-    description="Rapid STAT medical courier transport for specimens, bloodwork, organs, pharmaceuticals, and critical medical equipment with chain of custody and real-time tracking. 24/7 emergency service."
+    description="24/7 STAT medical courier for specimens, bloodwork, organs, pharmaceuticals, and critical equipment. Chain of custody and real-time tracking on every run."
     image={{ src: '/og-image.png' }}
 >
     <Fragment slot="head">
         <SEO
             title="STAT Medical Courier Deliveries | Trius LLC"
-            description="Rapid STAT medical courier transport for specimens, bloodwork, organs, pharmaceuticals, and critical medical equipment with chain of custody and real-time tracking. 24/7 emergency service."
+            description="24/7 STAT medical courier for specimens, bloodwork, organs, pharmaceuticals, and critical equipment. Chain of custody and real-time tracking on every run."
             graph={schema}
         />
     </Fragment>
@@ -146,7 +149,7 @@ const schema = graphServiceStat();
                     Request STAT Service
                 </a>
                 <a
-                    href="tel:+12532310615"
+                    href={PHONE_TEL_HREF}
                     class="text-white font-semibold hover:text-accent-light transition-colors duration-300 flex items-center gap-2"
                 >
                     Call Emergency Line

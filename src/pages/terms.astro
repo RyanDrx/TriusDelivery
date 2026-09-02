@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import { graphLegal } from '../lib/schema.ts';
+import { COMPANY_NAME, DISPATCH_EMAIL, EMAIL_HREF, PHONE_DISPLAY, ADDRESS, ADDRESS_LINE_2 } from '@data/contact';
 
 const schema = graphLegal(
     'terms',
@@ -95,16 +96,16 @@ const schema = graphLegal(
                 <h2 class="text-2xl font-bold text-neutral-dark mb-4">Contact Information</h2>
                 <p class="text-neutral mb-6">
                     For questions about these terms, contact us at
-                    <a href="mailto:Triusllccouriers@outlook.com" class="text-primary hover:text-primary-dark">Triusllccouriers@outlook.com</a>
+                    <a href={EMAIL_HREF} class="text-primary hover:text-primary-dark">{DISPATCH_EMAIL}</a>
                 </p>
 
                 <div class="bg-primary/5 rounded-lg p-6 mt-8">
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Trius LLC</h3>
+                    <h3 class="text-lg font-bold text-neutral-dark mb-2">{COMPANY_NAME}</h3>
                     <p class="text-sm text-neutral">
-                        P.O. Box 1304<br />
-                        Spanaway, WA 98387<br />
-                        Email: Triusllccouriers@outlook.com<br />
-                        Emergency: (253) 231-0615
+                        {ADDRESS.streetAddress}<br />
+                        {ADDRESS_LINE_2}<br />
+                        Email: {DISPATCH_EMAIL}<br />
+                        Emergency: {PHONE_DISPLAY}
                     </p>
                 </div>
             </div>

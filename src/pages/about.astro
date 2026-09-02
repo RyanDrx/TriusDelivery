@@ -5,10 +5,11 @@ import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import { graphAbout } from '../lib/schema';
 import WaveClip from '@components/WaveClip.astro';
+import { BASED_IN_PHRASE, ADDRESS_CITY_STATE } from '@data/contact';
 
 const heroData = {
     title: 'About Trius LLC',
-    subtitle: 'A Medical Courier Company Based in Tacoma, WA',
+    subtitle: `A Medical Courier Company ${BASED_IN_PHRASE}`,
     body: 'We started Trius because the courier services hospitals were using kept dropping the ball. Missed windows, no tracking, drivers who didn\'t know a specimen from a package. We figured we could do better.'
 };
 
@@ -30,13 +31,13 @@ const schema = graphAbout();
 
 <Layout
     title="About Us - Trius LLC Medical Courier Services"
-    description="Learn about Trius LLC's mission to provide reliable, professional medical courier services across WA, OR, ID, MT, and CA. Specialized expertise in medical logistics."
+    description="Learn about Trius LLC's mission: reliable, professional medical courier services across WA, OR, ID, MT, and CA, backed by medical logistics expertise."
     image={{ src: '/og-image.png' }}
 >
     <Fragment slot="head">
         <SEO
             title="About Us - Trius LLC Medical Courier Services"
-            description="Learn about Trius LLC's mission to provide reliable, professional medical courier services across WA, OR, ID, MT, and CA. Specialized expertise in medical logistics."
+            description="Learn about Trius LLC's mission: reliable, professional medical courier services across WA, OR, ID, MT, and CA, backed by medical logistics expertise."
             graph={schema}
         />
     </Fragment>
@@ -52,7 +53,7 @@ const schema = graphAbout();
                 <span class="h-px w-8 bg-white/40"></span>
                 About
                 <span class="text-white/40">·</span>
-                <span class="text-white/70">Tacoma, WA</span>
+                <span class="text-white/70">{ADDRESS_CITY_STATE}</span>
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 tracking-tight leading-[1.05]">
                 {heroData.title}
