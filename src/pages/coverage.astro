@@ -51,10 +51,11 @@ const schema = graphCoverage();
             description="Explore Trius medical courier coverage across Washington, Oregon, Idaho, Montana, and Northern California. Review state-by-state service areas, major cities, and availability for STAT deliveries, scheduled routes, and equipment transport."
             graph={schema}
         />
+        <link rel="preload" as="image" href="/Images/courier-boxes.webp" />
     </Fragment>
 
     <Hero
-        backgroundImage="/Images/couriour boxes.webp"
+        backgroundImage="/Images/courier-boxes.webp"
         overlayClass="bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70"
         minHeight="min-h-[70vh]"
         useWaveClip={true}
@@ -158,7 +159,7 @@ const schema = graphCoverage();
         <div class="absolute inset-0 hidden lg:block">
             <div
                 class="absolute inset-0"
-                style='background-image: url("/Images/Courier back.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+                style='background-image: url("/Images/courier-back.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
             >
             </div>
         </div>
