@@ -32,7 +32,7 @@
 - [ ] Update outdated dependencies — Especially `marked` (15→18, XSS history), `@sanity/client` (7.9→7.21), review Astro 6 migration
 - [x] Render honeypot field in contact form — `netlify-honeypot` is configured but hidden `<input name="bot-field">` missing from form HTML
 - [x] Wrap Stackbit reload script in dev check — `Layout.astro` line 169: add `import.meta.env.DEV` guard
-- [ ] Add Leaflet local fallback — Self-host or npm install leaflet to avoid CDN single-point-of-failure
+- [x] Add Leaflet local fallback — Self-host or npm install leaflet to avoid CDN single-point-of-failure
 - [ ] Enable TypeScript strict mode — Add `strict: true` to `tsconfig.json`
 
 ### Design & Accessibility
@@ -50,7 +50,7 @@
 ## 🟡 Medium (Next Sprint)
 
 ### Engineering
-- [ ] Centralize contact info — Create single source of truth in `siteConfig.js` for phone, email, address used across contact.astro, schema.ts, Footer
+- [x] Centralize contact info — Create single source of truth in `siteConfig.js` for phone, email, address used across contact.astro, schema.ts, Footer
 - [ ] Deduplicate coverage data in `InteractiveCoverageMap.astro` — Define once in frontmatter, pass to JS via `define:vars`
 - [x] Optimize Google Fonts loading — Reduce from 18 font weights to essential (400, 600, 700); async load with `media="print" onload`
 - [x] Add explicit `output: 'static'` (already done) to `astro.config.mjs`
@@ -95,7 +95,7 @@
 - [x] Add sitemap link in footer
 - [x] Remove or differentiate duplicate SecondaryHero on homepage
 - [x] Add `twitter:domain` meta tag
-- [ ] Add FAQ structured data (FAQPage schema)
+- [x] Add FAQ structured data (FAQPage schema)
 - [x] Add font preload hints (Orbitron bundled locally, Google Fonts async) for critical fonts
 - [ ] Add `rel="alternate"` / hreflang tags for future internationalization
 

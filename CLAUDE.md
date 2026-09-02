@@ -17,7 +17,7 @@ Marketing site for Trius LLC, a medical courier (STAT + scheduled routes) in the
 | Command        | What it does                                              |
 | -------------- | --------------------------------------------------------- |
 | `pnpm dev`     | Dev server on http://localhost:3000                       |
-| `pnpm build`   | `prebuild` copies iconify-icon.js to `public/`, then `astro build` to `dist/` |
+| `pnpm build`   | `astro build` to `dist/`                                  |
 | `pnpm preview` | Serve `dist/` locally                                     |
 | `pnpm lint`    | ESLint over `src/` (`lint:fix` to autofix)                |
 | `pnpm format`  | Prettier over the repo (`format:check` in CI-style)       |
