@@ -5,6 +5,7 @@ import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import { graphAbout } from '../lib/schema';
 import WaveClip from '@components/WaveClip.astro';
+import { Icon } from 'astro-icon/components';
 
 const heroData = {
     title: 'About Trius LLC',
@@ -69,7 +70,7 @@ const schema = graphAbout();
                 class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary font-semibold rounded-full hover:bg-white/95 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
             >
                 Get Started
-                <iconify-icon icon="heroicons:arrow-right" width="16" height="16" />
+                <Icon name="heroicons:arrow-right" width="16" height="16" />
             </a>
         </div>
     </Hero>
@@ -219,7 +220,7 @@ const schema = graphAbout();
                                 <span class="font-mono text-2xl lg:text-3xl font-bold text-primary tabular-nums leading-none">
                                     {String(idx + 1).padStart(2, '0')}
                                 </span>
-                                <iconify-icon icon={item.icon} width="22" height="22" class="text-slate-400 hidden lg:block" />
+                                <Icon name={item.icon} width="22" height="22" class="text-slate-400 hidden lg:block" />
                             </div>
                             <div class="min-w-0">
                                 <h3 class="text-xl lg:text-2xl font-bold text-slate-900 mb-3 tracking-tight">{item.title}</h3>
@@ -245,7 +246,7 @@ const schema = graphAbout();
             <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
                 <div class="flex gap-5">
                     <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                        <iconify-icon icon="heroicons:beaker" width="24" height="24" class="text-primary"></iconify-icon>
+                        <Icon name="heroicons:beaker" width="24" height="24" class="text-primary" />
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 mb-2">Healthcare-only fleet</h3>
@@ -257,7 +258,7 @@ const schema = graphAbout();
 
                 <div class="flex gap-5">
                     <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                        <iconify-icon icon="heroicons:map" width="24" height="24" class="text-primary"></iconify-icon>
+                        <Icon name="heroicons:map" width="24" height="24" class="text-primary" />
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 mb-2">Five states, one team</h3>
@@ -269,7 +270,7 @@ const schema = graphAbout();
 
                 <div class="flex gap-5">
                     <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1">
-                        <iconify-icon icon="heroicons:phone-arrow-up-right" width="24" height="24" class="text-accent"></iconify-icon>
+                        <Icon name="heroicons:phone-arrow-up-right" width="24" height="24" class="text-accent" />
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 mb-2">We answer at 3 AM</h3>
@@ -281,7 +282,7 @@ const schema = graphAbout();
 
                 <div class="flex gap-5">
                     <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                        <iconify-icon icon="heroicons:receipt-percent" width="24" height="24" class="text-secondary-dark"></iconify-icon>
+                        <Icon name="heroicons:receipt-percent" width="24" height="24" class="text-secondary-dark" />
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 mb-2">The quote is the price</h3>
@@ -332,8 +333,8 @@ const schema = graphAbout();
                 ].map((item) => (
                     <div class="grid grid-cols-[auto_1fr] md:grid-cols-[14rem_1fr] gap-x-6 md:gap-x-10 gap-y-2 py-7 lg:py-8">
                         <dt class="flex items-center gap-3">
-                            <iconify-icon
-                                icon={item.icon}
+                            <Icon
+                                name={item.icon}
                                 width="20"
                                 height="20"
                                 class="text-primary shrink-0"

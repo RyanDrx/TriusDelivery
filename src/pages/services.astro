@@ -5,6 +5,7 @@ import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import { graphServices } from '../lib/schema.ts';
 import WaveClip from '@components/WaveClip.astro';
+import { Icon } from 'astro-icon/components';
 
 const ctaData = {
     _type: 'ctaSection',
@@ -89,7 +90,7 @@ const schema = graphServices();
         <div class="text-center max-w-5xl mx-auto">
             <!-- Page Badge -->
             <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <iconify-icon icon="material-symbols:medical-services" width="24" height="24" style="color: white;"></iconify-icon>
+                <Icon name="material-symbols:medical-services" width="24" height="24" style="color: white;" />
                 <span class="text-white font-bold tracking-wide uppercase">Professional Services</span>
             </div>
 
@@ -99,15 +100,15 @@ const schema = graphServices();
             <!-- Subtitle -->
             <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:shield-check" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:shield-check" width="20" height="20" />
                     Fully Compliant
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:truck" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:truck" width="20" height="20" />
                     Specialized Equipment
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:map-pin" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:map-pin" width="20" height="20" />
                     Real-Time Tracking
                 </span>
             </div>
@@ -128,7 +129,7 @@ const schema = graphServices();
                     class="text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2"
                 >
                     View Coverage Areas
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" />
                 </a>
             </div>
         </div>
@@ -149,7 +150,7 @@ const schema = graphServices();
                 <article class="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start pb-16 lg:pb-20 border-b border-slate-200">
                     <div>
                         <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-accent">
-                            <iconify-icon icon="heroicons:clock" width="16" height="16"></iconify-icon>
+                            <Icon name="heroicons:clock" width="16" height="16" />
                             Emergency Service
                         </div>
                         <h3 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">STAT Deliveries</h3>
@@ -161,28 +162,28 @@ const schema = graphServices();
 
                         <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 mb-10 max-w-2xl">
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:clock" width="18" height="18" class="text-accent mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:clock" width="18" height="18" class="text-accent mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Emergency Response</div>
                                     <p class="text-sm text-slate-600">Response within 30 minutes</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:map-pin" width="18" height="18" class="text-accent mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:map-pin" width="18" height="18" class="text-accent mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Real-Time Tracking</div>
                                     <p class="text-sm text-slate-600">Live GPS tracking updates</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:document-check" width="18" height="18" class="text-accent mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:document-check" width="18" height="18" class="text-accent mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Chain-of-Custody</div>
                                     <p class="text-sm text-slate-600">Complete documentation</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:shield-check" width="18" height="18" class="text-accent mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:shield-check" width="18" height="18" class="text-accent mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Fully Compliant</div>
                                     <p class="text-sm text-slate-600">Full regulatory compliance</p>
@@ -192,7 +193,7 @@ const schema = graphServices();
 
                         <a href="/services/stat-delivery" class="group inline-flex items-center gap-2 text-sm font-bold text-accent hover:text-accent-dark transition-colors">
                             Learn More About STAT Delivery
-                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
+                            <Icon name="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5" />
                         </a>
                     </div>
                     <div class="lg:w-48 lg:pl-8 lg:border-l border-slate-200">
@@ -205,7 +206,7 @@ const schema = graphServices();
                 <article class="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start pb-16 lg:pb-20 border-b border-slate-200">
                     <div>
                         <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-secondary-dark">
-                            <iconify-icon icon="heroicons:calendar-days" width="16" height="16"></iconify-icon>
+                            <Icon name="heroicons:calendar-days" width="16" height="16" />
                             Scheduled Service
                         </div>
                         <h3 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">Scheduled Routes</h3>
@@ -217,28 +218,28 @@ const schema = graphServices();
 
                         <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 mb-10 max-w-2xl">
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:calendar-days" width="18" height="18" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:calendar-days" width="18" height="18" class="text-secondary-dark mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Flexible Scheduling</div>
                                     <p class="text-sm text-slate-600">Daily, weekly, or monthly</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:user-group" width="18" height="18" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:user-group" width="18" height="18" class="text-secondary-dark mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Dedicated Couriers</div>
                                     <p class="text-sm text-slate-600">Consistent assignments</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:map" width="18" height="18" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:map" width="18" height="18" class="text-secondary-dark mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Route Optimization</div>
                                     <p class="text-sm text-slate-600">Technology-driven efficiency</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:currency-dollar" width="18" height="18" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:currency-dollar" width="18" height="18" class="text-secondary-dark mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Cost-Effective</div>
                                     <p class="text-sm text-slate-600">Bulk transport pricing</p>
@@ -248,7 +249,7 @@ const schema = graphServices();
 
                         <a href="/services/scheduled-routes" class="group inline-flex items-center gap-2 text-sm font-bold text-secondary-dark hover:text-secondary transition-colors">
                             Learn More About Scheduled Routes
-                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
+                            <Icon name="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5" />
                         </a>
                     </div>
                     <div class="lg:w-48 lg:pl-8 lg:border-l border-slate-200">
@@ -261,7 +262,7 @@ const schema = graphServices();
                 <article class="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start">
                     <div>
                         <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
-                            <iconify-icon icon="heroicons:beaker" width="16" height="16"></iconify-icon>
+                            <Icon name="heroicons:beaker" width="16" height="16" />
                             Specialized Service
                         </div>
                         <h3 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">Specialized Equipment Transport</h3>
@@ -272,28 +273,28 @@ const schema = graphServices();
 
                         <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 mb-10 max-w-2xl">
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:beaker" width="18" height="18" class="text-primary mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:beaker" width="18" height="18" class="text-primary mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Temperature Control</div>
                                     <p class="text-sm text-slate-600">Climate-controlled transport</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:shield-exclamation" width="18" height="18" class="text-primary mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:shield-exclamation" width="18" height="18" class="text-primary mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Hazmat Certified</div>
                                     <p class="text-sm text-slate-600">Certified drivers</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:cube" width="18" height="18" class="text-primary mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:cube" width="18" height="18" class="text-primary mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Custom Packaging</div>
                                     <p class="text-sm text-slate-600">Specialized solutions</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <iconify-icon icon="heroicons:document-text" width="18" height="18" class="text-primary mt-1 shrink-0"></iconify-icon>
+                                <Icon name="heroicons:document-text" width="18" height="18" class="text-primary mt-1 shrink-0" />
                                 <div>
                                     <div class="font-bold text-slate-900 text-sm">Full Insurance</div>
                                     <p class="text-sm text-slate-600">Comprehensive coverage</p>
@@ -303,7 +304,7 @@ const schema = graphServices();
 
                         <a href="/services/specialized-equipment" class="group inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-dark transition-colors">
                             Learn More About Equipment Transport
-                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
+                            <Icon name="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5" />
                         </a>
                     </div>
                     <div class="lg:w-48 lg:pl-8 lg:border-l border-slate-200">
@@ -325,42 +326,42 @@ const schema = graphServices();
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
                 <div>
-                    <iconify-icon icon="heroicons:shield-check" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <Icon name="heroicons:shield-check" width="28" height="28" class="text-primary mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Accuracy & Safety</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         Every courier is rigorously trained to prevent misdeliveries and protect specimen integrity. Our documented procedures ensure safe, on-time delivery.
                     </p>
                 </div>
                 <div>
-                    <iconify-icon icon="heroicons:clock" width="28" height="28" class="text-secondary-dark mb-4"></iconify-icon>
+                    <Icon name="heroicons:clock" width="28" height="28" class="text-secondary-dark mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Reliability & Readiness</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         Always on-call, 24/7, for both scheduled and urgent deliveries. When healthcare organizations need dependable logistics, Trius delivers.
                     </p>
                 </div>
                 <div>
-                    <iconify-icon icon="heroicons:academic-cap" width="28" height="28" class="text-accent mb-4"></iconify-icon>
+                    <Icon name="heroicons:academic-cap" width="28" height="28" class="text-accent mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Expertise & Professionalism</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         Experienced professionals oversee shipments with precision and courtesy. Our team understands the critical nature of medical logistics.
                     </p>
                 </div>
                 <div>
-                    <iconify-icon icon="material-symbols:lightbulb-2-outline" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <Icon name="material-symbols:lightbulb-2-outline" width="28" height="28" class="text-primary mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Innovative Solutions</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         Technology-driven logistics with optimized routes and proactive communication. We embrace complex challenges with cutting-edge solutions.
                     </p>
                 </div>
                 <div>
-                    <iconify-icon icon="material-symbols:handshake-outline-sharp" width="28" height="28" class="text-secondary-dark mb-4"></iconify-icon>
+                    <Icon name="material-symbols:handshake-outline-sharp" width="28" height="28" class="text-secondary-dark mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Partnership Approach</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         We build lasting partnerships that create mutual success. Tailoring logistics solutions to meet your unique organizational needs.
                     </p>
                 </div>
                 <div>
-                    <iconify-icon icon="heroicons:document-check" width="28" height="28" class="text-accent mb-4"></iconify-icon>
+                    <Icon name="heroicons:document-check" width="28" height="28" class="text-accent mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Compliance Excellence</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         We prioritize regulatory compliance and continuous training to stay ahead of industry standards.
@@ -398,64 +399,64 @@ const schema = graphServices();
 
             <div class="grid lg:grid-cols-3 gap-8 lg:gap-10">
                 <div class="bg-white border border-slate-200 rounded-2xl p-8">
-                    <iconify-icon icon="heroicons:shield-check" width="32" height="32" class="text-primary mb-5"></iconify-icon>
+                    <Icon name="heroicons:shield-check" width="32" height="32" class="text-primary mb-5" />
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Secure Handling</h3>
                     <p class="text-sm text-slate-600 leading-relaxed mb-6">
                         Secure handling of all protected health information and medical specimens. We maintain a strict 'no PHI collection' policy.
                     </p>
                     <ul class="space-y-2.5">
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0" />
                             <span>Secure handling of protected health information</span>
                         </li>
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0" />
                             <span>Privacy protection protocols at every step</span>
                         </li>
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-primary mt-1 shrink-0" />
                             <span>No PHI collection in digital communications</span>
                         </li>
                     </ul>
                 </div>
                 <div class="bg-white border border-slate-200 rounded-2xl p-8">
-                    <iconify-icon icon="heroicons:academic-cap" width="32" height="32" class="text-secondary-dark mb-5"></iconify-icon>
+                    <Icon name="heroicons:academic-cap" width="32" height="32" class="text-secondary-dark mb-5" />
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Industry Trained</h3>
                     <p class="text-sm text-slate-600 leading-relaxed mb-6">
                         All drivers are trained in SetTrax and Casechek systems with ongoing certification in specimen handling and safe transport procedures.
                     </p>
                     <ul class="space-y-2.5">
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0" />
                             <span>SetTrax and Casechek certified</span>
                         </li>
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0" />
                             <span>Ongoing safety training</span>
                         </li>
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0" />
                             <span>Proper specimen handling protocols</span>
                         </li>
                     </ul>
                 </div>
                 <div class="bg-white border border-slate-200 rounded-2xl p-8">
-                    <iconify-icon icon="heroicons:document-text" width="32" height="32" class="text-accent mb-5"></iconify-icon>
+                    <Icon name="heroicons:document-text" width="32" height="32" class="text-accent mb-5" />
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Insured & Bonded</h3>
                     <p class="text-sm text-slate-600 leading-relaxed mb-6">
                         Comprehensive insurance coverage and bonding for complete protection. State-of-the-art logistics technology with rigorous chain of custody procedures.
                     </p>
                     <ul class="space-y-2.5">
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0" />
                             <span>Full insurance coverage for all shipments</span>
                         </li>
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0" />
                             <span>Bonded courier services</span>
                         </li>
                         <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                            <iconify-icon icon="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:check" width="16" height="16" class="text-accent mt-1 shrink-0" />
                             <span>Chain of custody documentation</span>
                         </li>
                     </ul>
@@ -477,7 +478,7 @@ const schema = graphServices();
             <div class="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
                 <div>
                     <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
-                        <iconify-icon icon="heroicons:map" width="16" height="16"></iconify-icon>
+                        <Icon name="heroicons:map" width="16" height="16" />
                         Regional Coverage
                     </div>
 
@@ -490,7 +491,7 @@ const schema = graphServices();
 
                     <div class="rounded-2xl bg-white border border-slate-200 p-6">
                         <div class="flex items-start gap-3">
-                            <iconify-icon icon="heroicons:information-circle" width="22" height="22" class="text-primary mt-0.5 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:information-circle" width="22" height="22" class="text-primary mt-0.5 shrink-0" />
                             <div>
                                 <h4 class="font-bold text-slate-900 mb-2">Expanding Coverage</h4>
                                 <p class="text-sm text-slate-600 leading-relaxed">
@@ -503,9 +504,9 @@ const schema = graphServices();
 
                     <div class="mt-8">
                         <a href="/coverage" class="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-white text-sm font-bold hover:bg-primary-dark transition-colors">
-                            <iconify-icon icon="heroicons:map" width="18" height="18"></iconify-icon>
+                            <Icon name="heroicons:map" width="18" height="18" />
                             View Coverage Map
-                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
+                            <Icon name="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5" />
                         </a>
                         <p class="text-sm text-slate-500 mt-3">See detailed coverage areas and service zones</p>
                     </div>
@@ -569,7 +570,7 @@ const schema = graphServices();
             <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
                 <div>
                     <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
-                        <iconify-icon icon="heroicons:cog-6-tooth" width="16" height="16"></iconify-icon>
+                        <Icon name="heroicons:cog-6-tooth" width="16" height="16" />
                         Advanced Systems
                     </div>
                     <h3 class="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight mb-5">State-of-the-Art Logistics</h3>
@@ -581,7 +582,7 @@ const schema = graphServices();
 
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
-                            <iconify-icon icon="heroicons:device-phone-mobile" width="24" height="24" class="text-primary mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:device-phone-mobile" width="24" height="24" class="text-primary mt-1 shrink-0" />
                             <div>
                                 <h4 class="font-bold text-slate-900 mb-1.5">Real-Time Tracking</h4>
                                 <p class="text-sm text-slate-600 leading-relaxed">
@@ -591,7 +592,7 @@ const schema = graphServices();
                         </div>
 
                         <div class="flex items-start gap-4">
-                            <iconify-icon icon="heroicons:map" width="24" height="24" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:map" width="24" height="24" class="text-secondary-dark mt-1 shrink-0" />
                             <div>
                                 <h4 class="font-bold text-slate-900 mb-1.5">Route Optimization</h4>
                                 <p class="text-sm text-slate-600 leading-relaxed">
@@ -602,7 +603,7 @@ const schema = graphServices();
                         </div>
 
                         <div class="flex items-start gap-4">
-                            <iconify-icon icon="heroicons:document-text" width="24" height="24" class="text-accent mt-1 shrink-0"></iconify-icon>
+                            <Icon name="heroicons:document-text" width="24" height="24" class="text-accent mt-1 shrink-0" />
                             <div>
                                 <h4 class="font-bold text-slate-900 mb-1.5">Digital Documentation</h4>
                                 <p class="text-sm text-slate-600 leading-relaxed">
@@ -641,7 +642,7 @@ const schema = graphServices();
             <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-start">
                 <div>
                     <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
-                        <iconify-icon icon="heroicons:building-office-2" width="16" height="16"></iconify-icon>
+                        <Icon name="heroicons:building-office-2" width="16" height="16" />
                         Healthcare Use Cases
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">
@@ -666,7 +667,7 @@ const schema = graphServices();
 
                 <aside class="rounded-2xl border border-slate-200 bg-slate-50 p-8">
                     <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.14em] uppercase text-secondary-dark">
-                        <iconify-icon icon="heroicons:archive-box" width="16" height="16"></iconify-icon>
+                        <Icon name="heroicons:archive-box" width="16" height="16" />
                         Common Shipment Types
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900 mb-4">What Trius helps move every day</h3>
@@ -678,7 +679,7 @@ const schema = graphServices();
                         {
                             shipmentTypes.map((item) => (
                                 <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                                    <iconify-icon icon="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                                    <Icon name="heroicons:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0" />
                                     <span class="leading-snug">{item}</span>
                                 </li>
                             ))
@@ -695,7 +696,7 @@ const schema = graphServices();
                             class="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-dark"
                         >
                             View coverage by state and city
-                            <iconify-icon icon="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5"></iconify-icon>
+                            <Icon name="heroicons:arrow-right" width="16" height="16" class="transition-transform group-hover:translate-x-0.5" />
                         </a>
                     </div>
                 </aside>
@@ -715,7 +716,7 @@ const schema = graphServices();
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 <div class="bg-white rounded-2xl border border-slate-200 p-6">
-                    <iconify-icon icon="heroicons:beaker" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <Icon name="heroicons:beaker" width="28" height="28" class="text-primary mb-4" />
                     <h3 class="text-base font-bold text-slate-900 mb-2">Specimen Handling</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         Specialized training in proper specimen collection, transport, and delivery procedures.
@@ -723,19 +724,19 @@ const schema = graphServices();
                 </div>
 
                 <div class="bg-white rounded-2xl border border-slate-200 p-6">
-                    <iconify-icon icon="heroicons:shield-check" width="28" height="28" class="text-secondary-dark mb-4"></iconify-icon>
+                    <Icon name="heroicons:shield-check" width="28" height="28" class="text-secondary-dark mb-4" />
                     <h3 class="text-base font-bold text-slate-900 mb-2">Privacy Protection</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">Comprehensive privacy training and PHI protection protocols for all personnel.</p>
                 </div>
 
                 <div class="bg-white rounded-2xl border border-slate-200 p-6">
-                    <iconify-icon icon="heroicons:exclamation-triangle" width="28" height="28" class="text-accent mb-4"></iconify-icon>
+                    <Icon name="heroicons:exclamation-triangle" width="28" height="28" class="text-accent mb-4" />
                     <h3 class="text-base font-bold text-slate-900 mb-2">Safety Procedures</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">Certified biohazard and safety training for hazardous material handling.</p>
                 </div>
 
                 <div class="bg-white rounded-2xl border border-slate-200 p-6">
-                    <iconify-icon icon="heroicons:arrow-path" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <Icon name="heroicons:arrow-path" width="28" height="28" class="text-primary mb-4" />
                     <h3 class="text-base font-bold text-slate-900 mb-2">Continuous Training</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         Ongoing education ensures our team stays ahead of industry standards and regulations.

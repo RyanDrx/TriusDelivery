@@ -1,5 +1,6 @@
 ---
 import Section from '@components/Section.astro';
+import { Icon } from 'astro-icon/components';
 
 interface FAQItem {
     question: string;
@@ -22,7 +23,7 @@ const { heading, intro, items, class: className } = Astro.props;
             <div
                 class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-primary"
             >
-                <iconify-icon icon="heroicons:question-mark-circle" width="18" height="18"></iconify-icon>
+                <Icon name="heroicons:question-mark-circle" width="18" height="18" />
                 Frequently Asked Questions
             </div>
             <h2 class="mt-5 text-3xl md:text-4xl font-black text-slate-900 leading-tight">{heading}</h2>
