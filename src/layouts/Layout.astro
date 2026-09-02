@@ -5,8 +5,6 @@ import Header from '@components/Header.astro';
 import { fetchData } from '@data/siteConfig';
 
 import '../styles/globals.css';
-import '@fontsource/orbitron/400.css';
-import '@fontsource/orbitron/700.css';
 import '@fontsource/orbitron/900.css';
 
 interface Props {
@@ -140,9 +138,11 @@ function formatCanonicalURL(url: string | URL) {
         <!-- Low Priority Global Metadata -->
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="preload" href="/favicon-32x32.png" as="image" type="image/png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#0e70a4" />
         <link rel="sitemap" href="/sitemap-index.xml" />
 
         <!-- Page Metadata -->
@@ -178,11 +178,14 @@ function formatCanonicalURL(url: string | URL) {
         <slot name="head" />
     </head>
     <body class="antialiased overflow-x-hidden">
-        <!-- Iconify Icons -->
-        <script type="module" src="/iconify-icon.js"></script>
-
+        <a
+            href="#main-content"
+            class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-primary focus:rounded-lg focus:shadow-lg"
+        >
+            Skip to main content
+        </a>
         <Header {...headerData} {currentPage} data-sb-field-path={`${configData?._id}:header`} />
-        <main>
+        <main id="main-content">
             <slot />
         </main>
         <Footer {...footerData} data-sb-field-path={`${configData?._id}:footer`} />

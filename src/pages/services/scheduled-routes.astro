@@ -4,6 +4,7 @@ import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import { graphServiceRoutes } from '../../lib/schema.ts';
+import { Icon } from 'astro-icon/components';
 
 const benefits = [
     {
@@ -93,19 +94,20 @@ const schema = graphServiceRoutes();
 
 <Layout
     title="Scheduled Medical Courier Routes | Trius LLC"
-    description="Cost-effective scheduled medical courier routes for clinics, hospitals, labs, pharmacies, and research centers. Recurring specimen pickups and deliveries with route optimization and reliable timing."
+    description="Scheduled medical courier routes for clinics, hospitals, labs, and pharmacies. Recurring specimen pickups with route optimization and reliable timing."
     image={{ src: '/og-image.png' }}
 >
     <Fragment slot="head">
         <SEO
             title="Scheduled Medical Courier Routes | Trius LLC"
-            description="Cost-effective scheduled medical courier routes for clinics, hospitals, labs, pharmacies, and research centers. Recurring specimen pickups and deliveries with route optimization and reliable timing."
+            description="Scheduled medical courier routes for clinics, hospitals, labs, and pharmacies. Recurring specimen pickups with route optimization and reliable timing."
             graph={schema}
         />
+        <link rel="preload" as="image" href="/Images/vehicle-package.webp" />
     </Fragment>
 
     <Hero
-        backgroundImage="/Images/vehicle package.webp"
+        backgroundImage="/Images/vehicle-package.webp"
         overlayClass="bg-gradient-to-r from-secondary/80 via-secondary/60 to-primary/70"
         minHeight="min-h-[70vh]"
         useWaveClip={true}
@@ -113,7 +115,7 @@ const schema = graphServiceRoutes();
         <div class="text-center max-w-5xl mx-auto">
             <!-- Page Badge -->
             <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <iconify-icon icon="heroicons:calendar-days" width="24" height="24" style="color: white;"></iconify-icon>
+                <Icon name="heroicons:calendar-days" width="24" height="24" style="color: white;" />
                 <span class="text-white font-bold tracking-wide uppercase">Scheduled Service</span>
             </div>
 
@@ -123,15 +125,15 @@ const schema = graphServiceRoutes();
             <!-- Subtitle -->
             <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:currency-dollar" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:currency-dollar" width="20" height="20" />
                     Cost Effective
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:user-group" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:user-group" width="20" height="20" />
                     Dedicated Teams
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:map" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:map" width="20" height="20" />
                     Route Optimization
                 </span>
             </div>
@@ -155,7 +157,7 @@ const schema = graphServiceRoutes();
                     class="text-white font-semibold hover:text-secondary-light transition-colors duration-300 flex items-center gap-2"
                 >
                     View Coverage Areas
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" />
                 </a>
             </div>
         </div>
@@ -175,8 +177,8 @@ const schema = graphServiceRoutes();
                 {
                     benefits.map((b) => (
                         <article class="bg-white rounded-2xl border border-slate-200 p-7">
-                            <iconify-icon
-                                icon={b.icon}
+                            <Icon
+                                name={b.icon}
                                 width="28"
                                 height="28"
                                 class:list={[
@@ -191,8 +193,8 @@ const schema = graphServiceRoutes();
                             <ul class="space-y-2 pt-5 border-t border-slate-200">
                                 {b.features.map((f) => (
                                     <li class="flex items-start gap-2 text-sm text-slate-700">
-                                        <iconify-icon
-                                            icon="heroicons:check"
+                                        <Icon
+                                            name="heroicons:check"
                                             width="14"
                                             height="14"
                                             class:list={[
@@ -227,8 +229,8 @@ const schema = graphServiceRoutes();
                 {
                     routeTypes.map((r) => (
                         <article class="bg-white rounded-2xl border border-slate-200 p-7">
-                            <iconify-icon
-                                icon={r.icon}
+                            <Icon
+                                name={r.icon}
                                 width="28"
                                 height="28"
                                 class:list={[
@@ -244,8 +246,8 @@ const schema = graphServiceRoutes();
                             <ul class="grid sm:grid-cols-1 gap-2 pt-5 border-t border-slate-200">
                                 {r.features.map((f) => (
                                     <li class="flex items-start gap-2 text-sm text-slate-700">
-                                        <iconify-icon
-                                            icon="heroicons:check"
+                                        <Icon
+                                            name="heroicons:check"
                                             width="14"
                                             height="14"
                                             class:list={[
@@ -305,14 +307,14 @@ const schema = graphServiceRoutes();
                         <h3 class="text-lg font-bold text-slate-900 group-hover:text-accent transition-colors mb-1">STAT Deliveries</h3>
                         <p class="text-sm text-slate-600">Rapid, secure transport of specimens, organs, and urgent medical equipment with real-time tracking.</p>
                     </div>
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-accent mt-1.5 transition-colors"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-accent mt-1.5 transition-colors" />
                 </a>
                 <a href="/services/specialized-equipment" class="group flex items-start justify-between gap-4 py-4 border-b border-slate-200 hover:border-primary transition-colors">
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors mb-1">Specialized Equipment Transport</h3>
                         <p class="text-sm text-slate-600">Secure delivery of fragile medical devices with trained handlers and temperature control.</p>
                     </div>
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-primary mt-1.5 transition-colors"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-primary mt-1.5 transition-colors" />
                 </a>
             </div>
         </div>

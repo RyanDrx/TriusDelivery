@@ -5,6 +5,8 @@ import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import WaveClip from '@components/WaveClip.astro';
 import { graphServiceEquipment } from '../../lib/schema.ts';
+import { Icon } from 'astro-icon/components';
+import { PHONE_TEL_HREF } from '@data/contact';
 
 const capabilities = [
     {
@@ -94,7 +96,7 @@ const ctaData = {
             _key: '2',
             _type: 'actionButton',
             label: 'Call for Consultation',
-            url: 'tel:+12532310615',
+            url: PHONE_TEL_HREF,
             theme: 'secondary'
         }
     ]
@@ -105,19 +107,20 @@ const schema = graphServiceEquipment();
 
 <Layout
     title="Specialized Medical Equipment Transport | Trius LLC"
-    description="Expert transport of fragile medical equipment, imaging systems, surgical instruments, and diagnostic devices with temperature control, secure handling, and specialized packaging."
+    description="Specialized medical equipment transport: imaging systems, surgical instruments, and diagnostic devices with temperature control and secure handling."
     image={{ src: '/og-image.png' }}
 >
     <Fragment slot="head">
         <SEO
             title="Specialized Medical Equipment Transport | Trius LLC"
-            description="Expert transport of fragile medical equipment, imaging systems, surgical instruments, and diagnostic devices with temperature control, secure handling, and specialized packaging."
+            description="Specialized medical equipment transport: imaging systems, surgical instruments, and diagnostic devices with temperature control and secure handling."
             graph={schema}
         />
+        <link rel="preload" as="image" href="/Images/medical-monitor-equipment.webp" />
     </Fragment>
 
     <Hero
-        backgroundImage="/Images/medical monitor equip.webp"
+        backgroundImage="/Images/medical-monitor-equipment.webp"
         overlayClass="bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/70"
         minHeight="min-h-[70vh]"
         useWaveClip={true}
@@ -133,7 +136,7 @@ const schema = graphServiceEquipment();
         <div class="text-center max-w-5xl mx-auto">
             <!-- Page Badge -->
             <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <iconify-icon icon="heroicons:cube" width="24" height="24" style="color: white;"></iconify-icon>
+                <Icon name="heroicons:cube" width="24" height="24" style="color: white;" />
                 <span class="text-white font-bold tracking-wide uppercase">Specialized Service</span>
             </div>
 
@@ -143,15 +146,15 @@ const schema = graphServiceEquipment();
             <!-- Subtitle -->
             <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:beaker" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:beaker" width="20" height="20" />
                     Temperature Control
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:shield-exclamation" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:shield-exclamation" width="20" height="20" />
                     Hazmat Certified
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:truck" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:truck" width="20" height="20" />
                     Specialized Vehicles
                 </span>
             </div>
@@ -171,11 +174,11 @@ const schema = graphServiceEquipment();
                     Get Equipment Quote
                 </a>
                 <a
-                    href="tel:+12532310615"
+                    href={PHONE_TEL_HREF}
                     class="text-white font-semibold hover:text-primary-light transition-colors duration-300 flex items-center gap-2"
                 >
                     Call for Consultation
-                    <iconify-icon icon="heroicons:phone" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:phone" width="20" height="20" />
                 </a>
             </div>
         </div>
@@ -187,7 +190,7 @@ const schema = graphServiceEquipment();
             <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
                 <div>
                     <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-primary">
-                        <iconify-icon icon="mdi:account-hard-hat" width="16" height="16"></iconify-icon>
+                        <Icon name="mdi:account-hard-hat" width="16" height="16" />
                         Field Handling
                     </div>
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">
@@ -246,8 +249,8 @@ const schema = graphServiceEquipment();
                 {
                     capabilities.map((c) => (
                         <article class="bg-white rounded-2xl border border-slate-200 p-7">
-                            <iconify-icon
-                                icon={c.icon}
+                            <Icon
+                                name={c.icon}
                                 width="28"
                                 height="28"
                                 class:list={[
@@ -262,8 +265,8 @@ const schema = graphServiceEquipment();
                             <ul class="space-y-2 pt-5 border-t border-slate-200">
                                 {c.features.map((f) => (
                                     <li class="flex items-start gap-2 text-sm text-slate-700">
-                                        <iconify-icon
-                                            icon="heroicons:check"
+                                        <Icon
+                                            name="heroicons:check"
                                             width="14"
                                             height="14"
                                             class:list={[
@@ -298,13 +301,13 @@ const schema = graphServiceEquipment();
                 {
                     equipmentTypes.map((e) => (
                         <article class="bg-white rounded-2xl border border-slate-200 p-7">
-                            <iconify-icon icon={e.icon} width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                            <Icon name={e.icon} width="28" height="28" class="text-primary mb-4" />
                             <h3 class="text-lg font-bold text-slate-900 mb-3">{e.heading}</h3>
                             <p class="text-sm text-slate-600 leading-relaxed mb-5">{e.body}</p>
                             <ul class="grid grid-cols-2 gap-2 pt-5 border-t border-slate-200">
                                 {e.features.map((f) => (
                                     <li class="flex items-start gap-2 text-sm text-slate-700">
-                                        <iconify-icon icon="heroicons:check" width="14" height="14" class="text-primary mt-1 shrink-0"></iconify-icon>
+                                        <Icon name="heroicons:check" width="14" height="14" class="text-primary mt-1 shrink-0" />
                                         <span class="leading-snug">{f}</span>
                                     </li>
                                 ))}
@@ -330,8 +333,8 @@ const schema = graphServiceEquipment();
                 {
                     safetyStandards.map((s) => (
                         <article class="bg-white rounded-2xl border border-slate-200 p-7">
-                            <iconify-icon
-                                icon={s.icon}
+                            <Icon
+                                name={s.icon}
                                 width="32"
                                 height="32"
                                 class:list={[
@@ -345,7 +348,7 @@ const schema = graphServiceEquipment();
                             <ul class="space-y-2.5">
                                 {s.features.map((f) => (
                                     <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                                        <iconify-icon icon="mdi:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0"></iconify-icon>
+                                        <Icon name="mdi:check" width="16" height="16" class="text-secondary-dark mt-1 shrink-0" />
                                         <span class="leading-snug">{f}</span>
                                     </li>
                                 ))}
@@ -363,7 +366,7 @@ const schema = graphServiceEquipment();
             <div class="absolute inset-0">
                 <div
                     class="absolute inset-0 min-h-44"
-                    style='background-image: url("/Images/personal box deliver.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
+                    style='background-image: url("/Images/personal-box-delivery.webp"); background-size: cover; background-repeat: no-repeat; background-position: center;'
                 >
                 </div>
             </div>
@@ -385,14 +388,14 @@ const schema = graphServiceEquipment();
                         <h3 class="text-lg font-bold text-slate-900 group-hover:text-accent transition-colors mb-1">STAT Deliveries</h3>
                         <p class="text-sm text-slate-600">Rapid, secure transport of specimens, organs, and urgent medical equipment with real-time tracking.</p>
                     </div>
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-accent mt-1.5 transition-colors"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-accent mt-1.5 transition-colors" />
                 </a>
                 <a href="/services/scheduled-routes" class="group flex items-start justify-between gap-4 py-4 border-b border-slate-200 hover:border-secondary-dark transition-colors">
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 group-hover:text-secondary-dark transition-colors mb-1">Scheduled Routes</h3>
                         <p class="text-sm text-slate-600">Recurring pickups and deliveries for clinics, labs, and research centers with route optimization.</p>
                     </div>
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-secondary-dark mt-1.5 transition-colors"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-secondary-dark mt-1.5 transition-colors" />
                 </a>
             </div>
         </div>

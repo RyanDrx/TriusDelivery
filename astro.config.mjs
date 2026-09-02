@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sanity from '@sanity/astro';
 import sitemap from '@astrojs/sitemap';
+import icon from 'astro-icon';
 import { sanityConfig } from './src/utils/sanity-client';
 
 // https://astro.build/config
@@ -13,15 +14,13 @@ export default defineConfig({
         domains: ['cdn.sanity.io']
     },
     integrations: [
+        icon(),
         tailwind({
             applyBaseStyles: false
         }),
         sitemap({
             changefreq: 'weekly',
             priority: 0.7,
-            // Use a second-precision timestamp; some strict sitemap parsers reject
-            // millisecond precision and treat the document as unreadable.
-            lastmod: new Date(new Date().toISOString().split('.')[0] + 'Z'),
             // Pages that should not be advertised to crawlers:
             // - /thanks: post-submission page, already noindex
             // - /404: error route, already noindex

@@ -4,6 +4,8 @@ import SEO from '@components/SEO.astro';
 import Hero from '@components/Hero.astro';
 import Cta from '@components/Cta.astro';
 import { graphServiceStat } from '../../lib/schema.ts';
+import { Icon } from 'astro-icon/components';
+import { PHONE_TEL_HREF } from '@data/contact';
 
 const featuresData = {
     items: [
@@ -70,7 +72,7 @@ const ctaData = {
             _key: '1',
             _type: 'actionButton',
             label: 'Call STAT Line',
-            url: 'tel:+12532310615',
+            url: PHONE_TEL_HREF,
             theme: 'accent'
         },
         {
@@ -88,19 +90,20 @@ const schema = graphServiceStat();
 
 <Layout
     title="STAT Medical Courier Deliveries | Trius LLC"
-    description="Rapid STAT medical courier transport for specimens, bloodwork, organs, pharmaceuticals, and critical medical equipment with chain of custody and real-time tracking. 24/7 emergency service."
+    description="24/7 STAT medical courier for specimens, bloodwork, organs, pharmaceuticals, and critical equipment. Chain of custody and real-time tracking on every run."
     image={{ src: '/og-image.png' }}
 >
     <Fragment slot="head">
         <SEO
             title="STAT Medical Courier Deliveries | Trius LLC"
-            description="Rapid STAT medical courier transport for specimens, bloodwork, organs, pharmaceuticals, and critical medical equipment with chain of custody and real-time tracking. 24/7 emergency service."
+            description="24/7 STAT medical courier for specimens, bloodwork, organs, pharmaceuticals, and critical equipment. Chain of custody and real-time tracking on every run."
             graph={schema}
         />
+        <link rel="preload" as="image" href="/Images/medical-vials.webp" />
     </Fragment>
 
     <Hero
-        backgroundImage="/Images/medical phials.webp"
+        backgroundImage="/Images/medical-vials.webp"
         overlayClass="bg-gradient-to-r from-accent/80 via-accent/60 to-primary/70"
         minHeight="min-h-[70vh]"
         useWaveClip={true}
@@ -108,7 +111,7 @@ const schema = graphServiceStat();
         <div class="text-center max-w-5xl mx-auto">
             <!-- Page Badge -->
             <div class="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <iconify-icon icon="heroicons:bolt" width="24" height="24" style="color: white;"></iconify-icon>
+                <Icon name="heroicons:bolt" width="24" height="24" style="color: white;" />
                 <span class="text-white font-bold tracking-wide uppercase">Emergency Service</span>
             </div>
 
@@ -118,15 +121,15 @@ const schema = graphServiceStat();
             <!-- Subtitle -->
             <div class="flex flex-wrap justify-center gap-4 mb-8 text-white/90 font-medium">
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:clock" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:clock" width="20" height="20" />
                     30-Minute Response
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:shield-check" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:shield-check" width="20" height="20" />
                     Chain of Custody
                 </span>
                 <span class="flex items-center gap-2">
-                    <iconify-icon icon="heroicons:map-pin" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:map-pin" width="20" height="20" />
                     Real-Time Tracking
                 </span>
             </div>
@@ -146,11 +149,11 @@ const schema = graphServiceStat();
                     Request STAT Service
                 </a>
                 <a
-                    href="tel:+12532310615"
+                    href={PHONE_TEL_HREF}
                     class="text-white font-semibold hover:text-accent-light transition-colors duration-300 flex items-center gap-2"
                 >
                     Call Emergency Line
-                    <iconify-icon icon="heroicons:phone" width="20" height="20"></iconify-icon>
+                    <Icon name="heroicons:phone" width="20" height="20" />
                 </a>
             </div>
         </div>
@@ -161,7 +164,7 @@ const schema = graphServiceStat();
         <div class="max-w-5xl mx-auto px-6 lg:px-10">
             <div class="max-w-3xl mb-14">
                 <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.16em] uppercase text-accent">
-                    <iconify-icon icon="mdi:medical-cross" width="16" height="16"></iconify-icon>
+                    <Icon name="mdi:hospital" width="16" height="16" />
                     Medical Terminology
                 </div>
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">What is STAT?</h2>
@@ -173,7 +176,7 @@ const schema = graphServiceStat();
 
             <div class="grid md:grid-cols-3 gap-x-10 gap-y-10">
                 <div>
-                    <iconify-icon icon="mdi:clock-alert" width="28" height="28" class="text-accent mb-4"></iconify-icon>
+                    <Icon name="mdi:clock-alert" width="28" height="28" class="text-accent mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Immediate Response</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         STAT orders require immediate attention and response, typically within 30 minutes or less. This urgency is critical for
@@ -182,7 +185,7 @@ const schema = graphServiceStat();
                 </div>
 
                 <div>
-                    <iconify-icon icon="mdi:medical-bag" width="28" height="28" class="text-primary mb-4"></iconify-icon>
+                    <Icon name="mdi:medical-bag" width="28" height="28" class="text-primary mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Medical Priority</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         STAT deliveries take precedence over all other non-emergency medical courier services. They are essential for critical
@@ -191,7 +194,7 @@ const schema = graphServiceStat();
                 </div>
 
                 <div>
-                    <iconify-icon icon="mdi:certificate" width="28" height="28" class="text-secondary-dark mb-4"></iconify-icon>
+                    <Icon name="mdi:certificate" width="28" height="28" class="text-secondary-dark mb-4" />
                     <h3 class="text-lg font-bold text-slate-900 mb-3">Regulatory Compliance</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
                         STAT deliveries must meet strict regulatory requirements including chain of custody, temperature monitoring, and
@@ -205,7 +208,7 @@ const schema = graphServiceStat();
                 <div class="grid lg:grid-cols-[0.9fr_1.1fr]">
                     <div class="bg-primary-dark text-white px-8 py-10 lg:px-10 lg:py-12">
                         <div class="inline-flex items-center gap-2 mb-5 text-xs font-bold tracking-[0.18em] uppercase text-secondary-light">
-                            <iconify-icon icon="mdi:alarm-light" width="16" height="16"></iconify-icon>
+                            <Icon name="mdi:alarm-light" width="16" height="16" />
                             Decision Guide
                         </div>
                         <h4 class="text-2xl lg:text-3xl font-bold tracking-tight leading-tight mb-5">When to Use STAT Delivery</h4>
@@ -288,8 +291,8 @@ const schema = graphServiceStat();
                 {
                     featuresData.items.map((item) => (
                         <article class="bg-white rounded-2xl border border-slate-200 p-7">
-                            <iconify-icon
-                                icon={item.icon}
+                            <Icon
+                                name={item.icon}
                                 width="28"
                                 height="28"
                                 class:list={[
@@ -304,8 +307,8 @@ const schema = graphServiceStat();
                             <ul class="space-y-2 pt-5 border-t border-slate-200">
                                 {item.features.map((f) => (
                                     <li class="flex items-start gap-2 text-sm text-slate-700">
-                                        <iconify-icon
-                                            icon="heroicons:check"
+                                        <Icon
+                                            name="heroicons:check"
                                             width="14"
                                             height="14"
                                             class:list={[
@@ -340,7 +343,7 @@ const schema = graphServiceStat();
                 {
                     processSteps.map((step, idx) => (
                         <li class:list={['grid grid-cols-[3rem_1fr] gap-x-6 items-start', idx > 0 && 'pt-10 border-t border-slate-200']}>
-                            <iconify-icon icon={step.icon} width="32" height="32" class="text-accent mt-1"></iconify-icon>
+                            <Icon name={step.icon} width="32" height="32" class="text-accent mt-1" />
                             <div>
                                 <h3 class="text-xl md:text-2xl font-bold text-slate-900 tracking-tight leading-snug mb-2">{step.heading}</h3>
                                 <p class="text-base text-slate-600 leading-relaxed max-w-2xl">{step.body}</p>
@@ -366,8 +369,8 @@ const schema = graphServiceStat();
                 {
                     handlingTypes.map((h) => (
                         <article class="bg-white rounded-2xl border border-slate-200 p-6">
-                            <iconify-icon
-                                icon={h.icon}
+                            <Icon
+                                name={h.icon}
                                 width="32"
                                 height="32"
                                 class:list={[
@@ -398,14 +401,14 @@ const schema = graphServiceStat();
                         <h3 class="text-lg font-bold text-slate-900 group-hover:text-secondary-dark transition-colors mb-1">Scheduled Routes</h3>
                         <p class="text-sm text-slate-600">Recurring pickups and deliveries for clinics, labs, and research centers with route optimization.</p>
                     </div>
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-secondary-dark mt-1.5 transition-colors"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-secondary-dark mt-1.5 transition-colors" />
                 </a>
                 <a href="/services/specialized-equipment" class="group flex items-start justify-between gap-4 py-4 border-b border-slate-200 hover:border-primary transition-colors">
                     <div>
                         <h3 class="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors mb-1">Specialized Equipment Transport</h3>
                         <p class="text-sm text-slate-600">Secure delivery of fragile medical devices with trained handlers and temperature control.</p>
                     </div>
-                    <iconify-icon icon="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-primary mt-1.5 transition-colors"></iconify-icon>
+                    <Icon name="heroicons:arrow-right" width="20" height="20" class="text-slate-400 group-hover:text-primary mt-1.5 transition-colors" />
                 </a>
             </div>
         </div>

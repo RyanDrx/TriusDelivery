@@ -3,6 +3,7 @@ import { safeMarkdown } from '@utils/markdown';
 import { type CardsSection } from 'types';
 import Section from '@components/Section.astro';
 import ActionButton from '@components/ActionButton.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props extends CardsSection {
     'data-sb-field-path'?: string;
@@ -65,7 +66,7 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                                               : 'bg-gradient-to-br from-secondary to-secondary/80'
                                     ]}
                                 >
-                                    {item.icon && <iconify-icon icon={item.icon} width='32' height='32' style='color: white;' />}
+                                    {item.icon && <Icon name={item.icon} width='32' height='32' style='color: white;' />}
                                 </div>
                             </div>
 
@@ -99,8 +100,8 @@ const { heading, body, items, columns, class: className, ...rest } = Astro.props
                                         <ul class='text-sm space-y-3'>
                                             {item.features.map((feature, _featureIdx) => (
                                                 <li class='flex items-center justify-center text-base-content/70 font-medium'>
-                                                    <iconify-icon
-                                                        icon={feature.icon}
+                                                    <Icon
+                                                        name={feature.icon}
                                                         width='18'
                                                         height='18'
                                                         class:list={[

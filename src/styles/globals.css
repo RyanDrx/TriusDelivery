@@ -11,6 +11,14 @@
     .font-body {
         font-family: 'Inter', 'Roboto', sans-serif;
     }
+
+    /* astro-icon emits inline <svg data-icon>; Tailwind preflight makes svg display:block.
+       Restore the inline-block box the old web-component icon element had. */
+    svg[data-icon] {
+        display: inline-block;
+        vertical-align: -0.125em;
+        flex-shrink: 0;
+    }
 }
 
 @layer components {

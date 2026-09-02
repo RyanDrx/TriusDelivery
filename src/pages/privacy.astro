@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import SEO from '@components/SEO.astro';
 import { graphLegal } from '../lib/schema.ts';
+import { COMPANY_NAME, DISPATCH_EMAIL, EMAIL_HREF, ADDRESS, ADDRESS_LINE_2 } from '@data/contact';
 
 const schema = graphLegal(
     'privacy',
@@ -73,17 +74,17 @@ const schema = graphLegal(
                 <h2 class="text-2xl font-bold text-neutral-dark mb-4">Contact Us</h2>
                 <p class="text-neutral mb-6">
                     If you have questions about this privacy policy, please contact us at
-                    <a href="mailto:Triusllccouriers@outlook.com" class="text-primary hover:text-primary-dark">
-                        Triusllccouriers@outlook.com
+                    <a href={EMAIL_HREF} class="text-primary hover:text-primary-dark">
+                        {DISPATCH_EMAIL}
                     </a>
                 </p>
 
                 <div class="bg-primary/5 rounded-lg p-6 mt-8">
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Trius LLC</h3>
+                    <h3 class="text-lg font-bold text-neutral-dark mb-2">{COMPANY_NAME}</h3>
                     <p class="text-sm text-neutral">
-                        P.O. Box 1304<br />
-                        Spanaway, WA 98387<br />
-                        Email: Triusllccouriers@outlook.com
+                        {ADDRESS.streetAddress}<br />
+                        {ADDRESS_LINE_2}<br />
+                        Email: {DISPATCH_EMAIL}
                     </p>
                 </div>
             </div>

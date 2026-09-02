@@ -4,6 +4,7 @@ import { type HeroSection } from 'types';
 import Action from '@components/Action.astro';
 import Section from '@components/Section.astro';
 import CoverageArea from '@components/CoverageArea.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props extends HeroSection {
     'data-sb-field-path'?: string;
@@ -72,15 +73,15 @@ const { heading, body, cta, ...rest } = Astro.props;
                             <!-- Trust Indicators -->
                             <div class="flex flex-wrap justify-center gap-4 lg:gap-6">
                                 <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary font-bold text-sm rounded-lg border border-primary/20">
-                                    <iconify-icon icon="lucide:shield-check" width="16" height="16"></iconify-icon>
+                                    <Icon name="lucide:shield-check" width="16" height="16" />
                                     TSA VERIFIED
                                 </span>
                                 <span class="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 text-secondary-dark font-bold text-sm rounded-lg border border-secondary/20">
-                                    <iconify-icon icon="lucide:graduation-cap" width="16" height="16"></iconify-icon>
+                                    <Icon name="lucide:graduation-cap" width="16" height="16" />
                                     INDUSTRY TRAINED
                                 </span>
                                 <span class="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent font-bold text-sm rounded-lg border border-accent/20">
-                                    <iconify-icon icon="lucide:clock" width="16" height="16"></iconify-icon>
+                                    <Icon name="lucide:clock" width="16" height="16" />
                                     24/7 AVAILABLE
                                 </span>
                             </div>
@@ -88,15 +89,15 @@ const { heading, body, cta, ...rest } = Astro.props;
                     
                             <div class="flex flex-wrap justify-center gap-4 text-sm text-neutral font-medium">
                                 <span class="flex items-center gap-1">
-                                    <iconify-icon icon="lucide:check" width="16" height="16" style="color: #047857;"></iconify-icon>
+                                    <Icon name="lucide:check" width="16" height="16" style="color: #047857;" />
                                     No setup fees
                                 </span>
                                 <span class="flex items-center gap-1">
-                                    <iconify-icon icon="lucide:check" width="16" height="16" style="color: #047857;"></iconify-icon>
+                                    <Icon name="lucide:check" width="16" height="16" style="color: #047857;" />
                                     Instant quotes
                                 </span>
                                 <span class="flex items-center gap-1">
-                                    <iconify-icon icon="lucide:check" width="16" height="16" style="color: #047857;"></iconify-icon>
+                                    <Icon name="lucide:check" width="16" height="16" style="color: #047857;" />
                                     24/7 emergency service
                                 </span>
                             </div>
