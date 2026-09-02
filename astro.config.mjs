@@ -19,9 +19,6 @@ export default defineConfig({
         sitemap({
             changefreq: 'weekly',
             priority: 0.7,
-            // Use a second-precision timestamp; some strict sitemap parsers reject
-            // millisecond precision and treat the document as unreadable.
-            lastmod: new Date(new Date().toISOString().split('.')[0] + 'Z'),
             // Pages that should not be advertised to crawlers:
             // - /thanks: post-submission page, already noindex
             // - /404: error route, already noindex

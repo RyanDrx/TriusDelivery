@@ -277,23 +277,11 @@ const _coverageAreas = {
     </div>
 </noscript>
 
-<!-- Leaflet CSS -->
-<link
-    rel='stylesheet'
-    href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
-    integrity='sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY='
-    crossorigin=''
-/>
+<!-- Leaflet is self-hosted: bundled by Vite from the leaflet package (no CDN) -->
+<script>
+    import L from 'leaflet';
+    import 'leaflet/dist/leaflet.css';
 
-<!-- Leaflet JS -->
-<script
-    src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
-    integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo='
-    crossorigin=''
-    defer
-></script>
-
-<script defer>
     window.addEventListener('DOMContentLoaded', function () {
         // Coverage areas data mapped to state names in the GeoJSON
         const coverageData = {
@@ -473,8 +461,9 @@ const _coverageAreas = {
         // Load GeoJSON state boundaries from the master file
         async function loadStateGeoJSON() {
             try {
-                // Fetch the master GeoJSON file with all states
-                const response = await fetch('/states/geojson20m.json');
+                // Fetch the pre-filtered coverage-state boundaries
+                // (regenerate with: node scripts/filter-coverage-geojson.mjs)
+                const response = await fetch('/states/coverage-states.json');
                 const allStatesData = await response.json();
 
                 // Filter and create layers for our coverage states
