@@ -22,6 +22,20 @@ const title = [Astro.props.title, titleSuffix].filter(Boolean).join(' | ');
 const resolvedImage = image?.src ? { src: new URL(image.src, Astro.site).toString() } : undefined;
 const canonicalURL = new URL(Astro.request.url, Astro.site);
 
+// Google Tag Manager: production builds only (astro build), never astro dev. GA4 is configured inside GTM, not here.
+const GTM_ID = 'GTM-57QDQ8ZH';
+const gtmHead = `<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');</script>
+<!-- End Google Tag Manager -->`;
+const gtmBody = `<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->`;
+
 // Detect current page from URL pathname, normalizing trailing slashes
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const currentPage =
@@ -119,6 +133,7 @@ function formatCanonicalURL(url: string | URL) {
         <!-- High Priority Global Metadata -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        {import.meta.env.PROD && <Fragment set:html={gtmHead} />}
         <title>{title}</title>
         <meta name="generator" content={Astro.generator} />
 
@@ -178,6 +193,7 @@ function formatCanonicalURL(url: string | URL) {
         <slot name="head" />
     </head>
     <body class="antialiased overflow-x-hidden">
+        {import.meta.env.PROD && <Fragment set:html={gtmBody} />}
         <a
             href="#main-content"
             class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-primary focus:rounded-lg focus:shadow-lg"

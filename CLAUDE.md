@@ -11,6 +11,8 @@ Marketing site for Trius LLC, a medical courier (STAT + scheduled routes) in the
 - **Sanity is optional.** `src/utils/sanity-client.ts` falls back to a placeholder project id, and the site builds
   with no `.env` (see `.env-sample`). Header/footer use hardcoded fallbacks in `src/layouts/Layout.astro`.
 - Fonts: Inter from Google Fonts (`Layout.astro`), Orbitron 900 self-hosted via `@fontsource` (only `font-black` is used).
+- **Analytics:** Google Tag Manager (`GTM-57QDQ8ZH`) is injected by `Layout.astro` only when `import.meta.env.PROD` is true
+  (`astro build`), never in `astro dev`. GA4 lives inside the GTM container; do not add gtag.js or GA4 code to the site.
 
 ## Commands (pnpm)
 
